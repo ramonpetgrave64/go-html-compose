@@ -7,7 +7,8 @@ import (
 
 type Renderable interface {
 	Render(wr io.Writer)
-	StructuredRenderWithTabs(wr io.Writer, tabs int)
+	// RenderWithDelim(wr io.Writer, delim []byte)
+	StructuredRender(wr io.Writer, tabs int)
 }
 
 func String(rendr Renderable) string {
@@ -20,6 +21,7 @@ func Render(wr io.Writer, rendr Renderable) {
 	rendr.Render(wr)
 }
 
+// StructuredRender calls StructuredRender(wr, 0)
 func StructuredRender(wr io.Writer, rendr Renderable) {
-	rendr.StructuredRenderWithTabs(wr, 0)
+	rendr.StructuredRender(wr, 0)
 }

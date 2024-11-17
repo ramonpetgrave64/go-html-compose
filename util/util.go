@@ -1,7 +1,13 @@
 package util
 
+import (
+	"fmt"
+)
+
 var (
+	NilContent     = []byte(``)
 	TabContent     = []byte(`	`)
+	SpaceContent   = []byte(` `)
 	NewlineContent = []byte("\n")
 )
 
@@ -13,4 +19,8 @@ func GetTabBytes(tabs int) []byte {
 		i++
 	}
 	return tabBytes
+}
+
+func TestContentDiffErr(want string, got string) error {
+	return fmt.Errorf("unexpected render value: \nwant: \n%s\n, got: \n%s\n", want, got)
 }

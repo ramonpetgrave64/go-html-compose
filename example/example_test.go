@@ -6,6 +6,7 @@ import (
 	e "go-html-compose/elem"
 	r "go-html-compose/render"
 	t "go-html-compose/text"
+	"go-html-compose/util"
 	"testing"
 )
 
@@ -36,17 +37,22 @@ func Test_Example(tt *testing.T) {
 	want := `<div class="big world" style="ok"><span>hello<img class="i"></span><span>world</span>raw<html>rawgworld</div>`
 
 	if want != got {
-		tt.Errorf("unexpected renfer value: \nwant: \n%s\n, got: \n%s\n", want, got)
+		tt.Error(util.TestContentDiffErr(want, got))
 	}
 
 	buffer.Reset()
 	r.StructuredRender(&buffer, content)
 	got = buffer.String()
 
-	want = `<div class="big world" style="ok">
+	want = `<div
+	class="big world"
+	style="ok"
+>
 	<span>
 		hello
-		<img class="i">
+		<img
+			class="i"
+		>
 	</span>
 	<span>world</span>
 	raw<html>raw
@@ -55,6 +61,6 @@ func Test_Example(tt *testing.T) {
 </div>`
 
 	if want != got {
-		tt.Errorf("unexpected renfer value: \nwant: \n%s\n, got: \n%s\n", want, got)
+		tt.Error(util.TestContentDiffErr(want, got))
 	}
 }

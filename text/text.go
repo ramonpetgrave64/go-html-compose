@@ -1,45 +1,48 @@
 package text
 
 import (
+	"go-html-compose/render"
 	"go-html-compose/util"
 	"html"
 	"io"
 )
 
 type TextStruct struct {
-	Value string
+	render.Renderable
+	EscapeHTML bool
+	Value      string
 }
 
-func (text *TextStruct) Render(wr io.Writer) {
-	wr.Write([]byte(html.EscapeString(text.Value)))
+func (t *TextStruct) Render(wr io.Writer) {
+	text := t.Value
+	if t.EscapeHTML {
+		text = html.EscapeString(text)
+	}
+	wr.Write([]byte(text))
 }
 
-func (t *TextStruct) StructuredRenderWithTabs(wr io.Writer, tabs int) {
+func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) {
 	wr.Write(util.GetTabBytes(tabs))
 	t.Render(wr)
 }
 
-func Text(value string) *TextStruct {
+func NewText(value string, escapeHTML bool) *TextStruct {
 	return &TextStruct{
-		Value: value,
+		Value:      value,
+		EscapeHTML: escapeHTML,
 	}
+}
+
+func Text(value string) *TextStruct {
+	return NewText(value, true)
 }
 
 type RawTextStruct struct {
 	*TextStruct
 }
 
-func (t *RawTextStruct) Render(wr io.Writer) {
-	wr.Write([]byte(t.Value))
-}
-
-func (t *RawTextStruct) StructuredRenderWithTabs(wr io.Writer, tabs int) {
-	wr.Write(util.GetTabBytes(tabs))
-	t.Render(wr)
-}
-
 func RawText(value string) *RawTextStruct {
 	return &RawTextStruct{
-		TextStruct: Text(value),
+		TextStruct: NewText(value, false),
 	}
 }
