@@ -2,6 +2,7 @@ package doc
 
 import (
 	"bytes"
+	"go-html-compose/render"
 	"go-html-compose/util"
 	"io"
 	"testing"
@@ -20,10 +21,11 @@ func (r TestRenderable) Render(wr io.Writer) error {
 }
 
 func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) error {
-	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+	var err error
+	if err = render.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
-	if _, err := wr.Write(r.data); err != nil {
+	if _, err = wr.Write(r.data); err != nil {
 		return err
 	}
 	return nil

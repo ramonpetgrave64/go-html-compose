@@ -1,69 +1,80 @@
 package elem
 
 import (
-	"fmt"
 	"go-html-compose/attr"
 	"go-html-compose/doc"
 	"go-html-compose/render"
-	"go-html-compose/util"
 	"io"
+)
+
+var (
+	openBracket      = []byte(`<`)
+	openBracketSlash = []byte(`</`)
+	closeBracket     = []byte(`>`)
 )
 
 type ContentFunc func(elems ...render.Renderable) *ParentTagStruct
 
-func tagOpening(name string) []byte {
-	return []byte(fmt.Sprintf(`<%s`, name))
+func writeOpeningTag(wr io.Writer, name []byte) error {
+	if err := render.WriteByteSlices(wr, openBracket, name); err != nil {
+		return err
+	}
+	return nil
 }
 
-func closingTag(name string) []byte {
-	return []byte(fmt.Sprintf(`</%s>`, name))
+func writeClosingTag(wr io.Writer, name []byte) error {
+	if err := render.WriteByteSlices(wr, openBracketSlash, name, closeBracket); err != nil {
+		return err
+	}
+	return nil
 }
 
 type UnitTagStruct struct {
 	// render.Renderable
-	Name       string
+	Name       []byte
 	Attributes []*attr.AttributeStruct
 }
 
 func (t *UnitTagStruct) Render(wr io.Writer) error {
-	if _, err := wr.Write(tagOpening(t.Name)); err != nil {
+	var err error
+	if err = writeOpeningTag(wr, t.Name); err != nil {
 		return err
 	}
 	for _, attr := range t.Attributes {
-		wr.Write(util.SpaceContent)
+		wr.Write(render.SpaceContent)
 		attr.Render(wr)
 	}
-	if _, err := wr.Write([]byte(`>`)); err != nil {
+	if err = render.WriteByteSlices(wr, closeBracket); err != nil {
 		return err
 	}
 	return nil
 }
 
 func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
-	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+	var err error
+	if err = render.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
-	if _, err := wr.Write(tagOpening(t.Name)); err != nil {
+	if err = writeOpeningTag(wr, t.Name); err != nil {
 		return err
 	}
 	for idx, attr := range t.Attributes {
 		if idx == 0 {
-			if _, err := wr.Write(util.NewlineContent); err != nil {
+			if _, err = wr.Write(render.NewlineContent); err != nil {
 				return err
 			}
 		}
 		attr.StructuredRender(wr, tabs+1)
-		if _, err := wr.Write(util.NewlineContent); err != nil {
+		if _, err := wr.Write(render.NewlineContent); err != nil {
 			return err
 		}
 	}
-
 	if len(t.Attributes) > 0 {
-		if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+		if err = render.WriteTabBytes(wr, tabs); err != nil {
 			return err
 		}
 	}
-	if _, err := wr.Write([]byte(`>`)); err != nil {
+	if _, err = wr.Write(closeBracket); err != nil {
 		return err
 	}
 	return nil
@@ -79,44 +90,45 @@ type ParentTagStruct struct {
 func (t *ParentTagStruct) Render(wr io.Writer) error {
 	t.UnitTagStruct.Render(wr)
 	t.Document.Render(wr)
-	if _, err := wr.Write(closingTag(t.Name)); err != nil {
+	if err := writeClosingTag(wr, t.Name); err != nil {
 		return err
 	}
 	return nil
 }
 
 func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
-	if err := t.UnitTagStruct.StructuredRender(wr, tabs); err != nil {
+	var err error
+	if err = t.UnitTagStruct.StructuredRender(wr, tabs); err != nil {
 		return err
 	}
 	for _, elem := range t.Children {
-		if _, err := wr.Write(util.NewlineContent); err != nil {
+		if _, err = wr.Write(render.NewlineContent); err != nil {
 			return err
 		}
-		if err := elem.StructuredRender(wr, tabs+1); err != nil {
+		if err = elem.StructuredRender(wr, tabs+1); err != nil {
 			return err
 		}
 	}
-	if _, err := wr.Write(util.NewlineContent); err != nil {
+	if _, err = wr.Write(render.NewlineContent); err != nil {
 		return err
 	}
-	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+	if err = render.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
-	if _, err := wr.Write([]byte(fmt.Sprintf(`</%s>`, t.Name))); err != nil {
+	if err = writeClosingTag(wr, t.Name); err != nil {
 		return err
 	}
 	return nil
 }
 
-func UnitTag(name string, attrs ...*attr.AttributeStruct) *UnitTagStruct {
+func UnitTag(name []byte, attrs ...*attr.AttributeStruct) *UnitTagStruct {
 	return &UnitTagStruct{
 		Name:       name,
 		Attributes: attrs,
 	}
 }
 
-func ParentTag(name string, attrs ...*attr.AttributeStruct) ContentFunc {
+func ParentTag(name []byte, attrs ...*attr.AttributeStruct) ContentFunc {
 	return func(elems ...render.Renderable) *ParentTagStruct {
 		return &ParentTagStruct{
 			UnitTagStruct: UnitTag(name, attrs...),

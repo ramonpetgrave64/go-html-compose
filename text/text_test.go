@@ -2,7 +2,9 @@ package text
 
 import (
 	"bytes"
+	"go-html-compose/render"
 	"go-html-compose/util"
+	"strings"
 	"testing"
 )
 
@@ -10,7 +12,7 @@ func Test_Text(t *testing.T) {
 	t.Parallel()
 
 	tabs := 1
-	tabContent := string(util.GetTabBytes(tabs))
+	tabContent := string(strings.Repeat(string(render.TabContent), tabs))
 
 	tests := []struct {
 		name             string

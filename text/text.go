@@ -1,7 +1,7 @@
 package text
 
 import (
-	"go-html-compose/util"
+	"go-html-compose/render"
 	"html"
 	"io"
 )
@@ -24,10 +24,11 @@ func (t *TextStruct) Render(wr io.Writer) error {
 }
 
 func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) error {
-	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+	var err error
+	if err = render.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
-	if err := t.Render(wr); err != nil {
+	if err = t.Render(wr); err != nil {
 		return err
 	}
 	return nil

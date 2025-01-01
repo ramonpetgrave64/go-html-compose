@@ -5,61 +5,61 @@ import (
 )
 
 func Charset(value string) *AttributeStruct {
-	return Attr("charset", value)
+	return Attr([]byte(`charset`), value)
 }
 
 func Class(value string) *AttributeStruct {
-	return Attr("class", value)
+	return Attr([]byte(`class`), value)
 }
 
 func Content(value string) *AttributeStruct {
-	return Attr("content", value)
+	return Attr([]byte(`content`), value)
 }
 
 func DataTheme(value string) *AttributeStruct {
-	return Attr("data-theme", value)
+	return Attr([]byte(`data-theme`), value)
 }
 
 func Href(value string) *AttributeStruct {
-	return Attr("href", value)
+	return Attr([]byte(`href`), value)
 }
 
 func HTTPEquiv(value string) *AttributeStruct {
-	return Attr("http-equiv", value)
+	return Attr([]byte(`http-equiv`), value)
 }
 
 func Lang(value string) *AttributeStruct {
-	return Attr("lang", value)
+	return Attr([]byte(`lang`), value)
 }
 
 func Name(value string) *AttributeStruct {
-	return Attr("name", value)
+	return Attr([]byte(`name`), value)
 }
 
 func Open(val bool) *AttributeStruct {
-	return Attr("open", strconv.FormatBool(val))
+	return Attr([]byte(`open`), strconv.FormatBool(val))
 }
 
 func Rel(value string) *AttributeStruct {
-	return Attr("rel", value)
+	return Attr([]byte(`rel`), value)
 }
 
 func Role(value string) *AttributeStruct {
-	return Attr("role", value)
+	return Attr([]byte(`role`), value)
 }
 
 func Sizes(value string) *AttributeStruct {
-	return Attr("sizes", value)
+	return Attr([]byte(`sizes`), value)
 }
 
 func Src(value string) *AttributeStruct {
-	return Attr("src", value)
+	return Attr([]byte(`src`), value)
 }
 
 func Style(value string) *AttributeStruct {
-	return Attr("style", value)
+	return Attr([]byte(`style`), value)
 }
 
 func Type(value string) *AttributeStruct {
-	return Attr("type", value)
+	return Attr([]byte(`type`), value)
 }

@@ -2,7 +2,6 @@ package doc
 
 import (
 	"go-html-compose/render"
-	"go-html-compose/util"
 	"io"
 )
 
@@ -23,7 +22,7 @@ func (c *ContainerStruct) Render(wr io.Writer) error {
 func (c *ContainerStruct) StructuredRender(wr io.Writer, tabs int) error {
 	for _, elem := range c.Children {
 		if tabs > -1 {
-			if _, err := wr.Write(util.NewlineContent); err != nil {
+			if _, err := wr.Write(render.NewlineContent); err != nil {
 				return err
 			}
 		}
