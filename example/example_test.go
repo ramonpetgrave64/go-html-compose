@@ -13,6 +13,22 @@ import (
 func Test_Example(tt *testing.T) {
 	tt.Parallel()
 
+	worldString, err := r.String(
+		e.Span()(
+			t.Text("world"),
+		),
+	)
+	if err != nil {
+		tt.Errorf("unexpected error: %s", err.Error())
+	}
+
+	otherString, err := r.String(
+		t.Text("g"),
+	)
+	if err != nil {
+		tt.Errorf("unexpected error: %s", err.Error())
+	}
+
 	var buffer bytes.Buffer
 	content := e.Div(
 		a.Class("big world"),
@@ -22,13 +38,9 @@ func Test_Example(tt *testing.T) {
 			t.Text("hello"),
 			e.Img(a.Class("i")),
 		),
-		t.RawText(r.String(
-			e.Span()(
-				t.Text("world"),
-			),
-		)),
+		t.RawText(worldString),
 		t.RawText("raw<html>raw"),
-		t.RawText(r.String(t.Text("g"))),
+		t.RawText(otherString),
 		t.Text("world"),
 	)
 	if err := r.Render(&buffer, content); err != nil {
