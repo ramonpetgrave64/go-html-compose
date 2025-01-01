@@ -35,27 +35,27 @@ func Test_Container(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content DocumentStruct
+		content ContainerStruct
 		tabs    int
 	}{
 		{
 			name:    "empty",
 			want:    ``,
-			content: *Document(),
+			content: *Container(),
 			tabs:    0,
 		},
 		{
 			name: "single",
 			want: `
 ok`,
-			content: *Document(TestRenderable{data: []byte(`ok`)}),
+			content: *Container(TestRenderable{data: []byte(`ok`)}),
 		},
 		{
 			name: "multiple",
 			want: `
 ok
 go`,
-			content: *Document(TestRenderable{data: []byte(`ok`)}, TestRenderable{data: []byte(`go`)}),
+			content: *Container(TestRenderable{data: []byte(`ok`)}, TestRenderable{data: []byte(`go`)}),
 		},
 	}
 	for _, tc := range tests {

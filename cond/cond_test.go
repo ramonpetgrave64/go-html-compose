@@ -107,7 +107,7 @@ func Test_Map(t *testing.T) {
 
 			var buffer bytes.Buffer
 			rendrs := Map(tc.items, mapFunc)
-			content := doc.Document(rendrs...)
+			content := doc.Container(rendrs...)
 			if err := content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}

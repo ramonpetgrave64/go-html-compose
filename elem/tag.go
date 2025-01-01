@@ -72,7 +72,7 @@ func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 type ParentTagStruct struct {
 	// render.Renderable
 	*UnitTagStruct
-	Document *doc.DocumentStruct
+	Document *doc.ContainerStruct
 	Children []render.Renderable
 }
 
@@ -120,7 +120,7 @@ func ParentTag(name string, attrs ...*attr.AttributeStruct) ContentFunc {
 	return func(elems ...render.Renderable) *ParentTagStruct {
 		return &ParentTagStruct{
 			UnitTagStruct: UnitTag(name, attrs...),
-			Document:      doc.Document(elems...),
+			Document:      doc.Container(elems...),
 			Children:      elems,
 		}
 	}
