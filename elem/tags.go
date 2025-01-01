@@ -3,7 +3,7 @@ package elem
 import "go-html-compose/attr"
 
 var (
-	Doctype = UnitTag([]byte(`!DOCTYPE html"`))
+	Doctype = UnitTag([]byte(`!DOCTYPE html`))
 )
 
 func A(attrs ...*attr.AttributeStruct) ContentFunc {

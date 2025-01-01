@@ -13,17 +13,17 @@ import (
 func Test_Example(tt *testing.T) {
 	tt.Parallel()
 
-	worldString, err := r.String(
+	worldString, err := r.Bytes(
 		e.Span()(
-			t.Text("world"),
+			t.Text([]byte(`world`)),
 		),
 	)
 	if err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
 	}
 
-	otherString, err := r.String(
-		t.Text("g"),
+	otherString, err := r.Bytes(
+		t.Text([]byte(`g`)),
 	)
 	if err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
@@ -35,13 +35,13 @@ func Test_Example(tt *testing.T) {
 		a.Style("ok"),
 	)(
 		e.Span()(
-			t.Text("hello"),
+			t.Text([]byte(`hello`)),
 			e.Img(a.Class("i")),
 		),
 		t.RawText(worldString),
-		t.RawText("raw<html>raw"),
+		t.RawText([]byte(`raw<html>raw`)),
 		t.RawText(otherString),
-		t.Text("world"),
+		t.Text([]byte(`world`)),
 	)
 	if err := r.Render(&buffer, content); err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())

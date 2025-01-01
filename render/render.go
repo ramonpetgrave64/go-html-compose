@@ -17,13 +17,21 @@ type Renderable interface {
 	StructuredRender(wr io.Writer, tabs int) (err error)
 }
 
-func String(rendr Renderable) (text string, err error) {
+// func Bytes(rendr Renderable) (string, error) {
+// 	var buffer bytes.Buffer
+// 	if err = rendr.Render(&buffer); err != nil {
+// 		return
+// 	}
+// 	text = buffer.String()
+// 	return
+// }
+
+func Bytes(rendr Renderable) ([]byte, error) {
 	var buffer bytes.Buffer
-	if err = rendr.Render(&buffer); err != nil {
-		return
+	if err := rendr.Render(&buffer); err != nil {
+		return nil, err
 	}
-	text = buffer.String()
-	return
+	return buffer.Bytes(), nil
 }
 
 func Render(wr io.Writer, rendr Renderable) error {

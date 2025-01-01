@@ -23,25 +23,25 @@ func Test_Text(t *testing.T) {
 		{
 			name:             "basic: text",
 			want:             `hello world`,
-			content:          Text("hello world"),
+			content:          Text([]byte(`hello world`)),
 			structuredRender: false,
 		},
 		{
 			name:             "basic: structured text",
 			want:             tabContent + `hello world`,
-			content:          Text("hello world"),
+			content:          Text([]byte(`hello world`)),
 			structuredRender: true,
 		},
 		{
 			name:             "text: html escape",
 			want:             `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
-			content:          Text(`<script>alert("hello world")</script>`),
+			content:          Text([]byte(`<script>alert("hello world")</script>`)),
 			structuredRender: false,
 		},
 		{
 			name:             "text: html escape: structured text",
 			want:             tabContent + `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
-			content:          Text(`<script>alert("hello world")</script>`),
+			content:          Text([]byte(`<script>alert("hello world")</script>`)),
 			structuredRender: true,
 		},
 	}
@@ -77,12 +77,12 @@ func Test_RawText(t *testing.T) {
 		{
 			name:    "basic: rawtext",
 			want:    `hello world`,
-			content: RawText("hello world"),
+			content: RawText([]byte(`hello world`)),
 		},
 		{
 			name:    "rawtext: no html escape",
 			want:    `<script>alert("hello world")</script>`,
-			content: RawText(`<script>alert("hello world")</script>`),
+			content: RawText([]byte(`<script>alert("hello world")</script>`)),
 		},
 	}
 	for _, tc := range tests {

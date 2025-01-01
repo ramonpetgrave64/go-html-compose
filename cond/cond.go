@@ -6,10 +6,8 @@ import (
 	"go-html-compose/text"
 )
 
-var nilRenderable = text.RawText("")
-
 func If(cond bool, rendr render.Renderable) render.Renderable {
-	return IfElse(cond, rendr, nilRenderable)
+	return IfElse(cond, rendr, text.RawText([]byte(``)))
 }
 
 func IfElse(cond bool, rendrIfTrue render.Renderable, renderIfFalse render.Renderable) render.Renderable {

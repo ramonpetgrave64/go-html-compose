@@ -9,15 +9,15 @@ import (
 type TextStruct struct {
 	// render.Renderable
 	EscapeHTML bool
-	Value      string
+	Value      []byte
 }
 
 func (t *TextStruct) Render(wr io.Writer) error {
 	text := t.Value
 	if t.EscapeHTML {
-		text = html.EscapeString(text)
+		text = []byte(html.EscapeString(string(text)))
 	}
-	if _, err := wr.Write([]byte(text)); err != nil {
+	if _, err := wr.Write(text); err != nil {
 		return err
 	}
 	return nil
@@ -34,14 +34,14 @@ func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) error {
 	return nil
 }
 
-func newText(value string, escapeHTML bool) *TextStruct {
+func newText(value []byte, escapeHTML bool) *TextStruct {
 	return &TextStruct{
 		Value:      value,
 		EscapeHTML: escapeHTML,
 	}
 }
 
-func Text(value string) *TextStruct {
+func Text(value []byte) *TextStruct {
 	return newText(value, true)
 }
 
@@ -49,7 +49,7 @@ type RawTextStruct struct {
 	*TextStruct
 }
 
-func RawText(value string) *RawTextStruct {
+func RawText(value []byte) *RawTextStruct {
 	return &RawTextStruct{
 		TextStruct: newText(value, false),
 	}
