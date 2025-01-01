@@ -8,10 +8,14 @@ import (
 var nilRenderable = text.RawText("")
 
 func If(cond bool, rendr render.Renderable) render.Renderable {
+	return IfElse(cond, rendr, nilRenderable)
+}
+
+func IfElse(cond bool, rendrIfTrue render.Renderable, renderIfFalse render.Renderable) render.Renderable {
 	if cond {
-		return rendr
+		return rendrIfTrue
 	}
-	return nilRenderable
+	return renderIfFalse
 }
 
 func Map[T any](items []T, mapFunc func(T) render.Renderable) []render.Renderable {
