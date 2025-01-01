@@ -1,5 +1,9 @@
 package attr
 
+import (
+	"strconv"
+)
+
 func Charset(value string) *AttributeStruct {
 	return Attr("charset", value)
 }
@@ -30,6 +34,10 @@ func Lang(value string) *AttributeStruct {
 
 func Name(value string) *AttributeStruct {
 	return Attr("name", value)
+}
+
+func Open(val bool) *AttributeStruct {
+	return Attr("open", strconv.FormatBool(val))
 }
 
 func Rel(value string) *AttributeStruct {
