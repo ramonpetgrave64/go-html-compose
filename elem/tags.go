@@ -50,8 +50,8 @@ func HTML(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("html", attrs...)
 }
 
-func I(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag("i", attrs...)
+func I(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("i", attrs...)
 }
 
 func Main(attrs ...*attr.AttributeStruct) ContentFunc {

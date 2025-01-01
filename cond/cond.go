@@ -9,7 +9,6 @@ import (
 var nilRenderable = text.RawText("")
 
 func If(cond bool, rendr render.Renderable) render.Renderable {
-
 	return IfElse(cond, rendr, nilRenderable)
 }
 
