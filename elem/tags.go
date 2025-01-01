@@ -6,8 +6,8 @@ var (
 	Doctype = UnitTag("!DOCTYPE html")
 )
 
-func A(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag("a", attrs...)
+func A(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("a", attrs...)
 }
 
 func Article(attrs ...*attr.AttributeStruct) ContentFunc {
@@ -16,6 +16,10 @@ func Article(attrs ...*attr.AttributeStruct) ContentFunc {
 
 func Body(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("body", attrs...)
+}
+
+func Button(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("button", attrs...)
 }
 
 func Details(attrs ...*attr.AttributeStruct) ContentFunc {
