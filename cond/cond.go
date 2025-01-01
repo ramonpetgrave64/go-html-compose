@@ -1,6 +1,7 @@
 package cond
 
 import (
+	"go-html-compose/doc"
 	"go-html-compose/render"
 	"go-html-compose/text"
 )
@@ -8,6 +9,7 @@ import (
 var nilRenderable = text.RawText("")
 
 func If(cond bool, rendr render.Renderable) render.Renderable {
+
 	return IfElse(cond, rendr, nilRenderable)
 }
 
@@ -24,4 +26,12 @@ func Map[T any](items []T, mapFunc func(T) render.Renderable) []render.Renderabl
 		rendrs[idx] = mapFunc(item)
 	}
 	return rendrs
+}
+
+func MapToContainer[T any](items []T, mapFunc func(T) render.Renderable) *doc.ContainerStruct {
+	rendrs := make([]render.Renderable, len(items))
+	for idx, item := range items {
+		rendrs[idx] = mapFunc(item)
+	}
+	return doc.Container(rendrs...)
 }
