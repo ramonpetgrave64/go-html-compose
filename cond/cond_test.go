@@ -3,7 +3,7 @@ package cond
 import (
 	"bytes"
 	"errors"
-	"go-html-compose/container"
+	"go-html-compose/doc"
 	"go-html-compose/render"
 	"go-html-compose/util"
 	"io"
@@ -107,7 +107,7 @@ func Test_Map(t *testing.T) {
 
 			var buffer bytes.Buffer
 			rendrs := Map(tc.items, mapFunc)
-			content := container.Container(rendrs...)
+			content := doc.Document(rendrs...)
 			if err := content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}

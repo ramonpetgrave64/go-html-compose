@@ -3,7 +3,7 @@ package elem
 import (
 	"fmt"
 	"go-html-compose/attr"
-	"go-html-compose/container"
+	"go-html-compose/doc"
 	"go-html-compose/render"
 	"go-html-compose/util"
 	"io"
@@ -72,13 +72,13 @@ func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 type ParentTagStruct struct {
 	// render.Renderable
 	*UnitTagStruct
-	Container *container.ContainerStruct
-	Children  []render.Renderable
+	Document *doc.DocumentStruct
+	Children []render.Renderable
 }
 
 func (t *ParentTagStruct) Render(wr io.Writer) error {
 	t.UnitTagStruct.Render(wr)
-	t.Container.Render(wr)
+	t.Document.Render(wr)
 	if _, err := wr.Write(closingTag(t.Name)); err != nil {
 		return err
 	}
@@ -120,10 +120,8 @@ func ParentTag(name string, attrs ...*attr.AttributeStruct) ContentFunc {
 	return func(elems ...render.Renderable) *ParentTagStruct {
 		return &ParentTagStruct{
 			UnitTagStruct: UnitTag(name, attrs...),
-			Container: &container.ContainerStruct{
-				Children: elems,
-			},
-			Children: elems,
+			Document:      doc.Document(elems...),
+			Children:      elems,
 		}
 	}
 }
