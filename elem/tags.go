@@ -22,6 +22,10 @@ func Button(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("button", attrs...)
 }
 
+func Br(attrs ...*attr.AttributeStruct) *UnitTagStruct {
+	return UnitTag("br", attrs...)
+}
+
 func Details(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("details", attrs...)
 }
