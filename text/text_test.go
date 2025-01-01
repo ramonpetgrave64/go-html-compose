@@ -89,7 +89,9 @@ func Test_RawText(t *testing.T) {
 
 			var buffer bytes.Buffer
 
-			tc.content.Render(&buffer)
+			if err := tc.content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
 			got := buffer.String()
 
 			if tc.want != got {

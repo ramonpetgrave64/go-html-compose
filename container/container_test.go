@@ -2,24 +2,31 @@ package container
 
 import (
 	"bytes"
-	"go-html-compose/render"
 	"go-html-compose/util"
 	"io"
 	"testing"
 )
 
 type TestRenderable struct {
-	render.Renderable
+	// render.Renderable
 	data []byte
 }
 
-func (r TestRenderable) Render(wr io.Writer) {
-	wr.Write(r.data)
+func (r TestRenderable) Render(wr io.Writer) error {
+	if _, err := wr.Write(r.data); err != nil {
+		return err
+	}
+	return nil
 }
 
-func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) {
-	wr.Write(util.GetTabBytes(tabs))
-	wr.Write(r.data)
+func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) error {
+	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+		return err
+	}
+	if _, err := wr.Write(r.data); err != nil {
+		return err
+	}
+	return nil
 }
 
 func Test_Container(t *testing.T) {
@@ -57,7 +64,9 @@ go`,
 
 			var buffer bytes.Buffer
 
-			tc.content.StructuredRender(&buffer, 0)
+			if err := tc.content.StructuredRender(&buffer, 0); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
 			got := buffer.String()
 
 			if tc.want != got {

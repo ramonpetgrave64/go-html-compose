@@ -2,6 +2,7 @@ package cond
 
 import (
 	"bytes"
+	"errors"
 	"go-html-compose/container"
 	"go-html-compose/render"
 	"go-html-compose/util"
@@ -10,12 +11,19 @@ import (
 )
 
 type TestRenderable struct {
-	render.Renderable
+	// render.Renderable
 	data []byte
 }
 
-func (r TestRenderable) Render(wr io.Writer) {
-	wr.Write(r.data)
+func (r TestRenderable) Render(wr io.Writer) error {
+	if _, err := wr.Write(r.data); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) error {
+	return errors.New("not implemented")
 }
 
 func Test_If(t *testing.T) {
@@ -50,7 +58,9 @@ func Test_If(t *testing.T) {
 
 			var buffer bytes.Buffer
 			content := If(tc.condition, tc.ifContent)
-			content.Render(&buffer)
+			if err := content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
 
 			got := buffer.String()
 
@@ -98,7 +108,9 @@ func Test_Map(t *testing.T) {
 			var buffer bytes.Buffer
 			rendrs := Map(tc.items, mapFunc)
 			content := container.Container(rendrs...)
-			content.Render(&buffer)
+			if err := content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
 
 			got := buffer.String()
 

@@ -26,7 +26,10 @@ func Test_Render(t *testing.T) {
 
 			var buffer bytes.Buffer
 
-			tc.content.Render(&buffer)
+			if err := tc.content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
+
 			got := buffer.String()
 
 			if tc.want != got {
@@ -64,7 +67,10 @@ func Test_StructuredRenderWithTabs(t *testing.T) {
 
 			var buffer bytes.Buffer
 
-			tc.content.StructuredRender(&buffer, tc.tabs)
+			if err := tc.content.StructuredRender(&buffer, tc.tabs); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
+
 			got := buffer.String()
 
 			if tc.want != got {

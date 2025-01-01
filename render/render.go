@@ -6,9 +6,9 @@ import (
 )
 
 type Renderable interface {
-	Render(wr io.Writer)
+	Render(wr io.Writer) (err error)
 	// RenderWithDelim(wr io.Writer, delim []byte)
-	StructuredRender(wr io.Writer, tabs int)
+	StructuredRender(wr io.Writer, tabs int) (err error)
 }
 
 func String(rendr Renderable) string {
@@ -17,11 +17,17 @@ func String(rendr Renderable) string {
 	return buffer.String()
 }
 
-func Render(wr io.Writer, rendr Renderable) {
-	rendr.Render(wr)
+func Render(wr io.Writer, rendr Renderable) error {
+	if err := rendr.Render(wr); err != nil {
+		return err
+	}
+	return nil
 }
 
 // StructuredRender calls StructuredRender(wr, 0)
-func StructuredRender(wr io.Writer, rendr Renderable) {
-	rendr.StructuredRender(wr, 0)
+func StructuredRender(wr io.Writer, rendr Renderable) error {
+	if err := rendr.StructuredRender(wr, 0); err != nil {
+		return err
+	}
+	return nil
 }

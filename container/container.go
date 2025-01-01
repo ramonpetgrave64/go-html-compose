@@ -7,23 +7,31 @@ import (
 )
 
 type ContainerStruct struct {
-	render.Renderable
+	// render.Renderable
 	Children []render.Renderable
 }
 
-func (c *ContainerStruct) Render(wr io.Writer) {
+func (c *ContainerStruct) Render(wr io.Writer) error {
 	for _, elem := range c.Children {
-		elem.Render(wr)
+		if err := elem.Render(wr); err != nil {
+			return err
+		}
 	}
+	return nil
 }
 
-func (c *ContainerStruct) StructuredRender(wr io.Writer, tabs int) {
+func (c *ContainerStruct) StructuredRender(wr io.Writer, tabs int) error {
 	for _, elem := range c.Children {
 		if tabs > -1 {
-			wr.Write(util.NewlineContent)
+			if _, err := wr.Write(util.NewlineContent); err != nil {
+				return err
+			}
 		}
-		elem.StructuredRender(wr, tabs)
+		if err := elem.StructuredRender(wr, tabs); err != nil {
+			return err
+		}
 	}
+	return nil
 }
 
 func Container(children ...render.Renderable) *ContainerStruct {

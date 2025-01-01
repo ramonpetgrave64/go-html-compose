@@ -31,7 +31,9 @@ func Test_Example(tt *testing.T) {
 		t.RawText(r.String(t.Text("g"))),
 		t.Text("world"),
 	)
-	r.Render(&buffer, content)
+	if err := r.Render(&buffer, content); err != nil {
+		tt.Errorf("unexpected error: %s", err.Error())
+	}
 	got := buffer.String()
 
 	want := `<div class="big world" style="ok"><span>hello<img class="i"></span><span>world</span>raw<html>rawgworld</div>`
@@ -41,7 +43,9 @@ func Test_Example(tt *testing.T) {
 	}
 
 	buffer.Reset()
-	r.StructuredRender(&buffer, content)
+	if err := r.StructuredRender(&buffer, content); err != nil {
+		tt.Errorf("unexpected error: %s", err.Error())
+	}
 	got = buffer.String()
 
 	want = `<div

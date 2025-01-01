@@ -20,59 +20,93 @@ func closingTag(name string) []byte {
 }
 
 type UnitTagStruct struct {
-	render.Renderable
+	// render.Renderable
 	Name       string
 	Attributes []*attr.AttributeStruct
 }
 
-func (t *UnitTagStruct) Render(wr io.Writer) {
-	wr.Write(tagOpening(t.Name))
+func (t *UnitTagStruct) Render(wr io.Writer) error {
+	if _, err := wr.Write(tagOpening(t.Name)); err != nil {
+		return err
+	}
 	for _, attr := range t.Attributes {
 		wr.Write(util.SpaceContent)
 		attr.Render(wr)
 	}
-	wr.Write([]byte(`>`))
+	if _, err := wr.Write([]byte(`>`)); err != nil {
+		return err
+	}
+	return nil
 }
 
-func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) {
-	wr.Write(util.GetTabBytes(tabs))
-	wr.Write(tagOpening(t.Name))
+func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
+	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+		return err
+	}
+	if _, err := wr.Write(tagOpening(t.Name)); err != nil {
+		return err
+	}
 	for idx, attr := range t.Attributes {
 		if idx == 0 {
-			wr.Write(util.NewlineContent)
+			if _, err := wr.Write(util.NewlineContent); err != nil {
+				return err
+			}
 		}
 		attr.StructuredRender(wr, tabs+1)
-		wr.Write(util.NewlineContent)
+		if _, err := wr.Write(util.NewlineContent); err != nil {
+			return err
+		}
 	}
 
 	if len(t.Attributes) > 0 {
-		wr.Write(util.GetTabBytes(tabs))
+		if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+			return err
+		}
 	}
-	wr.Write([]byte(`>`))
+	if _, err := wr.Write([]byte(`>`)); err != nil {
+		return err
+	}
+	return nil
 }
 
 type ParentTagStruct struct {
-	render.Renderable
+	// render.Renderable
 	*UnitTagStruct
 	Container *container.ContainerStruct
 	Children  []render.Renderable
 }
 
-func (t *ParentTagStruct) Render(wr io.Writer) {
+func (t *ParentTagStruct) Render(wr io.Writer) error {
 	t.UnitTagStruct.Render(wr)
 	t.Container.Render(wr)
-	wr.Write(closingTag(t.Name))
+	if _, err := wr.Write(closingTag(t.Name)); err != nil {
+		return err
+	}
+	return nil
 }
 
-func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) {
-	t.UnitTagStruct.StructuredRender(wr, tabs)
-	for _, elem := range t.Children {
-		wr.Write(util.NewlineContent)
-		elem.StructuredRender(wr, tabs+1)
+func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
+	if err := t.UnitTagStruct.StructuredRender(wr, tabs); err != nil {
+		return err
 	}
-	wr.Write(util.NewlineContent)
-	wr.Write(util.GetTabBytes(tabs))
-	wr.Write([]byte(fmt.Sprintf(`</%s>`, t.Name)))
+	for _, elem := range t.Children {
+		if _, err := wr.Write(util.NewlineContent); err != nil {
+			return err
+		}
+		if err := elem.StructuredRender(wr, tabs+1); err != nil {
+			return err
+		}
+	}
+	if _, err := wr.Write(util.NewlineContent); err != nil {
+		return err
+	}
+	if _, err := wr.Write(util.GetTabBytes(tabs)); err != nil {
+		return err
+	}
+	if _, err := wr.Write([]byte(fmt.Sprintf(`</%s>`, t.Name))); err != nil {
+		return err
+	}
+	return nil
 }
 
 func UnitTag(name string, attrs ...*attr.AttributeStruct) *UnitTagStruct {
