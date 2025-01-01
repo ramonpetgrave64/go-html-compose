@@ -33,7 +33,7 @@ func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) error {
 	return nil
 }
 
-func NewText(value string, escapeHTML bool) *TextStruct {
+func newText(value string, escapeHTML bool) *TextStruct {
 	return &TextStruct{
 		Value:      value,
 		EscapeHTML: escapeHTML,
@@ -41,7 +41,7 @@ func NewText(value string, escapeHTML bool) *TextStruct {
 }
 
 func Text(value string) *TextStruct {
-	return NewText(value, true)
+	return newText(value, true)
 }
 
 type RawTextStruct struct {
@@ -50,6 +50,6 @@ type RawTextStruct struct {
 
 func RawText(value string) *RawTextStruct {
 	return &RawTextStruct{
-		TextStruct: NewText(value, false),
+		TextStruct: newText(value, false),
 	}
 }
