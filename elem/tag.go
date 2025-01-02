@@ -44,7 +44,7 @@ func (t *UnitTagStruct) Render(wr io.Writer) error {
 		wr.Write(render.SpaceContent)
 		attr.Render(wr)
 	}
-	if err = render.WriteByteSlices(wr, closeBracket); err != nil {
+	if _, err = wr.Write(closeBracket); err != nil {
 		return err
 	}
 	return nil
