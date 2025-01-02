@@ -88,8 +88,12 @@ type ParentTagStruct struct {
 }
 
 func (t *ParentTagStruct) Render(wr io.Writer) error {
-	t.UnitTagStruct.Render(wr)
-	t.Document.Render(wr)
+	if err := t.UnitTagStruct.Render(wr); err != nil {
+		return err
+	}
+	if err := t.Document.Render(wr); err != nil {
+		return err
+	}
 	if err := writeClosingTag(wr, t.Name); err != nil {
 		return err
 	}
