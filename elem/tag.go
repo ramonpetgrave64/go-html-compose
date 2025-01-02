@@ -83,15 +83,14 @@ func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 type ParentTagStruct struct {
 	// render.Renderable
 	*UnitTagStruct
-	Document *doc.ContainerStruct
-	Children []render.Renderable
+	Container *doc.ContainerStruct
 }
 
 func (t *ParentTagStruct) Render(wr io.Writer) error {
 	if err := t.UnitTagStruct.Render(wr); err != nil {
 		return err
 	}
-	if err := t.Document.Render(wr); err != nil {
+	if err := t.Container.Render(wr); err != nil {
 		return err
 	}
 	if err := writeClosingTag(wr, t.Name); err != nil {
@@ -105,13 +104,8 @@ func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 	if err = t.UnitTagStruct.StructuredRender(wr, tabs); err != nil {
 		return err
 	}
-	for _, elem := range t.Children {
-		if _, err = wr.Write(render.NewlineContent); err != nil {
-			return err
-		}
-		if err = elem.StructuredRender(wr, tabs+1); err != nil {
-			return err
-		}
+	if err := t.Container.StructuredRender(wr, tabs+1); err != nil {
+		return err
 	}
 	if _, err = wr.Write(render.NewlineContent); err != nil {
 		return err
@@ -136,8 +130,7 @@ func ParentTag(name []byte, attrs ...*attr.AttributeStruct) ContentFunc {
 	return func(elems ...render.Renderable) *ParentTagStruct {
 		return &ParentTagStruct{
 			UnitTagStruct: UnitTag(name, attrs...),
-			Document:      doc.Container(elems...),
-			Children:      elems,
+			Container:     doc.Container(elems...),
 		}
 	}
 }
