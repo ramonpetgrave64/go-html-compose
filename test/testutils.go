@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func RemoveTabsAndNewlines(original string) string {
+func CleanFormat(original string) string {
 	cleaned := strings.ReplaceAll(original, "\n", "")
 	cleaned = strings.ReplaceAll(cleaned, "\t", "")
 	return cleaned

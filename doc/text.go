@@ -1,7 +1,6 @@
-package text
+package doc
 
 import (
-	"go-html-compose/render"
 	"html"
 	"io"
 )
@@ -25,7 +24,7 @@ func (t *TextStruct) Render(wr io.Writer) error {
 
 func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) error {
 	var err error
-	if err = render.WriteTabBytes(wr, tabs); err != nil {
+	if err = WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
 	if err = t.Render(wr); err != nil {
@@ -45,6 +44,10 @@ func Text(value []byte) *TextStruct {
 	return newText(value, true)
 }
 
+func TextS(value string) *TextStruct {
+	return Text([]byte(value))
+}
+
 type RawTextStruct struct {
 	*TextStruct
 }
@@ -53,4 +56,8 @@ func RawText(value []byte) *RawTextStruct {
 	return &RawTextStruct{
 		TextStruct: newText(value, false),
 	}
+}
+
+func RawTextS(value string) *RawTextStruct {
+	return RawText([]byte(value))
 }

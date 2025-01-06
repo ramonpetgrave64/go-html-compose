@@ -47,7 +47,7 @@ func Test_CleanFormat(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
-			got := RemoveTabsAndNewlines(tc.text)
+			got := CleanFormat(tc.text)
 			TestDiffError(t, tc.want, got)
 		})
 	}

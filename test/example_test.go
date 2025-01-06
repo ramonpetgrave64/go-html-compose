@@ -1,29 +1,27 @@
-package example
+package test
 
 import (
 	"bytes"
 	a "go-html-compose/attr"
+	d "go-html-compose/doc"
 	e "go-html-compose/elem"
-	r "go-html-compose/render"
-	t "go-html-compose/text"
-	"go-html-compose/util"
 	"testing"
 )
 
 func Test_Example(tt *testing.T) {
 	tt.Parallel()
 
-	worldString, err := r.Bytes(
+	worldString, err := d.Bytes(
 		e.Span()(
-			t.Text([]byte(`world`)),
+			d.Text([]byte(`world`)),
 		),
 	)
 	if err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
 	}
 
-	otherString, err := r.Bytes(
-		t.Text([]byte(`g`)),
+	otherString, err := d.Bytes(
+		d.Text([]byte(`g`)),
 	)
 	if err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
@@ -35,15 +33,15 @@ func Test_Example(tt *testing.T) {
 		a.Style("ok"),
 	)(
 		e.Span()(
-			t.Text([]byte(`hello`)),
+			d.Text([]byte(`hello`)),
 			e.Img(a.Class("i")),
 		),
-		t.RawText(worldString),
-		t.RawText([]byte(`raw<html>raw`)),
-		t.RawText(otherString),
-		t.Text([]byte(`world`)),
+		d.RawText(worldString),
+		d.RawText([]byte(`raw<html>raw`)),
+		d.RawText(otherString),
+		d.Text([]byte(`world`)),
 	)
-	if err := r.Render(&buffer, content); err != nil {
+	if err := d.Render(&buffer, content); err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
 	}
 	got := buffer.String()
@@ -51,11 +49,11 @@ func Test_Example(tt *testing.T) {
 	want := `<div class="big world" style="ok"><span>hello<img class="i"></span><span>world</span>raw<html>rawgworld</div>`
 
 	if want != got {
-		tt.Error(util.TestContentDiffErr(want, got))
+		tt.Error(TestContentDiffErr(want, got))
 	}
 
 	buffer.Reset()
-	if err := r.StructuredRender(&buffer, content); err != nil {
+	if err := d.StructuredRender(&buffer, content); err != nil {
 		tt.Errorf("unexpected error: %s", err.Error())
 	}
 	got = buffer.String()
@@ -77,6 +75,6 @@ func Test_Example(tt *testing.T) {
 </div>`
 
 	if want != got {
-		tt.Error(util.TestContentDiffErr(want, got))
+		tt.Error(TestContentDiffErr(want, got))
 	}
 }

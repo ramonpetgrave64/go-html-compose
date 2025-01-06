@@ -3,8 +3,8 @@ package elem
 import (
 	"bytes"
 	"go-html-compose/attr"
-	"go-html-compose/render"
-	"go-html-compose/util"
+	"go-html-compose/doc"
+	"go-html-compose/test"
 	"testing"
 )
 
@@ -14,7 +14,7 @@ func Test_StructuredRenderWithTabs(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content render.Renderable
+		content doc.Renderable
 	}{
 		{
 			name: "basic: html",
@@ -128,7 +128,7 @@ func Test_StructuredRenderWithTabs(t *testing.T) {
 			got := buffer.String()
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}
@@ -140,7 +140,7 @@ func Test_Render(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content render.Renderable
+		content doc.Renderable
 	}{
 		{
 			name:    "basic: html",
@@ -149,7 +149,11 @@ func Test_Render(t *testing.T) {
 		},
 		{
 			name: "basic: nested: single",
-			want: `<html><div></div></html>`,
+			want: test.CleanFormat(`
+				<html>
+					<div></div>
+				</html>
+			`),
 			content: HTML()(
 				Div()(),
 			),
@@ -161,7 +165,12 @@ func Test_Render(t *testing.T) {
 		},
 		{
 			name: "basic: tag: multiple",
-			want: `<img class="big" src="https://example.com/favicon">`,
+			want: test.CleanFormat(`
+				<img
+					class="big"
+					src="https://example.com/favicon"
+				>
+			`),
 			content: Img(
 				attr.Class("big"),
 				attr.Src("https://example.com/favicon"),
@@ -169,14 +178,27 @@ func Test_Render(t *testing.T) {
 		},
 		{
 			name: "basic nested: single: attrubute: single",
-			want: `<html><div class="my-class"></div></html>`,
+			want: test.CleanFormat(`
+				<html>
+					<div class="my-class"></div>
+				</html>
+			`),
 			content: HTML()(
 				Div(attr.Class("my-class"))(),
 			),
 		},
 		{
 			name: "basic nested: deep",
-			want: `<html><div><div><span></span><img></div></div></html>`,
+			want: test.CleanFormat(`
+				<html>
+					<div>
+						<div>
+							<span></span>
+							<img>
+						</div>
+					</div>
+				</html>
+			`),
 			content: HTML()(
 				Div()(
 					Div()(
@@ -188,7 +210,12 @@ func Test_Render(t *testing.T) {
 		},
 		{
 			name: "basic nested: multiple",
-			want: `<html><div></div><div></div></html>`,
+			want: test.CleanFormat(`
+				<html>
+					<div></div>
+					<div></div>
+				</html>
+			`),
 			content: HTML()(
 				Div()(),
 				Div()(),
@@ -221,9 +248,7 @@ func Test_Render(t *testing.T) {
 			}
 			got := buffer.String()
 
-			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
-			}
+			test.TestDiffError(t, tc.want, got)
 		})
 	}
 }

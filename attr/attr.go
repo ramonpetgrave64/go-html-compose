@@ -1,7 +1,7 @@
 package attr
 
 import (
-	"go-html-compose/render"
+	"go-html-compose/doc"
 	"html"
 	"io"
 )
@@ -12,16 +12,20 @@ var (
 )
 
 type AttributeStruct struct {
-	// render.Renderable
-	Name  []byte
-	Value *string
+	// doc.Renderable
+	Name       string
+	Value      *string
+	skipRender bool
 }
 
 func (a *AttributeStruct) Render(wr io.Writer) error {
+	if a.skipRender {
+		return nil
+	}
 	var err error
-	if err = render.WriteByteSlices(
+	if err = doc.WriteByteSlices(
 		wr,
-		a.Name, equalSign, quote, []byte(html.EscapeString(*a.Value)), quote,
+		[]byte(a.Name), equalSign, quote, []byte(html.EscapeString(*a.Value)), quote,
 	); err != nil {
 		return err
 	}
@@ -30,7 +34,7 @@ func (a *AttributeStruct) Render(wr io.Writer) error {
 
 func (a *AttributeStruct) StructuredRender(wr io.Writer, tabs int) error {
 	var err error
-	if err = render.WriteTabBytes(wr, tabs); err != nil {
+	if err = doc.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
 	if err = a.Render(wr); err != nil {
@@ -39,9 +43,16 @@ func (a *AttributeStruct) StructuredRender(wr io.Writer, tabs int) error {
 	return nil
 }
 
-func Attr(name []byte, value *string) *AttributeStruct {
+func Attr(name string, value *string) *AttributeStruct {
 	return &AttributeStruct{
 		Name:  name,
 		Value: value,
 	}
+}
+
+func BooleanAttr(name string, boolean bool) *AttributeStruct {
+	value := name
+	attr := Attr(name, &value)
+	attr.skipRender = !boolean
+	return attr
 }

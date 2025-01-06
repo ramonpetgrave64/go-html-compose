@@ -3,101 +3,161 @@ package elem
 import "go-html-compose/attr"
 
 var (
-	Doctype = UnitTag([]byte(`!DOCTYPE html`))
+	Doctype = UnitTag("!DOCTYPE html")
 )
 
 func A(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`a`), attrs...)
+	return ParentTag("a", attrs...)
 }
 
 func Article(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`article`), attrs...)
+	return ParentTag("article", attrs...)
 }
 
 func Body(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`body`), attrs...)
+	return ParentTag("body", attrs...)
 }
 
 func Button(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`button`), attrs...)
+	return ParentTag("button", attrs...)
 }
 
 func Br(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag([]byte(`br`), attrs...)
+	return UnitTag("br", attrs...)
 }
 
 func Details(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`details`), attrs...)
+	return ParentTag("details", attrs...)
 }
 
 func Div(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`div`), attrs...)
+	return ParentTag("div", attrs...)
+}
+
+func Fieldset(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("fieldset", attrs...)
 }
 
 func Footer(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`footer`), attrs...)
+	return ParentTag("footer", attrs...)
+}
+
+func Form(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("form", attrs...)
 }
 
 func Head(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`head`), attrs...)
+	return ParentTag("head", attrs...)
 }
 
 func Header(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`header`), attrs...)
+	return ParentTag("header", attrs...)
+}
+
+func Hr(attrs ...*attr.AttributeStruct) *UnitTagStruct {
+	return UnitTag("hr", attrs...)
 }
 
 func HTML(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`html`), attrs...)
+	return ParentTag("html", attrs...)
 }
 
 func I(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`i`), attrs...)
+	return ParentTag("i", attrs...)
+}
+
+func Input(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("input", attrs...)
 }
 
 func Main(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`main`), attrs...)
+	return ParentTag("main", attrs...)
 }
 
 func Meta(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag([]byte(`meta`), attrs...)
+	return UnitTag("meta", attrs...)
 }
 
 func Img(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag([]byte(`img`), attrs...)
+	return UnitTag("img", attrs...)
+}
+
+func Label(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("label", attrs...)
 }
 
 func Li(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`li`), attrs...)
+	return ParentTag("li", attrs...)
 }
 
 func Link(attrs ...*attr.AttributeStruct) *UnitTagStruct {
-	return UnitTag([]byte(`link`), attrs...)
+	return UnitTag("link", attrs...)
 }
 
 func Nav(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`nav`), attrs...)
+	return ParentTag("nav", attrs...)
+}
+
+func Option(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("option", attrs...)
+}
+
+func P(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("p", attrs...)
+}
+
+func Script(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("script", attrs...)
 }
 
 func Section(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`section`), attrs...)
+	return ParentTag("section", attrs...)
+}
+
+func Select(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("select", attrs...)
 }
 
 func Span(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`span`), attrs...)
+	return ParentTag("span", attrs...)
 }
 
 func Style(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`style`), attrs...)
+	return ParentTag("style", attrs...)
 }
 
 func Summary(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`summary`), attrs...)
+	return ParentTag("summary", attrs...)
+}
+
+func Table(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("table", attrs...)
+}
+
+func TBody(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("tbody", attrs...)
+}
+
+func TD(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("td", attrs...)
+}
+
+func TH(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("th", attrs...)
+}
+
+func THead(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("thead", attrs...)
 }
 
 func Title(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`title`), attrs...)
+	return ParentTag("title", attrs...)
+}
+
+func TR(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("tr", attrs...)
 }
 
 func Ul(attrs ...*attr.AttributeStruct) ContentFunc {
-	return ParentTag([]byte(`ul`), attrs...)
+	return ParentTag("ul", attrs...)
 }

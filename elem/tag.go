@@ -3,7 +3,6 @@ package elem
 import (
 	"go-html-compose/attr"
 	"go-html-compose/doc"
-	"go-html-compose/render"
 	"io"
 )
 
@@ -13,25 +12,25 @@ var (
 	closeBracket     = []byte(`>`)
 )
 
-type ContentFunc func(elems ...render.Renderable) *ParentTagStruct
+type ContentFunc func(elems ...doc.Renderable) *ParentTagStruct
 
-func writeOpeningTag(wr io.Writer, name []byte) error {
-	if err := render.WriteByteSlices(wr, openBracket, name); err != nil {
+func writeOpeningTag(wr io.Writer, name string) error {
+	if err := doc.WriteByteSlices(wr, openBracket, []byte(name)); err != nil {
 		return err
 	}
 	return nil
 }
 
-func writeClosingTag(wr io.Writer, name []byte) error {
-	if err := render.WriteByteSlices(wr, openBracketSlash, name, closeBracket); err != nil {
+func writeClosingTag(wr io.Writer, name string) error {
+	if err := doc.WriteByteSlices(wr, openBracketSlash, []byte(name), closeBracket); err != nil {
 		return err
 	}
 	return nil
 }
 
 type UnitTagStruct struct {
-	// render.Renderable
-	Name       []byte
+	// doc.Renderable
+	Name       string
 	Attributes []*attr.AttributeStruct
 }
 
@@ -41,7 +40,7 @@ func (t *UnitTagStruct) Render(wr io.Writer) error {
 		return err
 	}
 	for _, attr := range t.Attributes {
-		wr.Write(render.SpaceContent)
+		wr.Write(doc.SpaceContent)
 		attr.Render(wr)
 	}
 	if _, err = wr.Write(closeBracket); err != nil {
@@ -52,7 +51,7 @@ func (t *UnitTagStruct) Render(wr io.Writer) error {
 
 func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 	var err error
-	if err = render.WriteTabBytes(wr, tabs); err != nil {
+	if err = doc.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
 	if err = writeOpeningTag(wr, t.Name); err != nil {
@@ -60,17 +59,17 @@ func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 	}
 	for idx, attr := range t.Attributes {
 		if idx == 0 {
-			if _, err = wr.Write(render.NewlineContent); err != nil {
+			if _, err = wr.Write(doc.NewlineContent); err != nil {
 				return err
 			}
 		}
 		attr.StructuredRender(wr, tabs+1)
-		if _, err := wr.Write(render.NewlineContent); err != nil {
+		if _, err := wr.Write(doc.NewlineContent); err != nil {
 			return err
 		}
 	}
 	if len(t.Attributes) > 0 {
-		if err = render.WriteTabBytes(wr, tabs); err != nil {
+		if err = doc.WriteTabBytes(wr, tabs); err != nil {
 			return err
 		}
 	}
@@ -81,7 +80,7 @@ func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 }
 
 type ParentTagStruct struct {
-	// render.Renderable
+	// doc.Renderable
 	*UnitTagStruct
 	Container *doc.ContainerStruct
 }
@@ -107,10 +106,10 @@ func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 	if err := t.Container.StructuredRender(wr, tabs+1); err != nil {
 		return err
 	}
-	if _, err = wr.Write(render.NewlineContent); err != nil {
+	if _, err = wr.Write(doc.NewlineContent); err != nil {
 		return err
 	}
-	if err = render.WriteTabBytes(wr, tabs); err != nil {
+	if err = doc.WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
 	if err = writeClosingTag(wr, t.Name); err != nil {
@@ -119,15 +118,15 @@ func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
 	return nil
 }
 
-func UnitTag(name []byte, attrs ...*attr.AttributeStruct) *UnitTagStruct {
+func UnitTag(name string, attrs ...*attr.AttributeStruct) *UnitTagStruct {
 	return &UnitTagStruct{
 		Name:       name,
 		Attributes: attrs,
 	}
 }
 
-func ParentTag(name []byte, attrs ...*attr.AttributeStruct) ContentFunc {
-	return func(elems ...render.Renderable) *ParentTagStruct {
+func ParentTag(name string, attrs ...*attr.AttributeStruct) ContentFunc {
+	return func(elems ...doc.Renderable) *ParentTagStruct {
 		return &ParentTagStruct{
 			UnitTagStruct: UnitTag(name, attrs...),
 			Container:     doc.Container(elems...),

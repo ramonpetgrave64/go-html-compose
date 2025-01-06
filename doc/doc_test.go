@@ -2,27 +2,26 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/render"
 	"go-html-compose/util"
 	"io"
 	"testing"
 )
 
-type TestRenderable struct {
+type testRenderable struct {
 	// render.Renderable
 	data []byte
 }
 
-func (r TestRenderable) Render(wr io.Writer) error {
+func (r testRenderable) Render(wr io.Writer) error {
 	if _, err := wr.Write(r.data); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) error {
+func (r testRenderable) StructuredRender(wr io.Writer, tabs int) error {
 	var err error
-	if err = render.WriteTabBytes(wr, tabs); err != nil {
+	if err = WriteTabBytes(wr, tabs); err != nil {
 		return err
 	}
 	if _, err = wr.Write(r.data); err != nil {
@@ -50,14 +49,14 @@ func Test_Container(t *testing.T) {
 			name: "single",
 			want: `
 ok`,
-			content: *Container(TestRenderable{data: []byte(`ok`)}),
+			content: *Container(testRenderable{data: []byte(`ok`)}),
 		},
 		{
 			name: "multiple",
 			want: `
 ok
 go`,
-			content: *Container(TestRenderable{data: []byte(`ok`)}, TestRenderable{data: []byte(`go`)}),
+			content: *Container(testRenderable{data: []byte(`ok`)}, testRenderable{data: []byte(`go`)}),
 		},
 	}
 	for _, tc := range tests {

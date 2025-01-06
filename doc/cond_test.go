@@ -1,30 +1,10 @@
-package cond
+package doc
 
 import (
 	"bytes"
-	"errors"
-	"go-html-compose/doc"
-	"go-html-compose/render"
 	"go-html-compose/util"
-	"io"
 	"testing"
 )
-
-type TestRenderable struct {
-	// render.Renderable
-	data []byte
-}
-
-func (r TestRenderable) Render(wr io.Writer) error {
-	if _, err := wr.Write(r.data); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (r TestRenderable) StructuredRender(wr io.Writer, tabs int) error {
-	return errors.New("not implemented")
-}
 
 func Test_If(t *testing.T) {
 	t.Parallel()
@@ -32,13 +12,13 @@ func Test_If(t *testing.T) {
 	tests := []struct {
 		name      string
 		want      string
-		ifContent *TestRenderable
+		ifContent *testRenderable
 		condition bool
 	}{
 		{
 			name: "basic",
 			want: `my-words`,
-			ifContent: &TestRenderable{
+			ifContent: &testRenderable{
 				data: []byte(`my-words`),
 			},
 			condition: true,
@@ -46,7 +26,7 @@ func Test_If(t *testing.T) {
 		{
 			name: "basic",
 			want: ``,
-			ifContent: &TestRenderable{
+			ifContent: &testRenderable{
 				data: []byte(`my-words`),
 			},
 			condition: false,
@@ -74,8 +54,8 @@ func Test_If(t *testing.T) {
 func Test_Map(t *testing.T) {
 	t.Parallel()
 
-	mapFunc := func(item string) render.Renderable {
-		return TestRenderable{
+	mapFunc := func(item string) Renderable {
+		return testRenderable{
 			data: []byte(`*item: ` + item),
 		}
 	}
@@ -107,7 +87,7 @@ func Test_Map(t *testing.T) {
 
 			var buffer bytes.Buffer
 			rendrs := Map(tc.items, mapFunc)
-			content := doc.Container(rendrs...)
+			content := Container(rendrs...)
 			if err := content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}

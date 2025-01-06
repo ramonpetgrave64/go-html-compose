@@ -1,13 +1,12 @@
 package doc
 
 import (
-	"go-html-compose/render"
 	"io"
 )
 
 type ContainerStruct struct {
 	// render.Renderable
-	Children []render.Renderable
+	Children []Renderable
 }
 
 func (c *ContainerStruct) Render(wr io.Writer) error {
@@ -22,7 +21,7 @@ func (c *ContainerStruct) Render(wr io.Writer) error {
 func (c *ContainerStruct) StructuredRender(wr io.Writer, tabs int) error {
 	for _, elem := range c.Children {
 		if tabs > -1 {
-			if _, err := wr.Write(render.NewlineContent); err != nil {
+			if _, err := wr.Write(NewlineContent); err != nil {
 				return err
 			}
 		}
@@ -33,7 +32,7 @@ func (c *ContainerStruct) StructuredRender(wr io.Writer, tabs int) error {
 	return nil
 }
 
-func Container(children ...render.Renderable) *ContainerStruct {
+func Container(children ...Renderable) *ContainerStruct {
 	return &ContainerStruct{
 		Children: children,
 	}

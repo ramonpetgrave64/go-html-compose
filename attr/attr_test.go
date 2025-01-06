@@ -2,7 +2,7 @@ package attr
 
 import (
 	"bytes"
-	"go-html-compose/render"
+	"go-html-compose/doc"
 	"go-html-compose/util"
 	"strings"
 	"testing"
@@ -58,7 +58,7 @@ func Test_StructuredRenderWithTabs(t *testing.T) {
 		},
 		{
 			name:    "structured: 1 tabs",
-			want:    string(strings.Repeat(string(render.TabContent), 1)) + `class="my-class"`,
+			want:    string(strings.Repeat(string(doc.TabContent), 1)) + `class="my-class"`,
 			content: Class("my-class"),
 			tabs:    1,
 		},
