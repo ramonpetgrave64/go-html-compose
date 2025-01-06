@@ -17,15 +17,6 @@ type Renderable interface {
 	StructuredRender(wr io.Writer, tabs int) (err error)
 }
 
-// func Bytes(rendr Renderable) (string, error) {
-// 	var buffer bytes.Buffer
-// 	if err = rendr.Render(&buffer); err != nil {
-// 		return
-// 	}
-// 	text = buffer.String()
-// 	return
-// }
-
 func Bytes(rendr Renderable) ([]byte, error) {
 	var buffer bytes.Buffer
 	if err := rendr.Render(&buffer); err != nil {
