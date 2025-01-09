@@ -2,7 +2,7 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/util"
+	"go-html-compose/test"
 	"testing"
 )
 
@@ -45,7 +45,7 @@ func Test_If(t *testing.T) {
 			got := buffer.String()
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}
@@ -99,7 +99,7 @@ func Test_Map(t *testing.T) {
 			}
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}

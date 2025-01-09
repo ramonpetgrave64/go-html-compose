@@ -3,7 +3,7 @@ package attr
 import (
 	"bytes"
 	"go-html-compose/doc"
-	"go-html-compose/util"
+	"go-html-compose/test"
 	"strings"
 	"testing"
 )
@@ -35,7 +35,7 @@ func Test_Render(t *testing.T) {
 			got := buffer.String()
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}
@@ -76,7 +76,7 @@ func Test_StructuredRenderWithTabs(t *testing.T) {
 			got := buffer.String()
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}

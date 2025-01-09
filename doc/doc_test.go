@@ -2,7 +2,7 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/util"
+	"go-html-compose/test"
 	"io"
 	"testing"
 )
@@ -71,7 +71,7 @@ go`,
 			got := buffer.String()
 
 			if tc.want != got {
-				t.Error(util.TestContentDiffErr(tc.want, got))
+				t.Error(test.TestContentDiffErr(tc.want, got))
 			}
 		})
 	}

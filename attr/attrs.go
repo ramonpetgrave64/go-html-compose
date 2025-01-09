@@ -68,6 +68,10 @@ func Role(value string) *AttributeStruct {
 	return Attr("role", &value)
 }
 
+func Selected(value bool) *AttributeStruct {
+	return BooleanAttr("selected", value)
+}
+
 func Scope(value string) *AttributeStruct {
 	return Attr("scope", &value)
 }
