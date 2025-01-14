@@ -46,6 +46,30 @@ func Form(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("form", attrs...)
 }
 
+func H1(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h1", attrs...)
+}
+
+func H2(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h2", attrs...)
+}
+
+func H3(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h3", attrs...)
+}
+
+func H4(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h4", attrs...)
+}
+
+func H5(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h5", attrs...)
+}
+
+func H6(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("h6", attrs...)
+}
+
 func Head(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("head", attrs...)
 }
@@ -96,6 +120,10 @@ func Link(attrs ...*attr.AttributeStruct) *UnitTagStruct {
 
 func Nav(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("nav", attrs...)
+}
+
+func Ol(attrs ...*attr.AttributeStruct) ContentFunc {
+	return ParentTag("ol", attrs...)
 }
 
 func Option(attrs ...*attr.AttributeStruct) ContentFunc {
