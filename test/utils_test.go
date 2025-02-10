@@ -56,15 +56,15 @@ func Test_Diff(t *testing.T) {
 	}
 }
 
-type testT struct {
+type mockT struct {
 	errorFCalled bool
 }
 
-func (t *testT) Errorf(format string, args ...any) {
+func (t *mockT) Errorf(format string, args ...any) {
 	t.errorFCalled = true
 }
 
-func (t testT) Helper() {}
+func (t mockT) Helper() {}
 
 func Test_TestDiffError(t *testing.T) {
 	t.Parallel()
@@ -98,10 +98,10 @@ func Test_TestDiffError(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
-			testT := testT{}
-			TestDiffError(&testT, tc.a, tc.b)
-			if tc.errorFCalled != testT.errorFCalled {
-				t.Errorf("unexpected ErrorFCalled: (-want, +got):\n-%t\n+%t", tc.errorFCalled, testT.errorFCalled)
+			testMockT := mockT{}
+			TestDiffError(&testMockT, tc.a, tc.b)
+			if tc.errorFCalled != testMockT.errorFCalled {
+				t.Errorf("unexpected ErrorFCalled: (-want, +got):\n-%t\n+%t", tc.errorFCalled, testMockT.errorFCalled)
 			}
 		})
 	}
