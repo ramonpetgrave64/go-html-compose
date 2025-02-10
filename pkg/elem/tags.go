@@ -1,6 +1,6 @@
 package elem
 
-import "go-html-compose/attr"
+import "go-html-compose/pkg/attr"
 
 var (
 	Doctype = UnitTag("!DOCTYPE html")

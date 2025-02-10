@@ -2,7 +2,7 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/test"
+	"go-html-compose/pkg/internal/test"
 	"io"
 	"testing"
 )

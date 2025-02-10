@@ -1,8 +1,8 @@
 package elem
 
 import (
-	"go-html-compose/attr"
-	"go-html-compose/doc"
+	"go-html-compose/pkg/attr"
+	"go-html-compose/pkg/doc"
 	"io"
 )
 

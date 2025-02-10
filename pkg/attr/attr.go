@@ -1,7 +1,7 @@
 package attr
 
 import (
-	"go-html-compose/doc"
+	"go-html-compose/pkg/doc"
 	"html"
 	"io"
 )

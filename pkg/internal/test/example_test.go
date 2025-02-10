@@ -2,9 +2,9 @@ package test
 
 import (
 	"bytes"
-	a "go-html-compose/attr"
-	d "go-html-compose/doc"
-	e "go-html-compose/elem"
+	a "go-html-compose/pkg/attr"
+	d "go-html-compose/pkg/doc"
+	e "go-html-compose/pkg/elem"
 	"testing"
 )
 

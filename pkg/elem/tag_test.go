@@ -2,13 +2,13 @@ package elem
 
 import (
 	"bytes"
-	"go-html-compose/attr"
-	"go-html-compose/doc"
-	"go-html-compose/test"
+	"go-html-compose/pkg/attr"
+	"go-html-compose/pkg/doc"
+	"go-html-compose/pkg/internal/test"
 	"testing"
 )
 
-func Test_Render(t *testing.T) {
+func Test_UnitTag(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -31,6 +31,31 @@ func Test_Render(t *testing.T) {
 			want:    `<img class="c1" aria-label="logo">`,
 			content: Img(attr.Class("c1"), attr.AriaLabel("logo")),
 		},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
+			var buffer bytes.Buffer
+
+			if err := tc.content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
+			got := buffer.String()
+
+			test.TestDiffError(t, tc.want, got)
+		})
+	}
+}
+
+func Test_ParentTag(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name    string
+		want    string
+		content doc.Renderable
+	}{
 		{
 			name:    "single parent",
 			want:    `<div></div>`,

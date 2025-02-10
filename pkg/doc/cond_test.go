@@ -2,7 +2,7 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/test"
+	"go-html-compose/pkg/internal/test"
 	"testing"
 )
 
@@ -16,7 +16,7 @@ func Test_If(t *testing.T) {
 		condition bool
 	}{
 		{
-			name: "basic",
+			name: "true",
 			want: `my-words`,
 			ifContent: &testRenderable{
 				data: []byte(`my-words`),
@@ -24,7 +24,7 @@ func Test_If(t *testing.T) {
 			condition: true,
 		},
 		{
-			name: "basic",
+			name: "false",
 			want: ``,
 			ifContent: &testRenderable{
 				data: []byte(`my-words`),

@@ -2,11 +2,11 @@ package attr
 
 import (
 	"bytes"
-	"go-html-compose/test"
+	"go-html-compose/pkg/internal/test"
 	"testing"
 )
 
-func Test_Render(t *testing.T) {
+func Test_Attr(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -15,7 +15,7 @@ func Test_Render(t *testing.T) {
 		content *AttributeStruct
 	}{
 		{
-			name:    "basic",
+			name:    "attribute",
 			want:    `class="my-class"`,
 			content: Class("my-class"),
 		},

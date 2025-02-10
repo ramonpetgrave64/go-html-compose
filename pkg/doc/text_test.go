@@ -2,7 +2,7 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/test"
+	"go-html-compose/pkg/internal/test"
 	"testing"
 )
 
@@ -48,12 +48,12 @@ func Test_RawText(t *testing.T) {
 		content *RawTextStruct
 	}{
 		{
-			name:    "basic: rawtext",
+			name:    "text",
 			want:    `hello world`,
 			content: RawText([]byte(`hello world`)),
 		},
 		{
-			name:    "rawtext: no html escape",
+			name:    "no html escape",
 			want:    `<script>alert("hello world")</script>`,
 			content: RawText([]byte(`<script>alert("hello world")</script>`)),
 		},
