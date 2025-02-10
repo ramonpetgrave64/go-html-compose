@@ -2,21 +2,7 @@ package test
 
 import (
 	"fmt"
-	"regexp"
-	"strings"
 )
-
-func CleanFormat(original string) string {
-	re := regexp.MustCompile(`(<\w+)\s+(\w+)`)
-	cleaned := re.ReplaceAllString(original, `$1 $2`)
-	re = regexp.MustCompile(`(")\s+(\w+)`)
-	cleaned = re.ReplaceAllString(cleaned, `$1 $2`)
-	re = regexp.MustCompile(`(")\s+(>)`)
-	cleaned = re.ReplaceAllString(cleaned, `$1$2`)
-	cleaned = strings.ReplaceAll(cleaned, "\n", "")
-	cleaned = strings.ReplaceAll(cleaned, "\t", "")
-	return cleaned
-}
 
 func TestContentDiffErr(want string, got string) error {
 	return fmt.Errorf("unexpected render value: \nwant: \n%s\n, got: \n%s", want, got)

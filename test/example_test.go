@@ -8,8 +8,8 @@ import (
 	"testing"
 )
 
-func Test_Example(tt *testing.T) {
-	tt.Parallel()
+func Test_Example(t *testing.T) {
+	t.Parallel()
 
 	worldString, err := d.Bytes(
 		e.Span()(
@@ -17,13 +17,13 @@ func Test_Example(tt *testing.T) {
 		),
 	)
 	if err != nil {
-		tt.Errorf("unexpected error: %s", err.Error())
+		t.Errorf("unexpected error: %s", err.Error())
 	}
 	otherString, err := d.Bytes(
 		d.Text([]byte(`g`)),
 	)
 	if err != nil {
-		tt.Errorf("unexpected error: %s", err.Error())
+		t.Errorf("unexpected error: %s", err.Error())
 	}
 	content := e.Div(
 		a.Class("big world"),
@@ -39,37 +39,11 @@ func Test_Example(tt *testing.T) {
 		d.Text([]byte(`world`)),
 	)
 
-	tt.Run("Render", func(t *testing.T) {
-		var buffer bytes.Buffer
-		if err := d.Render(&buffer, content); err != nil {
-			tt.Errorf("unexpected error: %s", err.Error())
-		}
-		got := buffer.String()
-		want := `<div class="big world" style="ok"><span>hello<img class="i"></span><span>world</span>raw<html>rawgworld</div>`
-		TestDiffError(t, want, got)
-	})
-
-	tt.Run("StructuredRender", func(t *testing.T) {
-		var buffer bytes.Buffer
-		if err := d.StructuredRender(&buffer, content); err != nil {
-			tt.Errorf("unexpected error: %s", err.Error())
-		}
-		got := buffer.String()
-		want := `<div
-	class="big world"
-	style="ok"
->
-	<span>
-		hello
-		<img
-			class="i"
-		>
-	</span>
-	<span>world</span>
-	raw<html>raw
-	g
-	world
-</div>`
-		TestDiffError(t, want, got)
-	})
+	var buffer bytes.Buffer
+	if err := d.Render(&buffer, content); err != nil {
+		t.Errorf("unexpected error: %s", err.Error())
+	}
+	got := buffer.String()
+	want := `<div class="big world" style="ok"><span>hello<img class="i"></span><span>world</span>raw<html>rawgworld</div>`
+	TestDiffError(t, want, got)
 }

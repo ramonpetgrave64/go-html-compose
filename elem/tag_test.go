@@ -8,132 +8,6 @@ import (
 	"testing"
 )
 
-func Test_StructuredRenderWithTabs(t *testing.T) {
-	t.Parallel()
-
-	tests := []struct {
-		name    string
-		want    string
-		content doc.Renderable
-	}{
-		{
-			name: "basic: html",
-			want: `<html>
-</html>`,
-			content: HTML()(),
-		},
-		{
-			name: "basic: nested: single",
-			want: `<html>
-	<div>
-	</div>
-</html>`,
-			content: HTML()(
-				Div()(),
-			),
-		},
-		{
-			name:    "basic: tag: single",
-			want:    `<img class="big">`,
-			content: Img(attr.Class("big")),
-		},
-		{
-			name: "basic: tag: multiple",
-			want: `<img class="big" src="https://example.com/favicon">`,
-			content: Img(
-				attr.Class("big"),
-				attr.Src("https://example.com/favicon"),
-			),
-		},
-		{
-			name: "basic nested: single: attrubute: single",
-			want: `<html>
-	<div class="my-class">
-	</div>
-</html>`,
-			content: HTML()(
-				Div(attr.Class("my-class"))(),
-			),
-		},
-		{
-			name: "basic nested: deep",
-			want: `<html>
-	<div>
-		<div>
-			<span>
-			</span>
-			<img>
-		</div>
-	</div>
-</html>`,
-			content: HTML()(
-				Div()(
-					Div()(
-						Span()(),
-						Img(),
-					),
-				),
-			),
-		},
-		{
-			name: "basic nested: multiple",
-			want: `<html>
-	<div>
-	</div>
-	<div>
-	</div>
-</html>`,
-			content: HTML()(
-				Div()(),
-				Div()(),
-			),
-		},
-		{
-			name:    "unit tag",
-			content: Div()(Img()),
-			want: `<div>
-	<img>
-</div>`,
-		},
-		{
-			name:    "unit tag: single attribute",
-			content: Div()(Img(attr.Class("my-class"))),
-			want: `<div>
-	<img
-		class="my-class"
-	>
-</div>`,
-		},
-		{
-			name:    "unit tag: multiple attributes",
-			content: Div()(Img(attr.Class("my-class"), attr.Src("my-src"))),
-			want: `<div>
-	<img
-		class="my-class"
-		src="my-src"
-	>
-</div>`,
-		},
-	}
-	tests = tests[len(tests)-3:]
-	for _, tc := range tests {
-		t.Run(tc.name, func(t *testing.T) {
-			t.Parallel()
-
-			var buffer bytes.Buffer
-
-			if err := tc.content.StructuredRender(&buffer, 0); err != nil {
-				t.Errorf("unexpected error: %s", err.Error())
-			}
-			got := buffer.String()
-
-			if tc.want != got {
-				t.Error(test.TestContentDiffErr(tc.want, got))
-			}
-		})
-	}
-}
-
 func Test_Render(t *testing.T) {
 	t.Parallel()
 
@@ -143,98 +17,59 @@ func Test_Render(t *testing.T) {
 		content doc.Renderable
 	}{
 		{
-			name:    "basic: html",
-			want:    `<html></html>`,
-			content: HTML()(),
+			name:    "unit",
+			want:    `<img>`,
+			content: Img(),
 		},
 		{
-			name: "basic: nested: single",
-			want: test.CleanFormat(`
-				<html>
-					<div></div>
-				</html>
-			`),
-			content: HTML()(
+			name:    "unit with attribute",
+			want:    `<img class="c1">`,
+			content: Img(attr.Class("c1")),
+		},
+		{
+			name:    "unit with multiple attributes",
+			want:    `<img class="c1" aria-label="logo">`,
+			content: Img(attr.Class("c1"), attr.AriaLabel("logo")),
+		},
+		{
+			name:    "single parent",
+			want:    `<div></div>`,
+			content: Div()(),
+		},
+		{
+			name:    "single parent with single attribute",
+			want:    `<div class="c1"></div>`,
+			content: Div(attr.Class("c1"))(),
+		},
+		{
+			name:    "single parent with multiple attributes",
+			want:    `<div class="c1" aria-label="logo"></div>`,
+			content: Div(attr.Class("c1"), attr.AriaLabel("logo"))(),
+		},
+		{
+			name: "single nested",
+			want: `<div><div></div></div>`,
+			content: Div()(
 				Div()(),
 			),
 		},
 		{
-			name:    "basic: tag: single",
-			want:    `<img class="big">`,
-			content: Img(attr.Class("big")),
-		},
-		{
-			name: "basic: tag: multiple",
-			want: test.CleanFormat(`
-				<img
-					class="big"
-					src="https://example.com/favicon"
-				>
-			`),
-			content: Img(
-				attr.Class("big"),
-				attr.Src("https://example.com/favicon"),
+			name: "multiple nested",
+			want: `<div><div></div><img></div>`,
+			content: Div()(
+				Div()(),
+				Img(),
 			),
 		},
 		{
-			name: "basic nested: single: attrubute: single",
-			want: test.CleanFormat(`
-				<html>
-					<div class="my-class"></div>
-				</html>
-			`),
-			content: HTML()(
-				Div(attr.Class("my-class"))(),
-			),
-		},
-		{
-			name: "basic nested: deep",
-			want: test.CleanFormat(`
-				<html>
-					<div>
-						<div>
-							<span></span>
-							<img>
-						</div>
-					</div>
-				</html>
-			`),
-			content: HTML()(
+			name: "deeply nested",
+			want: `<div><div><span></span></div><img></div>`,
+			content: Div()(
 				Div()(
-					Div()(
-						Span()(),
-						Img(),
-					),
+					Span()(),
 				),
+				Img(),
 			),
-		},
-		{
-			name: "basic nested: multiple",
-			want: test.CleanFormat(`
-				<html>
-					<div></div>
-					<div></div>
-				</html>
-			`),
-			content: HTML()(
-				Div()(),
-				Div()(),
-			),
-		},
-		{
-			name:    "unit tag",
-			content: Div()(Img()),
-			want:    `<div><img></div>`,
-		},
-		{
-			name:    "unit tag: single attribute",
-			content: Div()(Img(attr.Class("my-class"))),
-			want:    `<div><img class="my-class"></div>`,
-		},
-		{
-			name:    "unit tag: multiple attributes",
-			content: Div()(Img(attr.Class("my-class"), attr.Src("my-src"))),
-			want:    `<div><img class="my-class" src="my-src"></div>`,
 		},
 	}
 	for _, tc := range tests {

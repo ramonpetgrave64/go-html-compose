@@ -49,36 +49,6 @@ func (t *UnitTagStruct) Render(wr io.Writer) error {
 	return nil
 }
 
-func (t *UnitTagStruct) StructuredRender(wr io.Writer, tabs int) error {
-	var err error
-	if err = doc.WriteTabBytes(wr, tabs); err != nil {
-		return err
-	}
-	if err = writeOpeningTag(wr, t.Name); err != nil {
-		return err
-	}
-	for idx, attr := range t.Attributes {
-		if idx == 0 {
-			if _, err = wr.Write(doc.NewlineContent); err != nil {
-				return err
-			}
-		}
-		attr.StructuredRender(wr, tabs+1)
-		if _, err := wr.Write(doc.NewlineContent); err != nil {
-			return err
-		}
-	}
-	if len(t.Attributes) > 0 {
-		if err = doc.WriteTabBytes(wr, tabs); err != nil {
-			return err
-		}
-	}
-	if _, err = wr.Write(closeBracket); err != nil {
-		return err
-	}
-	return nil
-}
-
 type ParentTagStruct struct {
 	// doc.Renderable
 	*UnitTagStruct
@@ -93,26 +63,6 @@ func (t *ParentTagStruct) Render(wr io.Writer) error {
 		return err
 	}
 	if err := writeClosingTag(wr, t.Name); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (t *ParentTagStruct) StructuredRender(wr io.Writer, tabs int) error {
-	var err error
-	if err = t.UnitTagStruct.StructuredRender(wr, tabs); err != nil {
-		return err
-	}
-	if err := t.Container.StructuredRender(wr, tabs+1); err != nil {
-		return err
-	}
-	if _, err = wr.Write(doc.NewlineContent); err != nil {
-		return err
-	}
-	if err = doc.WriteTabBytes(wr, tabs); err != nil {
-		return err
-	}
-	if err = writeClosingTag(wr, t.Name); err != nil {
 		return err
 	}
 	return nil

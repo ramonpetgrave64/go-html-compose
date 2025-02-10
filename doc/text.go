@@ -22,17 +22,6 @@ func (t *TextStruct) Render(wr io.Writer) error {
 	return nil
 }
 
-func (t *TextStruct) StructuredRender(wr io.Writer, tabs int) error {
-	var err error
-	if err = WriteTabBytes(wr, tabs); err != nil {
-		return err
-	}
-	if err = t.Render(wr); err != nil {
-		return err
-	}
-	return nil
-}
-
 func newText(value []byte, escapeHTML bool) *TextStruct {
 	return &TextStruct{
 		Value:      value,

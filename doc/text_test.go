@@ -3,45 +3,26 @@ package doc
 import (
 	"bytes"
 	"go-html-compose/test"
-	"strings"
 	"testing"
 )
 
 func Test_Text(t *testing.T) {
 	t.Parallel()
 
-	tabs := 1
-	tabContent := string(strings.Repeat(string(TabContent), tabs))
-
 	tests := []struct {
-		name             string
-		want             string
-		content          *TextStruct
-		structuredRender bool
+		name    string
+		want    string
+		content *TextStruct
 	}{
 		{
-			name:             "basic: text",
-			want:             `hello world`,
-			content:          Text([]byte(`hello world`)),
-			structuredRender: false,
+			name:    "text",
+			want:    `hello world`,
+			content: Text([]byte(`hello world`)),
 		},
 		{
-			name:             "basic: structured text",
-			want:             tabContent + `hello world`,
-			content:          Text([]byte(`hello world`)),
-			structuredRender: true,
-		},
-		{
-			name:             "text: html escape",
-			want:             `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
-			content:          Text([]byte(`<script>alert("hello world")</script>`)),
-			structuredRender: false,
-		},
-		{
-			name:             "text: html escape: structured text",
-			want:             tabContent + `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
-			content:          Text([]byte(`<script>alert("hello world")</script>`)),
-			structuredRender: true,
+			name:    "html escape",
+			want:    `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
+			content: Text([]byte(`<script>alert("hello world")</script>`)),
 		},
 	}
 	for _, tc := range tests {
@@ -49,15 +30,8 @@ func Test_Text(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-
-			if tc.structuredRender {
-				tc.content.StructuredRender(&buffer, tabs)
-			} else {
-				tc.content.Render(&buffer)
-			}
-
+			tc.content.Render(&buffer)
 			got := buffer.String()
-
 			if tc.want != got {
 				t.Error(test.TestContentDiffErr(tc.want, got))
 			}

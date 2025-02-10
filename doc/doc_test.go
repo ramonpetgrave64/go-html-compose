@@ -19,17 +19,6 @@ func (r testRenderable) Render(wr io.Writer) error {
 	return nil
 }
 
-func (r testRenderable) StructuredRender(wr io.Writer, tabs int) error {
-	var err error
-	if err = WriteTabBytes(wr, tabs); err != nil {
-		return err
-	}
-	if _, err = wr.Write(r.data); err != nil {
-		return err
-	}
-	return nil
-}
-
 func Test_Container(t *testing.T) {
 	t.Parallel()
 
@@ -46,16 +35,13 @@ func Test_Container(t *testing.T) {
 			tabs:    0,
 		},
 		{
-			name: "single",
-			want: `
-ok`,
+			name:    "single",
+			want:    `ok`,
 			content: *Container(testRenderable{data: []byte(`ok`)}),
 		},
 		{
-			name: "multiple",
-			want: `
-ok
-go`,
+			name:    "multiple",
+			want:    `okgo`,
 			content: *Container(testRenderable{data: []byte(`ok`)}, testRenderable{data: []byte(`go`)}),
 		},
 	}
@@ -65,7 +51,7 @@ go`,
 
 			var buffer bytes.Buffer
 
-			if err := tc.content.StructuredRender(&buffer, 0); err != nil {
+			if err := tc.content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
