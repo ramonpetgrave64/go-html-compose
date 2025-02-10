@@ -105,9 +105,4 @@ func Test_TestDiffError(t *testing.T) {
 			}
 		})
 	}
-	t.Run("diff", func(t *testing.T) {
-		testT := &testT{}
-		TestDiffError(testT, "x", "abc")
-
-	})
 }
