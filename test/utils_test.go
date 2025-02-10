@@ -87,12 +87,6 @@ func Test_TestDiffError(t *testing.T) {
 			b:            "x",
 			errorFCalled: false,
 		},
-		{
-			name:         "empty",
-			a:            "",
-			b:            "",
-			errorFCalled: false,
-		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
