@@ -19,7 +19,7 @@ func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
 		return
 	}
 	for _, attr := range t.Attributes {
-		if err = doc.WriteByteSlices(wr, doc.SpaceContent); err != nil {
+		if err = doc.WriteByteSlices(wr, []byte(` `)); err != nil {
 			return
 		}
 		if err = attr.Render(wr); err != nil {

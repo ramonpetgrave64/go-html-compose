@@ -5,12 +5,6 @@ import (
 	"io"
 )
 
-var (
-	TabContent     = []byte(`	`) // tab character
-	SpaceContent   = []byte(` `) // space character
-	NewlineContent = []byte("\n")
-)
-
 type Renderable interface {
 	Render(wr io.Writer) (err error)
 }
