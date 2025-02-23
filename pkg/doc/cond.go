@@ -4,7 +4,7 @@ func If(cond bool, rendr Renderable) Renderable {
 	return IfElse(cond, rendr, RawText([]byte(``)))
 }
 
-func IfElse(cond bool, rendrIfTrue Renderable, renderIfFalse Renderable) Renderable {
+func IfElse(cond bool, rendrIfTrue, renderIfFalse Renderable) Renderable {
 	if cond {
 		return rendrIfTrue
 	}

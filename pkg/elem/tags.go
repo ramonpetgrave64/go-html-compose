@@ -2,9 +2,7 @@ package elem
 
 import "go-html-compose/pkg/attr"
 
-var (
-	Doctype = UnitTag("!DOCTYPE html")
-)
+var Doctype = UnitTag("!DOCTYPE html")
 
 func A(attrs ...*attr.AttributeStruct) ContentFunc {
 	return ParentTag("a", attrs...)

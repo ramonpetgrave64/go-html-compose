@@ -1,71 +1,49 @@
 package elem
 
 import (
+	"io"
+
 	"go-html-compose/pkg/attr"
 	"go-html-compose/pkg/doc"
-	"io"
-)
-
-var (
-	openBracket      = []byte(`<`)
-	openBracketSlash = []byte(`</`)
-	closeBracket     = []byte(`>`)
 )
 
 type ContentFunc func(elems ...doc.Renderable) *ParentTagStruct
 
-func writeOpeningTag(wr io.Writer, name string) error {
-	if err := doc.WriteByteSlices(wr, openBracket, []byte(name)); err != nil {
-		return err
-	}
-	return nil
-}
-
-func writeClosingTag(wr io.Writer, name string) error {
-	if err := doc.WriteByteSlices(wr, openBracketSlash, []byte(name), closeBracket); err != nil {
-		return err
-	}
-	return nil
-}
-
 type UnitTagStruct struct {
-	// doc.Renderable
 	Name       string
 	Attributes []*attr.AttributeStruct
 }
 
-func (t *UnitTagStruct) Render(wr io.Writer) error {
-	var err error
-	if err = writeOpeningTag(wr, t.Name); err != nil {
-		return err
+func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
+	if err = doc.WriteByteSlices(wr, []byte(`<`), []byte(t.Name)); err != nil {
+		return
 	}
 	for _, attr := range t.Attributes {
-		wr.Write(doc.SpaceContent)
-		attr.Render(wr)
+		if err = doc.WriteByteSlices(wr, doc.SpaceContent); err != nil {
+			return
+		}
+		if err = attr.Render(wr); err != nil {
+			return
+		}
 	}
-	if _, err = wr.Write(closeBracket); err != nil {
-		return err
-	}
-	return nil
+	err = doc.WriteByteSlices(wr, []byte(`>`))
+	return
 }
 
 type ParentTagStruct struct {
-	// doc.Renderable
 	*UnitTagStruct
 	Container *doc.ContainerStruct
 }
 
-func (t *ParentTagStruct) Render(wr io.Writer) error {
-	if err := t.UnitTagStruct.Render(wr); err != nil {
+func (t *ParentTagStruct) Render(wr io.Writer) (err error) {
+	if err = t.UnitTagStruct.Render(wr); err != nil {
+		return
+	}
+	if err = t.Container.Render(wr); err != nil {
 		return err
 	}
-	if err := t.Container.Render(wr); err != nil {
-		return err
-	}
-	if err := writeClosingTag(wr, t.Name); err != nil {
-		return err
-	}
-	return nil
+	err = doc.WriteByteSlices(wr, []byte(`</`), []byte(t.Name), []byte(`>`))
+	return
 }
 
 func UnitTag(name string, attrs ...*attr.AttributeStruct) *UnitTagStruct {

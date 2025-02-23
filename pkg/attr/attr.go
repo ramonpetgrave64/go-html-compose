@@ -1,14 +1,10 @@
 package attr
 
 import (
-	"go-html-compose/pkg/doc"
 	"html"
 	"io"
-)
 
-var (
-	equalSign = []byte(`=`)
-	quote     = []byte(`"`)
+	"go-html-compose/pkg/doc"
 )
 
 type AttributeStruct struct {
@@ -24,7 +20,7 @@ func (a *AttributeStruct) Render(wr io.Writer) error {
 	var err error
 	if err = doc.WriteByteSlices(
 		wr,
-		[]byte(a.Name), equalSign, quote, []byte(html.EscapeString(*a.Value)), quote,
+		[]byte(a.Name), []byte(`="`), []byte(html.EscapeString(*a.Value)), []byte(`"`),
 	); err != nil {
 		return err
 	}

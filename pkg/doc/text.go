@@ -11,15 +11,13 @@ type TextStruct struct {
 	Value      []byte
 }
 
-func (t *TextStruct) Render(wr io.Writer) error {
+func (t *TextStruct) Render(wr io.Writer) (err error) {
 	text := t.Value
 	if t.EscapeHTML {
 		text = []byte(html.EscapeString(string(text)))
 	}
-	if _, err := wr.Write(text); err != nil {
-		return err
-	}
-	return nil
+	err = WriteByteSlices(wr, text)
+	return
 }
 
 func newText(value []byte, escapeHTML bool) *TextStruct {

@@ -2,10 +2,11 @@ package elem
 
 import (
 	"bytes"
+	"testing"
+
 	"go-html-compose/pkg/attr"
 	"go-html-compose/pkg/doc"
 	"go-html-compose/pkg/internal/test"
-	"testing"
 )
 
 func Test_UnitTag(t *testing.T) {

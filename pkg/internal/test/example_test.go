@@ -2,10 +2,11 @@ package test
 
 import (
 	"bytes"
+	"testing"
+
 	a "go-html-compose/pkg/attr"
 	d "go-html-compose/pkg/doc"
 	e "go-html-compose/pkg/elem"
-	"testing"
 )
 
 func Test_Example(t *testing.T) {

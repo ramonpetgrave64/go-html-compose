@@ -2,9 +2,10 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/pkg/internal/test"
 	"io"
 	"testing"
+
+	"go-html-compose/pkg/internal/test"
 )
 
 type testRenderable struct {

@@ -2,8 +2,9 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/pkg/internal/test"
 	"testing"
+
+	"go-html-compose/pkg/internal/test"
 )
 
 func Test_If(t *testing.T) {

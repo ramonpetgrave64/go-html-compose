@@ -30,16 +30,6 @@ func Render(wr io.Writer, rendr Renderable) error {
 	return nil
 }
 
-func WriteTabBytes(wr io.Writer, tabs int) error {
-	var err error
-	for range tabs {
-		if _, err = wr.Write(TabContent); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
 func WriteByteSlices(wr io.Writer, slices ...[]byte) error {
 	var err error
 	for _, slice := range slices {

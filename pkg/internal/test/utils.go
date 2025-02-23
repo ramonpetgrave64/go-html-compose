@@ -4,11 +4,11 @@ import (
 	"fmt"
 )
 
-func TestContentDiffErr(want string, got string) error {
+func TestContentDiffErr(want, got string) error {
 	return fmt.Errorf("unexpected render value: \nwant: \n%s\n, got: \n%s", want, got)
 }
 
-func Diff(want string, got string) string {
+func Diff(want, got string) string {
 	if want != got {
 		return fmt.Sprintf(`
 -%s
@@ -23,7 +23,7 @@ type T interface {
 	Helper()
 }
 
-func TestDiffError(t T, want string, got string) {
+func TestDiffError(t T, want, got string) {
 	t.Helper()
 	if diff := Diff(want, got); diff != "" {
 		t.Errorf("unexpected value (-want, +got): %s", diff)

@@ -2,8 +2,9 @@ package attr
 
 import (
 	"bytes"
-	"go-html-compose/pkg/internal/test"
 	"testing"
+
+	"go-html-compose/pkg/internal/test"
 )
 
 func Test_Attr(t *testing.T) {

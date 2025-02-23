@@ -2,8 +2,9 @@ package doc
 
 import (
 	"bytes"
-	"go-html-compose/pkg/internal/test"
 	"testing"
+
+	"go-html-compose/pkg/internal/test"
 )
 
 func Test_Text(t *testing.T) {
@@ -30,7 +31,9 @@ func Test_Text(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			tc.content.Render(&buffer)
+			if err := tc.content.Render(&buffer); err != nil {
+				t.Errorf("unexpected error: %s", err.Error())
+			}
 			got := buffer.String()
 			if tc.want != got {
 				t.Error(test.TestContentDiffErr(tc.want, got))
