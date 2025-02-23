@@ -38,12 +38,10 @@ func Test_UnitTag(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-
 			if err := tc.content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
-
 			test.TestDiffError(t, tc.want, got)
 		})
 	}
@@ -103,12 +101,10 @@ func Test_ParentTag(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-
 			if err := tc.content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
-
 			test.TestDiffError(t, tc.want, got)
 		})
 	}

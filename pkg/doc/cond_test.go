@@ -42,17 +42,13 @@ func Test_If(t *testing.T) {
 			if err := content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
-
 			got := buffer.String()
-
-			if tc.want != got {
-				t.Error(test.TestContentDiffErr(tc.want, got))
-			}
+			test.TestDiffError(t, tc.want, got)
 		})
 	}
 }
 
-func Test_Map(t *testing.T) {
+func Test_MapToContainer(t *testing.T) {
 	t.Parallel()
 
 	mapFunc := func(item string) Renderable {
@@ -87,21 +83,12 @@ func Test_Map(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			rendrs := Map(tc.items, mapFunc)
-			content := Container(rendrs...)
+			content := MapToContainer(tc.items, mapFunc)
 			if err := content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
-
 			got := buffer.String()
-
-			if len(tc.items) != len(rendrs) {
-				t.Errorf("expected equal items: want: %d, got: %d", len(tc.items), len(rendrs))
-			}
-
-			if tc.want != got {
-				t.Error(test.TestContentDiffErr(tc.want, got))
-			}
+			test.TestDiffError(t, tc.want, got)
 		})
 	}
 }

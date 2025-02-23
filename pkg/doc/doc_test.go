@@ -9,7 +9,6 @@ import (
 )
 
 type testRenderable struct {
-	// render.Renderable
 	data []byte
 }
 
@@ -27,13 +26,11 @@ func Test_Container(t *testing.T) {
 		name    string
 		want    string
 		content ContainerStruct
-		tabs    int
 	}{
 		{
 			name:    "empty",
 			want:    ``,
 			content: *Container(),
-			tabs:    0,
 		},
 		{
 			name:    "single",
@@ -51,15 +48,11 @@ func Test_Container(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-
 			if err := tc.content.Render(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
-
-			if tc.want != got {
-				t.Error(test.TestContentDiffErr(tc.want, got))
-			}
+			test.TestDiffError(t, tc.want, got)
 		})
 	}
 }

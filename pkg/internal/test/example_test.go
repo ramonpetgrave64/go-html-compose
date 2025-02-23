@@ -18,13 +18,13 @@ func Test_Example(t *testing.T) {
 		),
 	)
 	if err != nil {
-		t.Errorf("unexpected error: %s", err.Error())
+		t.Fatalf("unexpected error: %s", err.Error())
 	}
 	otherString, err := d.Bytes(
 		d.Text([]byte(`g`)),
 	)
 	if err != nil {
-		t.Errorf("unexpected error: %s", err.Error())
+		t.Fatalf("unexpected error: %s", err.Error())
 	}
 	content := e.Div(
 		a.Class("big world"),
@@ -39,7 +39,6 @@ func Test_Example(t *testing.T) {
 		d.RawText(otherString),
 		d.Text([]byte(`world`)),
 	)
-
 	var buffer bytes.Buffer
 	if err := d.Render(&buffer, content); err != nil {
 		t.Errorf("unexpected error: %s", err.Error())

@@ -7,12 +7,14 @@ import (
 	"go-html-compose/pkg/doc"
 )
 
+// AttributeStruct describes an HTML attribute.
 type AttributeStruct struct {
 	Name       string
 	Value      *string
 	skipRender bool
 }
 
+// Render renders the attribute to the io.Writer.
 func (a *AttributeStruct) Render(wr io.Writer) error {
 	if a.skipRender {
 		return nil
@@ -27,6 +29,7 @@ func (a *AttributeStruct) Render(wr io.Writer) error {
 	return nil
 }
 
+// Attr creates an AttributeStruct.
 func Attr(name string, value *string) *AttributeStruct {
 	return &AttributeStruct{
 		Name:  name,
@@ -34,6 +37,7 @@ func Attr(name string, value *string) *AttributeStruct {
 	}
 }
 
+// BooleanAttr creates an attribute that holds boolean values and conditionally renders if the boolean is true.
 func BooleanAttr(name string, boolean bool) *AttributeStruct {
 	value := name
 	attr := Attr(name, &value)

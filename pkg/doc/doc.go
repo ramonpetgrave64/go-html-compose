@@ -5,7 +5,6 @@ import (
 )
 
 type ContainerStruct struct {
-	// render.Renderable
 	Children []Renderable
 }
 
