@@ -1,4 +1,4 @@
-package elem
+package tag
 
 import "go-html-compose/pkg/attr"
 
