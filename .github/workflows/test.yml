@@ -28,7 +28,10 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version-file: "go.mod"
-      - name: Generate
+      - name: Detect changes after generate
         run: |
-          go generate ./... && \
-          git add . && git diff --quiet && git diff --cached --quiet
+          go generate ./...
+          git add .
+          git status
+          git diff HEAD > changes.patch
+          [ -z "$(cat changes.patch)" ] && exit 0 || exit 1
