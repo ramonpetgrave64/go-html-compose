@@ -27,6 +27,8 @@ func Test_Text(t *testing.T) {
 		},
 	}
 	for _, tc := range tests {
+		tc := tc // create a new variable to hold the value of tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -60,6 +62,8 @@ func Test_RawText(t *testing.T) {
 		},
 	}
 	for _, tc := range tests {
+		tc := tc // create a new variable to hold the value of tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 

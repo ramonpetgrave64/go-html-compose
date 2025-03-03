@@ -18,20 +18,32 @@ func Test_Attr(t *testing.T) {
 		{
 			name:    "attribute",
 			want:    `class="my-class"`,
-			content: Class("my-class"),
+			content: Attr("class", "my-class"),
+		},
+		{
+			name:    "attribute: escaped",
+			want:    `onclick="alert(&#39;Hi!&#39;)"`,
+			content: Attr("onclick", "alert('Hi!')"),
+		},
+		{
+			name:    "attribute: uescaped",
+			want:    `onclick="alert('Hi!')"`,
+			content: RawAttr("onclick", "alert('Hi!')"),
 		},
 		{
 			name:    "boolean attribute: true",
 			want:    `selected="selected"`,
-			content: Selected(true),
+			content: BooleanAttr("selected", true),
 		},
 		{
 			name:    "boolean attribute: false",
 			want:    ``,
-			content: Selected(false),
+			content: BooleanAttr("selected", false),
 		},
 	}
 	for _, tc := range tests {
+		tc := tc // create a new variable to hold the value of tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 

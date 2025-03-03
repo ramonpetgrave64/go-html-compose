@@ -44,6 +44,8 @@ func Test_Container(t *testing.T) {
 		},
 	}
 	for _, tc := range tests {
+		tc := tc // create a new variable to hold the value of tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 

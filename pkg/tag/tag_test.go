@@ -30,7 +30,7 @@ func Test_UnitTag(t *testing.T) {
 		{
 			name:    "unit with multiple attributes",
 			want:    `<img class="c1" aria-label="logo">`,
-			content: Img(attr.Class("c1"), attr.AriaLabel("logo")),
+			content: Img(attr.Class("c1"), attr.AriaProp("label", "logo")),
 		},
 	}
 	for _, tc := range tests {
@@ -68,7 +68,7 @@ func Test_ParentTag(t *testing.T) {
 		{
 			name:    "single parent with multiple attributes",
 			want:    `<div class="c1" aria-label="logo"></div>`,
-			content: Div(attr.Class("c1"), attr.AriaLabel("logo"))(),
+			content: Div(attr.Class("c1"), attr.AriaProp("label", "logo"))(),
 		},
 		{
 			name: "single nested",
