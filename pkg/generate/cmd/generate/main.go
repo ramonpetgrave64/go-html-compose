@@ -133,11 +133,12 @@ func getTableById(doc *html.Node, id string) *html.Node {
 	})
 }
 
-func extractAttributesFromTable(table *html.Node) map[string]*attribute {
+func extractAttributesFromTable(table *html.Node) []*attribute {
 	tbody := *seqSelect(table.ChildNodes(), func(node *html.Node) bool {
 		return node.Data == "tbody"
 	})
-	attributes := map[string]*attribute{}
+	attributesMap := map[string]*attribute{}
+	attributesSlice := []*attribute{}
 	for tr := range tbody.ChildNodes() {
 		rowNodes := seqSlice(tr.ChildNodes())
 		name := digChildData(rowNodes[0], "code").FirstChild.Data
@@ -149,13 +150,14 @@ func extractAttributesFromTable(table *html.Node) map[string]*attribute {
 			description: strings.TrimSpace(digAllText(rowNodes[2])),
 			value:       value,
 		}
-		if attr, ok := attributes[name]; !ok {
-			attributes[name] = &attribute{
+		if attr, ok := attributesMap[name]; !ok {
+			attributesMap[name] = &attribute{
 				name:           name,
 				propSets:       []*propSet{props},
 				isBoolean:      isBoolean,
 				isEventHandler: isEventHandler,
 			}
+			attributesSlice = append(attributesSlice, attributesMap[name])
 		} else {
 			if attr.isBoolean != isBoolean {
 				panic(fmt.Errorf("expected all propsets to have equal isBoolean: %s", attr.name))
@@ -163,7 +165,7 @@ func extractAttributesFromTable(table *html.Node) map[string]*attribute {
 			attr.propSets = append(attr.propSets, props)
 		}
 	}
-	return attributes
+	return attributesSlice
 }
 
 func makeAttributeFunc(attr *attribute) string {
@@ -201,15 +203,6 @@ func makeDoc(attr *attribute) string {
 	return doc
 }
 
-// func nodeSelect(seq iter.Seq[*html.Node], f func(node *html.Node) bool) *html.Node {
-// 	for n := range seq {
-// 		if f(n) {
-// 			return n
-// 		}
-// 	}
-// 	return nil
-// }
-
 func seqSlice[S iter.Seq[T], T any](seq S) []T {
 	slice := []T{}
 	for item := range seq {
@@ -228,12 +221,6 @@ func sliceSelect[S ~[]T, T any](slice S, f func(T) bool) *T {
 }
 
 func seqSelect[S iter.Seq[T], T any](seq S, f func(T) bool) *T {
-	// for item := range seq {
-	// 	if f(item) {
-	// 		return &item
-	// 	}
-	// }
-	// return nil
 	return sliceSelect(seqSlice(seq), f)
 }
 
