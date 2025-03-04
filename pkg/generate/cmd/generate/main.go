@@ -309,6 +309,24 @@ func digAllText(node *html.Node) string {
 	return cleanedText
 }
 
+func digDescendantData(node *html.Node, datum ...string) *html.Node {
+	child := node
+	for _, d := range datum {
+		found := false
+		for n := range child.Descendants() {
+			if n.Data == d {
+				child = n
+				found = true
+				break
+			}
+		}
+		if !found {
+			return nil
+		}
+	}
+	return child
+}
+
 func digChildData(node *html.Node, datum ...string) *html.Node {
 	child := node
 	for _, d := range datum {

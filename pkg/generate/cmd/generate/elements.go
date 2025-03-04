@@ -11,13 +11,15 @@ import (
 )
 
 const (
-	tagsFilePath = "../tag/tags2.go"
+	tagsFilePath = "../tag/tags.go"
 
 	elementsTableCaptionText  = "List of elements"
 	unitElementsChildrenValue = "empty"
 
 	docTypeSpecialCase = `// Doctype is a required preamble.
 var Doctype = UnitTag("!DOCTYPE html")`
+
+	lastNonElementName = "autonomous custom elements"
 )
 
 type element struct {
@@ -41,8 +43,6 @@ func generateElements(specContent io.Reader) error {
 		allElemFuncs = append(allElemFuncs, makeElementFunc(elem))
 	}
 	allElementsContent := strings.Join(allElemFuncs, "\n")
-	fmt.Println(allElementsContent)
-
 	var content bytes.Buffer
 	if _, err = fmt.Fprintf(&content, `%s
 
@@ -77,7 +77,23 @@ func extractElementsFromTable(table *html.Node) []*element {
 	elements := []*element{}
 	for tr := range tbody.ChildNodes() {
 		rowNodes := seqSlice(tr.ChildNodes())
+		// special case for the last non-element
 		name := digAllText(rowNodes[0])
+		if name == lastNonElementName {
+			continue
+		}
+
+		// special case for h1, h2, ..., h6, which share a single row
+		if !strings.Contains(name, ",") {
+			// special case for math[MathML] and [SVG]svg
+			n1 := digAllText(digDescendantData(rowNodes[0], "a"))
+			n2 := digAllText(digDescendantData(rowNodes[0], "code"))
+			name = n1
+			if len(n2) < len(n1) {
+				name = n2
+			}
+		}
+
 		description := digAllText(rowNodes[1])
 		parents := digAllText(rowNodes[3])
 		children := digAllText(rowNodes[4])
