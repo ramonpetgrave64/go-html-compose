@@ -20,20 +20,22 @@ func Test_UnitTag(t *testing.T) {
 		{
 			name:    "unit",
 			want:    `<img>`,
-			content: Img(),
+			content: UnitTag("img"),
 		},
 		{
 			name:    "unit with attribute",
 			want:    `<img class="c1">`,
-			content: Img(attr.Class("c1")),
+			content: UnitTag("img", attr.Attr("class", "c1")),
 		},
 		{
 			name:    "unit with multiple attributes",
 			want:    `<img class="c1" aria-label="logo">`,
-			content: Img(attr.Class("c1"), attr.AriaProp("label", "logo")),
+			content: UnitTag("img", attr.Attr("class", "c1"), attr.AriaProp("label", "logo")),
 		},
 	}
 	for _, tc := range tests {
+		tc := tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -58,45 +60,47 @@ func Test_ParentTag(t *testing.T) {
 		{
 			name:    "single parent",
 			want:    `<div></div>`,
-			content: Div()(),
+			content: ParentTag("div")(),
 		},
 		{
 			name:    "single parent with single attribute",
 			want:    `<div class="c1"></div>`,
-			content: Div(attr.Class("c1"))(),
+			content: ParentTag("div", attr.Attr("class", "c1"))(),
 		},
 		{
 			name:    "single parent with multiple attributes",
 			want:    `<div class="c1" aria-label="logo"></div>`,
-			content: Div(attr.Class("c1"), attr.AriaProp("label", "logo"))(),
+			content: ParentTag("div", attr.Attr("class", "c1"), attr.AriaProp("label", "logo"))(),
 		},
 		{
 			name: "single nested",
 			want: `<div><div></div></div>`,
-			content: Div()(
-				Div()(),
+			content: ParentTag("div")(
+				ParentTag("div")(),
 			),
 		},
 		{
 			name: "multiple nested",
 			want: `<div><div></div><img></div>`,
-			content: Div()(
-				Div()(),
-				Img(),
+			content: ParentTag("div")(
+				ParentTag("div")(),
+				UnitTag("img"),
 			),
 		},
 		{
 			name: "deeply nested",
 			want: `<div><div><span></span></div><img></div>`,
-			content: Div()(
-				Div()(
-					Span()(),
+			content: ParentTag("div")(
+				ParentTag("div")(
+					ParentTag("span")(),
 				),
-				Img(),
+				UnitTag("img"),
 			),
 		},
 	}
 	for _, tc := range tests {
+		tc := tc
+
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
