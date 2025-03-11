@@ -6,7 +6,7 @@ import (
 
 	a "go-html-compose/pkg/attr"
 	d "go-html-compose/pkg/doc"
-	t "go-html-compose/pkg/tag"
+	t "go-html-compose/pkg/tag/tags"
 )
 
 func Test_Example(tt *testing.T) {
