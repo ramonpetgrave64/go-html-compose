@@ -10,7 +10,7 @@ import (
 // See https://html.spec.whatwg.org/multipage/dom.html#phrasing-content-2.
 type ChildElemStruct struct {
 	Name       string
-	Attributes []*AttributeStruct
+	Attributes []*AttrStruct
 }
 
 // ParentElemStruct describes a parent element.
@@ -23,7 +23,7 @@ type ParentElemStruct struct {
 type ParentElemFunc func(content ...IContent) *ParentElemStruct
 
 // func ChildElem creates a ChildElemStruct.
-func ChildElem(name string, attrs ...*AttributeStruct) *ChildElemStruct {
+func ChildElem(name string, attrs ...*AttrStruct) *ChildElemStruct {
 	return &ChildElemStruct{
 		Name:       name,
 		Attributes: attrs,
@@ -31,7 +31,7 @@ func ChildElem(name string, attrs ...*AttributeStruct) *ChildElemStruct {
 }
 
 // func ParentElem creates a ParentElemStruct.
-func ParentElem(name string, attrs ...*AttributeStruct) ParentElemFunc {
+func ParentElem(name string, attrs ...*AttrStruct) ParentElemFunc {
 	return func(elems ...IContent) *ParentElemStruct {
 		return &ParentElemStruct{
 			ChildElemStruct: ChildElem(name, attrs...),

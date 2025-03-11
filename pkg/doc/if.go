@@ -5,7 +5,7 @@ var (
 )
 
 // IfAttr conditonally renders either attribute.
-func IfElseAttr(condition bool, ifTrue, ifFalse *AttributeStruct) *AttributeStruct {
+func IfElseAttr(condition bool, ifTrue, ifFalse *AttrStruct) *AttrStruct {
 	if condition {
 		return ifTrue
 	}
@@ -13,7 +13,7 @@ func IfElseAttr(condition bool, ifTrue, ifFalse *AttributeStruct) *AttributeStru
 }
 
 // IfAttr conditonally renders the attribute.
-func IfAttr(condition bool, ifTrue *AttributeStruct) *AttributeStruct {
+func IfAttr(condition bool, ifTrue *AttrStruct) *AttrStruct {
 	return IfElseAttr(condition, ifTrue, nilAttribute)
 }
 

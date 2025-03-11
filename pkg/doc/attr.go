@@ -5,8 +5,8 @@ import (
 	"io"
 )
 
-// AttributeStruct describes an HTML attribute.
-type AttributeStruct struct {
+// AttrStruct describes an HTML attribute.
+type AttrStruct struct {
 	Name       string
 	Value      string
 	raw        bool
@@ -14,7 +14,7 @@ type AttributeStruct struct {
 }
 
 // RenderTag renders the attribute to the io.Writer.
-func (a *AttributeStruct) RenderTag(wr io.Writer) error {
+func (a *AttrStruct) RenderTag(wr io.Writer) error {
 	if a.skipRender {
 		return nil
 	}
@@ -33,8 +33,8 @@ func (a *AttributeStruct) RenderTag(wr io.Writer) error {
 }
 
 // Attr creates an AttributeStruct.
-func Attr(name string, value string) *AttributeStruct {
-	return &AttributeStruct{
+func Attr(name string, value string) *AttrStruct {
+	return &AttrStruct{
 		Name:  name,
 		Value: value,
 		raw:   false,
@@ -42,8 +42,8 @@ func Attr(name string, value string) *AttributeStruct {
 }
 
 // RawAttr creates a attribute that renderes without escaping the value.
-func RawAttr(name string, value string) *AttributeStruct {
-	return &AttributeStruct{
+func RawAttr(name string, value string) *AttrStruct {
+	return &AttrStruct{
 		Name:  name,
 		Value: value,
 		raw:   true,
@@ -51,7 +51,7 @@ func RawAttr(name string, value string) *AttributeStruct {
 }
 
 // BooleanAttr creates an attribute that holds boolean values and conditionally renders if the cond is true.
-func BooleanAttr(name string, cond bool) *AttributeStruct {
+func BooleanAttr(name string, cond bool) *AttrStruct {
 	value := name
 	attr := Attr(name, value)
 	attr.skipRender = !cond

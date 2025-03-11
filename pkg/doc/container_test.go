@@ -8,11 +8,11 @@ import (
 	"go-html-compose/pkg/internal/test"
 )
 
-type testRenderable struct {
+type testContentStruct struct {
 	data []byte
 }
 
-func (r testRenderable) RenderConent(wr io.Writer) error {
+func (r testContentStruct) RenderConent(wr io.Writer) error {
 	if _, err := wr.Write(r.data); err != nil {
 		return err
 	}
@@ -35,12 +35,12 @@ func Test_Container(t *testing.T) {
 		{
 			name:    "single",
 			want:    `ok`,
-			content: *ContContainer(testRenderable{data: []byte(`ok`)}),
+			content: *ContContainer(testContentStruct{data: []byte(`ok`)}),
 		},
 		{
 			name:    "multiple",
 			want:    `okgo`,
-			content: *ContContainer(testRenderable{data: []byte(`ok`)}, testRenderable{data: []byte(`go`)}),
+			content: *ContContainer(testContentStruct{data: []byte(`ok`)}, testContentStruct{data: []byte(`go`)}),
 		},
 	}
 	for _, tc := range tests {

@@ -17,23 +17,23 @@ const (
 // Element(s): Global attribute.
 // Description: Lets you attach custom attributes to an HTML element.
 // Value: Text.
-func DataProp(property, value string) *attr.AttributeStruct {
-	return attr.Attr("data-" + property, value)
+func DataProp(property, value string) *doc.AttrStruct {
+	return doc.Attr("data-" + property, value)
 }`
 	ariaPropSpecialCase = `// AriaProp
 // Element(s): Global attribute.
 // Description: Sets aria-* properties.
 // Value: Text.
-func AriaProp(property, value string) *attr.AttributeStruct {
-	return attr.Attr("aria-" + property, value)
+func AriaProp(property, value string) *doc.AttrStruct {
+	return doc.Attr("aria-" + property, value)
 }`
 
 	RoleSpecialCase = `// Role
 // Element(s): Global attribute.
 // Description: Defines an explicit role for an element for use by assistive technologies.
 // Value: Text.
-func Role(value string) *attr.AttributeStruct {
-	return attr.Attr("role", value)
+func Role(value string) *doc.AttrStruct {
+	return doc.Attr("role", value)
 }`
 
 	specURL = "https://html.spec.whatwg.org/multipage/indices.html"
@@ -112,7 +112,7 @@ func generateAttributes(specContent io.Reader) error {
 
 package attrs
 
-import "go-html-compose/pkg/attr"
+import "go-html-compose/pkg/doc"
 
 // Special attributes
 
@@ -131,7 +131,7 @@ import "go-html-compose/pkg/attr"
 %s`, doNotEdit, ariaPropSpecialCase, dataPropSpecialCase, RoleSpecialCase, regularAttributeContent, eventHandlerAttributeContent); err != nil {
 		return err
 	}
-	goFile, err := os.Create("../html/attrs/attrs.go")
+	goFile, err := os.Create("../pkg/html/attrs/attrs.go")
 	if err != nil {
 		return err
 	}
@@ -202,18 +202,18 @@ func extractAttributesFromTable(table *html.Node) []*attribute {
 func makeAttributeFunc(attr *attribute) string {
 	funcName := kebabToPascal(attr.name)
 	valueType := "string"
-	attrFunc := "attr.Attr"
+	attrFunc := "doc.Attr"
 	doc := makeAttrDoc(attr)
 	if attr.isBoolean {
 		valueType = "bool"
-		attrFunc = "attr.BooleanAttr"
+		attrFunc = "doc.BooleanAttr"
 	} else if attr.isEventHandler {
-		attrFunc = "attr.RawAttr"
+		attrFunc = "doc.RawAttr"
 	}
 
 	return fmt.Sprintf(
 		`%s
-func %s(value %s) *attr.AttributeStruct {
+func %s(value %s) *doc.AttrStruct {
 	return %s("%s", value)
 }
 `,

@@ -17,7 +17,7 @@ var Doctype = doc.ChildElem("!DOCTYPE html")
 // Parents: phrasing.
 // Children: transparent*.
 // Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
-func A(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func A(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("a", attrs...)
 }
 
@@ -26,7 +26,7 @@ func A(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Abbr(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Abbr(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("abbr", attrs...)
 }
 
@@ -35,7 +35,7 @@ func Abbr(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Address(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Address(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("address", attrs...)
 }
 
@@ -44,7 +44,7 @@ func Address(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing*.
 // Children: empty.
 // Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
-func Area(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Area(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("area", attrs...)
 }
 
@@ -53,7 +53,7 @@ func Area(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Article(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Article(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("article", attrs...)
 }
 
@@ -62,7 +62,7 @@ func Article(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Aside(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Aside(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("aside", attrs...)
 }
 
@@ -71,7 +71,7 @@ func Aside(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
-func Audio(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Audio(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("audio", attrs...)
 }
 
@@ -80,7 +80,7 @@ func Audio(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func B(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func B(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("b", attrs...)
 }
 
@@ -89,7 +89,7 @@ func B(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head.
 // Children: empty.
 // Attributes: globals; href; target
-func Base(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Base(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("base", attrs...)
 }
 
@@ -98,7 +98,7 @@ func Base(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Bdi(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Bdi(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("bdi", attrs...)
 }
 
@@ -107,7 +107,7 @@ func Bdi(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Bdo(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Bdo(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("bdo", attrs...)
 }
 
@@ -116,7 +116,7 @@ func Bdo(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; cite
-func Blockquote(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Blockquote(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("blockquote", attrs...)
 }
 
@@ -125,7 +125,7 @@ func Blockquote(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: html.
 // Children: flow.
 // Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
-func Body(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Body(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("body", attrs...)
 }
 
@@ -134,7 +134,7 @@ func Body(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Br(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Br(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("br", attrs...)
 }
 
@@ -143,7 +143,7 @@ func Br(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
-func Button(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Button(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("button", attrs...)
 }
 
@@ -152,7 +152,7 @@ func Button(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; width; height
-func Canvas(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Canvas(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("canvas", attrs...)
 }
 
@@ -161,7 +161,7 @@ func Canvas(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: table.
 // Children: flow*.
 // Attributes: globals
-func Caption(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Caption(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("caption", attrs...)
 }
 
@@ -170,7 +170,7 @@ func Caption(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Cite(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Cite(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("cite", attrs...)
 }
 
@@ -179,7 +179,7 @@ func Cite(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Code(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Code(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("code", attrs...)
 }
 
@@ -188,7 +188,7 @@ func Code(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: colgroup.
 // Children: empty.
 // Attributes: globals; span
-func Col(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Col(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("col", attrs...)
 }
 
@@ -197,7 +197,7 @@ func Col(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: table.
 // Children: col*; template*.
 // Attributes: globals; span
-func Colgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Colgroup(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("colgroup", attrs...)
 }
 
@@ -206,7 +206,7 @@ func Colgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; value
-func Data(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Data(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("data", attrs...)
 }
 
@@ -215,7 +215,7 @@ func Data(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing*; option*; script-supporting elements*.
 // Attributes: globals
-func Datalist(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Datalist(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("datalist", attrs...)
 }
 
@@ -224,7 +224,7 @@ func Datalist(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: dl; div*.
 // Children: flow.
 // Attributes: globals
-func Dd(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Dd(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("dd", attrs...)
 }
 
@@ -233,7 +233,7 @@ func Dd(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
-func Del(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Del(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("del", attrs...)
 }
 
@@ -242,7 +242,7 @@ func Del(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: summary*; flow.
 // Attributes: globals; name; open
-func Details(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Details(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("details", attrs...)
 }
 
@@ -251,7 +251,7 @@ func Details(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals
-func Dfn(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Dfn(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("dfn", attrs...)
 }
 
@@ -260,7 +260,7 @@ func Dfn(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; open
-func Dialog(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Dialog(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("dialog", attrs...)
 }
 
@@ -269,7 +269,7 @@ func Dialog(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow; dl.
 // Children: flow.
 // Attributes: globals
-func Div(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Div(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("div", attrs...)
 }
 
@@ -278,7 +278,7 @@ func Div(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: dt*; dd*; div*; script-supporting elements.
 // Attributes: globals
-func Dl(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Dl(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("dl", attrs...)
 }
 
@@ -287,7 +287,7 @@ func Dl(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: dl; div*.
 // Children: flow*.
 // Attributes: globals
-func Dt(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Dt(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("dt", attrs...)
 }
 
@@ -296,7 +296,7 @@ func Dt(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Em(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Em(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("em", attrs...)
 }
 
@@ -305,7 +305,7 @@ func Em(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; type; width; height; any*
-func Embed(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Embed(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("embed", attrs...)
 }
 
@@ -314,7 +314,7 @@ func Embed(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: flow.
 // Children: legend*; flow.
 // Attributes: globals; disabled; form; name
-func Fieldset(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Fieldset(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("fieldset", attrs...)
 }
 
@@ -323,7 +323,7 @@ func Fieldset(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: figure.
 // Children: flow.
 // Attributes: globals
-func Figcaption(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Figcaption(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("figcaption", attrs...)
 }
 
@@ -332,7 +332,7 @@ func Figcaption(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: figcaption*; flow.
 // Attributes: globals
-func Figure(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Figure(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("figure", attrs...)
 }
 
@@ -341,7 +341,7 @@ func Figure(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Footer(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Footer(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("footer", attrs...)
 }
 
@@ -350,7 +350,7 @@ func Footer(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
-func Form(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Form(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("form", attrs...)
 }
 
@@ -359,7 +359,7 @@ func Form(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H1(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H1(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h1", attrs...)
 }
 
@@ -368,7 +368,7 @@ func H1(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H2(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H2(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h2", attrs...)
 }
 
@@ -377,7 +377,7 @@ func H2(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H3(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H3(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h3", attrs...)
 }
 
@@ -386,7 +386,7 @@ func H3(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H4(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H4(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h4", attrs...)
 }
 
@@ -395,7 +395,7 @@ func H4(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H5(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H5(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h5", attrs...)
 }
 
@@ -404,7 +404,7 @@ func H5(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H6(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func H6(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("h6", attrs...)
 }
 
@@ -413,7 +413,7 @@ func H6(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: html.
 // Children: metadata content*.
 // Attributes: globals
-func Head(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Head(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("head", attrs...)
 }
 
@@ -422,7 +422,7 @@ func Head(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Header(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Header(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("header", attrs...)
 }
 
@@ -431,7 +431,7 @@ func Header(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: legend; summary; flow.
 // Children: h1; h2; h3; h4; h5; h6; script-supporting elements.
 // Attributes: globals
-func Hgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Hgroup(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("hgroup", attrs...)
 }
 
@@ -440,7 +440,7 @@ func Hgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: empty.
 // Attributes: globals
-func Hr(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Hr(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("hr", attrs...)
 }
 
@@ -449,7 +449,7 @@ func Hr(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: none*.
 // Children: head*; body*.
 // Attributes: globals
-func Html(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Html(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("html", attrs...)
 }
 
@@ -458,7 +458,7 @@ func Html(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func I(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func I(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("i", attrs...)
 }
 
@@ -467,7 +467,7 @@ func I(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
-func Iframe(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Iframe(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("iframe", attrs...)
 }
 
@@ -476,7 +476,7 @@ func Iframe(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing; picture.
 // Children: empty.
 // Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
-func Img(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Img(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("img", attrs...)
 }
 
@@ -485,7 +485,7 @@ func Img(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
-func Input(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Input(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("input", attrs...)
 }
 
@@ -494,7 +494,7 @@ func Input(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
-func Ins(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Ins(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("ins", attrs...)
 }
 
@@ -503,7 +503,7 @@ func Ins(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Kbd(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Kbd(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("kbd", attrs...)
 }
 
@@ -512,7 +512,7 @@ func Kbd(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; for
-func Label(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Label(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("label", attrs...)
 }
 
@@ -521,7 +521,7 @@ func Label(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: fieldset.
 // Children: phrasing; heading content.
 // Attributes: globals
-func Legend(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Legend(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("legend", attrs...)
 }
 
@@ -530,7 +530,7 @@ func Legend(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Li(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("li", attrs...)
 }
 
@@ -539,7 +539,7 @@ func Li(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
-func Link(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Link(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("link", attrs...)
 }
 
@@ -548,7 +548,7 @@ func Link(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: flow*.
 // Children: flow.
 // Attributes: globals
-func Main(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Main(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("main", attrs...)
 }
 
@@ -557,7 +557,7 @@ func Main(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: transparent; area*.
 // Attributes: globals; name
-func Map(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Map(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("map", attrs...)
 }
 
@@ -566,7 +566,7 @@ func Map(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Mark(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Mark(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("mark", attrs...)
 }
 
@@ -575,7 +575,7 @@ func Mark(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: per [MATHML].
 // Attributes: per [MATHML]
-func Math(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Math(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("math", attrs...)
 }
 
@@ -584,7 +584,7 @@ func Math(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Menu(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Menu(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("menu", attrs...)
 }
 
@@ -593,7 +593,7 @@ func Menu(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; name; http-equiv; content; charset; media
-func Meta(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Meta(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("meta", attrs...)
 }
 
@@ -602,7 +602,7 @@ func Meta(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; min; max; low; high; optimum
-func Meter(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Meter(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("meter", attrs...)
 }
 
@@ -611,7 +611,7 @@ func Meter(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Nav(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Nav(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("nav", attrs...)
 }
 
@@ -620,7 +620,7 @@ func Nav(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head*; phrasing*.
 // Children: varies*.
 // Attributes: globals
-func Noscript(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Noscript(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("noscript", attrs...)
 }
 
@@ -629,7 +629,7 @@ func Noscript(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; data; type; name; form; width; height
-func Object(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Object(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("object", attrs...)
 }
 
@@ -638,7 +638,7 @@ func Object(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals; reversed; start; type
-func Ol(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Ol(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("ol", attrs...)
 }
 
@@ -647,7 +647,7 @@ func Ol(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: select.
 // Children: option; script-supporting elements.
 // Attributes: globals; disabled; label
-func Optgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Optgroup(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("optgroup", attrs...)
 }
 
@@ -656,7 +656,7 @@ func Optgroup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: select; datalist; optgroup.
 // Children: text*.
 // Attributes: globals; disabled; label; selected; value
-func Option(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Option(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("option", attrs...)
 }
 
@@ -665,7 +665,7 @@ func Option(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; for; form; name
-func Output(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Output(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("output", attrs...)
 }
 
@@ -674,7 +674,7 @@ func Output(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
-func P(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func P(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("p", attrs...)
 }
 
@@ -683,7 +683,7 @@ func P(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: source*; one img; script-supporting elements.
 // Attributes: globals
-func Picture(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Picture(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("picture", attrs...)
 }
 
@@ -692,7 +692,7 @@ func Picture(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
-func Pre(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Pre(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("pre", attrs...)
 }
 
@@ -701,7 +701,7 @@ func Pre(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; max
-func Progress(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Progress(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("progress", attrs...)
 }
 
@@ -710,7 +710,7 @@ func Progress(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; cite
-func Q(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Q(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("q", attrs...)
 }
 
@@ -719,7 +719,7 @@ func Q(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: ruby.
 // Children: text.
 // Attributes: globals
-func Rp(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Rp(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("rp", attrs...)
 }
 
@@ -728,7 +728,7 @@ func Rp(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: ruby.
 // Children: phrasing.
 // Attributes: globals
-func Rt(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Rt(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("rt", attrs...)
 }
 
@@ -737,7 +737,7 @@ func Rt(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing; rt; rp*.
 // Attributes: globals
-func Ruby(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Ruby(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("ruby", attrs...)
 }
 
@@ -746,7 +746,7 @@ func Ruby(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func S(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func S(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("s", attrs...)
 }
 
@@ -755,7 +755,7 @@ func S(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Samp(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Samp(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("samp", attrs...)
 }
 
@@ -764,7 +764,7 @@ func Samp(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
-func Script(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Script(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("script", attrs...)
 }
 
@@ -773,7 +773,7 @@ func Script(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Search(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Search(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("search", attrs...)
 }
 
@@ -782,7 +782,7 @@ func Search(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Section(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Section(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("section", attrs...)
 }
 
@@ -791,7 +791,7 @@ func Section(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: option; optgroup; script-supporting elements.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
-func Select(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Select(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("select", attrs...)
 }
 
@@ -800,7 +800,7 @@ func Select(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; name
-func Slot(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Slot(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("slot", attrs...)
 }
 
@@ -809,7 +809,7 @@ func Slot(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Small(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Small(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("small", attrs...)
 }
 
@@ -818,7 +818,7 @@ func Small(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
-func Source(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Source(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("source", attrs...)
 }
 
@@ -827,7 +827,7 @@ func Source(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Span(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Span(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("span", attrs...)
 }
 
@@ -836,7 +836,7 @@ func Span(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Strong(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Strong(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("strong", attrs...)
 }
 
@@ -845,7 +845,7 @@ func Strong(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head; noscript*.
 // Children: text*.
 // Attributes: globals; media; blocking
-func Style(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Style(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("style", attrs...)
 }
 
@@ -854,7 +854,7 @@ func Style(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sub(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Sub(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("sub", attrs...)
 }
 
@@ -863,7 +863,7 @@ func Sub(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: details.
 // Children: phrasing; heading content.
 // Attributes: globals
-func Summary(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Summary(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("summary", attrs...)
 }
 
@@ -872,7 +872,7 @@ func Summary(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Sup(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("sup", attrs...)
 }
 
@@ -881,7 +881,7 @@ func Sup(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: per [SVG].
 // Attributes: per [SVG]
-func Svg(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Svg(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("svg", attrs...)
 }
 
@@ -890,7 +890,7 @@ func Svg(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements.
 // Attributes: globals
-func Table(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Table(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("table", attrs...)
 }
 
@@ -899,7 +899,7 @@ func Table(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tbody(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Tbody(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("tbody", attrs...)
 }
 
@@ -908,7 +908,7 @@ func Tbody(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: tr.
 // Children: flow.
 // Attributes: globals; colspan; rowspan; headers
-func Td(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Td(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("td", attrs...)
 }
 
@@ -917,7 +917,7 @@ func Td(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable
-func Template(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Template(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("template", attrs...)
 }
 
@@ -926,7 +926,7 @@ func Template(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: text.
 // Attributes: globals; autocomplete; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap
-func Textarea(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Textarea(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("textarea", attrs...)
 }
 
@@ -935,7 +935,7 @@ func Textarea(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tfoot(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Tfoot(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("tfoot", attrs...)
 }
 
@@ -944,7 +944,7 @@ func Tfoot(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: tr.
 // Children: flow*.
 // Attributes: globals; colspan; rowspan; headers; scope; abbr
-func Th(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Th(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("th", attrs...)
 }
 
@@ -953,7 +953,7 @@ func Th(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Thead(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Thead(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("thead", attrs...)
 }
 
@@ -962,7 +962,7 @@ func Thead(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; datetime
-func Time(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Time(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("time", attrs...)
 }
 
@@ -971,7 +971,7 @@ func Time(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: head.
 // Children: text*.
 // Attributes: globals
-func Title(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Title(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("title", attrs...)
 }
 
@@ -980,7 +980,7 @@ func Title(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: table; thead; tbody; tfoot.
 // Children: th*; td; script-supporting elements.
 // Attributes: globals
-func Tr(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Tr(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("tr", attrs...)
 }
 
@@ -989,7 +989,7 @@ func Tr(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
-func Track(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Track(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("track", attrs...)
 }
 
@@ -998,7 +998,7 @@ func Track(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func U(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func U(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("u", attrs...)
 }
 
@@ -1007,7 +1007,7 @@ func U(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Ul(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Ul(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("ul", attrs...)
 }
 
@@ -1016,7 +1016,7 @@ func Ul(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Var(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Var(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("var", attrs...)
 }
 
@@ -1025,7 +1025,7 @@ func Var(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
-func Video(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
+func Video(attrs ...*doc.AttrStruct) doc.ParentElemFunc {
 	return doc.ParentElem("video", attrs...)
 }
 
@@ -1034,6 +1034,6 @@ func Video(attrs ...*doc.AttributeStruct) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Wbr(attrs ...*doc.AttributeStruct) *doc.ChildElemStruct {
+func Wbr(attrs ...*doc.AttrStruct) *doc.ChildElemStruct {
 	return doc.ChildElem("wbr", attrs...)
 }

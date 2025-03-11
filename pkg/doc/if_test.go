@@ -13,13 +13,13 @@ func Test_If(t *testing.T) {
 	tests := []struct {
 		name      string
 		want      string
-		ifContent *testRenderable
+		ifContent *testContentStruct
 		condition bool
 	}{
 		{
 			name: "true",
 			want: `my-words`,
-			ifContent: &testRenderable{
+			ifContent: &testContentStruct{
 				data: []byte(`my-words`),
 			},
 			condition: true,
@@ -27,7 +27,7 @@ func Test_If(t *testing.T) {
 		{
 			name: "false",
 			want: ``,
-			ifContent: &testRenderable{
+			ifContent: &testContentStruct{
 				data: []byte(`my-words`),
 			},
 			condition: false,
@@ -54,7 +54,7 @@ func Test_MapToContainer(t *testing.T) {
 	t.Parallel()
 
 	mapFunc := func(item string) IContent {
-		return testRenderable{
+		return testContentStruct{
 			data: []byte(`*item: ` + item),
 		}
 	}
