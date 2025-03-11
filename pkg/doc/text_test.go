@@ -25,6 +25,16 @@ func Test_Text(t *testing.T) {
 			want:    `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
 			content: Text([]byte(`<script>alert("hello world")</script>`)),
 		},
+		{
+			name:    "text S",
+			want:    `hello world`,
+			content: TextS(`hello world`),
+		},
+		{
+			name:    "html escape S",
+			want:    `&lt;script&gt;alert(&#34;hello world&#34;)&lt;/script&gt;`,
+			content: TextS(`<script>alert("hello world")</script>`),
+		},
 	}
 	for _, tc := range tests {
 		tc := tc // create a new variable to hold the value of tc
@@ -59,6 +69,16 @@ func Test_RawText(t *testing.T) {
 			name:    "no html escape",
 			want:    `<script>alert("hello world")</script>`,
 			content: RawText([]byte(`<script>alert("hello world")</script>`)),
+		},
+		{
+			name:    "text S",
+			want:    `hello world`,
+			content: RawTextS(`hello world`),
+		},
+		{
+			name:    "no html escape S",
+			want:    `<script>alert("hello world")</script>`,
+			content: RawTextS(`<script>alert("hello world")</script>`),
 		},
 	}
 	for _, tc := range tests {
