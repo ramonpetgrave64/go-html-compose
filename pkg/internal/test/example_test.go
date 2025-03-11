@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	a "go-html-compose/pkg/attr"
+	a "go-html-compose/pkg/attr/attrs"
 	d "go-html-compose/pkg/doc"
 	t "go-html-compose/pkg/tag/tags"
 )
