@@ -11,13 +11,13 @@ import (
 )
 
 const (
-	tagsFilePath = "../tag/tags.go"
+	tagsFilePath = "../tag/tags/tags.go"
 
 	elementsTableCaptionText  = "List of elements"
 	unitElementsChildrenValue = "empty"
 
 	docTypeSpecialCase = `// Doctype is a required preamble.
-var Doctype = UnitTag("!DOCTYPE html")`
+var Doctype = tag.UnitTag("!DOCTYPE html")`
 
 	lastNonElementName = "autonomous custom elements"
 )
@@ -46,9 +46,10 @@ func generateElements(specContent io.Reader) error {
 	var content bytes.Buffer
 	if _, err = fmt.Fprintf(&content, `%s
 
-package tag
+package tags
 
 import "go-html-compose/pkg/attr"
+import "go-html-compose/pkg/tag"
 
 // Special Elements
 
@@ -117,12 +118,12 @@ func extractElementsFromTable(table *html.Node) []*element {
 
 func makeElementFunc(elem *element) string {
 	funcName := kebabToPascal(elem.name)
-	tagFunc := "ParentTag"
-	returnType := "ContentFunc"
+	tagFunc := "tag.ParentTag"
+	returnType := "tag.ContentFunc"
 	doc := makeElemDoc(elem)
 	if elem.isUnit {
-		tagFunc = "UnitTag"
-		returnType = "*UnitTagStruct"
+		tagFunc = "tag.UnitTag"
+		returnType = "*tag.UnitTagStruct"
 	}
 	return fmt.Sprintf(
 		`%s
