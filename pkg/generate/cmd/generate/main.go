@@ -131,7 +131,7 @@ import "go-html-compose/pkg/attr"
 %s`, doNotEdit, ariaPropSpecialCase, dataPropSpecialCase, RoleSpecialCase, regularAttributeContent, eventHandlerAttributeContent); err != nil {
 		return err
 	}
-	goFile, err := os.Create("../attr/attrs/attrs.go")
+	goFile, err := os.Create("../html/attrs/attrs.go")
 	if err != nil {
 		return err
 	}

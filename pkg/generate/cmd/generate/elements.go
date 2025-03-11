@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	tagsFilePath = "../tag/tags/tags.go"
+	tagsFilePath = "../html/tags/tags.go"
 
 	elementsTableCaptionText  = "List of elements"
 	unitElementsChildrenValue = "empty"

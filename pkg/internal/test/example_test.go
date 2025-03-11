@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"testing"
 
-	a "go-html-compose/pkg/attr/attrs"
 	d "go-html-compose/pkg/doc"
-	t "go-html-compose/pkg/tag/tags"
+	a "go-html-compose/pkg/html/attrs"
+	t "go-html-compose/pkg/html/tags"
 )
 
 func Test_Example(tt *testing.T) {
