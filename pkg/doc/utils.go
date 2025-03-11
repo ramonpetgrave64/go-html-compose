@@ -5,23 +5,12 @@ import (
 	"io"
 )
 
-type Renderable interface {
-	Render(wr io.Writer) (err error)
-}
-
-func Bytes(rendr Renderable) ([]byte, error) {
+func Bytes(rendr IContent) ([]byte, error) {
 	var buffer bytes.Buffer
-	if err := rendr.Render(&buffer); err != nil {
+	if err := rendr.RenderConent(&buffer); err != nil {
 		return nil, err
 	}
 	return buffer.Bytes(), nil
-}
-
-func Render(wr io.Writer, rendr Renderable) error {
-	if err := rendr.Render(wr); err != nil {
-		return err
-	}
-	return nil
 }
 
 func WriteByteSlices(wr io.Writer, slices ...[]byte) error {

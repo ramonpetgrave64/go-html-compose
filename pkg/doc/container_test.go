@@ -12,7 +12,7 @@ type testRenderable struct {
 	data []byte
 }
 
-func (r testRenderable) Render(wr io.Writer) error {
+func (r testRenderable) RenderConent(wr io.Writer) error {
 	if _, err := wr.Write(r.data); err != nil {
 		return err
 	}
@@ -25,22 +25,22 @@ func Test_Container(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content ContainerStruct
+		content ContContainerStruct
 	}{
 		{
 			name:    "empty",
 			want:    ``,
-			content: *Container(),
+			content: *ContContainer(),
 		},
 		{
 			name:    "single",
 			want:    `ok`,
-			content: *Container(testRenderable{data: []byte(`ok`)}),
+			content: *ContContainer(testRenderable{data: []byte(`ok`)}),
 		},
 		{
 			name:    "multiple",
 			want:    `okgo`,
-			content: *Container(testRenderable{data: []byte(`ok`)}, testRenderable{data: []byte(`go`)}),
+			content: *ContContainer(testRenderable{data: []byte(`ok`)}, testRenderable{data: []byte(`go`)}),
 		},
 	}
 	for _, tc := range tests {
@@ -50,7 +50,7 @@ func Test_Container(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			if err := tc.content.Render(&buffer); err != nil {
+			if err := tc.content.RenderConent(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()

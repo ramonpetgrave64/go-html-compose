@@ -13,22 +13,22 @@ func Test_UnitTag(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content Renderable
+		content IContent
 	}{
 		{
 			name:    "unit",
 			want:    `<img>`,
-			content: UnitTag("img"),
+			content: ChildElem("img"),
 		},
 		{
 			name:    "unit with attribute",
 			want:    `<img class="c1">`,
-			content: UnitTag("img", Attr("class", "c1")),
+			content: ChildElem("img", Attr("class", "c1")),
 		},
 		{
 			name:    "unit with multiple attributes",
 			want:    `<img class="c1" aria-label="logo">`,
-			content: UnitTag("img", Attr("class", "c1"), Attr("aria-label", "logo")),
+			content: ChildElem("img", Attr("class", "c1"), Attr("aria-label", "logo")),
 		},
 	}
 	for _, tc := range tests {
@@ -38,7 +38,7 @@ func Test_UnitTag(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			if err := tc.content.Render(&buffer); err != nil {
+			if err := tc.content.RenderConent(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
@@ -53,46 +53,46 @@ func Test_ParentTag(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content Renderable
+		content IContent
 	}{
 		{
 			name:    "single parent",
 			want:    `<div></div>`,
-			content: ParentTag("div")(),
+			content: ParentElem("div")(),
 		},
 		{
 			name:    "single parent with single attribute",
 			want:    `<div class="c1"></div>`,
-			content: ParentTag("div", Attr("class", "c1"))(),
+			content: ParentElem("div", Attr("class", "c1"))(),
 		},
 		{
 			name:    "single parent with multiple attributes",
 			want:    `<div class="c1" aria-label="logo"></div>`,
-			content: ParentTag("div", Attr("class", "c1"), Attr("aria-label", "logo"))(),
+			content: ParentElem("div", Attr("class", "c1"), Attr("aria-label", "logo"))(),
 		},
 		{
 			name: "single nested",
 			want: `<div><div></div></div>`,
-			content: ParentTag("div")(
-				ParentTag("div")(),
+			content: ParentElem("div")(
+				ParentElem("div")(),
 			),
 		},
 		{
 			name: "multiple nested",
 			want: `<div><div></div><img></div>`,
-			content: ParentTag("div")(
-				ParentTag("div")(),
-				UnitTag("img"),
+			content: ParentElem("div")(
+				ParentElem("div")(),
+				ChildElem("img"),
 			),
 		},
 		{
 			name: "deeply nested",
 			want: `<div><div><span></span></div><img></div>`,
-			content: ParentTag("div")(
-				ParentTag("div")(
-					ParentTag("span")(),
+			content: ParentElem("div")(
+				ParentElem("div")(
+					ParentElem("span")(),
 				),
-				UnitTag("img"),
+				ChildElem("img"),
 			),
 		},
 	}
@@ -103,7 +103,7 @@ func Test_ParentTag(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			if err := tc.content.Render(&buffer); err != nil {
+			if err := tc.content.RenderConent(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()

@@ -7,6 +7,7 @@ import (
 	d "go-html-compose/pkg/doc"
 	a "go-html-compose/pkg/html/attrs"
 	e "go-html-compose/pkg/html/elems"
+	"go-html-compose/pkg/internal/test"
 )
 
 func Test_Example(tt *testing.T) {
@@ -15,7 +16,7 @@ func Test_Example(tt *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content d.Renderable
+		content d.IContent
 	}{
 		{
 			name: "example HTML page",
@@ -94,11 +95,11 @@ func Test_Example(tt *testing.T) {
 			tt.Parallel()
 
 			var buffer bytes.Buffer
-			if err := d.Render(&buffer, tc.content); err != nil {
+			if err := tc.content.RenderConent(&buffer); err != nil {
 				tt.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
-			TestDiffError(tt, tc.want, got)
+			test.TestDiffError(tt, tc.want, got)
 		})
 	}
 }

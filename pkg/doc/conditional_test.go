@@ -40,8 +40,8 @@ func Test_If(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			content := If(tc.condition, tc.ifContent)
-			if err := content.Render(&buffer); err != nil {
+			content := IfCont(tc.condition, tc.ifContent)
+			if err := content.RenderConent(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()
@@ -53,7 +53,7 @@ func Test_If(t *testing.T) {
 func Test_MapToContainer(t *testing.T) {
 	t.Parallel()
 
-	mapFunc := func(item string) Renderable {
+	mapFunc := func(item string) IContent {
 		return testRenderable{
 			data: []byte(`*item: ` + item),
 		}
@@ -87,8 +87,8 @@ func Test_MapToContainer(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			content := MapToContainer(tc.items, mapFunc)
-			if err := content.Render(&buffer); err != nil {
+			content := MapToContContainer(tc.items, mapFunc)
+			if err := content.RenderConent(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 			}
 			got := buffer.String()

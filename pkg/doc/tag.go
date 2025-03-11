@@ -1,21 +1,47 @@
+// Package doc has tools to construct HTML content.
+// See https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content.
 package doc
 
 import (
 	"io"
 )
 
-type ContentFunc func(elems ...Renderable) *ParentTagStruct
-
-type UnitTagStruct struct {
+// ChildElemStruct describes elements that don't contain other elements.
+// See https://html.spec.whatwg.org/multipage/dom.html#phrasing-content-2.
+type ChildElemStruct struct {
 	Name       string
 	Attributes []*AttributeStruct
-	skipRender bool
 }
 
-func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
-	if t.skipRender {
-		return
+// ParentElemStruct describes a parent element.
+type ParentElemStruct struct {
+	*ChildElemStruct
+	Children *ContContainerStruct
+}
+
+// ParentElemFunc is a function that returns a *ParentElemStruct.
+type ParentElemFunc func(content ...IContent) *ParentElemStruct
+
+// func ChildElem creates a ChildElemStruct.
+func ChildElem(name string, attrs ...*AttributeStruct) *ChildElemStruct {
+	return &ChildElemStruct{
+		Name:       name,
+		Attributes: attrs,
 	}
+}
+
+// func ParentElem creates a ParentElemStruct.
+func ParentElem(name string, attrs ...*AttributeStruct) ParentElemFunc {
+	return func(elems ...IContent) *ParentElemStruct {
+		return &ParentElemStruct{
+			ChildElemStruct: ChildElem(name, attrs...),
+			Children:        ContContainer(elems...),
+		}
+	}
+}
+
+// RenderContent renders the element.
+func (t *ChildElemStruct) RenderConent(wr io.Writer) (err error) {
 	if err = WriteByteSlices(wr, []byte(`<`), []byte(t.Name)); err != nil {
 		return
 	}
@@ -31,38 +57,14 @@ func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
 	return
 }
 
-type ParentTagStruct struct {
-	*UnitTagStruct
-	Container  *ContainerStruct
-	skipRender bool
-}
-
-func (t *ParentTagStruct) Render(wr io.Writer) (err error) {
-	if t.skipRender {
+// RenderContent renders the element.
+func (t *ParentElemStruct) RenderConent(wr io.Writer) (err error) {
+	if err = t.ChildElemStruct.RenderConent(wr); err != nil {
 		return
 	}
-	if err = t.UnitTagStruct.Render(wr); err != nil {
-		return
-	}
-	if err = t.Container.Render(wr); err != nil {
+	if err = t.Children.RenderConent(wr); err != nil {
 		return err
 	}
 	err = WriteByteSlices(wr, []byte(`</`), []byte(t.Name), []byte(`>`))
 	return
-}
-
-func UnitTag(name string, attrs ...*AttributeStruct) *UnitTagStruct {
-	return &UnitTagStruct{
-		Name:       name,
-		Attributes: attrs,
-	}
-}
-
-func ParentTag(name string, attrs ...*AttributeStruct) ContentFunc {
-	return func(elems ...Renderable) *ParentTagStruct {
-		return &ParentTagStruct{
-			UnitTagStruct: UnitTag(name, attrs...),
-			Container:     Container(elems...),
-		}
-	}
 }
