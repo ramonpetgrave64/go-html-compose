@@ -13,8 +13,8 @@ type AttributeStruct struct {
 	skipRender bool
 }
 
-// Render renders the attribute to the io.Writer.
-func (a *AttributeStruct) Render(wr io.Writer) error {
+// RenderTag renders the attribute to the io.Writer.
+func (a *AttributeStruct) RenderTag(wr io.Writer) error {
 	if a.skipRender {
 		return nil
 	}
@@ -54,11 +54,6 @@ func RawAttr(name string, value string) *AttributeStruct {
 func BooleanAttr(name string, cond bool) *AttributeStruct {
 	value := name
 	attr := Attr(name, value)
-	return IfAttr(attr, cond)
-}
-
-// IfAttr makes an existing Attr conditionally renderable.
-func IfAttr(attr *AttributeStruct, cond bool) *AttributeStruct {
 	attr.skipRender = !cond
 	return attr
 }

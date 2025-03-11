@@ -48,7 +48,7 @@ func Test_Attr(t *testing.T) {
 			t.Parallel()
 
 			var buffer bytes.Buffer
-			if err := tc.content.Render(&buffer); err != nil {
+			if err := tc.content.RenderTag(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
 
 			}

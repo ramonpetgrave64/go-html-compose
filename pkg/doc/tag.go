@@ -9,9 +9,13 @@ type ContentFunc func(elems ...Renderable) *ParentTagStruct
 type UnitTagStruct struct {
 	Name       string
 	Attributes []*AttributeStruct
+	skipRender bool
 }
 
 func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
+	if t.skipRender {
+		return
+	}
 	if err = WriteByteSlices(wr, []byte(`<`), []byte(t.Name)); err != nil {
 		return
 	}
@@ -19,7 +23,7 @@ func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
 		if err = WriteByteSlices(wr, []byte(` `)); err != nil {
 			return
 		}
-		if err = attr.Render(wr); err != nil {
+		if err = attr.RenderTag(wr); err != nil {
 			return
 		}
 	}
@@ -29,10 +33,14 @@ func (t *UnitTagStruct) Render(wr io.Writer) (err error) {
 
 type ParentTagStruct struct {
 	*UnitTagStruct
-	Container *ContainerStruct
+	Container  *ContainerStruct
+	skipRender bool
 }
 
 func (t *ParentTagStruct) Render(wr io.Writer) (err error) {
+	if t.skipRender {
+		return
+	}
 	if err = t.UnitTagStruct.Render(wr); err != nil {
 		return
 	}
