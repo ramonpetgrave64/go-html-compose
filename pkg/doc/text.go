@@ -16,7 +16,7 @@ func (t *TextStruct) Render(wr io.Writer) (err error) {
 	if t.EscapeHTML {
 		text = []byte(html.EscapeString(string(text)))
 	}
-	err = WriteByteSlices(wr, text)
+	_, err = wr.Write(text)
 	return
 }
 

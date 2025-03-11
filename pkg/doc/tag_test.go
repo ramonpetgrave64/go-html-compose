@@ -1,11 +1,9 @@
-package tag
+package doc
 
 import (
 	"bytes"
 	"testing"
 
-	"go-html-compose/pkg/attr"
-	"go-html-compose/pkg/doc"
 	"go-html-compose/pkg/internal/test"
 )
 
@@ -15,7 +13,7 @@ func Test_UnitTag(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content doc.Renderable
+		content Renderable
 	}{
 		{
 			name:    "unit",
@@ -25,12 +23,12 @@ func Test_UnitTag(t *testing.T) {
 		{
 			name:    "unit with attribute",
 			want:    `<img class="c1">`,
-			content: UnitTag("img", attr.Attr("class", "c1")),
+			content: UnitTag("img", Attr("class", "c1")),
 		},
 		{
 			name:    "unit with multiple attributes",
 			want:    `<img class="c1" aria-label="logo">`,
-			content: UnitTag("img", attr.Attr("class", "c1"), attr.Attr("aria-label", "logo")),
+			content: UnitTag("img", Attr("class", "c1"), Attr("aria-label", "logo")),
 		},
 	}
 	for _, tc := range tests {
@@ -55,7 +53,7 @@ func Test_ParentTag(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content doc.Renderable
+		content Renderable
 	}{
 		{
 			name:    "single parent",
@@ -65,12 +63,12 @@ func Test_ParentTag(t *testing.T) {
 		{
 			name:    "single parent with single attribute",
 			want:    `<div class="c1"></div>`,
-			content: ParentTag("div", attr.Attr("class", "c1"))(),
+			content: ParentTag("div", Attr("class", "c1"))(),
 		},
 		{
 			name:    "single parent with multiple attributes",
 			want:    `<div class="c1" aria-label="logo"></div>`,
-			content: ParentTag("div", attr.Attr("class", "c1"), attr.Attr("aria-label", "logo"))(),
+			content: ParentTag("div", Attr("class", "c1"), Attr("aria-label", "logo"))(),
 		},
 		{
 			name: "single nested",

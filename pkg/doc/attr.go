@@ -1,10 +1,8 @@
-package attr
+package doc
 
 import (
 	"html"
 	"io"
-
-	"go-html-compose/pkg/doc"
 )
 
 // AttributeStruct describes an HTML attribute.
@@ -25,7 +23,7 @@ func (a *AttributeStruct) Render(wr io.Writer) error {
 		value = html.EscapeString(a.Value)
 	}
 	var err error
-	if err = doc.WriteByteSlices(
+	if err = WriteByteSlices(
 		wr,
 		[]byte(a.Name), []byte(`="`), []byte(value), []byte(`"`),
 	); err != nil {
