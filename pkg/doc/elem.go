@@ -16,7 +16,7 @@ type childElemStruct struct {
 // parentElemStruct describes a parent element.
 type parentElemStruct struct {
 	*childElemStruct
-	children *ContContainerStruct
+	children IContent
 }
 
 // func ChildElem creates a ChildElemStruct.
@@ -39,18 +39,18 @@ func ParentElem(name string, attrs ...IAttribute) ParentElemFunc {
 
 // RenderContent renders the element.
 func (t *childElemStruct) RenderConent(wr io.Writer) (err error) {
-	if err = WriteByteSlices(wr, []byte(`<`), []byte(t.name)); err != nil {
+	if err = writeByteSlices(wr, []byte(`<`), []byte(t.name)); err != nil {
 		return
 	}
 	for _, attr := range t.attributes {
-		if err = WriteByteSlices(wr, []byte(` `)); err != nil {
+		if err = writeByteSlices(wr, []byte(` `)); err != nil {
 			return
 		}
 		if err = attr.RenderAttr(wr); err != nil {
 			return
 		}
 	}
-	err = WriteByteSlices(wr, []byte(`>`))
+	err = writeByteSlices(wr, []byte(`>`))
 	return
 }
 
@@ -62,6 +62,6 @@ func (t *parentElemStruct) RenderConent(wr io.Writer) (err error) {
 	if err = t.children.RenderConent(wr); err != nil {
 		return err
 	}
-	err = WriteByteSlices(wr, []byte(`</`), []byte(t.name), []byte(`>`))
+	err = writeByteSlices(wr, []byte(`</`), []byte(t.name), []byte(`>`))
 	return
 }

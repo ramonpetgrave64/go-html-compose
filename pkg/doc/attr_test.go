@@ -13,7 +13,7 @@ func Test_Attr(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content *AttrStruct
+		content *attrStruct
 	}{
 		{
 			name:    "attribute",

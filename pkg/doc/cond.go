@@ -31,7 +31,7 @@ func IfElseCont(cond bool, ifTrue, ifFalse IContent) IContent {
 }
 
 // MapToContContainer maps the slice to a Renderables into a FlowStruct.
-func MapToContContainer[T any](items []T, mapFunc func(T) IContent) *ContContainerStruct {
+func MapToContContainer[T any](items []T, mapFunc func(T) IContent) IContent {
 	rendrs := make([]IContent, len(items))
 	for idx, item := range items {
 		rendrs[idx] = mapFunc(item)

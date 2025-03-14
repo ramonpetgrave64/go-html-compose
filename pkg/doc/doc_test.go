@@ -25,22 +25,22 @@ func Test_Container(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content ContContainerStruct
+		content IContent
 	}{
 		{
 			name:    "empty",
 			want:    ``,
-			content: *ContContainer(),
+			content: ContContainer(),
 		},
 		{
 			name:    "single",
 			want:    `ok`,
-			content: *ContContainer(testContentStruct{data: []byte(`ok`)}),
+			content: ContContainer(testContentStruct{data: []byte(`ok`)}),
 		},
 		{
 			name:    "multiple",
 			want:    `okgo`,
-			content: *ContContainer(testContentStruct{data: []byte(`ok`)}, testContentStruct{data: []byte(`go`)}),
+			content: ContContainer(testContentStruct{data: []byte(`ok`)}, testContentStruct{data: []byte(`go`)}),
 		},
 	}
 	for _, tc := range tests {
