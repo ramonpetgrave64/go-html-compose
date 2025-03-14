@@ -4,10 +4,6 @@ import (
 	"io"
 )
 
-type IContent interface {
-	RenderConent(wr io.Writer) (err error)
-}
-
 // ContContainerStruct contains content without itself being an element.
 // See https://html.spec.whatwg.org/multipage/dom.html#flow-content.
 type ContContainerStruct struct {

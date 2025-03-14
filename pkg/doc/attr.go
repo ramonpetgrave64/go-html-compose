@@ -13,8 +13,8 @@ type AttrStruct struct {
 	skipRender bool
 }
 
-// RenderTag renders the attribute to the io.Writer.
-func (a *AttrStruct) RenderTag(wr io.Writer) error {
+// RenderAttr renders the attribute to the io.Writer.
+func (a *AttrStruct) RenderAttr(wr io.Writer) error {
 	if a.skipRender {
 		return nil
 	}

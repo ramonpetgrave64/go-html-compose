@@ -49,7 +49,7 @@ func (t *ChildElemStruct) RenderConent(wr io.Writer) (err error) {
 		if err = WriteByteSlices(wr, []byte(` `)); err != nil {
 			return
 		}
-		if err = attr.RenderTag(wr); err != nil {
+		if err = attr.RenderAttr(wr); err != nil {
 			return
 		}
 	}

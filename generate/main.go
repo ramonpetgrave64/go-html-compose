@@ -110,6 +110,9 @@ func generateAttributes(specContent io.Reader) error {
 	var content bytes.Buffer
 	if _, err = fmt.Fprintf(&content, `%s
 
+// Package attrs contains auto-generated Attr functions from the spec at
+// https://html.spec.whatwg.org/multipage/indices.html.
+// Some attributes will have multiple specifications that depend on the element with which they are used.
 package attrs
 
 import "go-html-compose/pkg/doc"
@@ -222,15 +225,19 @@ func %s(value %s) *doc.AttrStruct {
 }
 
 func makeAttrDoc(attr *attribute) string {
+	head := fmt.Sprintf(`// %s
+//`, kebabToPascal(attr.name))
 	docSets := []string{}
 	for _, props := range attr.propSets {
 		docSet := fmt.Sprintf(`
 // Element(s): %s.
+//
 // Description: %s.
+//
 // Value: %s.`, props.elements, props.description, props.value)
 		docSets = append(docSets, docSet)
 	}
-	doc := fmt.Sprintf(`// %s %s`, kebabToPascal(attr.name), strings.Join(docSets, "\n//"))
+	doc := fmt.Sprintf(`%s%s`, head, strings.Join(docSets, "\n//"))
 	return doc
 }
 
