@@ -5,16 +5,16 @@ var (
 )
 
 // IfAttr conditonally renders either attribute.
-func IfElseAttr(condition bool, ifTrue, ifFalse IAttribute) IAttribute {
-	if condition {
+func IfElseAttr(cond bool, ifTrue, ifFalse IAttribute) IAttribute {
+	if cond {
 		return ifTrue
 	}
 	return ifFalse
 }
 
 // IfAttr conditonally renders the attribute.
-func IfAttr(condition bool, ifTrue IAttribute) IAttribute {
-	return IfElseAttr(condition, ifTrue, nilAttribute)
+func IfAttr(cond bool, ifTrue IAttribute) IAttribute {
+	return IfElseAttr(cond, ifTrue, nilAttribute)
 }
 
 // IfCont conditionally renders cont.
