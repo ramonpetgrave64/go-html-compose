@@ -6,46 +6,43 @@ import (
 	"io"
 )
 
-// ChildElemStruct describes elements that don't contain other elements.
+// childElemStruct describes elements that don't contain other elements.
 // See https://html.spec.whatwg.org/multipage/dom.html#phrasing-content-2.
-type ChildElemStruct struct {
-	Name       string
-	Attributes []IAttribute
+type childElemStruct struct {
+	name       string
+	attributes []IAttribute
 }
 
-// ParentElemStruct describes a parent element.
-type ParentElemStruct struct {
-	*ChildElemStruct
-	Children *ContContainerStruct
+// parentElemStruct describes a parent element.
+type parentElemStruct struct {
+	*childElemStruct
+	children *ContContainerStruct
 }
-
-// ParentElemFunc is a function that returns a *ParentElemStruct.
-type ParentElemFunc func(content ...IContent) *ParentElemStruct
 
 // func ChildElem creates a ChildElemStruct.
-func ChildElem(name string, attrs ...IAttribute) *ChildElemStruct {
-	return &ChildElemStruct{
-		Name:       name,
-		Attributes: attrs,
+func ChildElem(name string, attrs ...IAttribute) *childElemStruct {
+	return &childElemStruct{
+		name:       name,
+		attributes: attrs,
 	}
 }
 
 // func ParentElem creates a ParentElemStruct.
 func ParentElem(name string, attrs ...IAttribute) ParentElemFunc {
-	return func(elems ...IContent) *ParentElemStruct {
-		return &ParentElemStruct{
-			ChildElemStruct: ChildElem(name, attrs...),
-			Children:        ContContainer(elems...),
+	return func(elems ...IContent) IContent {
+		return &parentElemStruct{
+			childElemStruct: ChildElem(name, attrs...),
+			children:        ContContainer(elems...),
 		}
 	}
 }
 
 // RenderContent renders the element.
-func (t *ChildElemStruct) RenderConent(wr io.Writer) (err error) {
-	if err = WriteByteSlices(wr, []byte(`<`), []byte(t.Name)); err != nil {
+func (t *childElemStruct) RenderConent(wr io.Writer) (err error) {
+	if err = WriteByteSlices(wr, []byte(`<`), []byte(t.name)); err != nil {
 		return
 	}
-	for _, attr := range t.Attributes {
+	for _, attr := range t.attributes {
 		if err = WriteByteSlices(wr, []byte(` `)); err != nil {
 			return
 		}
@@ -58,13 +55,13 @@ func (t *ChildElemStruct) RenderConent(wr io.Writer) (err error) {
 }
 
 // RenderContent renders the element.
-func (t *ParentElemStruct) RenderConent(wr io.Writer) (err error) {
-	if err = t.ChildElemStruct.RenderConent(wr); err != nil {
+func (t *parentElemStruct) RenderConent(wr io.Writer) (err error) {
+	if err = t.childElemStruct.RenderConent(wr); err != nil {
 		return
 	}
-	if err = t.Children.RenderConent(wr); err != nil {
+	if err = t.children.RenderConent(wr); err != nil {
 		return err
 	}
-	err = WriteByteSlices(wr, []byte(`</`), []byte(t.Name), []byte(`>`))
+	err = WriteByteSlices(wr, []byte(`</`), []byte(t.name), []byte(`>`))
 	return
 }

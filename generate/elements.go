@@ -122,7 +122,7 @@ func makeElementFunc(elem *element) string {
 	doc := makeElemDoc(elem)
 	if elem.isUnit {
 		tagFunc = "doc.ChildElem"
-		returnType = "*doc.ChildElemStruct"
+		returnType = "doc.IContent"
 	}
 	return fmt.Sprintf(
 		`%s

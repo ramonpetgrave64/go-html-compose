@@ -44,7 +44,7 @@ func Address(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: phrasing*.
 // Children: empty.
 // Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
-func Area(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Area(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("area", attrs...)
 }
 
@@ -89,7 +89,7 @@ func B(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: head.
 // Children: empty.
 // Attributes: globals; href; target
-func Base(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Base(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("base", attrs...)
 }
 
@@ -134,7 +134,7 @@ func Body(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Br(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Br(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("br", attrs...)
 }
 
@@ -188,7 +188,7 @@ func Code(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: colgroup.
 // Children: empty.
 // Attributes: globals; span
-func Col(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Col(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("col", attrs...)
 }
 
@@ -305,7 +305,7 @@ func Em(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; type; width; height; any*
-func Embed(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Embed(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("embed", attrs...)
 }
 
@@ -440,7 +440,7 @@ func Hgroup(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: flow.
 // Children: empty.
 // Attributes: globals
-func Hr(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Hr(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("hr", attrs...)
 }
 
@@ -467,7 +467,7 @@ func I(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
-func Iframe(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Iframe(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("iframe", attrs...)
 }
 
@@ -476,7 +476,7 @@ func Iframe(attrs ...doc.IAttribute) *doc.ChildElemStruct {
 // Parents: phrasing; picture.
 // Children: empty.
 // Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
-func Img(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Img(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("img", attrs...)
 }
 
@@ -485,7 +485,7 @@ func Img(attrs ...doc.IAttribute) *doc.ChildElemStruct {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
-func Input(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Input(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("input", attrs...)
 }
 
@@ -539,7 +539,7 @@ func Li(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
-func Link(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Link(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("link", attrs...)
 }
 
@@ -593,7 +593,7 @@ func Menu(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; name; http-equiv; content; charset; media
-func Meta(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Meta(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("meta", attrs...)
 }
 
@@ -818,7 +818,7 @@ func Small(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
-func Source(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Source(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("source", attrs...)
 }
 
@@ -917,7 +917,7 @@ func Td(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable
-func Template(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Template(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("template", attrs...)
 }
 
@@ -989,7 +989,7 @@ func Tr(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
-func Track(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Track(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("track", attrs...)
 }
 
@@ -1034,6 +1034,6 @@ func Video(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Wbr(attrs ...doc.IAttribute) *doc.ChildElemStruct {
+func Wbr(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("wbr", attrs...)
 }

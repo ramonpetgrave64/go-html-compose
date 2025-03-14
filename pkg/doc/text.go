@@ -5,35 +5,35 @@ import (
 	"io"
 )
 
-type TextStruct struct {
+type textStruct struct {
 	// render.Renderable
 	EscapeHTML bool
 	Value      []byte
 }
 
-type RawTextStruct struct {
-	*TextStruct
+type rawTextStruct struct {
+	*textStruct
 }
 
-func Text(value []byte) *TextStruct {
+func Text(value []byte) *textStruct {
 	return newText(value, true)
 }
 
-func TextS(value string) *TextStruct {
+func TextS(value string) *textStruct {
 	return Text([]byte(value))
 }
 
-func RawText(value []byte) *RawTextStruct {
-	return &RawTextStruct{
-		TextStruct: newText(value, false),
+func RawText(value []byte) *rawTextStruct {
+	return &rawTextStruct{
+		textStruct: newText(value, false),
 	}
 }
 
-func RawTextS(value string) *RawTextStruct {
+func RawTextS(value string) *rawTextStruct {
 	return RawText([]byte(value))
 }
 
-func (t *TextStruct) RenderConent(wr io.Writer) (err error) {
+func (t *textStruct) RenderConent(wr io.Writer) (err error) {
 	text := t.Value
 	if t.EscapeHTML {
 		text = []byte(html.EscapeString(string(text)))
@@ -42,8 +42,8 @@ func (t *TextStruct) RenderConent(wr io.Writer) (err error) {
 	return
 }
 
-func newText(value []byte, escapeHTML bool) *TextStruct {
-	return &TextStruct{
+func newText(value []byte, escapeHTML bool) *textStruct {
+	return &textStruct{
 		Value:      value,
 		EscapeHTML: escapeHTML,
 	}
