@@ -126,7 +126,7 @@ func makeElementFunc(elem *element) string {
 	}
 	return fmt.Sprintf(
 		`%s
-func %s(attrs ...*doc.AttrStruct) %s {
+func %s(attrs ...doc.IAttribute) %s {
 	return %s("%s", attrs...)
 }
 `,

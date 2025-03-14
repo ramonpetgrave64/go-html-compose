@@ -17,14 +17,14 @@ const (
 // Element(s): Global attribute.
 // Description: Lets you attach custom attributes to an HTML element.
 // Value: Text.
-func DataProp(property, value string) *doc.AttrStruct {
+func DataProp(property, value string) doc.IAttribute {
 	return doc.Attr("data-" + property, value)
 }`
 	ariaPropSpecialCase = `// AriaProp
 // Element(s): Global attribute.
 // Description: Sets aria-* properties.
 // Value: Text.
-func AriaProp(property, value string) *doc.AttrStruct {
+func AriaProp(property, value string) doc.IAttribute {
 	return doc.Attr("aria-" + property, value)
 }`
 
@@ -32,7 +32,7 @@ func AriaProp(property, value string) *doc.AttrStruct {
 // Element(s): Global attribute.
 // Description: Defines an explicit role for an element for use by assistive technologies.
 // Value: Text.
-func Role(value string) *doc.AttrStruct {
+func Role(value string) doc.IAttribute {
 	return doc.Attr("role", value)
 }`
 
@@ -216,7 +216,7 @@ func makeAttributeFunc(attr *attribute) string {
 
 	return fmt.Sprintf(
 		`%s
-func %s(value %s) *doc.AttrStruct {
+func %s(value %s) doc.IAttribute {
 	return %s("%s", value)
 }
 `,

@@ -14,7 +14,7 @@ import "go-html-compose/pkg/doc"
 // Element(s): Global attribute.
 // Description: Sets aria-* properties.
 // Value: Text.
-func AriaProp(property, value string) *doc.AttrStruct {
+func AriaProp(property, value string) doc.IAttribute {
 	return doc.Attr("aria-" + property, value)
 }
 
@@ -22,7 +22,7 @@ func AriaProp(property, value string) *doc.AttrStruct {
 // Element(s): Global attribute.
 // Description: Lets you attach custom attributes to an HTML element.
 // Value: Text.
-func DataProp(property, value string) *doc.AttrStruct {
+func DataProp(property, value string) doc.IAttribute {
 	return doc.Attr("data-" + property, value)
 }
 
@@ -30,7 +30,7 @@ func DataProp(property, value string) *doc.AttrStruct {
 // Element(s): Global attribute.
 // Description: Defines an explicit role for an element for use by assistive technologies.
 // Value: Text.
-func Role(value string) *doc.AttrStruct {
+func Role(value string) doc.IAttribute {
 	return doc.Attr("role", value)
 }
 
@@ -43,7 +43,7 @@ func Role(value string) *doc.AttrStruct {
 // Description: Alternative label to use for the header cell when referencing the cell in other contexts.
 //
 // Value: Text*.
-func Abbr(value string) *doc.AttrStruct {
+func Abbr(value string) doc.IAttribute {
 	return doc.Attr("abbr", value)
 }
 
@@ -54,7 +54,7 @@ func Abbr(value string) *doc.AttrStruct {
 // Description: Hint for expected file type in file upload controls.
 //
 // Value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*.
-func Accept(value string) *doc.AttrStruct {
+func Accept(value string) doc.IAttribute {
 	return doc.Attr("accept", value)
 }
 
@@ -65,7 +65,7 @@ func Accept(value string) *doc.AttrStruct {
 // Description: Character encodings to use for form submission.
 //
 // Value: ASCII case-insensitive match for "UTF-8".
-func AcceptCharset(value string) *doc.AttrStruct {
+func AcceptCharset(value string) doc.IAttribute {
 	return doc.Attr("accept-charset", value)
 }
 
@@ -76,7 +76,7 @@ func AcceptCharset(value string) *doc.AttrStruct {
 // Description: Keyboard shortcut to activate or focus element.
 //
 // Value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length.
-func Accesskey(value string) *doc.AttrStruct {
+func Accesskey(value string) doc.IAttribute {
 	return doc.Attr("accesskey", value)
 }
 
@@ -87,7 +87,7 @@ func Accesskey(value string) *doc.AttrStruct {
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Action(value string) *doc.AttrStruct {
+func Action(value string) doc.IAttribute {
 	return doc.Attr("action", value)
 }
 
@@ -98,7 +98,7 @@ func Action(value string) *doc.AttrStruct {
 // Description: Permissions policy to be applied to the iframe's contents.
 //
 // Value: Serialized permissions policy.
-func Allow(value string) *doc.AttrStruct {
+func Allow(value string) doc.IAttribute {
 	return doc.Attr("allow", value)
 }
 
@@ -109,7 +109,7 @@ func Allow(value string) *doc.AttrStruct {
 // Description: Whether to allow the iframe's contents to use requestFullscreen().
 //
 // Value: Boolean attribute.
-func Allowfullscreen(value bool) *doc.AttrStruct {
+func Allowfullscreen(value bool) doc.IAttribute {
 	return doc.BooleanAttr("allowfullscreen", value)
 }
 
@@ -120,7 +120,7 @@ func Allowfullscreen(value bool) *doc.AttrStruct {
 // Description: Allow the color's alpha component to be set.
 //
 // Value: Boolean attribute.
-func Alpha(value bool) *doc.AttrStruct {
+func Alpha(value bool) doc.IAttribute {
 	return doc.BooleanAttr("alpha", value)
 }
 
@@ -131,7 +131,7 @@ func Alpha(value bool) *doc.AttrStruct {
 // Description: Replacement text for use when images are not available.
 //
 // Value: Text*.
-func Alt(value string) *doc.AttrStruct {
+func Alt(value string) doc.IAttribute {
 	return doc.Attr("alt", value)
 }
 
@@ -142,7 +142,7 @@ func Alt(value string) *doc.AttrStruct {
 // Description: Potential destination for a preload request (for rel="preload" and rel="modulepreload").
 //
 // Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload".
-func As(value string) *doc.AttrStruct {
+func As(value string) doc.IAttribute {
 	return doc.Attr("as", value)
 }
 
@@ -153,7 +153,7 @@ func As(value string) *doc.AttrStruct {
 // Description: Execute script when available, without blocking while fetching.
 //
 // Value: Boolean attribute.
-func Async(value bool) *doc.AttrStruct {
+func Async(value bool) doc.IAttribute {
 	return doc.BooleanAttr("async", value)
 }
 
@@ -164,7 +164,7 @@ func Async(value bool) *doc.AttrStruct {
 // Description: Recommended autocapitalization behavior (for supported input methods).
 //
 // Value: "on"; "off"; "none"; "sentences"; "words"; "characters".
-func Autocapitalize(value string) *doc.AttrStruct {
+func Autocapitalize(value string) doc.IAttribute {
 	return doc.Attr("autocapitalize", value)
 }
 
@@ -181,7 +181,7 @@ func Autocapitalize(value string) *doc.AttrStruct {
 // Description: Hint for form autofill feature.
 //
 // Value: Autofill field name and related tokens*.
-func Autocomplete(value string) *doc.AttrStruct {
+func Autocomplete(value string) doc.IAttribute {
 	return doc.Attr("autocomplete", value)
 }
 
@@ -192,7 +192,7 @@ func Autocomplete(value string) *doc.AttrStruct {
 // Description: Recommended autocorrection behavior (for supported input methods).
 //
 // Value: "on"; "off".
-func Autocorrect(value string) *doc.AttrStruct {
+func Autocorrect(value string) doc.IAttribute {
 	return doc.Attr("autocorrect", value)
 }
 
@@ -203,7 +203,7 @@ func Autocorrect(value string) *doc.AttrStruct {
 // Description: Automatically focus the element when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autofocus(value bool) *doc.AttrStruct {
+func Autofocus(value bool) doc.IAttribute {
 	return doc.BooleanAttr("autofocus", value)
 }
 
@@ -214,7 +214,7 @@ func Autofocus(value bool) *doc.AttrStruct {
 // Description: Hint that the media resource can be started automatically when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autoplay(value bool) *doc.AttrStruct {
+func Autoplay(value bool) doc.IAttribute {
 	return doc.BooleanAttr("autoplay", value)
 }
 
@@ -225,7 +225,7 @@ func Autoplay(value bool) *doc.AttrStruct {
 // Description: Whether the element is potentially render-blocking.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Blocking(value string) *doc.AttrStruct {
+func Blocking(value string) doc.IAttribute {
 	return doc.Attr("blocking", value)
 }
 
@@ -236,7 +236,7 @@ func Blocking(value string) *doc.AttrStruct {
 // Description: Character encoding declaration.
 //
 // Value: "utf-8".
-func Charset(value string) *doc.AttrStruct {
+func Charset(value string) doc.IAttribute {
 	return doc.Attr("charset", value)
 }
 
@@ -247,7 +247,7 @@ func Charset(value string) *doc.AttrStruct {
 // Description: Whether the control is checked.
 //
 // Value: Boolean attribute.
-func Checked(value bool) *doc.AttrStruct {
+func Checked(value bool) doc.IAttribute {
 	return doc.BooleanAttr("checked", value)
 }
 
@@ -258,7 +258,7 @@ func Checked(value bool) *doc.AttrStruct {
 // Description: Link to the source of the quotation or more information about the edit.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Cite(value string) *doc.AttrStruct {
+func Cite(value string) doc.IAttribute {
 	return doc.Attr("cite", value)
 }
 
@@ -269,7 +269,7 @@ func Cite(value string) *doc.AttrStruct {
 // Description: Classes to which the element belongs.
 //
 // Value: Set of space-separated tokens.
-func Class(value string) *doc.AttrStruct {
+func Class(value string) doc.IAttribute {
 	return doc.Attr("class", value)
 }
 
@@ -280,7 +280,7 @@ func Class(value string) *doc.AttrStruct {
 // Description: Which user actions will close the dialog.
 //
 // Value: "any"; "closerequest"; "none";.
-func Closedby(value string) *doc.AttrStruct {
+func Closedby(value string) doc.IAttribute {
 	return doc.Attr("closedby", value)
 }
 
@@ -291,7 +291,7 @@ func Closedby(value string) *doc.AttrStruct {
 // Description: Color to use when customizing a site's icon (for rel="mask-icon").
 //
 // Value: CSS <color>.
-func Color(value string) *doc.AttrStruct {
+func Color(value string) doc.IAttribute {
 	return doc.Attr("color", value)
 }
 
@@ -302,7 +302,7 @@ func Color(value string) *doc.AttrStruct {
 // Description: The color space of the serialized color.
 //
 // Value: "limited-srgb"; "display-p3".
-func Colorspace(value string) *doc.AttrStruct {
+func Colorspace(value string) doc.IAttribute {
 	return doc.Attr("colorspace", value)
 }
 
@@ -313,7 +313,7 @@ func Colorspace(value string) *doc.AttrStruct {
 // Description: Maximum number of characters per line.
 //
 // Value: Valid non-negative integer greater than zero.
-func Cols(value string) *doc.AttrStruct {
+func Cols(value string) doc.IAttribute {
 	return doc.Attr("cols", value)
 }
 
@@ -324,7 +324,7 @@ func Cols(value string) *doc.AttrStruct {
 // Description: Number of columns that the cell is to span.
 //
 // Value: Valid non-negative integer greater than zero.
-func Colspan(value string) *doc.AttrStruct {
+func Colspan(value string) doc.IAttribute {
 	return doc.Attr("colspan", value)
 }
 
@@ -335,7 +335,7 @@ func Colspan(value string) *doc.AttrStruct {
 // Description: Indicates to the targeted element which action to take..
 //
 // Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "show-modal"; a custom command keyword.
-func Command(value string) *doc.AttrStruct {
+func Command(value string) doc.IAttribute {
 	return doc.Attr("command", value)
 }
 
@@ -346,7 +346,7 @@ func Command(value string) *doc.AttrStruct {
 // Description: Targets another element to be invoked..
 //
 // Value: ID*.
-func Commandfor(value string) *doc.AttrStruct {
+func Commandfor(value string) doc.IAttribute {
 	return doc.Attr("commandfor", value)
 }
 
@@ -357,7 +357,7 @@ func Commandfor(value string) *doc.AttrStruct {
 // Description: Value of the element.
 //
 // Value: Text*.
-func Content(value string) *doc.AttrStruct {
+func Content(value string) doc.IAttribute {
 	return doc.Attr("content", value)
 }
 
@@ -368,7 +368,7 @@ func Content(value string) *doc.AttrStruct {
 // Description: Whether the element is editable.
 //
 // Value: "true"; "plaintext-only"; "false".
-func Contenteditable(value string) *doc.AttrStruct {
+func Contenteditable(value string) doc.IAttribute {
 	return doc.Attr("contenteditable", value)
 }
 
@@ -379,7 +379,7 @@ func Contenteditable(value string) *doc.AttrStruct {
 // Description: Show user agent controls.
 //
 // Value: Boolean attribute.
-func Controls(value bool) *doc.AttrStruct {
+func Controls(value bool) doc.IAttribute {
 	return doc.BooleanAttr("controls", value)
 }
 
@@ -390,7 +390,7 @@ func Controls(value bool) *doc.AttrStruct {
 // Description: Coordinates for the shape to be created in an image map.
 //
 // Value: Valid list of floating-point numbers*.
-func Coords(value string) *doc.AttrStruct {
+func Coords(value string) doc.IAttribute {
 	return doc.Attr("coords", value)
 }
 
@@ -401,7 +401,7 @@ func Coords(value string) *doc.AttrStruct {
 // Description: How the element handles crossorigin requests.
 //
 // Value: "anonymous"; "use-credentials".
-func Crossorigin(value string) *doc.AttrStruct {
+func Crossorigin(value string) doc.IAttribute {
 	return doc.Attr("crossorigin", value)
 }
 
@@ -412,7 +412,7 @@ func Crossorigin(value string) *doc.AttrStruct {
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Data(value string) *doc.AttrStruct {
+func Data(value string) doc.IAttribute {
 	return doc.Attr("data", value)
 }
 
@@ -429,7 +429,7 @@ func Data(value string) *doc.AttrStruct {
 // Description: Machine-readable value.
 //
 // Value: Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string.
-func Datetime(value string) *doc.AttrStruct {
+func Datetime(value string) doc.IAttribute {
 	return doc.Attr("datetime", value)
 }
 
@@ -440,7 +440,7 @@ func Datetime(value string) *doc.AttrStruct {
 // Description: Decoding hint to use when processing this image for presentation.
 //
 // Value: "sync"; "async"; "auto".
-func Decoding(value string) *doc.AttrStruct {
+func Decoding(value string) doc.IAttribute {
 	return doc.Attr("decoding", value)
 }
 
@@ -451,7 +451,7 @@ func Decoding(value string) *doc.AttrStruct {
 // Description: Enable the track if no other text track is more suitable.
 //
 // Value: Boolean attribute.
-func Default(value bool) *doc.AttrStruct {
+func Default(value bool) doc.IAttribute {
 	return doc.BooleanAttr("default", value)
 }
 
@@ -462,7 +462,7 @@ func Default(value bool) *doc.AttrStruct {
 // Description: Defer script execution.
 //
 // Value: Boolean attribute.
-func Defer(value bool) *doc.AttrStruct {
+func Defer(value bool) doc.IAttribute {
 	return doc.BooleanAttr("defer", value)
 }
 
@@ -479,7 +479,7 @@ func Defer(value bool) *doc.AttrStruct {
 // Description: The text directionality of the element.
 //
 // Value: "ltr"; "rtl".
-func Dir(value string) *doc.AttrStruct {
+func Dir(value string) doc.IAttribute {
 	return doc.Attr("dir", value)
 }
 
@@ -490,7 +490,7 @@ func Dir(value string) *doc.AttrStruct {
 // Description: Name of form control to use for sending the element's directionality in form submission.
 //
 // Value: Text*.
-func Dirname(value string) *doc.AttrStruct {
+func Dirname(value string) doc.IAttribute {
 	return doc.Attr("dirname", value)
 }
 
@@ -513,7 +513,7 @@ func Dirname(value string) *doc.AttrStruct {
 // Description: Whether the link is disabled.
 //
 // Value: Boolean attribute.
-func Disabled(value bool) *doc.AttrStruct {
+func Disabled(value bool) doc.IAttribute {
 	return doc.BooleanAttr("disabled", value)
 }
 
@@ -524,7 +524,7 @@ func Disabled(value bool) *doc.AttrStruct {
 // Description: Whether to download the resource instead of navigating to it, and its filename if so.
 //
 // Value: Text.
-func Download(value string) *doc.AttrStruct {
+func Download(value string) doc.IAttribute {
 	return doc.Attr("download", value)
 }
 
@@ -535,7 +535,7 @@ func Download(value string) *doc.AttrStruct {
 // Description: Whether the element is draggable.
 //
 // Value: "true"; "false".
-func Draggable(value string) *doc.AttrStruct {
+func Draggable(value string) doc.IAttribute {
 	return doc.Attr("draggable", value)
 }
 
@@ -546,7 +546,7 @@ func Draggable(value string) *doc.AttrStruct {
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Enctype(value string) *doc.AttrStruct {
+func Enctype(value string) doc.IAttribute {
 	return doc.Attr("enctype", value)
 }
 
@@ -557,7 +557,7 @@ func Enctype(value string) *doc.AttrStruct {
 // Description: Hint for selecting an enter key action.
 //
 // Value: "enter"; "done"; "go"; "next"; "previous"; "search"; "send".
-func Enterkeyhint(value string) *doc.AttrStruct {
+func Enterkeyhint(value string) doc.IAttribute {
 	return doc.Attr("enterkeyhint", value)
 }
 
@@ -568,7 +568,7 @@ func Enterkeyhint(value string) *doc.AttrStruct {
 // Description: Sets the priority for fetches initiated by the element.
 //
 // Value: "auto"; "high"; "low".
-func Fetchpriority(value string) *doc.AttrStruct {
+func Fetchpriority(value string) doc.IAttribute {
 	return doc.Attr("fetchpriority", value)
 }
 
@@ -585,7 +585,7 @@ func Fetchpriority(value string) *doc.AttrStruct {
 // Description: Specifies controls from which the output was calculated.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func For(value string) *doc.AttrStruct {
+func For(value string) doc.IAttribute {
 	return doc.Attr("for", value)
 }
 
@@ -596,7 +596,7 @@ func For(value string) *doc.AttrStruct {
 // Description: Associates the element with a form element.
 //
 // Value: ID*.
-func Form(value string) *doc.AttrStruct {
+func Form(value string) doc.IAttribute {
 	return doc.Attr("form", value)
 }
 
@@ -607,7 +607,7 @@ func Form(value string) *doc.AttrStruct {
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Formaction(value string) *doc.AttrStruct {
+func Formaction(value string) doc.IAttribute {
 	return doc.Attr("formaction", value)
 }
 
@@ -618,7 +618,7 @@ func Formaction(value string) *doc.AttrStruct {
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Formenctype(value string) *doc.AttrStruct {
+func Formenctype(value string) doc.IAttribute {
 	return doc.Attr("formenctype", value)
 }
 
@@ -629,7 +629,7 @@ func Formenctype(value string) *doc.AttrStruct {
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Formmethod(value string) *doc.AttrStruct {
+func Formmethod(value string) doc.IAttribute {
 	return doc.Attr("formmethod", value)
 }
 
@@ -640,7 +640,7 @@ func Formmethod(value string) *doc.AttrStruct {
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Formnovalidate(value bool) *doc.AttrStruct {
+func Formnovalidate(value bool) doc.IAttribute {
 	return doc.BooleanAttr("formnovalidate", value)
 }
 
@@ -651,7 +651,7 @@ func Formnovalidate(value bool) *doc.AttrStruct {
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Formtarget(value string) *doc.AttrStruct {
+func Formtarget(value string) doc.IAttribute {
 	return doc.Attr("formtarget", value)
 }
 
@@ -662,7 +662,7 @@ func Formtarget(value string) *doc.AttrStruct {
 // Description: The header cells for this cell.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Headers(value string) *doc.AttrStruct {
+func Headers(value string) doc.IAttribute {
 	return doc.Attr("headers", value)
 }
 
@@ -673,7 +673,7 @@ func Headers(value string) *doc.AttrStruct {
 // Description: Vertical dimension.
 //
 // Value: Valid non-negative integer.
-func Height(value string) *doc.AttrStruct {
+func Height(value string) doc.IAttribute {
 	return doc.Attr("height", value)
 }
 
@@ -684,7 +684,7 @@ func Height(value string) *doc.AttrStruct {
 // Description: Whether the element is relevant.
 //
 // Value: "until-found"; "hidden"; the empty string.
-func Hidden(value string) *doc.AttrStruct {
+func Hidden(value string) doc.IAttribute {
 	return doc.Attr("hidden", value)
 }
 
@@ -695,7 +695,7 @@ func Hidden(value string) *doc.AttrStruct {
 // Description: Low limit of high range.
 //
 // Value: Valid floating-point number*.
-func High(value string) *doc.AttrStruct {
+func High(value string) doc.IAttribute {
 	return doc.Attr("high", value)
 }
 
@@ -718,7 +718,7 @@ func High(value string) *doc.AttrStruct {
 // Description: Document base URL.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Href(value string) *doc.AttrStruct {
+func Href(value string) doc.IAttribute {
 	return doc.Attr("href", value)
 }
 
@@ -729,7 +729,7 @@ func Href(value string) *doc.AttrStruct {
 // Description: Language of the linked resource.
 //
 // Value: Valid BCP 47 language tag.
-func Hreflang(value string) *doc.AttrStruct {
+func Hreflang(value string) doc.IAttribute {
 	return doc.Attr("hreflang", value)
 }
 
@@ -740,7 +740,7 @@ func Hreflang(value string) *doc.AttrStruct {
 // Description: Pragma directive.
 //
 // Value: "content-type"; "default-style"; "refresh"; "x-ua-compatible"; "content-security-policy".
-func HttpEquiv(value string) *doc.AttrStruct {
+func HttpEquiv(value string) doc.IAttribute {
 	return doc.Attr("http-equiv", value)
 }
 
@@ -751,7 +751,7 @@ func HttpEquiv(value string) *doc.AttrStruct {
 // Description: The element's ID.
 //
 // Value: Text*.
-func Id(value string) *doc.AttrStruct {
+func Id(value string) doc.IAttribute {
 	return doc.Attr("id", value)
 }
 
@@ -762,7 +762,7 @@ func Id(value string) *doc.AttrStruct {
 // Description: Image sizes for different page layouts (for rel="preload").
 //
 // Value: Valid source size list.
-func Imagesizes(value string) *doc.AttrStruct {
+func Imagesizes(value string) doc.IAttribute {
 	return doc.Attr("imagesizes", value)
 }
 
@@ -773,7 +773,7 @@ func Imagesizes(value string) *doc.AttrStruct {
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload").
 //
 // Value: Comma-separated list of image candidate strings.
-func Imagesrcset(value string) *doc.AttrStruct {
+func Imagesrcset(value string) doc.IAttribute {
 	return doc.Attr("imagesrcset", value)
 }
 
@@ -784,7 +784,7 @@ func Imagesrcset(value string) *doc.AttrStruct {
 // Description: Whether the element is inert..
 //
 // Value: Boolean attribute.
-func Inert(value bool) *doc.AttrStruct {
+func Inert(value bool) doc.IAttribute {
 	return doc.BooleanAttr("inert", value)
 }
 
@@ -795,7 +795,7 @@ func Inert(value bool) *doc.AttrStruct {
 // Description: Hint for selecting an input modality.
 //
 // Value: "none"; "text"; "tel"; "email"; "url"; "numeric"; "decimal"; "search".
-func Inputmode(value string) *doc.AttrStruct {
+func Inputmode(value string) doc.IAttribute {
 	return doc.Attr("inputmode", value)
 }
 
@@ -806,7 +806,7 @@ func Inputmode(value string) *doc.AttrStruct {
 // Description: Integrity metadata used in Subresource Integrity checks [SRI].
 //
 // Value: Text.
-func Integrity(value string) *doc.AttrStruct {
+func Integrity(value string) doc.IAttribute {
 	return doc.Attr("integrity", value)
 }
 
@@ -817,7 +817,7 @@ func Integrity(value string) *doc.AttrStruct {
 // Description: Creates a customized built-in element.
 //
 // Value: Valid custom element name of a defined customized built-in element.
-func Is(value string) *doc.AttrStruct {
+func Is(value string) doc.IAttribute {
 	return doc.Attr("is", value)
 }
 
@@ -828,7 +828,7 @@ func Is(value string) *doc.AttrStruct {
 // Description: Whether the image is a server-side image map.
 //
 // Value: Boolean attribute.
-func Ismap(value bool) *doc.AttrStruct {
+func Ismap(value bool) doc.IAttribute {
 	return doc.BooleanAttr("ismap", value)
 }
 
@@ -839,7 +839,7 @@ func Ismap(value bool) *doc.AttrStruct {
 // Description: Global identifier for a microdata item.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Itemid(value string) *doc.AttrStruct {
+func Itemid(value string) doc.IAttribute {
 	return doc.Attr("itemid", value)
 }
 
@@ -850,7 +850,7 @@ func Itemid(value string) *doc.AttrStruct {
 // Description: Property names of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*.
-func Itemprop(value string) *doc.AttrStruct {
+func Itemprop(value string) doc.IAttribute {
 	return doc.Attr("itemprop", value)
 }
 
@@ -861,7 +861,7 @@ func Itemprop(value string) *doc.AttrStruct {
 // Description: Referenced elements.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Itemref(value string) *doc.AttrStruct {
+func Itemref(value string) doc.IAttribute {
 	return doc.Attr("itemref", value)
 }
 
@@ -872,7 +872,7 @@ func Itemref(value string) *doc.AttrStruct {
 // Description: Introduces a microdata item.
 //
 // Value: Boolean attribute.
-func Itemscope(value bool) *doc.AttrStruct {
+func Itemscope(value bool) doc.IAttribute {
 	return doc.BooleanAttr("itemscope", value)
 }
 
@@ -883,7 +883,7 @@ func Itemscope(value bool) *doc.AttrStruct {
 // Description: Item types of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*.
-func Itemtype(value string) *doc.AttrStruct {
+func Itemtype(value string) doc.IAttribute {
 	return doc.Attr("itemtype", value)
 }
 
@@ -894,7 +894,7 @@ func Itemtype(value string) *doc.AttrStruct {
 // Description: The type of text track.
 //
 // Value: "subtitles"; "captions"; "descriptions"; "chapters"; "metadata".
-func Kind(value string) *doc.AttrStruct {
+func Kind(value string) doc.IAttribute {
 	return doc.Attr("kind", value)
 }
 
@@ -905,7 +905,7 @@ func Kind(value string) *doc.AttrStruct {
 // Description: User-visible label.
 //
 // Value: Text.
-func Label(value string) *doc.AttrStruct {
+func Label(value string) doc.IAttribute {
 	return doc.Attr("label", value)
 }
 
@@ -916,7 +916,7 @@ func Label(value string) *doc.AttrStruct {
 // Description: Language of the element.
 //
 // Value: Valid BCP 47 language tag or the empty string.
-func Lang(value string) *doc.AttrStruct {
+func Lang(value string) doc.IAttribute {
 	return doc.Attr("lang", value)
 }
 
@@ -927,7 +927,7 @@ func Lang(value string) *doc.AttrStruct {
 // Description: List of autocomplete options.
 //
 // Value: ID*.
-func List(value string) *doc.AttrStruct {
+func List(value string) doc.IAttribute {
 	return doc.Attr("list", value)
 }
 
@@ -938,7 +938,7 @@ func List(value string) *doc.AttrStruct {
 // Description: Used when determining loading deferral.
 //
 // Value: "lazy"; "eager".
-func Loading(value string) *doc.AttrStruct {
+func Loading(value string) doc.IAttribute {
 	return doc.Attr("loading", value)
 }
 
@@ -949,7 +949,7 @@ func Loading(value string) *doc.AttrStruct {
 // Description: Whether to loop the media resource.
 //
 // Value: Boolean attribute.
-func Loop(value bool) *doc.AttrStruct {
+func Loop(value bool) doc.IAttribute {
 	return doc.BooleanAttr("loop", value)
 }
 
@@ -960,7 +960,7 @@ func Loop(value bool) *doc.AttrStruct {
 // Description: High limit of low range.
 //
 // Value: Valid floating-point number*.
-func Low(value string) *doc.AttrStruct {
+func Low(value string) doc.IAttribute {
 	return doc.Attr("low", value)
 }
 
@@ -977,7 +977,7 @@ func Low(value string) *doc.AttrStruct {
 // Description: Upper bound of range.
 //
 // Value: Valid floating-point number*.
-func Max(value string) *doc.AttrStruct {
+func Max(value string) doc.IAttribute {
 	return doc.Attr("max", value)
 }
 
@@ -988,7 +988,7 @@ func Max(value string) *doc.AttrStruct {
 // Description: Maximum length of value.
 //
 // Value: Valid non-negative integer.
-func Maxlength(value string) *doc.AttrStruct {
+func Maxlength(value string) doc.IAttribute {
 	return doc.Attr("maxlength", value)
 }
 
@@ -999,7 +999,7 @@ func Maxlength(value string) *doc.AttrStruct {
 // Description: Applicable media.
 //
 // Value: Valid media query list.
-func Media(value string) *doc.AttrStruct {
+func Media(value string) doc.IAttribute {
 	return doc.Attr("media", value)
 }
 
@@ -1010,7 +1010,7 @@ func Media(value string) *doc.AttrStruct {
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Method(value string) *doc.AttrStruct {
+func Method(value string) doc.IAttribute {
 	return doc.Attr("method", value)
 }
 
@@ -1027,7 +1027,7 @@ func Method(value string) *doc.AttrStruct {
 // Description: Lower bound of range.
 //
 // Value: Valid floating-point number*.
-func Min(value string) *doc.AttrStruct {
+func Min(value string) doc.IAttribute {
 	return doc.Attr("min", value)
 }
 
@@ -1038,7 +1038,7 @@ func Min(value string) *doc.AttrStruct {
 // Description: Minimum length of value.
 //
 // Value: Valid non-negative integer.
-func Minlength(value string) *doc.AttrStruct {
+func Minlength(value string) doc.IAttribute {
 	return doc.Attr("minlength", value)
 }
 
@@ -1049,7 +1049,7 @@ func Minlength(value string) *doc.AttrStruct {
 // Description: Whether to allow multiple values.
 //
 // Value: Boolean attribute.
-func Multiple(value bool) *doc.AttrStruct {
+func Multiple(value bool) doc.IAttribute {
 	return doc.BooleanAttr("multiple", value)
 }
 
@@ -1060,7 +1060,7 @@ func Multiple(value bool) *doc.AttrStruct {
 // Description: Whether to mute the media resource by default.
 //
 // Value: Boolean attribute.
-func Muted(value bool) *doc.AttrStruct {
+func Muted(value bool) doc.IAttribute {
 	return doc.BooleanAttr("muted", value)
 }
 
@@ -1107,7 +1107,7 @@ func Muted(value bool) *doc.AttrStruct {
 // Description: Name of shadow tree slot.
 //
 // Value: Text.
-func Name(value string) *doc.AttrStruct {
+func Name(value string) doc.IAttribute {
 	return doc.Attr("name", value)
 }
 
@@ -1118,7 +1118,7 @@ func Name(value string) *doc.AttrStruct {
 // Description: Prevents execution in user agents that support module scripts.
 //
 // Value: Boolean attribute.
-func Nomodule(value bool) *doc.AttrStruct {
+func Nomodule(value bool) doc.IAttribute {
 	return doc.BooleanAttr("nomodule", value)
 }
 
@@ -1129,7 +1129,7 @@ func Nomodule(value bool) *doc.AttrStruct {
 // Description: Cryptographic nonce used in Content Security Policy checks [CSP].
 //
 // Value: Text.
-func Nonce(value string) *doc.AttrStruct {
+func Nonce(value string) doc.IAttribute {
 	return doc.Attr("nonce", value)
 }
 
@@ -1140,7 +1140,7 @@ func Nonce(value string) *doc.AttrStruct {
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Novalidate(value bool) *doc.AttrStruct {
+func Novalidate(value bool) doc.IAttribute {
 	return doc.BooleanAttr("novalidate", value)
 }
 
@@ -1157,7 +1157,7 @@ func Novalidate(value bool) *doc.AttrStruct {
 // Description: Whether the dialog box is showing.
 //
 // Value: Boolean attribute.
-func Open(value bool) *doc.AttrStruct {
+func Open(value bool) doc.IAttribute {
 	return doc.BooleanAttr("open", value)
 }
 
@@ -1168,7 +1168,7 @@ func Open(value bool) *doc.AttrStruct {
 // Description: Optimum value in gauge.
 //
 // Value: Valid floating-point number*.
-func Optimum(value string) *doc.AttrStruct {
+func Optimum(value string) doc.IAttribute {
 	return doc.Attr("optimum", value)
 }
 
@@ -1179,7 +1179,7 @@ func Optimum(value string) *doc.AttrStruct {
 // Description: Pattern to be matched by the form control's value.
 //
 // Value: Regular expression matching the JavaScript Pattern production.
-func Pattern(value string) *doc.AttrStruct {
+func Pattern(value string) doc.IAttribute {
 	return doc.Attr("pattern", value)
 }
 
@@ -1190,7 +1190,7 @@ func Pattern(value string) *doc.AttrStruct {
 // Description: URLs to ping.
 //
 // Value: Set of space-separated tokens consisting of valid non-empty URLs.
-func Ping(value string) *doc.AttrStruct {
+func Ping(value string) doc.IAttribute {
 	return doc.Attr("ping", value)
 }
 
@@ -1201,7 +1201,7 @@ func Ping(value string) *doc.AttrStruct {
 // Description: User-visible label to be placed within the form control.
 //
 // Value: Text*.
-func Placeholder(value string) *doc.AttrStruct {
+func Placeholder(value string) doc.IAttribute {
 	return doc.Attr("placeholder", value)
 }
 
@@ -1212,7 +1212,7 @@ func Placeholder(value string) *doc.AttrStruct {
 // Description: Encourage the user agent to display video content within the element's playback area.
 //
 // Value: Boolean attribute.
-func Playsinline(value bool) *doc.AttrStruct {
+func Playsinline(value bool) doc.IAttribute {
 	return doc.BooleanAttr("playsinline", value)
 }
 
@@ -1223,7 +1223,7 @@ func Playsinline(value bool) *doc.AttrStruct {
 // Description: Makes the element a popover element.
 //
 // Value: "auto"; "manual";.
-func Popover(value string) *doc.AttrStruct {
+func Popover(value string) doc.IAttribute {
 	return doc.Attr("popover", value)
 }
 
@@ -1234,7 +1234,7 @@ func Popover(value string) *doc.AttrStruct {
 // Description: Targets a popover element to toggle, show, or hide.
 //
 // Value: ID*.
-func Popovertarget(value string) *doc.AttrStruct {
+func Popovertarget(value string) doc.IAttribute {
 	return doc.Attr("popovertarget", value)
 }
 
@@ -1245,7 +1245,7 @@ func Popovertarget(value string) *doc.AttrStruct {
 // Description: Indicates whether a targeted popover element is to be toggled, shown, or hidden.
 //
 // Value: "toggle"; "show"; "hide".
-func Popovertargetaction(value string) *doc.AttrStruct {
+func Popovertargetaction(value string) doc.IAttribute {
 	return doc.Attr("popovertargetaction", value)
 }
 
@@ -1256,7 +1256,7 @@ func Popovertargetaction(value string) *doc.AttrStruct {
 // Description: Poster frame to show prior to video playback.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Poster(value string) *doc.AttrStruct {
+func Poster(value string) doc.IAttribute {
 	return doc.Attr("poster", value)
 }
 
@@ -1267,7 +1267,7 @@ func Poster(value string) *doc.AttrStruct {
 // Description: Hints how much buffering the media resource will likely need.
 //
 // Value: "none"; "metadata"; "auto".
-func Preload(value string) *doc.AttrStruct {
+func Preload(value string) doc.IAttribute {
 	return doc.Attr("preload", value)
 }
 
@@ -1284,7 +1284,7 @@ func Preload(value string) *doc.AttrStruct {
 // Description: Affects willValidate, plus any behavior added by the custom element author.
 //
 // Value: Boolean attribute.
-func Readonly(value bool) *doc.AttrStruct {
+func Readonly(value bool) doc.IAttribute {
 	return doc.BooleanAttr("readonly", value)
 }
 
@@ -1295,7 +1295,7 @@ func Readonly(value bool) *doc.AttrStruct {
 // Description: Referrer policy for fetches initiated by the element.
 //
 // Value: Referrer policy.
-func Referrerpolicy(value string) *doc.AttrStruct {
+func Referrerpolicy(value string) doc.IAttribute {
 	return doc.Attr("referrerpolicy", value)
 }
 
@@ -1312,7 +1312,7 @@ func Referrerpolicy(value string) *doc.AttrStruct {
 // Description: Relationship between the document containing the hyperlink and the destination resource.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Rel(value string) *doc.AttrStruct {
+func Rel(value string) doc.IAttribute {
 	return doc.Attr("rel", value)
 }
 
@@ -1323,7 +1323,7 @@ func Rel(value string) *doc.AttrStruct {
 // Description: Whether the control is required for form submission.
 //
 // Value: Boolean attribute.
-func Required(value bool) *doc.AttrStruct {
+func Required(value bool) doc.IAttribute {
 	return doc.BooleanAttr("required", value)
 }
 
@@ -1334,7 +1334,7 @@ func Required(value bool) *doc.AttrStruct {
 // Description: Number the list backwards.
 //
 // Value: Boolean attribute.
-func Reversed(value bool) *doc.AttrStruct {
+func Reversed(value bool) doc.IAttribute {
 	return doc.BooleanAttr("reversed", value)
 }
 
@@ -1345,7 +1345,7 @@ func Reversed(value bool) *doc.AttrStruct {
 // Description: Number of lines to show.
 //
 // Value: Valid non-negative integer greater than zero.
-func Rows(value string) *doc.AttrStruct {
+func Rows(value string) doc.IAttribute {
 	return doc.Attr("rows", value)
 }
 
@@ -1356,7 +1356,7 @@ func Rows(value string) *doc.AttrStruct {
 // Description: Number of rows that the cell is to span.
 //
 // Value: Valid non-negative integer.
-func Rowspan(value string) *doc.AttrStruct {
+func Rowspan(value string) doc.IAttribute {
 	return doc.Attr("rowspan", value)
 }
 
@@ -1367,7 +1367,7 @@ func Rowspan(value string) *doc.AttrStruct {
 // Description: Security rules for nested content.
 //
 // Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads""allow-forms""allow-modals""allow-orientation-lock""allow-pointer-lock""allow-popups""allow-popups-to-escape-sandbox""allow-presentation""allow-same-origin""allow-scripts""allow-top-navigation""allow-top-navigation-by-user-activation""allow-top-navigation-to-custom-protocols".
-func Sandbox(value string) *doc.AttrStruct {
+func Sandbox(value string) doc.IAttribute {
 	return doc.Attr("sandbox", value)
 }
 
@@ -1378,7 +1378,7 @@ func Sandbox(value string) *doc.AttrStruct {
 // Description: Specifies which cells the header cell applies to.
 //
 // Value: "row"; "col"; "rowgroup"; "colgroup".
-func Scope(value string) *doc.AttrStruct {
+func Scope(value string) doc.IAttribute {
 	return doc.Attr("scope", value)
 }
 
@@ -1389,7 +1389,7 @@ func Scope(value string) *doc.AttrStruct {
 // Description: Whether the option is selected by default.
 //
 // Value: Boolean attribute.
-func Selected(value bool) *doc.AttrStruct {
+func Selected(value bool) doc.IAttribute {
 	return doc.BooleanAttr("selected", value)
 }
 
@@ -1400,7 +1400,7 @@ func Selected(value bool) *doc.AttrStruct {
 // Description: Sets clonable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootclonable(value bool) *doc.AttrStruct {
+func Shadowrootclonable(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootclonable", value)
 }
 
@@ -1411,7 +1411,7 @@ func Shadowrootclonable(value bool) *doc.AttrStruct {
 // Description: Sets delegates focus on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootdelegatesfocus(value bool) *doc.AttrStruct {
+func Shadowrootdelegatesfocus(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootdelegatesfocus", value)
 }
 
@@ -1422,7 +1422,7 @@ func Shadowrootdelegatesfocus(value bool) *doc.AttrStruct {
 // Description: Enables streaming declarative shadow roots.
 //
 // Value: "open"; "closed".
-func Shadowrootmode(value string) *doc.AttrStruct {
+func Shadowrootmode(value string) doc.IAttribute {
 	return doc.Attr("shadowrootmode", value)
 }
 
@@ -1433,7 +1433,7 @@ func Shadowrootmode(value string) *doc.AttrStruct {
 // Description: Sets serializable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootserializable(value bool) *doc.AttrStruct {
+func Shadowrootserializable(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootserializable", value)
 }
 
@@ -1444,7 +1444,7 @@ func Shadowrootserializable(value bool) *doc.AttrStruct {
 // Description: The kind of shape to be created in an image map.
 //
 // Value: "circle"; "default"; "poly"; "rect".
-func Shape(value string) *doc.AttrStruct {
+func Shape(value string) doc.IAttribute {
 	return doc.Attr("shape", value)
 }
 
@@ -1455,7 +1455,7 @@ func Shape(value string) *doc.AttrStruct {
 // Description: Size of the control.
 //
 // Value: Valid non-negative integer greater than zero.
-func Size(value string) *doc.AttrStruct {
+func Size(value string) doc.IAttribute {
 	return doc.Attr("size", value)
 }
 
@@ -1472,7 +1472,7 @@ func Size(value string) *doc.AttrStruct {
 // Description: Image sizes for different page layouts.
 //
 // Value: Valid source size list.
-func Sizes(value string) *doc.AttrStruct {
+func Sizes(value string) doc.IAttribute {
 	return doc.Attr("sizes", value)
 }
 
@@ -1483,7 +1483,7 @@ func Sizes(value string) *doc.AttrStruct {
 // Description: The element's desired slot.
 //
 // Value: Text.
-func Slot(value string) *doc.AttrStruct {
+func Slot(value string) doc.IAttribute {
 	return doc.Attr("slot", value)
 }
 
@@ -1494,7 +1494,7 @@ func Slot(value string) *doc.AttrStruct {
 // Description: Number of columns spanned by the element.
 //
 // Value: Valid non-negative integer greater than zero.
-func Span(value string) *doc.AttrStruct {
+func Span(value string) doc.IAttribute {
 	return doc.Attr("span", value)
 }
 
@@ -1505,7 +1505,7 @@ func Span(value string) *doc.AttrStruct {
 // Description: Whether the element is to have its spelling and grammar checked.
 //
 // Value: "true"; "false"; the empty string.
-func Spellcheck(value string) *doc.AttrStruct {
+func Spellcheck(value string) doc.IAttribute {
 	return doc.Attr("spellcheck", value)
 }
 
@@ -1516,7 +1516,7 @@ func Spellcheck(value string) *doc.AttrStruct {
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Src(value string) *doc.AttrStruct {
+func Src(value string) doc.IAttribute {
 	return doc.Attr("src", value)
 }
 
@@ -1527,7 +1527,7 @@ func Src(value string) *doc.AttrStruct {
 // Description: A document to render in the iframe.
 //
 // Value: The source of an iframe srcdoc document*.
-func Srcdoc(value string) *doc.AttrStruct {
+func Srcdoc(value string) doc.IAttribute {
 	return doc.Attr("srcdoc", value)
 }
 
@@ -1538,7 +1538,7 @@ func Srcdoc(value string) *doc.AttrStruct {
 // Description: Language of the text track.
 //
 // Value: Valid BCP 47 language tag.
-func Srclang(value string) *doc.AttrStruct {
+func Srclang(value string) doc.IAttribute {
 	return doc.Attr("srclang", value)
 }
 
@@ -1549,7 +1549,7 @@ func Srclang(value string) *doc.AttrStruct {
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc..
 //
 // Value: Comma-separated list of image candidate strings.
-func Srcset(value string) *doc.AttrStruct {
+func Srcset(value string) doc.IAttribute {
 	return doc.Attr("srcset", value)
 }
 
@@ -1560,7 +1560,7 @@ func Srcset(value string) *doc.AttrStruct {
 // Description: Starting value of the list.
 //
 // Value: Valid integer.
-func Start(value string) *doc.AttrStruct {
+func Start(value string) doc.IAttribute {
 	return doc.Attr("start", value)
 }
 
@@ -1571,7 +1571,7 @@ func Start(value string) *doc.AttrStruct {
 // Description: Granularity to be matched by the form control's value.
 //
 // Value: Valid floating-point number greater than zero, or "any".
-func Step(value string) *doc.AttrStruct {
+func Step(value string) doc.IAttribute {
 	return doc.Attr("step", value)
 }
 
@@ -1582,7 +1582,7 @@ func Step(value string) *doc.AttrStruct {
 // Description: Presentational and formatting instructions.
 //
 // Value: CSS declarations*.
-func Style(value string) *doc.AttrStruct {
+func Style(value string) doc.IAttribute {
 	return doc.Attr("style", value)
 }
 
@@ -1593,7 +1593,7 @@ func Style(value string) *doc.AttrStruct {
 // Description: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation.
 //
 // Value: Valid integer.
-func Tabindex(value string) *doc.AttrStruct {
+func Tabindex(value string) doc.IAttribute {
 	return doc.Attr("tabindex", value)
 }
 
@@ -1616,7 +1616,7 @@ func Tabindex(value string) *doc.AttrStruct {
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Target(value string) *doc.AttrStruct {
+func Target(value string) doc.IAttribute {
 	return doc.Attr("target", value)
 }
 
@@ -1651,7 +1651,7 @@ func Target(value string) *doc.AttrStruct {
 // Description: CSS style sheet set name.
 //
 // Value: Text.
-func Title(value string) *doc.AttrStruct {
+func Title(value string) doc.IAttribute {
 	return doc.Attr("title", value)
 }
 
@@ -1662,7 +1662,7 @@ func Title(value string) *doc.AttrStruct {
 // Description: Whether the element is to be translated when the page is localized.
 //
 // Value: "yes"; "no".
-func Translate(value string) *doc.AttrStruct {
+func Translate(value string) doc.IAttribute {
 	return doc.Attr("translate", value)
 }
 
@@ -1703,7 +1703,7 @@ func Translate(value string) *doc.AttrStruct {
 // Description: Type of script.
 //
 // Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match.
-func Type(value string) *doc.AttrStruct {
+func Type(value string) doc.IAttribute {
 	return doc.Attr("type", value)
 }
 
@@ -1714,7 +1714,7 @@ func Type(value string) *doc.AttrStruct {
 // Description: Name of image map to use.
 //
 // Value: Valid hash-name reference*.
-func Usemap(value string) *doc.AttrStruct {
+func Usemap(value string) doc.IAttribute {
 	return doc.Attr("usemap", value)
 }
 
@@ -1749,7 +1749,7 @@ func Usemap(value string) *doc.AttrStruct {
 // Description: Current value of the element.
 //
 // Value: Valid floating-point number.
-func Value(value string) *doc.AttrStruct {
+func Value(value string) doc.IAttribute {
 	return doc.Attr("value", value)
 }
 
@@ -1760,7 +1760,7 @@ func Value(value string) *doc.AttrStruct {
 // Description: Horizontal dimension.
 //
 // Value: Valid non-negative integer.
-func Width(value string) *doc.AttrStruct {
+func Width(value string) doc.IAttribute {
 	return doc.Attr("width", value)
 }
 
@@ -1771,7 +1771,7 @@ func Width(value string) *doc.AttrStruct {
 // Description: How the value of the form control is to be wrapped for form submission.
 //
 // Value: "soft"; "hard".
-func Wrap(value string) *doc.AttrStruct {
+func Wrap(value string) doc.IAttribute {
 	return doc.Attr("wrap", value)
 }
 
@@ -1782,7 +1782,7 @@ func Wrap(value string) *doc.AttrStruct {
 // Description: Whether the element can offer writing suggestions or not..
 //
 // Value: "true"; "false"; the empty string.
-func Writingsuggestions(value string) *doc.AttrStruct {
+func Writingsuggestions(value string) doc.IAttribute {
 	return doc.Attr("writingsuggestions", value)
 }
 
@@ -1796,7 +1796,7 @@ func Writingsuggestions(value string) *doc.AttrStruct {
 // Description: afterprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onafterprint(value string) *doc.AttrStruct {
+func Onafterprint(value string) doc.IAttribute {
 	return doc.RawAttr("onafterprint", value)
 }
 
@@ -1807,7 +1807,7 @@ func Onafterprint(value string) *doc.AttrStruct {
 // Description: auxclick event handler.
 //
 // Value: Event handler content attribute.
-func Onauxclick(value string) *doc.AttrStruct {
+func Onauxclick(value string) doc.IAttribute {
 	return doc.RawAttr("onauxclick", value)
 }
 
@@ -1818,7 +1818,7 @@ func Onauxclick(value string) *doc.AttrStruct {
 // Description: beforeinput event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforeinput(value string) *doc.AttrStruct {
+func Onbeforeinput(value string) doc.IAttribute {
 	return doc.RawAttr("onbeforeinput", value)
 }
 
@@ -1829,7 +1829,7 @@ func Onbeforeinput(value string) *doc.AttrStruct {
 // Description: beforematch event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforematch(value string) *doc.AttrStruct {
+func Onbeforematch(value string) doc.IAttribute {
 	return doc.RawAttr("onbeforematch", value)
 }
 
@@ -1840,7 +1840,7 @@ func Onbeforematch(value string) *doc.AttrStruct {
 // Description: beforeprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeprint(value string) *doc.AttrStruct {
+func Onbeforeprint(value string) doc.IAttribute {
 	return doc.RawAttr("onbeforeprint", value)
 }
 
@@ -1851,7 +1851,7 @@ func Onbeforeprint(value string) *doc.AttrStruct {
 // Description: beforeunload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeunload(value string) *doc.AttrStruct {
+func Onbeforeunload(value string) doc.IAttribute {
 	return doc.RawAttr("onbeforeunload", value)
 }
 
@@ -1862,7 +1862,7 @@ func Onbeforeunload(value string) *doc.AttrStruct {
 // Description: beforetoggle event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforetoggle(value string) *doc.AttrStruct {
+func Onbeforetoggle(value string) doc.IAttribute {
 	return doc.RawAttr("onbeforetoggle", value)
 }
 
@@ -1873,7 +1873,7 @@ func Onbeforetoggle(value string) *doc.AttrStruct {
 // Description: blur event handler.
 //
 // Value: Event handler content attribute.
-func Onblur(value string) *doc.AttrStruct {
+func Onblur(value string) doc.IAttribute {
 	return doc.RawAttr("onblur", value)
 }
 
@@ -1884,7 +1884,7 @@ func Onblur(value string) *doc.AttrStruct {
 // Description: cancel event handler.
 //
 // Value: Event handler content attribute.
-func Oncancel(value string) *doc.AttrStruct {
+func Oncancel(value string) doc.IAttribute {
 	return doc.RawAttr("oncancel", value)
 }
 
@@ -1895,7 +1895,7 @@ func Oncancel(value string) *doc.AttrStruct {
 // Description: canplay event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplay(value string) *doc.AttrStruct {
+func Oncanplay(value string) doc.IAttribute {
 	return doc.RawAttr("oncanplay", value)
 }
 
@@ -1906,7 +1906,7 @@ func Oncanplay(value string) *doc.AttrStruct {
 // Description: canplaythrough event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplaythrough(value string) *doc.AttrStruct {
+func Oncanplaythrough(value string) doc.IAttribute {
 	return doc.RawAttr("oncanplaythrough", value)
 }
 
@@ -1917,7 +1917,7 @@ func Oncanplaythrough(value string) *doc.AttrStruct {
 // Description: change event handler.
 //
 // Value: Event handler content attribute.
-func Onchange(value string) *doc.AttrStruct {
+func Onchange(value string) doc.IAttribute {
 	return doc.RawAttr("onchange", value)
 }
 
@@ -1928,7 +1928,7 @@ func Onchange(value string) *doc.AttrStruct {
 // Description: click event handler.
 //
 // Value: Event handler content attribute.
-func Onclick(value string) *doc.AttrStruct {
+func Onclick(value string) doc.IAttribute {
 	return doc.RawAttr("onclick", value)
 }
 
@@ -1939,7 +1939,7 @@ func Onclick(value string) *doc.AttrStruct {
 // Description: close event handler.
 //
 // Value: Event handler content attribute.
-func Onclose(value string) *doc.AttrStruct {
+func Onclose(value string) doc.IAttribute {
 	return doc.RawAttr("onclose", value)
 }
 
@@ -1950,7 +1950,7 @@ func Onclose(value string) *doc.AttrStruct {
 // Description: command event handler.
 //
 // Value: Event handler content attribute.
-func Oncommand(value string) *doc.AttrStruct {
+func Oncommand(value string) doc.IAttribute {
 	return doc.RawAttr("oncommand", value)
 }
 
@@ -1961,7 +1961,7 @@ func Oncommand(value string) *doc.AttrStruct {
 // Description: contextlost event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextlost(value string) *doc.AttrStruct {
+func Oncontextlost(value string) doc.IAttribute {
 	return doc.RawAttr("oncontextlost", value)
 }
 
@@ -1972,7 +1972,7 @@ func Oncontextlost(value string) *doc.AttrStruct {
 // Description: contextmenu event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextmenu(value string) *doc.AttrStruct {
+func Oncontextmenu(value string) doc.IAttribute {
 	return doc.RawAttr("oncontextmenu", value)
 }
 
@@ -1983,7 +1983,7 @@ func Oncontextmenu(value string) *doc.AttrStruct {
 // Description: contextrestored event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextrestored(value string) *doc.AttrStruct {
+func Oncontextrestored(value string) doc.IAttribute {
 	return doc.RawAttr("oncontextrestored", value)
 }
 
@@ -1994,7 +1994,7 @@ func Oncontextrestored(value string) *doc.AttrStruct {
 // Description: copy event handler.
 //
 // Value: Event handler content attribute.
-func Oncopy(value string) *doc.AttrStruct {
+func Oncopy(value string) doc.IAttribute {
 	return doc.RawAttr("oncopy", value)
 }
 
@@ -2005,7 +2005,7 @@ func Oncopy(value string) *doc.AttrStruct {
 // Description: cuechange event handler.
 //
 // Value: Event handler content attribute.
-func Oncuechange(value string) *doc.AttrStruct {
+func Oncuechange(value string) doc.IAttribute {
 	return doc.RawAttr("oncuechange", value)
 }
 
@@ -2016,7 +2016,7 @@ func Oncuechange(value string) *doc.AttrStruct {
 // Description: cut event handler.
 //
 // Value: Event handler content attribute.
-func Oncut(value string) *doc.AttrStruct {
+func Oncut(value string) doc.IAttribute {
 	return doc.RawAttr("oncut", value)
 }
 
@@ -2027,7 +2027,7 @@ func Oncut(value string) *doc.AttrStruct {
 // Description: dblclick event handler.
 //
 // Value: Event handler content attribute.
-func Ondblclick(value string) *doc.AttrStruct {
+func Ondblclick(value string) doc.IAttribute {
 	return doc.RawAttr("ondblclick", value)
 }
 
@@ -2038,7 +2038,7 @@ func Ondblclick(value string) *doc.AttrStruct {
 // Description: drag event handler.
 //
 // Value: Event handler content attribute.
-func Ondrag(value string) *doc.AttrStruct {
+func Ondrag(value string) doc.IAttribute {
 	return doc.RawAttr("ondrag", value)
 }
 
@@ -2049,7 +2049,7 @@ func Ondrag(value string) *doc.AttrStruct {
 // Description: dragend event handler.
 //
 // Value: Event handler content attribute.
-func Ondragend(value string) *doc.AttrStruct {
+func Ondragend(value string) doc.IAttribute {
 	return doc.RawAttr("ondragend", value)
 }
 
@@ -2060,7 +2060,7 @@ func Ondragend(value string) *doc.AttrStruct {
 // Description: dragenter event handler.
 //
 // Value: Event handler content attribute.
-func Ondragenter(value string) *doc.AttrStruct {
+func Ondragenter(value string) doc.IAttribute {
 	return doc.RawAttr("ondragenter", value)
 }
 
@@ -2071,7 +2071,7 @@ func Ondragenter(value string) *doc.AttrStruct {
 // Description: dragleave event handler.
 //
 // Value: Event handler content attribute.
-func Ondragleave(value string) *doc.AttrStruct {
+func Ondragleave(value string) doc.IAttribute {
 	return doc.RawAttr("ondragleave", value)
 }
 
@@ -2082,7 +2082,7 @@ func Ondragleave(value string) *doc.AttrStruct {
 // Description: dragover event handler.
 //
 // Value: Event handler content attribute.
-func Ondragover(value string) *doc.AttrStruct {
+func Ondragover(value string) doc.IAttribute {
 	return doc.RawAttr("ondragover", value)
 }
 
@@ -2093,7 +2093,7 @@ func Ondragover(value string) *doc.AttrStruct {
 // Description: dragstart event handler.
 //
 // Value: Event handler content attribute.
-func Ondragstart(value string) *doc.AttrStruct {
+func Ondragstart(value string) doc.IAttribute {
 	return doc.RawAttr("ondragstart", value)
 }
 
@@ -2104,7 +2104,7 @@ func Ondragstart(value string) *doc.AttrStruct {
 // Description: drop event handler.
 //
 // Value: Event handler content attribute.
-func Ondrop(value string) *doc.AttrStruct {
+func Ondrop(value string) doc.IAttribute {
 	return doc.RawAttr("ondrop", value)
 }
 
@@ -2115,7 +2115,7 @@ func Ondrop(value string) *doc.AttrStruct {
 // Description: durationchange event handler.
 //
 // Value: Event handler content attribute.
-func Ondurationchange(value string) *doc.AttrStruct {
+func Ondurationchange(value string) doc.IAttribute {
 	return doc.RawAttr("ondurationchange", value)
 }
 
@@ -2126,7 +2126,7 @@ func Ondurationchange(value string) *doc.AttrStruct {
 // Description: emptied event handler.
 //
 // Value: Event handler content attribute.
-func Onemptied(value string) *doc.AttrStruct {
+func Onemptied(value string) doc.IAttribute {
 	return doc.RawAttr("onemptied", value)
 }
 
@@ -2137,7 +2137,7 @@ func Onemptied(value string) *doc.AttrStruct {
 // Description: ended event handler.
 //
 // Value: Event handler content attribute.
-func Onended(value string) *doc.AttrStruct {
+func Onended(value string) doc.IAttribute {
 	return doc.RawAttr("onended", value)
 }
 
@@ -2148,7 +2148,7 @@ func Onended(value string) *doc.AttrStruct {
 // Description: error event handler.
 //
 // Value: Event handler content attribute.
-func Onerror(value string) *doc.AttrStruct {
+func Onerror(value string) doc.IAttribute {
 	return doc.RawAttr("onerror", value)
 }
 
@@ -2159,7 +2159,7 @@ func Onerror(value string) *doc.AttrStruct {
 // Description: focus event handler.
 //
 // Value: Event handler content attribute.
-func Onfocus(value string) *doc.AttrStruct {
+func Onfocus(value string) doc.IAttribute {
 	return doc.RawAttr("onfocus", value)
 }
 
@@ -2170,7 +2170,7 @@ func Onfocus(value string) *doc.AttrStruct {
 // Description: formdata event handler.
 //
 // Value: Event handler content attribute.
-func Onformdata(value string) *doc.AttrStruct {
+func Onformdata(value string) doc.IAttribute {
 	return doc.RawAttr("onformdata", value)
 }
 
@@ -2181,7 +2181,7 @@ func Onformdata(value string) *doc.AttrStruct {
 // Description: hashchange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onhashchange(value string) *doc.AttrStruct {
+func Onhashchange(value string) doc.IAttribute {
 	return doc.RawAttr("onhashchange", value)
 }
 
@@ -2192,7 +2192,7 @@ func Onhashchange(value string) *doc.AttrStruct {
 // Description: input event handler.
 //
 // Value: Event handler content attribute.
-func Oninput(value string) *doc.AttrStruct {
+func Oninput(value string) doc.IAttribute {
 	return doc.RawAttr("oninput", value)
 }
 
@@ -2203,7 +2203,7 @@ func Oninput(value string) *doc.AttrStruct {
 // Description: invalid event handler.
 //
 // Value: Event handler content attribute.
-func Oninvalid(value string) *doc.AttrStruct {
+func Oninvalid(value string) doc.IAttribute {
 	return doc.RawAttr("oninvalid", value)
 }
 
@@ -2214,7 +2214,7 @@ func Oninvalid(value string) *doc.AttrStruct {
 // Description: keydown event handler.
 //
 // Value: Event handler content attribute.
-func Onkeydown(value string) *doc.AttrStruct {
+func Onkeydown(value string) doc.IAttribute {
 	return doc.RawAttr("onkeydown", value)
 }
 
@@ -2225,7 +2225,7 @@ func Onkeydown(value string) *doc.AttrStruct {
 // Description: keypress event handler.
 //
 // Value: Event handler content attribute.
-func Onkeypress(value string) *doc.AttrStruct {
+func Onkeypress(value string) doc.IAttribute {
 	return doc.RawAttr("onkeypress", value)
 }
 
@@ -2236,7 +2236,7 @@ func Onkeypress(value string) *doc.AttrStruct {
 // Description: keyup event handler.
 //
 // Value: Event handler content attribute.
-func Onkeyup(value string) *doc.AttrStruct {
+func Onkeyup(value string) doc.IAttribute {
 	return doc.RawAttr("onkeyup", value)
 }
 
@@ -2247,7 +2247,7 @@ func Onkeyup(value string) *doc.AttrStruct {
 // Description: languagechange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onlanguagechange(value string) *doc.AttrStruct {
+func Onlanguagechange(value string) doc.IAttribute {
 	return doc.RawAttr("onlanguagechange", value)
 }
 
@@ -2258,7 +2258,7 @@ func Onlanguagechange(value string) *doc.AttrStruct {
 // Description: load event handler.
 //
 // Value: Event handler content attribute.
-func Onload(value string) *doc.AttrStruct {
+func Onload(value string) doc.IAttribute {
 	return doc.RawAttr("onload", value)
 }
 
@@ -2269,7 +2269,7 @@ func Onload(value string) *doc.AttrStruct {
 // Description: loadeddata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadeddata(value string) *doc.AttrStruct {
+func Onloadeddata(value string) doc.IAttribute {
 	return doc.RawAttr("onloadeddata", value)
 }
 
@@ -2280,7 +2280,7 @@ func Onloadeddata(value string) *doc.AttrStruct {
 // Description: loadedmetadata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadedmetadata(value string) *doc.AttrStruct {
+func Onloadedmetadata(value string) doc.IAttribute {
 	return doc.RawAttr("onloadedmetadata", value)
 }
 
@@ -2291,7 +2291,7 @@ func Onloadedmetadata(value string) *doc.AttrStruct {
 // Description: loadstart event handler.
 //
 // Value: Event handler content attribute.
-func Onloadstart(value string) *doc.AttrStruct {
+func Onloadstart(value string) doc.IAttribute {
 	return doc.RawAttr("onloadstart", value)
 }
 
@@ -2302,7 +2302,7 @@ func Onloadstart(value string) *doc.AttrStruct {
 // Description: message event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessage(value string) *doc.AttrStruct {
+func Onmessage(value string) doc.IAttribute {
 	return doc.RawAttr("onmessage", value)
 }
 
@@ -2313,7 +2313,7 @@ func Onmessage(value string) *doc.AttrStruct {
 // Description: messageerror event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessageerror(value string) *doc.AttrStruct {
+func Onmessageerror(value string) doc.IAttribute {
 	return doc.RawAttr("onmessageerror", value)
 }
 
@@ -2324,7 +2324,7 @@ func Onmessageerror(value string) *doc.AttrStruct {
 // Description: mousedown event handler.
 //
 // Value: Event handler content attribute.
-func Onmousedown(value string) *doc.AttrStruct {
+func Onmousedown(value string) doc.IAttribute {
 	return doc.RawAttr("onmousedown", value)
 }
 
@@ -2335,7 +2335,7 @@ func Onmousedown(value string) *doc.AttrStruct {
 // Description: mouseenter event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseenter(value string) *doc.AttrStruct {
+func Onmouseenter(value string) doc.IAttribute {
 	return doc.RawAttr("onmouseenter", value)
 }
 
@@ -2346,7 +2346,7 @@ func Onmouseenter(value string) *doc.AttrStruct {
 // Description: mouseleave event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseleave(value string) *doc.AttrStruct {
+func Onmouseleave(value string) doc.IAttribute {
 	return doc.RawAttr("onmouseleave", value)
 }
 
@@ -2357,7 +2357,7 @@ func Onmouseleave(value string) *doc.AttrStruct {
 // Description: mousemove event handler.
 //
 // Value: Event handler content attribute.
-func Onmousemove(value string) *doc.AttrStruct {
+func Onmousemove(value string) doc.IAttribute {
 	return doc.RawAttr("onmousemove", value)
 }
 
@@ -2368,7 +2368,7 @@ func Onmousemove(value string) *doc.AttrStruct {
 // Description: mouseout event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseout(value string) *doc.AttrStruct {
+func Onmouseout(value string) doc.IAttribute {
 	return doc.RawAttr("onmouseout", value)
 }
 
@@ -2379,7 +2379,7 @@ func Onmouseout(value string) *doc.AttrStruct {
 // Description: mouseover event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseover(value string) *doc.AttrStruct {
+func Onmouseover(value string) doc.IAttribute {
 	return doc.RawAttr("onmouseover", value)
 }
 
@@ -2390,7 +2390,7 @@ func Onmouseover(value string) *doc.AttrStruct {
 // Description: mouseup event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseup(value string) *doc.AttrStruct {
+func Onmouseup(value string) doc.IAttribute {
 	return doc.RawAttr("onmouseup", value)
 }
 
@@ -2401,7 +2401,7 @@ func Onmouseup(value string) *doc.AttrStruct {
 // Description: offline event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onoffline(value string) *doc.AttrStruct {
+func Onoffline(value string) doc.IAttribute {
 	return doc.RawAttr("onoffline", value)
 }
 
@@ -2412,7 +2412,7 @@ func Onoffline(value string) *doc.AttrStruct {
 // Description: online event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Ononline(value string) *doc.AttrStruct {
+func Ononline(value string) doc.IAttribute {
 	return doc.RawAttr("ononline", value)
 }
 
@@ -2423,7 +2423,7 @@ func Ononline(value string) *doc.AttrStruct {
 // Description: pagehide event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagehide(value string) *doc.AttrStruct {
+func Onpagehide(value string) doc.IAttribute {
 	return doc.RawAttr("onpagehide", value)
 }
 
@@ -2434,7 +2434,7 @@ func Onpagehide(value string) *doc.AttrStruct {
 // Description: pagereveal event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagereveal(value string) *doc.AttrStruct {
+func Onpagereveal(value string) doc.IAttribute {
 	return doc.RawAttr("onpagereveal", value)
 }
 
@@ -2445,7 +2445,7 @@ func Onpagereveal(value string) *doc.AttrStruct {
 // Description: pageshow event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageshow(value string) *doc.AttrStruct {
+func Onpageshow(value string) doc.IAttribute {
 	return doc.RawAttr("onpageshow", value)
 }
 
@@ -2456,7 +2456,7 @@ func Onpageshow(value string) *doc.AttrStruct {
 // Description: pageswap event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageswap(value string) *doc.AttrStruct {
+func Onpageswap(value string) doc.IAttribute {
 	return doc.RawAttr("onpageswap", value)
 }
 
@@ -2467,7 +2467,7 @@ func Onpageswap(value string) *doc.AttrStruct {
 // Description: paste event handler.
 //
 // Value: Event handler content attribute.
-func Onpaste(value string) *doc.AttrStruct {
+func Onpaste(value string) doc.IAttribute {
 	return doc.RawAttr("onpaste", value)
 }
 
@@ -2478,7 +2478,7 @@ func Onpaste(value string) *doc.AttrStruct {
 // Description: pause event handler.
 //
 // Value: Event handler content attribute.
-func Onpause(value string) *doc.AttrStruct {
+func Onpause(value string) doc.IAttribute {
 	return doc.RawAttr("onpause", value)
 }
 
@@ -2489,7 +2489,7 @@ func Onpause(value string) *doc.AttrStruct {
 // Description: play event handler.
 //
 // Value: Event handler content attribute.
-func Onplay(value string) *doc.AttrStruct {
+func Onplay(value string) doc.IAttribute {
 	return doc.RawAttr("onplay", value)
 }
 
@@ -2500,7 +2500,7 @@ func Onplay(value string) *doc.AttrStruct {
 // Description: playing event handler.
 //
 // Value: Event handler content attribute.
-func Onplaying(value string) *doc.AttrStruct {
+func Onplaying(value string) doc.IAttribute {
 	return doc.RawAttr("onplaying", value)
 }
 
@@ -2511,7 +2511,7 @@ func Onplaying(value string) *doc.AttrStruct {
 // Description: popstate event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpopstate(value string) *doc.AttrStruct {
+func Onpopstate(value string) doc.IAttribute {
 	return doc.RawAttr("onpopstate", value)
 }
 
@@ -2522,7 +2522,7 @@ func Onpopstate(value string) *doc.AttrStruct {
 // Description: progress event handler.
 //
 // Value: Event handler content attribute.
-func Onprogress(value string) *doc.AttrStruct {
+func Onprogress(value string) doc.IAttribute {
 	return doc.RawAttr("onprogress", value)
 }
 
@@ -2533,7 +2533,7 @@ func Onprogress(value string) *doc.AttrStruct {
 // Description: ratechange event handler.
 //
 // Value: Event handler content attribute.
-func Onratechange(value string) *doc.AttrStruct {
+func Onratechange(value string) doc.IAttribute {
 	return doc.RawAttr("onratechange", value)
 }
 
@@ -2544,7 +2544,7 @@ func Onratechange(value string) *doc.AttrStruct {
 // Description: reset event handler.
 //
 // Value: Event handler content attribute.
-func Onreset(value string) *doc.AttrStruct {
+func Onreset(value string) doc.IAttribute {
 	return doc.RawAttr("onreset", value)
 }
 
@@ -2555,7 +2555,7 @@ func Onreset(value string) *doc.AttrStruct {
 // Description: resize event handler.
 //
 // Value: Event handler content attribute.
-func Onresize(value string) *doc.AttrStruct {
+func Onresize(value string) doc.IAttribute {
 	return doc.RawAttr("onresize", value)
 }
 
@@ -2566,7 +2566,7 @@ func Onresize(value string) *doc.AttrStruct {
 // Description: rejectionhandled event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onrejectionhandled(value string) *doc.AttrStruct {
+func Onrejectionhandled(value string) doc.IAttribute {
 	return doc.RawAttr("onrejectionhandled", value)
 }
 
@@ -2577,7 +2577,7 @@ func Onrejectionhandled(value string) *doc.AttrStruct {
 // Description: scroll event handler.
 //
 // Value: Event handler content attribute.
-func Onscroll(value string) *doc.AttrStruct {
+func Onscroll(value string) doc.IAttribute {
 	return doc.RawAttr("onscroll", value)
 }
 
@@ -2588,7 +2588,7 @@ func Onscroll(value string) *doc.AttrStruct {
 // Description: scrollend event handler.
 //
 // Value: Event handler content attribute.
-func Onscrollend(value string) *doc.AttrStruct {
+func Onscrollend(value string) doc.IAttribute {
 	return doc.RawAttr("onscrollend", value)
 }
 
@@ -2599,7 +2599,7 @@ func Onscrollend(value string) *doc.AttrStruct {
 // Description: securitypolicyviolation event handler.
 //
 // Value: Event handler content attribute.
-func Onsecuritypolicyviolation(value string) *doc.AttrStruct {
+func Onsecuritypolicyviolation(value string) doc.IAttribute {
 	return doc.RawAttr("onsecuritypolicyviolation", value)
 }
 
@@ -2610,7 +2610,7 @@ func Onsecuritypolicyviolation(value string) *doc.AttrStruct {
 // Description: seeked event handler.
 //
 // Value: Event handler content attribute.
-func Onseeked(value string) *doc.AttrStruct {
+func Onseeked(value string) doc.IAttribute {
 	return doc.RawAttr("onseeked", value)
 }
 
@@ -2621,7 +2621,7 @@ func Onseeked(value string) *doc.AttrStruct {
 // Description: seeking event handler.
 //
 // Value: Event handler content attribute.
-func Onseeking(value string) *doc.AttrStruct {
+func Onseeking(value string) doc.IAttribute {
 	return doc.RawAttr("onseeking", value)
 }
 
@@ -2632,7 +2632,7 @@ func Onseeking(value string) *doc.AttrStruct {
 // Description: select event handler.
 //
 // Value: Event handler content attribute.
-func Onselect(value string) *doc.AttrStruct {
+func Onselect(value string) doc.IAttribute {
 	return doc.RawAttr("onselect", value)
 }
 
@@ -2643,7 +2643,7 @@ func Onselect(value string) *doc.AttrStruct {
 // Description: slotchange event handler.
 //
 // Value: Event handler content attribute.
-func Onslotchange(value string) *doc.AttrStruct {
+func Onslotchange(value string) doc.IAttribute {
 	return doc.RawAttr("onslotchange", value)
 }
 
@@ -2654,7 +2654,7 @@ func Onslotchange(value string) *doc.AttrStruct {
 // Description: stalled event handler.
 //
 // Value: Event handler content attribute.
-func Onstalled(value string) *doc.AttrStruct {
+func Onstalled(value string) doc.IAttribute {
 	return doc.RawAttr("onstalled", value)
 }
 
@@ -2665,7 +2665,7 @@ func Onstalled(value string) *doc.AttrStruct {
 // Description: storage event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onstorage(value string) *doc.AttrStruct {
+func Onstorage(value string) doc.IAttribute {
 	return doc.RawAttr("onstorage", value)
 }
 
@@ -2676,7 +2676,7 @@ func Onstorage(value string) *doc.AttrStruct {
 // Description: submit event handler.
 //
 // Value: Event handler content attribute.
-func Onsubmit(value string) *doc.AttrStruct {
+func Onsubmit(value string) doc.IAttribute {
 	return doc.RawAttr("onsubmit", value)
 }
 
@@ -2687,7 +2687,7 @@ func Onsubmit(value string) *doc.AttrStruct {
 // Description: suspend event handler.
 //
 // Value: Event handler content attribute.
-func Onsuspend(value string) *doc.AttrStruct {
+func Onsuspend(value string) doc.IAttribute {
 	return doc.RawAttr("onsuspend", value)
 }
 
@@ -2698,7 +2698,7 @@ func Onsuspend(value string) *doc.AttrStruct {
 // Description: timeupdate event handler.
 //
 // Value: Event handler content attribute.
-func Ontimeupdate(value string) *doc.AttrStruct {
+func Ontimeupdate(value string) doc.IAttribute {
 	return doc.RawAttr("ontimeupdate", value)
 }
 
@@ -2709,7 +2709,7 @@ func Ontimeupdate(value string) *doc.AttrStruct {
 // Description: toggle event handler.
 //
 // Value: Event handler content attribute.
-func Ontoggle(value string) *doc.AttrStruct {
+func Ontoggle(value string) doc.IAttribute {
 	return doc.RawAttr("ontoggle", value)
 }
 
@@ -2720,7 +2720,7 @@ func Ontoggle(value string) *doc.AttrStruct {
 // Description: unhandledrejection event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunhandledrejection(value string) *doc.AttrStruct {
+func Onunhandledrejection(value string) doc.IAttribute {
 	return doc.RawAttr("onunhandledrejection", value)
 }
 
@@ -2731,7 +2731,7 @@ func Onunhandledrejection(value string) *doc.AttrStruct {
 // Description: unload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunload(value string) *doc.AttrStruct {
+func Onunload(value string) doc.IAttribute {
 	return doc.RawAttr("onunload", value)
 }
 
@@ -2742,7 +2742,7 @@ func Onunload(value string) *doc.AttrStruct {
 // Description: volumechange event handler.
 //
 // Value: Event handler content attribute.
-func Onvolumechange(value string) *doc.AttrStruct {
+func Onvolumechange(value string) doc.IAttribute {
 	return doc.RawAttr("onvolumechange", value)
 }
 
@@ -2753,7 +2753,7 @@ func Onvolumechange(value string) *doc.AttrStruct {
 // Description: waiting event handler.
 //
 // Value: Event handler content attribute.
-func Onwaiting(value string) *doc.AttrStruct {
+func Onwaiting(value string) doc.IAttribute {
 	return doc.RawAttr("onwaiting", value)
 }
 
@@ -2764,6 +2764,6 @@ func Onwaiting(value string) *doc.AttrStruct {
 // Description: wheel event handler.
 //
 // Value: Event handler content attribute.
-func Onwheel(value string) *doc.AttrStruct {
+func Onwheel(value string) doc.IAttribute {
 	return doc.RawAttr("onwheel", value)
 }
