@@ -13,7 +13,7 @@ func Test_Text(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content *textStruct
+		content IContent
 	}{
 		{
 			name:    "text",
@@ -58,7 +58,7 @@ func Test_RawText(t *testing.T) {
 	tests := []struct {
 		name    string
 		want    string
-		content *rawTextStruct
+		content IContent
 	}{
 		{
 			name:    "text",

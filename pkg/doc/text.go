@@ -15,21 +15,21 @@ type rawTextStruct struct {
 	*textStruct
 }
 
-func Text(value []byte) *textStruct {
+func Text(value []byte) IContent {
 	return newText(value, true)
 }
 
-func TextS(value string) *textStruct {
+func TextS(value string) IContent {
 	return Text([]byte(value))
 }
 
-func RawText(value []byte) *rawTextStruct {
+func RawText(value []byte) IContent {
 	return &rawTextStruct{
 		textStruct: newText(value, false),
 	}
 }
 
-func RawTextS(value string) *rawTextStruct {
+func RawTextS(value string) IContent {
 	return RawText([]byte(value))
 }
 
