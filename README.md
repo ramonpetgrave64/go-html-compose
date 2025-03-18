@@ -11,54 +11,54 @@ Write your content, like in the [test example](./pkg/internal/test/example_test.
 package main
 
 import (
-	a "go-html-compose/pkg/attr"
 	d "go-html-compose/pkg/doc"
-	t "go-html-compose/pkg/tag"
+	a "go-html-compose/pkg/html/attrs"
+	e "go-html-compose/pkg/html/elems"
 	"io"
 )
 
 func renderHomePage(wr io.Writer) error {
-	content := t.Html(a.Lang("en"))(
-		t.Head()(
-			t.Meta(a.Charset("UTF-8")),
-			t.Meta(a.Name("viewport"), a.Content("width=device-width, initial-scale=1.0")),
-			t.Meta(a.Name("color-scheme"), a.Content("light dark")),
-			t.Title()(d.TextS("Example HTML Page")),
-			t.Link(a.Rel("stylesheet"), a.Href("https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css")),
+	content := content := e.Html(a.Lang("en"))(
+		e.Head()(
+			e.Meta(a.Charset("UTF-8")),
+			e.Meta(a.Name("viewport"), a.Content("width=device-width, initial-scale=1.0")),
+			e.Meta(a.Name("color-scheme"), a.Content("light dark")),
+			e.Title()(d.TextS("Example HTML Page")),
+			e.Link(a.Rel("stylesheet"), a.Href("https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css")),
 		),
-		t.Body()(
-			t.Header(a.Class("container"))(
-				t.H1()(d.TextS("Welcome to My Website")),
-				t.Nav()(
-					t.Ul()(
-						t.Li()(t.A(a.Href("#home"))(d.TextS("Home"))),
-						t.Li()(t.A(a.Href("#about"))(d.TextS("About"))),
-						t.Li()(t.A(a.Href("#contact"))(d.TextS("Contact"))),
+		e.Body()(
+			e.Header(a.Class("container"))(
+				e.H1()(d.TextS("Welcome to My Website")),
+				e.Nav()(
+					e.Ul()(
+						e.Li()(e.A(a.Href("#home"))(d.TextS("Home"))),
+						e.Li()(e.A(a.Href("#about"))(d.TextS("About"))),
+						e.Li()(e.A(a.Href("#contact"))(d.TextS("Contact"))),
 					),
 				),
 			),
-			t.Main(a.Class("container"))(
-				t.Section(a.Id("home"))(
-					t.H2()(d.TextS("Home")),
-					t.P()(d.TextS("This is the home section.")),
+			e.Main(a.Class("container"))(
+				e.Section(a.Id("home"))(
+					e.H2()(d.TextS("Home")),
+					e.P()(d.TextS("This is the home section.")),
 				),
-				t.Section(a.Id("about"))(
-					t.H2()(d.TextS("About")),
-					t.P()(d.TextS("This is the about section.")),
+				e.Section(a.Id("about"))(
+					e.H2()(d.TextS("About")),
+					e.P()(d.TextS("This is the about section.")),
 				),
-				t.Section(a.Id("contact"))(
-					t.H2()(d.TextS("Contact")),
-					t.P()(d.TextS("Please subscribe!🥺")),
-					t.Form()(
-						t.Div(a.Class("grid"))(
-							t.Input(
+				e.Section(a.Id("contact"))(
+					e.H2()(d.TextS("Contact")),
+					e.P()(d.TextS("Please subscribe!🥺")),
+					e.Form()(
+						e.Div(a.Class("grid"))(
+							e.Input(
 								a.Type("text"),
 								a.Name("firstname"),
 								a.Placeholder("First name"),
 								a.AriaProp("label", "First name"),
 								a.Required(true),
 							),
-							t.Input(
+							e.Input(
 								a.Type("email"),
 								a.Name("email"),
 								a.Placeholder("Email address"),
@@ -66,20 +66,20 @@ func renderHomePage(wr io.Writer) error {
 								a.Autocomplete("email"),
 								a.Required(true),
 							),
-							t.Button(a.Type("submit"))(d.TextS("Subscribe")),
+							e.Button(a.Type("submit"))(d.TextS("Subscribe")),
 						),
-						t.Fieldset()(
-							t.Label(a.For("terms"))(
-								t.Input(a.Type("checkbox"), a.Role("switch"), a.Id("terms"), a.Name("terms")),
+						e.Fieldset()(
+							e.Label(a.For("terms"))(
+								e.Input(a.Type("checkbox"), a.Role("switch"), a.Id("terms"), a.Name("terms")),
 								d.TextS("I agree to the "),
-								t.A(a.Href("#"), a.Onclick("alert('Hello, World!')"))(d.TextS("Privacy Policy")),
+								e.A(a.Href("#"), a.Onclick("alert('Hello, World!')"))(d.TextS("Privacy Policy")),
 							),
 						),
 					),
 				),
 			),
-			t.Footer(a.Class("container"))(
-				t.P()(d.TextS("© 2025 My Website")),
+			e.Footer(a.Class("container"))(
+				e.P()(d.TextS("© 2025 My Website")),
 			),
 		),
 	)
