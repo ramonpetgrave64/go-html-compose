@@ -3,8 +3,8 @@ package tag
 import (
 	"io"
 
-	"go-html-compose/pkg/attr"
-	"go-html-compose/pkg/doc"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/attr"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 )
 
 type ContentFunc func(elems ...doc.Renderable) *ParentTagStruct

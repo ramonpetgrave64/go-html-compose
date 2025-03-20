@@ -4,7 +4,7 @@ import (
 	"html"
 	"io"
 
-	"go-html-compose/pkg/doc"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 )
 
 // AttributeStruct describes an HTML attribute.
