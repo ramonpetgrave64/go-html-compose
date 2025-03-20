@@ -5,7 +5,7 @@ import (
 	"io"
 	"testing"
 
-	"go-html-compose/pkg/internal/test"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/internal/test"
 )
 
 type testRenderable struct {

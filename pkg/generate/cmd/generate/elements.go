@@ -48,7 +48,7 @@ func generateElements(specContent io.Reader) error {
 
 package tag
 
-import "go-html-compose/pkg/attr"
+import "github.com/ramonpetgrave64/go-html-compose/pkg/attr"
 
 // Special Elements
 

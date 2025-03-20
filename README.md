@@ -15,9 +15,9 @@ Write your content, like in the [test example](./pkg/internal/test/example_test.
 package main
 
 import (
-	a "go-html-compose/pkg/attr"
-	d "go-html-compose/pkg/doc"
-	t "go-html-compose/pkg/tag"
+	a "github.com/ramonpetgrave64/go-html-compose/pkg/attr"
+	d "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
+	t "github.com/ramonpetgrave64/go-html-compose/pkg/tag"
 	"io"
 )
 
