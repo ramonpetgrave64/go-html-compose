@@ -5,7 +5,7 @@ and then rendering to actual HTML at runtime.
 
 ## Usage
 
-Write your content, like in the [test example](./pkg/internal/test/example_test.go).
+Write your content, like in the [test example](./pkg/html/html_test.go).
 
 ```go
 package main
