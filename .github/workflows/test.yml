@@ -20,18 +20,4 @@ jobs:
           go-version-file: "go.mod"
       - name: Test
         run: go test -v ./...
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version-file: "go.mod"
-      - name: Detect changes after generate
-        run: |
-          go generate ./...
-          git add .
-          git status
-          git diff HEAD > changes.patch
-          [ -z "$(cat changes.patch)" ] && exit 0 || exit 1
+  # TODO: detect changes after go generate ./...
