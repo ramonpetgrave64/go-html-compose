@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	tagsFilePath = "../pkg/html/elems/elems.go"
+	tagsFilePath = "../html/elems/elems.go"
 
 	elementsTableCaptionText  = "List of elements"
 	unitElementsChildrenValue = "empty"

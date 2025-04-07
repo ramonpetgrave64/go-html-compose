@@ -1,3 +1,3 @@
-//go:generate go run -C ../generate ./
+//go:generate go run -C ./generate ./
 
 package pkg

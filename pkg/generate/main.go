@@ -133,7 +133,7 @@ import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 %s`, doNotEdit, ariaPropSpecialCase, dataPropSpecialCase, RoleSpecialCase, regularAttributeContent, eventHandlerAttributeContent); err != nil {
 		return err
 	}
-	goFile, err := os.Create("../pkg/html/attrs/attrs.go")
+	goFile, err := os.Create("../html/attrs/attrs.go")
 	if err != nil {
 		return err
 	}
