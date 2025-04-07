@@ -9,7 +9,7 @@ import (
 
 // TODO tests for IfElseCont, IfAttr, IfElseAttr
 
-func Test_If(t *testing.T) {
+func Test_IfCont(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
