@@ -6,7 +6,7 @@
 // Some attributes will have multiple specifications that depend on the element with which they are used.
 package attrs
 
-import "go-html-compose/pkg/doc"
+import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 
 // Special attributes
 

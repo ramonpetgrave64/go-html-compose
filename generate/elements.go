@@ -48,7 +48,7 @@ func generateElements(specContent io.Reader) error {
 
 package elems
 
-import "go-html-compose/pkg/doc"
+import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 
 // Special Elements
 

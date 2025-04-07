@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"go-html-compose/pkg/internal/test"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/internal/test"
 )
 
 // TODO tests for IfElseCont, IfAttr, IfElseAttr

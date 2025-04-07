@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"testing"
 
-	d "go-html-compose/pkg/doc"
-	a "go-html-compose/pkg/html/attrs"
-	e "go-html-compose/pkg/html/elems"
-	"go-html-compose/pkg/internal/test"
+	d "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
+	a "github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
+	e "github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/internal/test"
 )
 
 func Test_Example(tt *testing.T) {
