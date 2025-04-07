@@ -50,7 +50,6 @@ func Test_Attr(t *testing.T) {
 			var buffer bytes.Buffer
 			if err := tc.content.RenderAttr(&buffer); err != nil {
 				t.Errorf("unexpected error: %s", err.Error())
-
 			}
 			got := buffer.String()
 			test.TestDiffError(t, tc.want, got)

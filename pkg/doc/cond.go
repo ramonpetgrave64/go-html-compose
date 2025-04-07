@@ -1,8 +1,6 @@
 package doc
 
-var (
-	nilAttribute = BooleanAttr("", false)
-)
+var nilAttribute = BooleanAttr("", false)
 
 // IfAttr conditonally renders either attribute.
 func IfElseAttr(cond bool, ifTrue, ifFalse IAttribute) IAttribute {

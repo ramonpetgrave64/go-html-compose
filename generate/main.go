@@ -18,14 +18,14 @@ const (
 // Description: Lets you attach custom attributes to an HTML element.
 // Value: Text.
 func DataProp(property, value string) doc.IAttribute {
-	return doc.Attr("data-" + property, value)
+	return doc.Attr("data-"+property, value)
 }`
 	ariaPropSpecialCase = `// AriaProp
 // Element(s): Global attribute.
 // Description: Sets aria-* properties.
 // Value: Text.
 func AriaProp(property, value string) doc.IAttribute {
-	return doc.Attr("aria-" + property, value)
+	return doc.Attr("aria-"+property, value)
 }`
 
 	RoleSpecialCase = `// Role
@@ -128,7 +128,6 @@ import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 // Regular Attributes
 
 %s
-
 // Event Handler Attributes
 
 %s`, doNotEdit, ariaPropSpecialCase, dataPropSpecialCase, RoleSpecialCase, regularAttributeContent, eventHandlerAttributeContent); err != nil {

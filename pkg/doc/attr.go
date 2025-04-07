@@ -33,7 +33,7 @@ func (a *attrStruct) RenderAttr(wr io.Writer) error {
 }
 
 // Attr creates an AttributeStruct.
-func Attr(name string, value string) *attrStruct {
+func Attr(name, value string) *attrStruct {
 	return &attrStruct{
 		Name:  name,
 		Value: value,
@@ -42,7 +42,7 @@ func Attr(name string, value string) *attrStruct {
 }
 
 // RawAttr creates a attribute that renders without escaping the value.
-func RawAttr(name string, value string) *attrStruct {
+func RawAttr(name, value string) *attrStruct {
 	return &attrStruct{
 		Name:  name,
 		Value: value,

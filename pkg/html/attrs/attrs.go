@@ -15,7 +15,7 @@ import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 // Description: Sets aria-* properties.
 // Value: Text.
 func AriaProp(property, value string) doc.IAttribute {
-	return doc.Attr("aria-" + property, value)
+	return doc.Attr("aria-"+property, value)
 }
 
 // DataProp
@@ -23,7 +23,7 @@ func AriaProp(property, value string) doc.IAttribute {
 // Description: Lets you attach custom attributes to an HTML element.
 // Value: Text.
 func DataProp(property, value string) doc.IAttribute {
-	return doc.Attr("data-" + property, value)
+	return doc.Attr("data-"+property, value)
 }
 
 // Role
@@ -1785,7 +1785,6 @@ func Wrap(value string) doc.IAttribute {
 func Writingsuggestions(value string) doc.IAttribute {
 	return doc.Attr("writingsuggestions", value)
 }
-
 
 // Event Handler Attributes
 
