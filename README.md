@@ -1,3 +1,8 @@
+- [go-html-compose](#go-html-compose)
+	- [Usage](#usage)
+	- [Development](#development)
+
+
 # go-html-compose
 
 A Go library for writing code that resembles the form and structure of html,
