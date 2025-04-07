@@ -23,6 +23,7 @@ func (a *attrStruct) RenderAttr(wr io.Writer) error {
 		value = html.EscapeString(a.Value)
 	}
 	var err error
+	// TODO: decide if a.Name should be escaped.
 	if err = writeByteSlices(
 		wr,
 		[]byte(a.Name), []byte(`="`), []byte(value), []byte(`"`),
