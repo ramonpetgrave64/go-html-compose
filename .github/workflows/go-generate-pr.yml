@@ -18,6 +18,8 @@ jobs:
       - run: go generate ./...
       - run: git diff --exit-code "*.go"
       - if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git add .
           git commit -sm "update from spec"
