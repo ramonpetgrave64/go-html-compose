@@ -1,6 +1,7 @@
 package doc
 
 var nilAttribute = BooleanAttr("", false)
+var nilContent = RawText([]byte(``))
 
 // IfAttr conditonally renders either attribute.
 func IfElseAttr(cond bool, ifTrue, ifFalse IAttribute) IAttribute {
@@ -17,7 +18,7 @@ func IfAttr(cond bool, ifTrue IAttribute) IAttribute {
 
 // IfCont conditionally renders cont.
 func IfCont(cond bool, ifTrue IContent) IContent {
-	return IfElseCont(cond, ifTrue, RawText([]byte(``)))
+	return IfElseCont(cond, ifTrue, nilContent)
 }
 
 // If conditionally renders either element.

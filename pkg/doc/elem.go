@@ -19,19 +19,24 @@ type parentElemStruct struct {
 	children IContent
 }
 
-// func ChildElem creates a ChildElemStruct.
-func ChildElem(name string, attrs ...IAttribute) *childElemStruct {
+// func childElem creates a child element.
+func childElem(name string, attrs ...IAttribute) *childElemStruct {
 	return &childElemStruct{
 		name:       name,
 		attributes: attrs,
 	}
 }
 
+// func ChildElem creates a child element.
+func ChildElem(name string, attrs ...IAttribute) IContent {
+	return childElem(name, attrs...)
+}
+
 // func ParentElem creates a ParentElemStruct.
-func ParentElem(name string, attrs ...IAttribute) ParentElemFunc {
+func ParentElem(name string, attrs ...IAttribute) ContContainerFunc {
 	return func(elems ...IContent) IContent {
 		return &parentElemStruct{
-			childElemStruct: ChildElem(name, attrs...),
+			childElemStruct: childElem(name, attrs...),
 			children:        ContContainer(elems...),
 		}
 	}

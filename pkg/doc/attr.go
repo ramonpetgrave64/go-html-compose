@@ -33,8 +33,8 @@ func (a *attrStruct) RenderAttr(wr io.Writer) error {
 	return nil
 }
 
-// Attr creates an AttributeStruct.
-func Attr(name, value string) *attrStruct {
+// attr creates an attribute.
+func attr(name, value string) *attrStruct {
 	return &attrStruct{
 		Name:  name,
 		Value: value,
@@ -42,8 +42,13 @@ func Attr(name, value string) *attrStruct {
 	}
 }
 
+// Attr creates an attribute.
+func Attr(name, value string) IAttribute {
+	return attr(name, value)
+}
+
 // RawAttr creates a attribute that renders without escaping the value.
-func RawAttr(name, value string) *attrStruct {
+func RawAttr(name, value string) IAttribute {
 	return &attrStruct{
 		Name:  name,
 		Value: value,
@@ -52,9 +57,9 @@ func RawAttr(name, value string) *attrStruct {
 }
 
 // BooleanAttr creates an attribute that holds boolean values and conditionally renders if the cond is true.
-func BooleanAttr(name string, cond bool) *attrStruct {
+func BooleanAttr(name string, cond bool) IAttribute {
 	value := name
-	attr := Attr(name, value)
+	attr := attr(name, value)
 	attr.skipRender = !cond
 	return attr
 }
