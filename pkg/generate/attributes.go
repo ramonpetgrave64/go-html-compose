@@ -22,22 +22,25 @@ const (
 // Value: Text.
 func DataProp(property, value string) doc.IAttribute {
 	return doc.Attr("data-"+property, value)
-}`
+}
+`
 	ariaPropSpecialCase = `// AriaProp
 // Element(s): Global attribute.
 // Description: Sets aria-* properties.
 // Value: Text.
 func AriaProp(property, value string) doc.IAttribute {
 	return doc.Attr("aria-"+property, value)
-}`
+}
+`
 
-	RoleSpecialCase = `// Role
+	roleSpecialCase = `// Role
 // Element(s): Global attribute.
 // Description: Defines an explicit role for an element for use by assistive technologies.
 // Value: Text.
 func Role(value string) doc.IAttribute {
 	return doc.Attr("role", value)
-}`
+}
+`
 )
 
 type attribute struct {
@@ -58,6 +61,12 @@ func generateAttributes(specContent io.Reader) error {
 	if err != nil {
 		return err
 	}
+
+	specialAttributesContent := strings.Join(
+		[]string{ariaPropSpecialCase, dataPropSpecialCase, roleSpecialCase},
+		"\n",
+	)
+
 	regularAttributesTable := getTableById(specNode, regularAttributesTableId)
 	regularAttributes := extractAttributesFromTable(regularAttributesTable)
 	regularAttributeFuncs := []string{}
@@ -66,6 +75,7 @@ func generateAttributes(specContent io.Reader) error {
 		regularAttributeFuncs = append(regularAttributeFuncs, attributeFunc)
 	}
 	regularAttributeContent := strings.Join(regularAttributeFuncs, "\n")
+
 	eventHandlerAttributesTable := getTableById(specNode, eventHandlerAttributesTableId)
 	eventHanlderAttributes := extractAttributesFromTable(eventHandlerAttributesTable)
 	eventHandlerAttributeFuncs := []string{}
@@ -88,17 +98,12 @@ import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 // Special attributes
 
 %s
-
-%s
-
-%s
-
 // Regular Attributes
 
 %s
 // Event Handler Attributes
 
-%s`, doNotEdit, ariaPropSpecialCase, dataPropSpecialCase, RoleSpecialCase, regularAttributeContent, eventHandlerAttributeContent); err != nil {
+%s`, doNotEdit, specialAttributesContent, regularAttributeContent, eventHandlerAttributeContent); err != nil {
 		return err
 	}
 	goFile, err := os.Create("../html/attrs/attrs.go")
