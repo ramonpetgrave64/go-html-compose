@@ -30,7 +30,9 @@ jobs:
           git commit -sm "update from spec"
           git checkout -b auto-go-generate
           git push --set-upstream -f origin auto-go-generate
-
+      - env:
+          GH_TOKEN: ${{ secrets.PR_TOKEN }}
+        run: |
           gh pr create \
             --draft \
             --assignee "@me" \
