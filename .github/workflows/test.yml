@@ -19,6 +19,10 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version-file: "go.mod"
-      - name: Test
-        run: go test -v ./...
-  # TODO: detect changes after go generate ./...
+      - run: go test -v ./...
+
+  generate-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git diff --cached --exit-code
