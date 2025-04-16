@@ -25,6 +25,8 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git commit -sm "update from spec"
+          gh auth login --with-token <<< "${GH_TOKEN}"
+          git push "auto-go-generate"
           gh pr create \
             --draft \
             --assignee "@me" \
