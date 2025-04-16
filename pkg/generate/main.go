@@ -274,16 +274,6 @@ func downloadFile(url, output string) (*os.File, error) {
 	if err != nil {
 		return nil, err
 	}
-	// content, err := io.ReadAll(resp.Body)
-	// if err != nil {
-	// 	return nil, err
-	// }
-	// cleanedContent := bytes.ReplaceAll(content, []byte(`"<code`), []byte(`<code`))
-	// cleanedContent = bytes.ReplaceAll(cleanedContent, []byte(`</code>";`), []byte(`</code>`))
-	// cleanedContent = bytes.ReplaceAll(cleanedContent, []byte(`</code>"`), []byte(`</code>`))
-	// if _, err = file.Write(cleanedContent); err != nil {
-	// 	return nil, err
-	// }
 	if _, err = io.Copy(file, resp.Body); err != nil {
 		return nil, err
 	}
