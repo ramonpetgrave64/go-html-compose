@@ -142,16 +142,3 @@ func makeElemDoc(elem *element) string {
 // Attributes: %s`,
 		kebabToPascal(elem.name), elem.description, elem.parents, elem.children, elem.attributes)
 }
-
-// func makeAttrDoc(attr *attribute) string {
-// 	docSets := []string{}
-// 	for _, props := range attr.propSets {
-// 		docSet := fmt.Sprintf(`
-// // Element(s): %s.
-// // Description: %s.
-// // Value: %s.`, props.elements, props.description, props.value)
-// 		docSets = append(docSets, docSet)
-// 	}
-// 	doc := fmt.Sprintf(`// %s %s`, kebabToPascal(attr.name), strings.Join(docSets, "\n//"))
-// 	return doc
-// }
