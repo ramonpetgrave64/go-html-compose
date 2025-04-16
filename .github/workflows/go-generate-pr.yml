@@ -22,6 +22,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           git add .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git commit -sm "update from spec"
           gp pr create \
             --dry-run \
