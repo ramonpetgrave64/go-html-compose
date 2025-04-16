@@ -258,7 +258,7 @@ func sliceSelect[S ~[]T, T any](slice S, f func(T) bool) *T {
 }
 
 func seqSelect[S iter.Seq[T], T any](seq S, f func(T) bool) *T {
-	return sliceSelect(seqSlice(seq), f)
+	return sliceSelect(seqSlice[S, T](seq), f)
 }
 
 func downloadFile(url, output string) (*os.File, error) {

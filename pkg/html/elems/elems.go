@@ -916,7 +916,7 @@ func Td(attrs ...doc.IAttribute) doc.ParentElemFunc {
 // Description: Template.
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
-// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable
+// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
 func Template(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("template", attrs...)
 }

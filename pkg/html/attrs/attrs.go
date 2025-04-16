@@ -1404,6 +1404,17 @@ func Shadowrootclonable(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootclonable", value)
 }
 
+// Shadowrootcustomelementregistry
+//
+// Element(s): template.
+//
+// Description: Enables declarative shadow roots to indicate they will use a custom element registry.
+//
+// Value: Boolean attribute.
+func Shadowrootcustomelementregistry(value bool) doc.IAttribute {
+	return doc.BooleanAttr("shadowrootcustomelementregistry", value)
+}
+
 // Shadowrootdelegatesfocus
 //
 // Element(s): template.
