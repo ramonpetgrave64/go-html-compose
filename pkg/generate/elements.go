@@ -118,7 +118,7 @@ func extractElementsFromTable(table *html.Node) []*element {
 func makeElementFunc(elem *element) string {
 	funcName := kebabToPascal(elem.name)
 	tagFunc := "doc.ParentElem"
-	returnType := "doc.ParentElemFunc"
+	returnType := "doc.ContContainerFunc"
 	doc := makeElemDoc(elem)
 	if elem.isUnit {
 		tagFunc = "doc.ChildElem"
