@@ -30,7 +30,8 @@ jobs:
           git commit -sm "update from spec"
           git checkout -b auto-go-generate
           git push --set-upstream -f origin auto-go-generate
-      - env:
+      - if: ${{ steps.diff.outcome == 'failure' }}
+        env:
           # token must be a PAT with permissions to create PRs on this repo.
           GH_TOKEN: ${{ secrets.PR_TOKEN }}
         run: |
