@@ -39,7 +39,6 @@ jobs:
         run: |
           gh pr create \
             --draft \
-            --assignee "@me" \
             --repo ${{ github.repository }} \
             --base "main" \
             --head "auto-go-generate" \
