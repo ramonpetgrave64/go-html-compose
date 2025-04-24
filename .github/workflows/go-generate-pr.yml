@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-go@cd53bc84d5e2fd85362f4cb840513e06427082d3 # v5.4.0
         with:
           go-version-file: pkg/generate/go.mod
+          cache-dependency-path: pkg/generate/go.sum
       - run: go generate ./...
       - run: git diff "*.html"
       - id: diff
