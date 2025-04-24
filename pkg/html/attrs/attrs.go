@@ -251,6 +251,12 @@ func Checked(value bool) doc.IAttribute {
 	return doc.BooleanAttr("checked", value)
 }
 
+// Cite
+//
+// Element(s): blockquote; del; ins; q.
+//
+// Description: Link to the source of the quotation or more information about the edit.
+//
 // Value: Valid URL potentially surrounded by spaces.
 func Cite(value string) doc.IAttribute {
 	return doc.Attr("cite", value)
