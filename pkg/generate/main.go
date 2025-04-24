@@ -111,7 +111,6 @@ func downloadFile(url, output string) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("bad status: %s", resp.Status)
 	}
@@ -120,6 +119,9 @@ func downloadFile(url, output string) error {
 		return err
 	}
 	if _, err = io.Copy(file, resp.Body); err != nil {
+		return err
+	}
+	if err := resp.Body.Close(); err != nil {
 		return err
 	}
 	if err := file.Close(); err != nil {
