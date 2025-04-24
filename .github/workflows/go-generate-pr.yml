@@ -34,8 +34,8 @@ jobs:
           git push --set-upstream -f origin auto-go-generate
       - if: ${{ steps.diff.outcome == 'failure' }}
         env:
-          # token must be a PAT with permissions to create PRs on this repo.
-          GH_TOKEN: ${{ secrets.PR_TOKEN }}
+          # token must be a PAT with permissions to create PRs that auto-launch workflows.
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create \
             --draft \
