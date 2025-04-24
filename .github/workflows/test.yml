@@ -33,6 +33,7 @@ jobs:
           go-version-file: pkg/generate/go.mod
           cache-dependency-path: pkg/generate/go.sum
       - run: go generate ./...
+      - run: git diff "*.html"
       - run: git diff --exit-code "*.go"
         env:
           GENERATE_SKIP_SPEC_DOWNLOAD: true
