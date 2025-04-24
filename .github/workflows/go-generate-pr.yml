@@ -17,6 +17,7 @@ jobs:
         with:
           go-version-file: pkg/generate/go.mod
       - run: go generate ./...
+      - run: git diff "*.html"
       - id: diff
         run: git diff --exit-code "*.go"
         continue-on-error: true
