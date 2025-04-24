@@ -1,0 +1,12 @@
+name: Pre-Commit
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  pre-commit:
+    uses: ./github/workflows/checks.yml
