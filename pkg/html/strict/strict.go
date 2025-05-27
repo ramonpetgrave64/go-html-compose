@@ -23,9 +23,9 @@ func toIAttributes[T doc.IAttribute](attrs []T) []doc.IAttribute {
 type attrWrapper struct {
 	IAttribute
 	globalAttr
-	buttonAttr
-	imgAttr
-	scriptAttr
+	// buttonAttr
+	// imgAttr
+	// scriptAttr
 }
 
 func newAttrWrapper(attr IAttribute) *attrWrapper {
@@ -48,6 +48,9 @@ func (w *attrWrapper) RenderAttr(wr io.Writer) (err error) {
 
 type globalAttr interface {
 	doc.IAttribute
+	buttonAttr
+	imgAttr
+	scriptAttr
 	global()
 }
 
@@ -74,13 +77,13 @@ func Img(attrs ...imgAttr) doc.IContent {
 	return elems.Img(toIAttributes(attrs)...)
 }
 
-func Script(attrs ...imgAttr) doc.ContContainerFunc {
+func Script(attrs ...scriptAttr) doc.ContContainerFunc {
 	return elems.Script(toIAttributes(attrs)...)
 }
 
 // attrs
 
-type roleI interface {
+type hiddenI interface {
 	globalAttr
 }
 
@@ -95,6 +98,8 @@ type srcI interface {
 
 type typeI interface {
 	buttonAttr
+	scriptAttr
+	imgAttr
 }
 
 type nameI interface {
@@ -113,8 +118,8 @@ func srcA(value string) srcI {
 	return newAttrWrapper(attrs.Src(value))
 }
 
-func roleA(value string) srcI {
-	return newAttrWrapper(attrs.Role(value))
+func hiddenA(value string) hiddenI {
+	return newAttrWrapper(attrs.Hidden(value))
 }
 
 // test
@@ -125,19 +130,21 @@ func Do() {
 
 	s := srcA("my-src")
 
-	r := roleA("my-role")
+	h := hiddenA("until")
 
-	b := Button(n, t)
+	b := Button(n, t, h)
 	b()
 
 	b1 := Button(n, t, s)
 	b1()
 
-	b2 := Button(n, t, r)
+	b2 := Button(n, t, h)
 	b2()
 
 	Img(s)
 
-	script := Script(s, r)
+	script := Script(s, h, t)
 	script()
+
+	Script(s, h, t, n)
 }
