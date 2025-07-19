@@ -1222,7 +1222,7 @@ func Playsinline(value bool) doc.IAttribute {
 //
 // Description: Makes the element a popover element.
 //
-// Value: "auto"; "manual";.
+// Value: "auto"; "manual"; "hint".
 func Popover(value string) doc.IAttribute {
 	return doc.Attr("popover", value)
 }
