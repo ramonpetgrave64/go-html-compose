@@ -429,7 +429,7 @@ func Header(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Hgroup
 // Description: Heading container.
 // Parents: legend; summary; flow.
-// Children: h1; h2; h3; h4; h5; h6; script-supporting elements.
+// Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
 // Attributes: globals
 func Hgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("hgroup", attrs...)
