@@ -110,8 +110,10 @@ import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	if err != nil {
 		return err
 	}
-	defer goFile.Close()
 	if _, err := goFile.Write(content.Bytes()); err != nil {
+		return err
+	}
+	if err := goFile.Close(); err != nil {
 		return err
 	}
 	return nil

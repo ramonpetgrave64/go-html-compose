@@ -334,7 +334,7 @@ func Colspan(value string) doc.IAttribute {
 //
 // Description: Indicates to the targeted element which action to take..
 //
-// Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "show-modal"; a custom command keyword.
+// Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "request-close"; "show-modal"; a custom command keyword.
 func Command(value string) doc.IAttribute {
 	return doc.Attr("command", value)
 }
@@ -1222,7 +1222,7 @@ func Playsinline(value bool) doc.IAttribute {
 //
 // Description: Makes the element a popover element.
 //
-// Value: "auto"; "manual";.
+// Value: "auto"; "manual"; "hint".
 func Popover(value string) doc.IAttribute {
 	return doc.Attr("popover", value)
 }

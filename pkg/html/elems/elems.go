@@ -266,8 +266,8 @@ func Dialog(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Div
 // Description: Generic flow container, or container for name-value groups in dl elements.
-// Parents: flow; dl.
-// Children: flow.
+// Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
+// Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
 // Attributes: globals
 func Div(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("div", attrs...)
@@ -429,7 +429,7 @@ func Header(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Hgroup
 // Description: Heading container.
 // Parents: legend; summary; flow.
-// Children: h1; h2; h3; h4; h5; h6; script-supporting elements.
+// Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
 // Attributes: globals
 func Hgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("hgroup", attrs...)
@@ -437,7 +437,7 @@ func Hgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Hr
 // Description: Thematic break.
-// Parents: flow.
+// Parents: flow; select element inner content elements.
 // Children: empty.
 // Attributes: globals
 func Hr(attrs ...doc.IAttribute) doc.IContent {
@@ -518,8 +518,8 @@ func Label(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Legend
 // Description: Caption for fieldset.
-// Parents: fieldset.
-// Children: phrasing; heading content.
+// Parents: fieldset; optgroup.
+// Children: phrasing*; heading content.
 // Attributes: globals
 func Legend(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("legend", attrs...)
@@ -644,8 +644,8 @@ func Ol(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Optgroup
 // Description: Group of options in a list box.
-// Parents: select.
-// Children: option; script-supporting elements.
+// Parents: select; div*.
+// Children: optgroup element inner content elements; legend*.
 // Attributes: globals; disabled; label
 func Optgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("optgroup", attrs...)
@@ -653,8 +653,8 @@ func Optgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Option
 // Description: Option in a list box or combo box control.
-// Parents: select; datalist; optgroup.
-// Children: text*.
+// Parents: select; datalist; optgroup; div*.
+// Children: text*; option element inner content elements*.
 // Attributes: globals; disabled; label; selected; value
 func Option(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("option", attrs...)
@@ -789,10 +789,19 @@ func Section(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Select
 // Description: List box control.
 // Parents: phrasing.
-// Children: option; optgroup; script-supporting elements.
+// Children: select element inner content elements; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
 func Select(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("select", attrs...)
+}
+
+// Selectedcontent
+// Description: Mirrors content from an option.
+// Parents: button.
+// Children: empty.
+// Attributes: globals
+func Selectedcontent(attrs ...doc.IAttribute) doc.IContent {
+	return doc.ChildElem("selectedcontent", attrs...)
 }
 
 // Slot
@@ -824,7 +833,7 @@ func Source(attrs ...doc.IAttribute) doc.IContent {
 
 // Span
 // Description: Generic phrasing container.
-// Parents: phrasing.
+// Parents: phrasing; option element inner content elements*.
 // Children: phrasing.
 // Attributes: globals
 func Span(attrs ...doc.IAttribute) doc.ContContainerFunc {
