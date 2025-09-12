@@ -1,152 +1,105 @@
 package strict
 
 import (
-	"io"
-
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
 )
 
-// util
-
-type IAttribute = doc.IAttribute
-
-func toIAttributes[T doc.IAttribute](attrs []T) []doc.IAttribute {
-	converted := make([]doc.IAttribute, len(attrs))
+// toIAttributes converts a slice of a specific attribute type to a slice of IAttribute.
+func toIAttributes[T IAttribute](attrs []T) []IAttribute {
+	iAttrs := make([]IAttribute, len(attrs))
 	for i, attr := range attrs {
-		converted[i] = attr
+		iAttrs[i] = attr
 	}
-	return converted
+	return iAttrs
 }
 
-type attrWrapper struct {
-	IAttribute
-	globalAttr
-	// buttonAttr
-	// imgAttr
-	// scriptAttr
+// Attribute type definitions for specific elements
+type (
+	// IAttribute is a convenience alias for doc.IAttribute.
+	IAttribute = doc.IAttribute
+
+	// GlobalAttribute can be used with any element.
+	GlobalAttribute interface{ IAttribute }
+
+	// ButtonAttribute is an attribute for <button> elements.
+	ButtonAttribute interface{ IAttribute }
+
+	// ImgAttribute is an attribute for <img> elements.
+	ImgAttribute interface{ IAttribute }
+
+	// ScriptAttribute is an attribute for <script> elements.
+	ScriptAttribute interface{ IAttribute }
+)
+
+// Element wrapper functions with strict attribute checking
+
+// Button creates a <button> element and only accepts ButtonAttribute types.
+func Button(buttonAttrs ...ButtonAttribute) doc.ContContainerFunc {
+	return elems.Button(toIAttributes(buttonAttrs)...)
 }
 
-func newAttrWrapper(attr IAttribute) *attrWrapper {
-	return &attrWrapper{IAttribute: attr}
+// Img creates an <img> element and only accepts ImgAttribute types.
+func Img(imgAttrs ...ImgAttribute) doc.IContent {
+	return elems.Img(toIAttributes(imgAttrs)...)
 }
 
-func (w *attrWrapper) RenderAttr(wr io.Writer) (err error) {
-	return w.IAttribute.RenderAttr(wr)
+// Script creates a <script> element and only accepts ScriptAttribute types.
+func Script(scriptAttrs ...ScriptAttribute) doc.ContContainerFunc {
+	return elems.Script(toIAttributes(scriptAttrs)...)
 }
 
-// func (w *attrWrapper) UnimplementedGlobalAttr() {}
+// Attribute constructor functions
 
-// func (w *attrWrapper) UnimplementedImgAttr() {}
+// Global attributes
 
-// func (w *attrWrapper) UnimplementedButtonAttr() {}
+func Hidden(value string) GlobalAttribute { return attrs.Hidden(value) }
 
-// func (w *attrWrapper) UnimplementedScriptAttr() {}
+// Element-specific attributes
 
-// elems
+func Alt(value string) ImgAttribute { return attrs.Alt(value) }
 
-type globalAttr interface {
-	doc.IAttribute
-	buttonAttr
-	imgAttr
-	scriptAttr
-	global()
+func Name(value string) ButtonAttribute { return attrs.Name(value) }
+
+func Src(value string) interface {
+	ImgAttribute
+	ScriptAttribute
+} {
+	return attrs.Src(value)
 }
 
-type imgAttr interface {
-	doc.IAttribute
-	img()
+func Type(value string) interface {
+	ButtonAttribute
+	ScriptAttribute
+} {
+	return attrs.Type(value)
 }
 
-type buttonAttr interface {
-	doc.IAttribute
-	button()
-}
-
-type scriptAttr interface {
-	doc.IAttribute
-	script()
-}
-
-func Button(attrs ...buttonAttr) doc.ContContainerFunc {
-	return elems.Button(toIAttributes(attrs)...)
-}
-
-func Img(attrs ...imgAttr) doc.IContent {
-	return elems.Img(toIAttributes(attrs)...)
-}
-
-func Script(attrs ...scriptAttr) doc.ContContainerFunc {
-	return elems.Script(toIAttributes(attrs)...)
-}
-
-// attrs
-
-type hiddenI interface {
-	globalAttr
-}
-
-type altI interface {
-	imgAttr
-}
-
-type srcI interface {
-	imgAttr
-	scriptAttr
-}
-
-type typeI interface {
-	buttonAttr
-	scriptAttr
-	imgAttr
-}
-
-type nameI interface {
-	buttonAttr
-}
-
-func nameA(value string) nameI {
-	return newAttrWrapper(attrs.Name(value))
-}
-
-func typeA(value string) typeI {
-	return newAttrWrapper(attrs.Name(value))
-}
-
-func srcA(value string) srcI {
-	return newAttrWrapper(attrs.Src(value))
-}
-
-func hiddenA(value string) hiddenI {
-	return newAttrWrapper(attrs.Hidden(value))
-}
-
-// test
-
+// Example usage demonstrating type safety
 func Do() {
-	n := nameA("my-name")
-	t := typeA("my-type")
+	// Valid attribute usage
+	Button(
+		Name("my-button"),
+		Type("submit"),
+		Hidden("hidden"), // Global attributes are accepted
+	)
 
-	s := srcA("my-src")
+	Img(
+		Src("image.png"),
+		Alt("An image"),
+		Hidden("hidden"),
+	)
 
-	h := hiddenA("until")
+	Script(
+		Src("main.js"),
+		Type("module"),
+		Hidden("hidden"),
+	)
 
-	b := Button(n, t, h)
-	b()
+	// The following lines would cause a compile-time error
+	// because the attribute is not valid for the element.
 
-	b1 := Button(n, t, s)
-	b1()
-
-	b2 := Button(n, t, h)
-	b2()
-
-	Img(s)
-
-	script := Script(s, h, t)
-	script()
-
-	Script(s, h, t, n)
-
-	Script(srcA(""))
+	// Button(Alt("this is for images")) // COMPILE ERROR
+	// Img(Name("this is for buttons")) // COMPILE ERROR
 }
