@@ -147,4 +147,6 @@ func Do() {
 	script()
 
 	Script(s, h, t, n)
+
+	Script(srcA(""))
 }
