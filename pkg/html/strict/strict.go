@@ -12,7 +12,8 @@ func Do() {
 		sa.Name("my-button"),
 		sa.Type("submit"),
 		sa.Hidden("hidden"), // Global attributes are accepted
-	)
+		sa.Class("ok"),
+	)()
 
 	se.Img(
 		sa.Src("image.png"),
@@ -24,13 +25,20 @@ func Do() {
 		sa.Src("main.js"),
 		sa.Type("module"),
 		sa.Hidden("hidden"),
-	)
+	)()
 
 	se.Script(
 		sa.Src("main.js"),
 		sa.Type("module"),
 		sa.Hidden("hidden"),
 		// sa.Enctype("ok"),
+	)()
+
+	li := se.Li(sa.Class("ok"))()
+	li.RenderConent(nil)
+	se.Ul()(
+		li,
+		// se.Button()(),
 	)
 
 	// The following lines would cause a compile-time error

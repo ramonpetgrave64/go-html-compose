@@ -8,13 +8,34 @@ import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
 )
 
-// toIAttributes converts a slice of a specific attribute type to a slice of IAttribute.
-func toIAttributes[T doc.IAttribute](attrs []T) []doc.IAttribute {
-	iAttrs := make([]doc.IAttribute, len(attrs))
-	for i, attr := range attrs {
-		iAttrs[i] = attr
+// Ul
+// Description: List.
+// Parents: flow.
+// Children: li; script-supporting elements.
+// Attributes: globals
+func Ul(ulAttrs ...UlAttribute) TypedContContainerFunc[doc.IContent, UlChild] {
+	typedConterFunc := func(children ...UlChild) doc.IContent {
+		convertedAttributes := toIAttributes(ulAttrs) // Corrected: No need to specify T for toIAttributes
+		convertedChildren := toIContent(children)
+		return elems.Ul(convertedAttributes...)(convertedChildren...)
 	}
-	return iAttrs
+	return typedConterFunc
+}
+
+// Li
+// Description: List item.
+// Parents: ol; ul; menu*.
+// Children: flow.
+// Attributes: globals; value*
+func Li(liAttrs ...LiAttribute) TypedContContainerFunc[interface{ UlChild }, doc.IContent] {
+	typedContentFunc := func(children ...doc.IContent) interface{ UlChild } {
+		convertedAttributes := toIAttributes(liAttrs)
+		convertedChildren := toIContent(children)
+		content := elems.Li(convertedAttributes...)(convertedChildren...)
+		wrappedContent := newContentWrapper(content)
+		return wrappedContent
+	}
+	return typedContentFunc
 }
 
 // A
@@ -530,15 +551,6 @@ func Legend(legendAttrs ...LegendAttribute) doc.ContContainerFunc {
 	return elems.Legend(toIAttributes(legendAttrs)...)
 }
 
-// Li
-// Description: List item.
-// Parents: ol; ul; menu*.
-// Children: flow.
-// Attributes: globals; value*
-func Li(liAttrs ...LiAttribute) doc.ContContainerFunc {
-	return elems.Li(toIAttributes(liAttrs)...)
-}
-
 // Link
 // Description: Link metadata.
 // Parents: head; noscript*; phrasing*.
@@ -1016,15 +1028,6 @@ func U(uAttrs ...UAttribute) doc.ContContainerFunc {
 	return elems.U(toIAttributes(uAttrs)...)
 }
 
-// Ul
-// Description: List.
-// Parents: flow.
-// Children: li; script-supporting elements.
-// Attributes: globals
-func Ul(ulAttrs ...UlAttribute) doc.ContContainerFunc {
-	return elems.Ul(toIAttributes(ulAttrs)...)
-}
-
 // Var
 // Description: Variable.
 // Parents: phrasing.
@@ -1051,4 +1054,3 @@ func Video(videoAttrs ...VideoAttribute) doc.ContContainerFunc {
 func Wbr(wbrAttrs ...WbrAttribute) doc.IContent {
 	return elems.Wbr(toIAttributes(wbrAttrs)...)
 }
-

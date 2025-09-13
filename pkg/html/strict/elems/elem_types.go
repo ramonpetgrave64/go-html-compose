@@ -1,0 +1,10 @@
+package elems
+
+import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
+
+type TypedContContainerFunc[Parent, Child doc.IContent] func(children ...Child) Parent
+
+type UlChild interface {
+	doc.IContent
+	isUlChild()
+}
