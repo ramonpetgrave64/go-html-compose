@@ -22,20 +22,25 @@ func Ul(ulAttrs ...UlAttribute) TypedContContainerFunc[doc.IContent, UlChild] {
 	return typedConterFunc
 }
 
+func ContContainerFuncWrapper[P, C doc.IContent, A doc.IAttribute](attrs ...A) TypedContContainerFunc[P, C] {
+	return func(children ...C) P {
+		wrappedContent := newContentWrapper(elems.Li(toIAttributes(attrs)...)(toIContent(children)...))
+		return wrappedContent.IContent.(P)
+	}
+}
+
 // Li
 // Description: List item.
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(liAttrs ...LiAttribute) TypedContContainerFunc[interface{ UlChild }, doc.IContent] {
-	typedContentFunc := func(children ...doc.IContent) interface{ UlChild } {
-		convertedAttributes := toIAttributes(liAttrs)
-		convertedChildren := toIContent(children)
-		content := elems.Li(convertedAttributes...)(convertedChildren...)
-		wrappedContent := newContentWrapper(content)
+func Li(liAttrs ...LiAttribute) TypedContContainerFunc[interface {
+	UlChild
+}, doc.IContent] {
+	return func(children ...doc.IContent) interface{ UlChild } {
+		wrappedContent := newContentWrapper(elems.Li(toIAttributes(liAttrs)...)(toIContent(children)...))
 		return wrappedContent
 	}
-	return typedContentFunc
 }
 
 // A

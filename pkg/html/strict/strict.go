@@ -34,10 +34,11 @@ func Do() {
 		// sa.Enctype("ok"),
 	)()
 
-	li := se.Li(sa.Class("ok"))()
-	li.RenderConent(nil)
+	// li := se.Li(sa.Class("ok"))()
+	// li.RenderConent(nil)
 	se.Ul()(
-		li,
+		// li,
+		se.Li(sa.Class("ok"))(),
 		// se.Button()(),
 	)
 

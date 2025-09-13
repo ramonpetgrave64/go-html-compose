@@ -8,3 +8,8 @@ type UlChild interface {
 	doc.IContent
 	isUlChild()
 }
+
+type LiType interface {
+	doc.IContent
+	UlChild
+}
