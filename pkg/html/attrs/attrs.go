@@ -1713,7 +1713,7 @@ func Translate(value string) doc.IAttribute {
 //
 // Description: Type of script.
 //
-// Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match.
+// Value: "module"; "importmap"; "speculationrules"; a valid MIME type string that is not a JavaScript MIME type essence match.
 func Type(value string) doc.IAttribute {
 	return doc.Attr("type", value)
 }
