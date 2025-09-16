@@ -3,7 +3,7 @@
 
 package attrs
 
-import (	
+import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
 )
@@ -15,7 +15,7 @@ import (
 // Description: Alternative label to use for the header cell when referencing the cell in other contexts.
 //
 // Value: Text*.
-func Abbr(value string) interface{
+func Abbr(value string) interface {
 	elems.ThAttribute
 } {
 	return newAttrWrapper(attrs.Abbr(value))
@@ -28,7 +28,7 @@ func Abbr(value string) interface{
 // Description: Hint for expected file type in file upload controls.
 //
 // Value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*.
-func Accept(value string) interface{
+func Accept(value string) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Accept(value))
@@ -41,7 +41,7 @@ func Accept(value string) interface{
 // Description: Character encodings to use for form submission.
 //
 // Value: ASCII case-insensitive match for "UTF-8".
-func AcceptCharset(value string) interface{
+func AcceptCharset(value string) interface {
 	elems.FormAttribute
 } {
 	return newAttrWrapper(attrs.AcceptCharset(value))
@@ -54,7 +54,7 @@ func AcceptCharset(value string) interface{
 // Description: Keyboard shortcut to activate or focus element.
 //
 // Value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length.
-func Accesskey(value string) interface{
+func Accesskey(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Accesskey(value))
@@ -67,7 +67,7 @@ func Accesskey(value string) interface{
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Action(value string) interface{
+func Action(value string) interface {
 	elems.FormAttribute
 } {
 	return newAttrWrapper(attrs.Action(value))
@@ -80,7 +80,7 @@ func Action(value string) interface{
 // Description: Permissions policy to be applied to the iframe's contents.
 //
 // Value: Serialized permissions policy.
-func Allow(value string) interface{
+func Allow(value string) interface {
 	elems.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Allow(value))
@@ -93,7 +93,7 @@ func Allow(value string) interface{
 // Description: Whether to allow the iframe's contents to use requestFullscreen().
 //
 // Value: Boolean attribute.
-func Allowfullscreen(value bool) interface{
+func Allowfullscreen(value bool) interface {
 	elems.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Allowfullscreen(value))
@@ -106,7 +106,7 @@ func Allowfullscreen(value bool) interface{
 // Description: Allow the color's alpha component to be set.
 //
 // Value: Boolean attribute.
-func Alpha(value bool) interface{
+func Alpha(value bool) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Alpha(value))
@@ -119,7 +119,7 @@ func Alpha(value bool) interface{
 // Description: Replacement text for use when images are not available.
 //
 // Value: Text*.
-func Alt(value string) interface{
+func Alt(value string) interface {
 	elems.AreaAttribute
 	elems.ImgAttribute
 	elems.InputAttribute
@@ -134,7 +134,7 @@ func Alt(value string) interface{
 // Description: Potential destination for a preload request (for rel="preload" and rel="modulepreload").
 //
 // Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload".
-func As(value string) interface{
+func As(value string) interface {
 	elems.LinkAttribute
 } {
 	return newAttrWrapper(attrs.As(value))
@@ -147,7 +147,7 @@ func As(value string) interface{
 // Description: Execute script when available, without blocking while fetching.
 //
 // Value: Boolean attribute.
-func Async(value bool) interface{
+func Async(value bool) interface {
 	elems.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Async(value))
@@ -160,7 +160,7 @@ func Async(value bool) interface{
 // Description: Recommended autocapitalization behavior (for supported input methods).
 //
 // Value: "on"; "off"; "none"; "sentences"; "words"; "characters".
-func Autocapitalize(value string) interface{
+func Autocapitalize(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autocapitalize(value))
@@ -179,7 +179,7 @@ func Autocapitalize(value string) interface{
 // Description: Hint for form autofill feature.
 //
 // Value: Autofill field name and related tokens*.
-func Autocomplete(value string) interface{
+func Autocomplete(value string) interface {
 	elems.FormAttribute
 	elems.InputAttribute
 	elems.SelectAttribute
@@ -195,7 +195,7 @@ func Autocomplete(value string) interface{
 // Description: Recommended autocorrection behavior (for supported input methods).
 //
 // Value: "on"; "off".
-func Autocorrect(value string) interface{
+func Autocorrect(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autocorrect(value))
@@ -208,7 +208,7 @@ func Autocorrect(value string) interface{
 // Description: Automatically focus the element when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autofocus(value bool) interface{
+func Autofocus(value bool) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autofocus(value))
@@ -221,7 +221,7 @@ func Autofocus(value bool) interface{
 // Description: Hint that the media resource can be started automatically when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autoplay(value bool) interface{
+func Autoplay(value bool) interface {
 	elems.AudioAttribute
 	elems.VideoAttribute
 } {
@@ -235,7 +235,7 @@ func Autoplay(value bool) interface{
 // Description: Whether the element is potentially render-blocking.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Blocking(value string) interface{
+func Blocking(value string) interface {
 	elems.LinkAttribute
 	elems.ScriptAttribute
 	elems.StyleAttribute
@@ -250,7 +250,7 @@ func Blocking(value string) interface{
 // Description: Character encoding declaration.
 //
 // Value: "utf-8".
-func Charset(value string) interface{
+func Charset(value string) interface {
 	elems.MetaAttribute
 } {
 	return newAttrWrapper(attrs.Charset(value))
@@ -263,7 +263,7 @@ func Charset(value string) interface{
 // Description: Whether the control is checked.
 //
 // Value: Boolean attribute.
-func Checked(value bool) interface{
+func Checked(value bool) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Checked(value))
@@ -276,7 +276,7 @@ func Checked(value bool) interface{
 // Description: Link to the source of the quotation or more information about the edit.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Cite(value string) interface{
+func Cite(value string) interface {
 	elems.BlockquoteAttribute
 	elems.DelAttribute
 	elems.InsAttribute
@@ -292,7 +292,7 @@ func Cite(value string) interface{
 // Description: Classes to which the element belongs.
 //
 // Value: Set of space-separated tokens.
-func Class(value string) interface{
+func Class(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Class(value))
@@ -305,7 +305,7 @@ func Class(value string) interface{
 // Description: Which user actions will close the dialog.
 //
 // Value: "any"; "closerequest"; "none";.
-func Closedby(value string) interface{
+func Closedby(value string) interface {
 	elems.DialogAttribute
 } {
 	return newAttrWrapper(attrs.Closedby(value))
@@ -318,7 +318,7 @@ func Closedby(value string) interface{
 // Description: Color to use when customizing a site's icon (for rel="mask-icon").
 //
 // Value: CSS <color>.
-func Color(value string) interface{
+func Color(value string) interface {
 	elems.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Color(value))
@@ -331,7 +331,7 @@ func Color(value string) interface{
 // Description: The color space of the serialized color.
 //
 // Value: "limited-srgb"; "display-p3".
-func Colorspace(value string) interface{
+func Colorspace(value string) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Colorspace(value))
@@ -344,7 +344,7 @@ func Colorspace(value string) interface{
 // Description: Maximum number of characters per line.
 //
 // Value: Valid non-negative integer greater than zero.
-func Cols(value string) interface{
+func Cols(value string) interface {
 	elems.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Cols(value))
@@ -357,7 +357,7 @@ func Cols(value string) interface{
 // Description: Number of columns that the cell is to span.
 //
 // Value: Valid non-negative integer greater than zero.
-func Colspan(value string) interface{
+func Colspan(value string) interface {
 	elems.TdAttribute
 	elems.ThAttribute
 } {
@@ -371,7 +371,7 @@ func Colspan(value string) interface{
 // Description: Indicates to the targeted element which action to take..
 //
 // Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "request-close"; "show-modal"; a custom command keyword.
-func Command(value string) interface{
+func Command(value string) interface {
 	elems.ButtonAttribute
 } {
 	return newAttrWrapper(attrs.Command(value))
@@ -384,7 +384,7 @@ func Command(value string) interface{
 // Description: Targets another element to be invoked..
 //
 // Value: ID*.
-func Commandfor(value string) interface{
+func Commandfor(value string) interface {
 	elems.ButtonAttribute
 } {
 	return newAttrWrapper(attrs.Commandfor(value))
@@ -397,7 +397,7 @@ func Commandfor(value string) interface{
 // Description: Value of the element.
 //
 // Value: Text*.
-func Content(value string) interface{
+func Content(value string) interface {
 	elems.MetaAttribute
 } {
 	return newAttrWrapper(attrs.Content(value))
@@ -410,7 +410,7 @@ func Content(value string) interface{
 // Description: Whether the element is editable.
 //
 // Value: "true"; "plaintext-only"; "false".
-func Contenteditable(value string) interface{
+func Contenteditable(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Contenteditable(value))
@@ -423,7 +423,7 @@ func Contenteditable(value string) interface{
 // Description: Show user agent controls.
 //
 // Value: Boolean attribute.
-func Controls(value bool) interface{
+func Controls(value bool) interface {
 	elems.AudioAttribute
 	elems.VideoAttribute
 } {
@@ -437,7 +437,7 @@ func Controls(value bool) interface{
 // Description: Coordinates for the shape to be created in an image map.
 //
 // Value: Valid list of floating-point numbers*.
-func Coords(value string) interface{
+func Coords(value string) interface {
 	elems.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Coords(value))
@@ -450,7 +450,7 @@ func Coords(value string) interface{
 // Description: How the element handles crossorigin requests.
 //
 // Value: "anonymous"; "use-credentials".
-func Crossorigin(value string) interface{
+func Crossorigin(value string) interface {
 	elems.AudioAttribute
 	elems.ImgAttribute
 	elems.LinkAttribute
@@ -467,7 +467,7 @@ func Crossorigin(value string) interface{
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Data(value string) interface{
+func Data(value string) interface {
 	elems.ObjectAttribute
 } {
 	return newAttrWrapper(attrs.Data(value))
@@ -486,7 +486,7 @@ func Data(value string) interface{
 // Description: Machine-readable value.
 //
 // Value: Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string.
-func Datetime(value string) interface{
+func Datetime(value string) interface {
 	elems.DelAttribute
 	elems.InsAttribute
 	elems.TimeAttribute
@@ -501,7 +501,7 @@ func Datetime(value string) interface{
 // Description: Decoding hint to use when processing this image for presentation.
 //
 // Value: "sync"; "async"; "auto".
-func Decoding(value string) interface{
+func Decoding(value string) interface {
 	elems.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Decoding(value))
@@ -514,7 +514,7 @@ func Decoding(value string) interface{
 // Description: Enable the track if no other text track is more suitable.
 //
 // Value: Boolean attribute.
-func Default(value bool) interface{
+func Default(value bool) interface {
 	elems.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Default(value))
@@ -527,7 +527,7 @@ func Default(value bool) interface{
 // Description: Defer script execution.
 //
 // Value: Boolean attribute.
-func Defer(value bool) interface{
+func Defer(value bool) interface {
 	elems.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Defer(value))
@@ -546,7 +546,7 @@ func Defer(value bool) interface{
 // Description: The text directionality of the element.
 //
 // Value: "ltr"; "rtl".
-func Dir(value string) interface{
+func Dir(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Dir(value))
@@ -559,7 +559,7 @@ func Dir(value string) interface{
 // Description: Name of form control to use for sending the element's directionality in form submission.
 //
 // Value: Text*.
-func Dirname(value string) interface{
+func Dirname(value string) interface {
 	elems.InputAttribute
 	elems.TextareaAttribute
 } {
@@ -585,7 +585,7 @@ func Dirname(value string) interface{
 // Description: Whether the link is disabled.
 //
 // Value: Boolean attribute.
-func Disabled(value bool) interface{
+func Disabled(value bool) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 	elems.OptgroupAttribute
@@ -605,7 +605,7 @@ func Disabled(value bool) interface{
 // Description: Whether to download the resource instead of navigating to it, and its filename if so.
 //
 // Value: Text.
-func Download(value string) interface{
+func Download(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 } {
@@ -619,7 +619,7 @@ func Download(value string) interface{
 // Description: Whether the element is draggable.
 //
 // Value: "true"; "false".
-func Draggable(value string) interface{
+func Draggable(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Draggable(value))
@@ -632,7 +632,7 @@ func Draggable(value string) interface{
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Enctype(value string) interface{
+func Enctype(value string) interface {
 	elems.FormAttribute
 } {
 	return newAttrWrapper(attrs.Enctype(value))
@@ -645,7 +645,7 @@ func Enctype(value string) interface{
 // Description: Hint for selecting an enter key action.
 //
 // Value: "enter"; "done"; "go"; "next"; "previous"; "search"; "send".
-func Enterkeyhint(value string) interface{
+func Enterkeyhint(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Enterkeyhint(value))
@@ -658,7 +658,7 @@ func Enterkeyhint(value string) interface{
 // Description: Sets the priority for fetches initiated by the element.
 //
 // Value: "auto"; "high"; "low".
-func Fetchpriority(value string) interface{
+func Fetchpriority(value string) interface {
 	elems.ImgAttribute
 	elems.LinkAttribute
 	elems.ScriptAttribute
@@ -679,7 +679,7 @@ func Fetchpriority(value string) interface{
 // Description: Specifies controls from which the output was calculated.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func For(value string) interface{
+func For(value string) interface {
 	elems.LabelAttribute
 	elems.OutputAttribute
 } {
@@ -693,7 +693,7 @@ func For(value string) interface{
 // Description: Associates the element with a form element.
 //
 // Value: ID*.
-func Form(value string) interface{
+func Form(value string) interface {
 	elems.ButtonAttribute
 	elems.FieldsetAttribute
 	elems.InputAttribute
@@ -712,7 +712,7 @@ func Form(value string) interface{
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Formaction(value string) interface{
+func Formaction(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -726,7 +726,7 @@ func Formaction(value string) interface{
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Formenctype(value string) interface{
+func Formenctype(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -740,7 +740,7 @@ func Formenctype(value string) interface{
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Formmethod(value string) interface{
+func Formmethod(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -754,7 +754,7 @@ func Formmethod(value string) interface{
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Formnovalidate(value bool) interface{
+func Formnovalidate(value bool) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -768,7 +768,7 @@ func Formnovalidate(value bool) interface{
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Formtarget(value string) interface{
+func Formtarget(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -782,7 +782,7 @@ func Formtarget(value string) interface{
 // Description: The header cells for this cell.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Headers(value string) interface{
+func Headers(value string) interface {
 	elems.TdAttribute
 	elems.ThAttribute
 } {
@@ -796,7 +796,7 @@ func Headers(value string) interface{
 // Description: Vertical dimension.
 //
 // Value: Valid non-negative integer.
-func Height(value string) interface{
+func Height(value string) interface {
 	elems.CanvasAttribute
 	elems.EmbedAttribute
 	elems.IframeAttribute
@@ -816,7 +816,7 @@ func Height(value string) interface{
 // Description: Whether the element is relevant.
 //
 // Value: "until-found"; "hidden"; the empty string.
-func Hidden(value string) interface{
+func Hidden(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Hidden(value))
@@ -829,7 +829,7 @@ func Hidden(value string) interface{
 // Description: Low limit of high range.
 //
 // Value: Valid floating-point number*.
-func High(value string) interface{
+func High(value string) interface {
 	elems.MeterAttribute
 } {
 	return newAttrWrapper(attrs.High(value))
@@ -854,7 +854,7 @@ func High(value string) interface{
 // Description: Document base URL.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Href(value string) interface{
+func Href(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 	elems.LinkAttribute
@@ -870,7 +870,7 @@ func Href(value string) interface{
 // Description: Language of the linked resource.
 //
 // Value: Valid BCP 47 language tag.
-func Hreflang(value string) interface{
+func Hreflang(value string) interface {
 	elems.AAttribute
 	elems.LinkAttribute
 } {
@@ -884,7 +884,7 @@ func Hreflang(value string) interface{
 // Description: Pragma directive.
 //
 // Value: "content-type"; "default-style"; "refresh"; "x-ua-compatible"; "content-security-policy".
-func HttpEquiv(value string) interface{
+func HttpEquiv(value string) interface {
 	elems.MetaAttribute
 } {
 	return newAttrWrapper(attrs.HttpEquiv(value))
@@ -897,7 +897,7 @@ func HttpEquiv(value string) interface{
 // Description: The element's ID.
 //
 // Value: Text*.
-func Id(value string) interface{
+func Id(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Id(value))
@@ -910,7 +910,7 @@ func Id(value string) interface{
 // Description: Image sizes for different page layouts (for rel="preload").
 //
 // Value: Valid source size list.
-func Imagesizes(value string) interface{
+func Imagesizes(value string) interface {
 	elems.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Imagesizes(value))
@@ -923,7 +923,7 @@ func Imagesizes(value string) interface{
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload").
 //
 // Value: Comma-separated list of image candidate strings.
-func Imagesrcset(value string) interface{
+func Imagesrcset(value string) interface {
 	elems.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Imagesrcset(value))
@@ -936,7 +936,7 @@ func Imagesrcset(value string) interface{
 // Description: Whether the element is inert..
 //
 // Value: Boolean attribute.
-func Inert(value bool) interface{
+func Inert(value bool) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Inert(value))
@@ -949,7 +949,7 @@ func Inert(value bool) interface{
 // Description: Hint for selecting an input modality.
 //
 // Value: "none"; "text"; "tel"; "email"; "url"; "numeric"; "decimal"; "search".
-func Inputmode(value string) interface{
+func Inputmode(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Inputmode(value))
@@ -962,7 +962,7 @@ func Inputmode(value string) interface{
 // Description: Integrity metadata used in Subresource Integrity checks [SRI].
 //
 // Value: Text.
-func Integrity(value string) interface{
+func Integrity(value string) interface {
 	elems.LinkAttribute
 	elems.ScriptAttribute
 } {
@@ -976,7 +976,7 @@ func Integrity(value string) interface{
 // Description: Creates a customized built-in element.
 //
 // Value: Valid custom element name of a defined customized built-in element.
-func Is(value string) interface{
+func Is(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Is(value))
@@ -989,7 +989,7 @@ func Is(value string) interface{
 // Description: Whether the image is a server-side image map.
 //
 // Value: Boolean attribute.
-func Ismap(value bool) interface{
+func Ismap(value bool) interface {
 	elems.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Ismap(value))
@@ -1002,7 +1002,7 @@ func Ismap(value bool) interface{
 // Description: Global identifier for a microdata item.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Itemid(value string) interface{
+func Itemid(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemid(value))
@@ -1015,7 +1015,7 @@ func Itemid(value string) interface{
 // Description: Property names of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*.
-func Itemprop(value string) interface{
+func Itemprop(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemprop(value))
@@ -1028,7 +1028,7 @@ func Itemprop(value string) interface{
 // Description: Referenced elements.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Itemref(value string) interface{
+func Itemref(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemref(value))
@@ -1041,7 +1041,7 @@ func Itemref(value string) interface{
 // Description: Introduces a microdata item.
 //
 // Value: Boolean attribute.
-func Itemscope(value bool) interface{
+func Itemscope(value bool) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemscope(value))
@@ -1054,7 +1054,7 @@ func Itemscope(value bool) interface{
 // Description: Item types of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*.
-func Itemtype(value string) interface{
+func Itemtype(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemtype(value))
@@ -1067,7 +1067,7 @@ func Itemtype(value string) interface{
 // Description: The type of text track.
 //
 // Value: "subtitles"; "captions"; "descriptions"; "chapters"; "metadata".
-func Kind(value string) interface{
+func Kind(value string) interface {
 	elems.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Kind(value))
@@ -1080,7 +1080,7 @@ func Kind(value string) interface{
 // Description: User-visible label.
 //
 // Value: Text.
-func Label(value string) interface{
+func Label(value string) interface {
 	elems.OptgroupAttribute
 	elems.OptionAttribute
 	elems.TrackAttribute
@@ -1095,7 +1095,7 @@ func Label(value string) interface{
 // Description: Language of the element.
 //
 // Value: Valid BCP 47 language tag or the empty string.
-func Lang(value string) interface{
+func Lang(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Lang(value))
@@ -1108,7 +1108,7 @@ func Lang(value string) interface{
 // Description: List of autocomplete options.
 //
 // Value: ID*.
-func List(value string) interface{
+func List(value string) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.List(value))
@@ -1121,7 +1121,7 @@ func List(value string) interface{
 // Description: Used when determining loading deferral.
 //
 // Value: "lazy"; "eager".
-func Loading(value string) interface{
+func Loading(value string) interface {
 	elems.IframeAttribute
 	elems.ImgAttribute
 } {
@@ -1135,7 +1135,7 @@ func Loading(value string) interface{
 // Description: Whether to loop the media resource.
 //
 // Value: Boolean attribute.
-func Loop(value bool) interface{
+func Loop(value bool) interface {
 	elems.AudioAttribute
 	elems.VideoAttribute
 } {
@@ -1149,7 +1149,7 @@ func Loop(value bool) interface{
 // Description: High limit of low range.
 //
 // Value: Valid floating-point number*.
-func Low(value string) interface{
+func Low(value string) interface {
 	elems.MeterAttribute
 } {
 	return newAttrWrapper(attrs.Low(value))
@@ -1168,7 +1168,7 @@ func Low(value string) interface{
 // Description: Upper bound of range.
 //
 // Value: Valid floating-point number*.
-func Max(value string) interface{
+func Max(value string) interface {
 	elems.InputAttribute
 	elems.MeterAttribute
 	elems.ProgressAttribute
@@ -1183,7 +1183,7 @@ func Max(value string) interface{
 // Description: Maximum length of value.
 //
 // Value: Valid non-negative integer.
-func Maxlength(value string) interface{
+func Maxlength(value string) interface {
 	elems.InputAttribute
 	elems.TextareaAttribute
 } {
@@ -1197,7 +1197,7 @@ func Maxlength(value string) interface{
 // Description: Applicable media.
 //
 // Value: Valid media query list.
-func Media(value string) interface{
+func Media(value string) interface {
 	elems.LinkAttribute
 	elems.MetaAttribute
 	elems.SourceAttribute
@@ -1213,7 +1213,7 @@ func Media(value string) interface{
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Method(value string) interface{
+func Method(value string) interface {
 	elems.FormAttribute
 } {
 	return newAttrWrapper(attrs.Method(value))
@@ -1232,7 +1232,7 @@ func Method(value string) interface{
 // Description: Lower bound of range.
 //
 // Value: Valid floating-point number*.
-func Min(value string) interface{
+func Min(value string) interface {
 	elems.InputAttribute
 	elems.MeterAttribute
 } {
@@ -1246,7 +1246,7 @@ func Min(value string) interface{
 // Description: Minimum length of value.
 //
 // Value: Valid non-negative integer.
-func Minlength(value string) interface{
+func Minlength(value string) interface {
 	elems.InputAttribute
 	elems.TextareaAttribute
 } {
@@ -1260,7 +1260,7 @@ func Minlength(value string) interface{
 // Description: Whether to allow multiple values.
 //
 // Value: Boolean attribute.
-func Multiple(value bool) interface{
+func Multiple(value bool) interface {
 	elems.InputAttribute
 	elems.SelectAttribute
 } {
@@ -1274,7 +1274,7 @@ func Multiple(value bool) interface{
 // Description: Whether to mute the media resource by default.
 //
 // Value: Boolean attribute.
-func Muted(value bool) interface{
+func Muted(value bool) interface {
 	elems.AudioAttribute
 	elems.VideoAttribute
 } {
@@ -1324,7 +1324,7 @@ func Muted(value bool) interface{
 // Description: Name of shadow tree slot.
 //
 // Value: Text.
-func Name(value string) interface{
+func Name(value string) interface {
 	elems.ButtonAttribute
 	elems.FieldsetAttribute
 	elems.InputAttribute
@@ -1349,7 +1349,7 @@ func Name(value string) interface{
 // Description: Prevents execution in user agents that support module scripts.
 //
 // Value: Boolean attribute.
-func Nomodule(value bool) interface{
+func Nomodule(value bool) interface {
 	elems.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Nomodule(value))
@@ -1362,7 +1362,7 @@ func Nomodule(value bool) interface{
 // Description: Cryptographic nonce used in Content Security Policy checks [CSP].
 //
 // Value: Text.
-func Nonce(value string) interface{
+func Nonce(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Nonce(value))
@@ -1375,7 +1375,7 @@ func Nonce(value string) interface{
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Novalidate(value bool) interface{
+func Novalidate(value bool) interface {
 	elems.FormAttribute
 } {
 	return newAttrWrapper(attrs.Novalidate(value))
@@ -1394,7 +1394,7 @@ func Novalidate(value bool) interface{
 // Description: Whether the dialog box is showing.
 //
 // Value: Boolean attribute.
-func Open(value bool) interface{
+func Open(value bool) interface {
 	elems.DetailsAttribute
 	elems.DialogAttribute
 } {
@@ -1408,7 +1408,7 @@ func Open(value bool) interface{
 // Description: Optimum value in gauge.
 //
 // Value: Valid floating-point number*.
-func Optimum(value string) interface{
+func Optimum(value string) interface {
 	elems.MeterAttribute
 } {
 	return newAttrWrapper(attrs.Optimum(value))
@@ -1421,7 +1421,7 @@ func Optimum(value string) interface{
 // Description: Pattern to be matched by the form control's value.
 //
 // Value: Regular expression matching the JavaScript Pattern production.
-func Pattern(value string) interface{
+func Pattern(value string) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Pattern(value))
@@ -1434,7 +1434,7 @@ func Pattern(value string) interface{
 // Description: URLs to ping.
 //
 // Value: Set of space-separated tokens consisting of valid non-empty URLs.
-func Ping(value string) interface{
+func Ping(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 } {
@@ -1448,7 +1448,7 @@ func Ping(value string) interface{
 // Description: User-visible label to be placed within the form control.
 //
 // Value: Text*.
-func Placeholder(value string) interface{
+func Placeholder(value string) interface {
 	elems.InputAttribute
 	elems.TextareaAttribute
 } {
@@ -1462,7 +1462,7 @@ func Placeholder(value string) interface{
 // Description: Encourage the user agent to display video content within the element's playback area.
 //
 // Value: Boolean attribute.
-func Playsinline(value bool) interface{
+func Playsinline(value bool) interface {
 	elems.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Playsinline(value))
@@ -1475,7 +1475,7 @@ func Playsinline(value bool) interface{
 // Description: Makes the element a popover element.
 //
 // Value: "auto"; "manual"; "hint".
-func Popover(value string) interface{
+func Popover(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Popover(value))
@@ -1488,7 +1488,7 @@ func Popover(value string) interface{
 // Description: Targets a popover element to toggle, show, or hide.
 //
 // Value: ID*.
-func Popovertarget(value string) interface{
+func Popovertarget(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -1502,7 +1502,7 @@ func Popovertarget(value string) interface{
 // Description: Indicates whether a targeted popover element is to be toggled, shown, or hidden.
 //
 // Value: "toggle"; "show"; "hide".
-func Popovertargetaction(value string) interface{
+func Popovertargetaction(value string) interface {
 	elems.ButtonAttribute
 	elems.InputAttribute
 } {
@@ -1516,7 +1516,7 @@ func Popovertargetaction(value string) interface{
 // Description: Poster frame to show prior to video playback.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Poster(value string) interface{
+func Poster(value string) interface {
 	elems.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Poster(value))
@@ -1529,7 +1529,7 @@ func Poster(value string) interface{
 // Description: Hints how much buffering the media resource will likely need.
 //
 // Value: "none"; "metadata"; "auto".
-func Preload(value string) interface{
+func Preload(value string) interface {
 	elems.AudioAttribute
 	elems.VideoAttribute
 } {
@@ -1549,7 +1549,7 @@ func Preload(value string) interface{
 // Description: Affects willValidate, plus any behavior added by the custom element author.
 //
 // Value: Boolean attribute.
-func Readonly(value bool) interface{
+func Readonly(value bool) interface {
 	elems.InputAttribute
 	elems.TextareaAttribute
 } {
@@ -1563,7 +1563,7 @@ func Readonly(value bool) interface{
 // Description: Referrer policy for fetches initiated by the element.
 //
 // Value: Referrer policy.
-func Referrerpolicy(value string) interface{
+func Referrerpolicy(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 	elems.IframeAttribute
@@ -1587,7 +1587,7 @@ func Referrerpolicy(value string) interface{
 // Description: Relationship between the document containing the hyperlink and the destination resource.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Rel(value string) interface{
+func Rel(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 	elems.LinkAttribute
@@ -1602,7 +1602,7 @@ func Rel(value string) interface{
 // Description: Whether the control is required for form submission.
 //
 // Value: Boolean attribute.
-func Required(value bool) interface{
+func Required(value bool) interface {
 	elems.InputAttribute
 	elems.SelectAttribute
 	elems.TextareaAttribute
@@ -1617,7 +1617,7 @@ func Required(value bool) interface{
 // Description: Number the list backwards.
 //
 // Value: Boolean attribute.
-func Reversed(value bool) interface{
+func Reversed(value bool) interface {
 	elems.OlAttribute
 } {
 	return newAttrWrapper(attrs.Reversed(value))
@@ -1630,7 +1630,7 @@ func Reversed(value bool) interface{
 // Description: Number of lines to show.
 //
 // Value: Valid non-negative integer greater than zero.
-func Rows(value string) interface{
+func Rows(value string) interface {
 	elems.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Rows(value))
@@ -1643,7 +1643,7 @@ func Rows(value string) interface{
 // Description: Number of rows that the cell is to span.
 //
 // Value: Valid non-negative integer.
-func Rowspan(value string) interface{
+func Rowspan(value string) interface {
 	elems.TdAttribute
 	elems.ThAttribute
 } {
@@ -1657,7 +1657,7 @@ func Rowspan(value string) interface{
 // Description: Security rules for nested content.
 //
 // Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads""allow-forms""allow-modals""allow-orientation-lock""allow-pointer-lock""allow-popups""allow-popups-to-escape-sandbox""allow-presentation""allow-same-origin""allow-scripts""allow-top-navigation""allow-top-navigation-by-user-activation""allow-top-navigation-to-custom-protocols".
-func Sandbox(value string) interface{
+func Sandbox(value string) interface {
 	elems.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Sandbox(value))
@@ -1670,7 +1670,7 @@ func Sandbox(value string) interface{
 // Description: Specifies which cells the header cell applies to.
 //
 // Value: "row"; "col"; "rowgroup"; "colgroup".
-func Scope(value string) interface{
+func Scope(value string) interface {
 	elems.ThAttribute
 } {
 	return newAttrWrapper(attrs.Scope(value))
@@ -1683,7 +1683,7 @@ func Scope(value string) interface{
 // Description: Whether the option is selected by default.
 //
 // Value: Boolean attribute.
-func Selected(value bool) interface{
+func Selected(value bool) interface {
 	elems.OptionAttribute
 } {
 	return newAttrWrapper(attrs.Selected(value))
@@ -1696,7 +1696,7 @@ func Selected(value bool) interface{
 // Description: Sets clonable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootclonable(value bool) interface{
+func Shadowrootclonable(value bool) interface {
 	elems.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootclonable(value))
@@ -1709,7 +1709,7 @@ func Shadowrootclonable(value bool) interface{
 // Description: Enables declarative shadow roots to indicate they will use a custom element registry.
 //
 // Value: Boolean attribute.
-func Shadowrootcustomelementregistry(value bool) interface{
+func Shadowrootcustomelementregistry(value bool) interface {
 	elems.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootcustomelementregistry(value))
@@ -1722,7 +1722,7 @@ func Shadowrootcustomelementregistry(value bool) interface{
 // Description: Sets delegates focus on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootdelegatesfocus(value bool) interface{
+func Shadowrootdelegatesfocus(value bool) interface {
 	elems.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootdelegatesfocus(value))
@@ -1735,7 +1735,7 @@ func Shadowrootdelegatesfocus(value bool) interface{
 // Description: Enables streaming declarative shadow roots.
 //
 // Value: "open"; "closed".
-func Shadowrootmode(value string) interface{
+func Shadowrootmode(value string) interface {
 	elems.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootmode(value))
@@ -1748,7 +1748,7 @@ func Shadowrootmode(value string) interface{
 // Description: Sets serializable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootserializable(value bool) interface{
+func Shadowrootserializable(value bool) interface {
 	elems.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootserializable(value))
@@ -1761,7 +1761,7 @@ func Shadowrootserializable(value bool) interface{
 // Description: The kind of shape to be created in an image map.
 //
 // Value: "circle"; "default"; "poly"; "rect".
-func Shape(value string) interface{
+func Shape(value string) interface {
 	elems.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Shape(value))
@@ -1774,7 +1774,7 @@ func Shape(value string) interface{
 // Description: Size of the control.
 //
 // Value: Valid non-negative integer greater than zero.
-func Size(value string) interface{
+func Size(value string) interface {
 	elems.InputAttribute
 	elems.SelectAttribute
 } {
@@ -1794,7 +1794,7 @@ func Size(value string) interface{
 // Description: Image sizes for different page layouts.
 //
 // Value: Valid source size list.
-func Sizes(value string) interface{
+func Sizes(value string) interface {
 	elems.LinkAttribute
 	elems.ImgAttribute
 	elems.SourceAttribute
@@ -1809,7 +1809,7 @@ func Sizes(value string) interface{
 // Description: The element's desired slot.
 //
 // Value: Text.
-func Slot(value string) interface{
+func Slot(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Slot(value))
@@ -1822,7 +1822,7 @@ func Slot(value string) interface{
 // Description: Number of columns spanned by the element.
 //
 // Value: Valid non-negative integer greater than zero.
-func Span(value string) interface{
+func Span(value string) interface {
 	elems.ColAttribute
 	elems.ColgroupAttribute
 } {
@@ -1836,7 +1836,7 @@ func Span(value string) interface{
 // Description: Whether the element is to have its spelling and grammar checked.
 //
 // Value: "true"; "false"; the empty string.
-func Spellcheck(value string) interface{
+func Spellcheck(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Spellcheck(value))
@@ -1849,17 +1849,7 @@ func Spellcheck(value string) interface{
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Src(value string) interface{
-	elems.AudioAttribute
-	elems.EmbedAttribute
-	elems.IframeAttribute
-	elems.ImgAttribute
-	elems.InputAttribute
-	elems.ScriptAttribute
-	elems.SourceAttribute
-	elems.TrackAttribute
-	elems.VideoAttribute
-} {
+func Src(value string) SrcType {
 	return newAttrWrapper(attrs.Src(value))
 }
 
@@ -1870,7 +1860,7 @@ func Src(value string) interface{
 // Description: A document to render in the iframe.
 //
 // Value: The source of an iframe srcdoc document*.
-func Srcdoc(value string) interface{
+func Srcdoc(value string) interface {
 	elems.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Srcdoc(value))
@@ -1883,7 +1873,7 @@ func Srcdoc(value string) interface{
 // Description: Language of the text track.
 //
 // Value: Valid BCP 47 language tag.
-func Srclang(value string) interface{
+func Srclang(value string) interface {
 	elems.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Srclang(value))
@@ -1896,7 +1886,7 @@ func Srclang(value string) interface{
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc..
 //
 // Value: Comma-separated list of image candidate strings.
-func Srcset(value string) interface{
+func Srcset(value string) interface {
 	elems.ImgAttribute
 	elems.SourceAttribute
 } {
@@ -1910,7 +1900,7 @@ func Srcset(value string) interface{
 // Description: Starting value of the list.
 //
 // Value: Valid integer.
-func Start(value string) interface{
+func Start(value string) interface {
 	elems.OlAttribute
 } {
 	return newAttrWrapper(attrs.Start(value))
@@ -1923,7 +1913,7 @@ func Start(value string) interface{
 // Description: Granularity to be matched by the form control's value.
 //
 // Value: Valid floating-point number greater than zero, or "any".
-func Step(value string) interface{
+func Step(value string) interface {
 	elems.InputAttribute
 } {
 	return newAttrWrapper(attrs.Step(value))
@@ -1936,7 +1926,7 @@ func Step(value string) interface{
 // Description: Presentational and formatting instructions.
 //
 // Value: CSS declarations*.
-func Style(value string) interface{
+func Style(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Style(value))
@@ -1949,7 +1939,7 @@ func Style(value string) interface{
 // Description: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation.
 //
 // Value: Valid integer.
-func Tabindex(value string) interface{
+func Tabindex(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Tabindex(value))
@@ -1974,7 +1964,7 @@ func Tabindex(value string) interface{
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Target(value string) interface{
+func Target(value string) interface {
 	elems.AAttribute
 	elems.AreaAttribute
 	elems.BaseAttribute
@@ -2014,7 +2004,7 @@ func Target(value string) interface{
 // Description: CSS style sheet set name.
 //
 // Value: Text.
-func Title(value string) interface{
+func Title(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Title(value))
@@ -2027,7 +2017,7 @@ func Title(value string) interface{
 // Description: Whether the element is to be translated when the page is localized.
 //
 // Value: "yes"; "no".
-func Translate(value string) interface{
+func Translate(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Translate(value))
@@ -2070,7 +2060,7 @@ func Translate(value string) interface{
 // Description: Type of script.
 //
 // Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match.
-func Type(value string) interface{
+func Type(value string) interface {
 	elems.AAttribute
 	elems.LinkAttribute
 	elems.ButtonAttribute
@@ -2091,7 +2081,7 @@ func Type(value string) interface{
 // Description: Name of image map to use.
 //
 // Value: Valid hash-name reference*.
-func Usemap(value string) interface{
+func Usemap(value string) interface {
 	elems.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Usemap(value))
@@ -2128,7 +2118,7 @@ func Usemap(value string) interface{
 // Description: Current value of the element.
 //
 // Value: Valid floating-point number.
-func Value(value string) interface{
+func Value(value string) interface {
 	elems.ButtonAttribute
 	elems.OptionAttribute
 	elems.DataAttribute
@@ -2147,7 +2137,7 @@ func Value(value string) interface{
 // Description: Horizontal dimension.
 //
 // Value: Valid non-negative integer.
-func Width(value string) interface{
+func Width(value string) interface {
 	elems.CanvasAttribute
 	elems.EmbedAttribute
 	elems.IframeAttribute
@@ -2167,7 +2157,7 @@ func Width(value string) interface{
 // Description: How the value of the form control is to be wrapped for form submission.
 //
 // Value: "soft"; "hard".
-func Wrap(value string) interface{
+func Wrap(value string) interface {
 	elems.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Wrap(value))
@@ -2180,7 +2170,7 @@ func Wrap(value string) interface{
 // Description: Whether the element can offer writing suggestions or not..
 //
 // Value: "true"; "false"; the empty string.
-func Writingsuggestions(value string) interface{
+func Writingsuggestions(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Writingsuggestions(value))
@@ -2193,7 +2183,7 @@ func Writingsuggestions(value string) interface{
 // Description: afterprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onafterprint(value string) interface{
+func Onafterprint(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onafterprint(value))
@@ -2206,7 +2196,7 @@ func Onafterprint(value string) interface{
 // Description: auxclick event handler.
 //
 // Value: Event handler content attribute.
-func Onauxclick(value string) interface{
+func Onauxclick(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onauxclick(value))
@@ -2219,7 +2209,7 @@ func Onauxclick(value string) interface{
 // Description: beforeinput event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforeinput(value string) interface{
+func Onbeforeinput(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeinput(value))
@@ -2232,7 +2222,7 @@ func Onbeforeinput(value string) interface{
 // Description: beforematch event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforematch(value string) interface{
+func Onbeforematch(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforematch(value))
@@ -2245,7 +2235,7 @@ func Onbeforematch(value string) interface{
 // Description: beforeprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeprint(value string) interface{
+func Onbeforeprint(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeprint(value))
@@ -2258,7 +2248,7 @@ func Onbeforeprint(value string) interface{
 // Description: beforeunload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeunload(value string) interface{
+func Onbeforeunload(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeunload(value))
@@ -2271,7 +2261,7 @@ func Onbeforeunload(value string) interface{
 // Description: beforetoggle event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforetoggle(value string) interface{
+func Onbeforetoggle(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforetoggle(value))
@@ -2284,7 +2274,7 @@ func Onbeforetoggle(value string) interface{
 // Description: blur event handler.
 //
 // Value: Event handler content attribute.
-func Onblur(value string) interface{
+func Onblur(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onblur(value))
@@ -2297,7 +2287,7 @@ func Onblur(value string) interface{
 // Description: cancel event handler.
 //
 // Value: Event handler content attribute.
-func Oncancel(value string) interface{
+func Oncancel(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncancel(value))
@@ -2310,7 +2300,7 @@ func Oncancel(value string) interface{
 // Description: canplay event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplay(value string) interface{
+func Oncanplay(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncanplay(value))
@@ -2323,7 +2313,7 @@ func Oncanplay(value string) interface{
 // Description: canplaythrough event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplaythrough(value string) interface{
+func Oncanplaythrough(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncanplaythrough(value))
@@ -2336,7 +2326,7 @@ func Oncanplaythrough(value string) interface{
 // Description: change event handler.
 //
 // Value: Event handler content attribute.
-func Onchange(value string) interface{
+func Onchange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onchange(value))
@@ -2349,7 +2339,7 @@ func Onchange(value string) interface{
 // Description: click event handler.
 //
 // Value: Event handler content attribute.
-func Onclick(value string) interface{
+func Onclick(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onclick(value))
@@ -2362,7 +2352,7 @@ func Onclick(value string) interface{
 // Description: close event handler.
 //
 // Value: Event handler content attribute.
-func Onclose(value string) interface{
+func Onclose(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onclose(value))
@@ -2375,7 +2365,7 @@ func Onclose(value string) interface{
 // Description: command event handler.
 //
 // Value: Event handler content attribute.
-func Oncommand(value string) interface{
+func Oncommand(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncommand(value))
@@ -2388,7 +2378,7 @@ func Oncommand(value string) interface{
 // Description: contextlost event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextlost(value string) interface{
+func Oncontextlost(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextlost(value))
@@ -2401,7 +2391,7 @@ func Oncontextlost(value string) interface{
 // Description: contextmenu event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextmenu(value string) interface{
+func Oncontextmenu(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextmenu(value))
@@ -2414,7 +2404,7 @@ func Oncontextmenu(value string) interface{
 // Description: contextrestored event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextrestored(value string) interface{
+func Oncontextrestored(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextrestored(value))
@@ -2427,7 +2417,7 @@ func Oncontextrestored(value string) interface{
 // Description: copy event handler.
 //
 // Value: Event handler content attribute.
-func Oncopy(value string) interface{
+func Oncopy(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncopy(value))
@@ -2440,7 +2430,7 @@ func Oncopy(value string) interface{
 // Description: cuechange event handler.
 //
 // Value: Event handler content attribute.
-func Oncuechange(value string) interface{
+func Oncuechange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncuechange(value))
@@ -2453,7 +2443,7 @@ func Oncuechange(value string) interface{
 // Description: cut event handler.
 //
 // Value: Event handler content attribute.
-func Oncut(value string) interface{
+func Oncut(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncut(value))
@@ -2466,7 +2456,7 @@ func Oncut(value string) interface{
 // Description: dblclick event handler.
 //
 // Value: Event handler content attribute.
-func Ondblclick(value string) interface{
+func Ondblclick(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondblclick(value))
@@ -2479,7 +2469,7 @@ func Ondblclick(value string) interface{
 // Description: drag event handler.
 //
 // Value: Event handler content attribute.
-func Ondrag(value string) interface{
+func Ondrag(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondrag(value))
@@ -2492,7 +2482,7 @@ func Ondrag(value string) interface{
 // Description: dragend event handler.
 //
 // Value: Event handler content attribute.
-func Ondragend(value string) interface{
+func Ondragend(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragend(value))
@@ -2505,7 +2495,7 @@ func Ondragend(value string) interface{
 // Description: dragenter event handler.
 //
 // Value: Event handler content attribute.
-func Ondragenter(value string) interface{
+func Ondragenter(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragenter(value))
@@ -2518,7 +2508,7 @@ func Ondragenter(value string) interface{
 // Description: dragleave event handler.
 //
 // Value: Event handler content attribute.
-func Ondragleave(value string) interface{
+func Ondragleave(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragleave(value))
@@ -2531,7 +2521,7 @@ func Ondragleave(value string) interface{
 // Description: dragover event handler.
 //
 // Value: Event handler content attribute.
-func Ondragover(value string) interface{
+func Ondragover(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragover(value))
@@ -2544,7 +2534,7 @@ func Ondragover(value string) interface{
 // Description: dragstart event handler.
 //
 // Value: Event handler content attribute.
-func Ondragstart(value string) interface{
+func Ondragstart(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragstart(value))
@@ -2557,7 +2547,7 @@ func Ondragstart(value string) interface{
 // Description: drop event handler.
 //
 // Value: Event handler content attribute.
-func Ondrop(value string) interface{
+func Ondrop(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondrop(value))
@@ -2570,7 +2560,7 @@ func Ondrop(value string) interface{
 // Description: durationchange event handler.
 //
 // Value: Event handler content attribute.
-func Ondurationchange(value string) interface{
+func Ondurationchange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondurationchange(value))
@@ -2583,7 +2573,7 @@ func Ondurationchange(value string) interface{
 // Description: emptied event handler.
 //
 // Value: Event handler content attribute.
-func Onemptied(value string) interface{
+func Onemptied(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onemptied(value))
@@ -2596,7 +2586,7 @@ func Onemptied(value string) interface{
 // Description: ended event handler.
 //
 // Value: Event handler content attribute.
-func Onended(value string) interface{
+func Onended(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onended(value))
@@ -2609,7 +2599,7 @@ func Onended(value string) interface{
 // Description: error event handler.
 //
 // Value: Event handler content attribute.
-func Onerror(value string) interface{
+func Onerror(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onerror(value))
@@ -2622,7 +2612,7 @@ func Onerror(value string) interface{
 // Description: focus event handler.
 //
 // Value: Event handler content attribute.
-func Onfocus(value string) interface{
+func Onfocus(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onfocus(value))
@@ -2635,7 +2625,7 @@ func Onfocus(value string) interface{
 // Description: formdata event handler.
 //
 // Value: Event handler content attribute.
-func Onformdata(value string) interface{
+func Onformdata(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onformdata(value))
@@ -2648,7 +2638,7 @@ func Onformdata(value string) interface{
 // Description: hashchange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onhashchange(value string) interface{
+func Onhashchange(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onhashchange(value))
@@ -2661,7 +2651,7 @@ func Onhashchange(value string) interface{
 // Description: input event handler.
 //
 // Value: Event handler content attribute.
-func Oninput(value string) interface{
+func Oninput(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oninput(value))
@@ -2674,7 +2664,7 @@ func Oninput(value string) interface{
 // Description: invalid event handler.
 //
 // Value: Event handler content attribute.
-func Oninvalid(value string) interface{
+func Oninvalid(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oninvalid(value))
@@ -2687,7 +2677,7 @@ func Oninvalid(value string) interface{
 // Description: keydown event handler.
 //
 // Value: Event handler content attribute.
-func Onkeydown(value string) interface{
+func Onkeydown(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeydown(value))
@@ -2700,7 +2690,7 @@ func Onkeydown(value string) interface{
 // Description: keypress event handler.
 //
 // Value: Event handler content attribute.
-func Onkeypress(value string) interface{
+func Onkeypress(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeypress(value))
@@ -2713,7 +2703,7 @@ func Onkeypress(value string) interface{
 // Description: keyup event handler.
 //
 // Value: Event handler content attribute.
-func Onkeyup(value string) interface{
+func Onkeyup(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeyup(value))
@@ -2726,7 +2716,7 @@ func Onkeyup(value string) interface{
 // Description: languagechange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onlanguagechange(value string) interface{
+func Onlanguagechange(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onlanguagechange(value))
@@ -2739,7 +2729,7 @@ func Onlanguagechange(value string) interface{
 // Description: load event handler.
 //
 // Value: Event handler content attribute.
-func Onload(value string) interface{
+func Onload(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onload(value))
@@ -2752,7 +2742,7 @@ func Onload(value string) interface{
 // Description: loadeddata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadeddata(value string) interface{
+func Onloadeddata(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadeddata(value))
@@ -2765,7 +2755,7 @@ func Onloadeddata(value string) interface{
 // Description: loadedmetadata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadedmetadata(value string) interface{
+func Onloadedmetadata(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadedmetadata(value))
@@ -2778,7 +2768,7 @@ func Onloadedmetadata(value string) interface{
 // Description: loadstart event handler.
 //
 // Value: Event handler content attribute.
-func Onloadstart(value string) interface{
+func Onloadstart(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadstart(value))
@@ -2791,7 +2781,7 @@ func Onloadstart(value string) interface{
 // Description: message event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessage(value string) interface{
+func Onmessage(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onmessage(value))
@@ -2804,7 +2794,7 @@ func Onmessage(value string) interface{
 // Description: messageerror event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessageerror(value string) interface{
+func Onmessageerror(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onmessageerror(value))
@@ -2817,7 +2807,7 @@ func Onmessageerror(value string) interface{
 // Description: mousedown event handler.
 //
 // Value: Event handler content attribute.
-func Onmousedown(value string) interface{
+func Onmousedown(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmousedown(value))
@@ -2830,7 +2820,7 @@ func Onmousedown(value string) interface{
 // Description: mouseenter event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseenter(value string) interface{
+func Onmouseenter(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseenter(value))
@@ -2843,7 +2833,7 @@ func Onmouseenter(value string) interface{
 // Description: mouseleave event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseleave(value string) interface{
+func Onmouseleave(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseleave(value))
@@ -2856,7 +2846,7 @@ func Onmouseleave(value string) interface{
 // Description: mousemove event handler.
 //
 // Value: Event handler content attribute.
-func Onmousemove(value string) interface{
+func Onmousemove(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmousemove(value))
@@ -2869,7 +2859,7 @@ func Onmousemove(value string) interface{
 // Description: mouseout event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseout(value string) interface{
+func Onmouseout(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseout(value))
@@ -2882,7 +2872,7 @@ func Onmouseout(value string) interface{
 // Description: mouseover event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseover(value string) interface{
+func Onmouseover(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseover(value))
@@ -2895,7 +2885,7 @@ func Onmouseover(value string) interface{
 // Description: mouseup event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseup(value string) interface{
+func Onmouseup(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseup(value))
@@ -2908,7 +2898,7 @@ func Onmouseup(value string) interface{
 // Description: offline event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onoffline(value string) interface{
+func Onoffline(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onoffline(value))
@@ -2921,7 +2911,7 @@ func Onoffline(value string) interface{
 // Description: online event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Ononline(value string) interface{
+func Ononline(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Ononline(value))
@@ -2934,7 +2924,7 @@ func Ononline(value string) interface{
 // Description: pagehide event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagehide(value string) interface{
+func Onpagehide(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpagehide(value))
@@ -2947,7 +2937,7 @@ func Onpagehide(value string) interface{
 // Description: pagereveal event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagereveal(value string) interface{
+func Onpagereveal(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpagereveal(value))
@@ -2960,7 +2950,7 @@ func Onpagereveal(value string) interface{
 // Description: pageshow event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageshow(value string) interface{
+func Onpageshow(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpageshow(value))
@@ -2973,7 +2963,7 @@ func Onpageshow(value string) interface{
 // Description: pageswap event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageswap(value string) interface{
+func Onpageswap(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpageswap(value))
@@ -2986,7 +2976,7 @@ func Onpageswap(value string) interface{
 // Description: paste event handler.
 //
 // Value: Event handler content attribute.
-func Onpaste(value string) interface{
+func Onpaste(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onpaste(value))
@@ -2999,7 +2989,7 @@ func Onpaste(value string) interface{
 // Description: pause event handler.
 //
 // Value: Event handler content attribute.
-func Onpause(value string) interface{
+func Onpause(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onpause(value))
@@ -3012,7 +3002,7 @@ func Onpause(value string) interface{
 // Description: play event handler.
 //
 // Value: Event handler content attribute.
-func Onplay(value string) interface{
+func Onplay(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onplay(value))
@@ -3025,7 +3015,7 @@ func Onplay(value string) interface{
 // Description: playing event handler.
 //
 // Value: Event handler content attribute.
-func Onplaying(value string) interface{
+func Onplaying(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onplaying(value))
@@ -3038,7 +3028,7 @@ func Onplaying(value string) interface{
 // Description: popstate event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpopstate(value string) interface{
+func Onpopstate(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpopstate(value))
@@ -3051,7 +3041,7 @@ func Onpopstate(value string) interface{
 // Description: progress event handler.
 //
 // Value: Event handler content attribute.
-func Onprogress(value string) interface{
+func Onprogress(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onprogress(value))
@@ -3064,7 +3054,7 @@ func Onprogress(value string) interface{
 // Description: ratechange event handler.
 //
 // Value: Event handler content attribute.
-func Onratechange(value string) interface{
+func Onratechange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onratechange(value))
@@ -3077,7 +3067,7 @@ func Onratechange(value string) interface{
 // Description: reset event handler.
 //
 // Value: Event handler content attribute.
-func Onreset(value string) interface{
+func Onreset(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onreset(value))
@@ -3090,7 +3080,7 @@ func Onreset(value string) interface{
 // Description: resize event handler.
 //
 // Value: Event handler content attribute.
-func Onresize(value string) interface{
+func Onresize(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onresize(value))
@@ -3103,7 +3093,7 @@ func Onresize(value string) interface{
 // Description: rejectionhandled event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onrejectionhandled(value string) interface{
+func Onrejectionhandled(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onrejectionhandled(value))
@@ -3116,7 +3106,7 @@ func Onrejectionhandled(value string) interface{
 // Description: scroll event handler.
 //
 // Value: Event handler content attribute.
-func Onscroll(value string) interface{
+func Onscroll(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onscroll(value))
@@ -3129,7 +3119,7 @@ func Onscroll(value string) interface{
 // Description: scrollend event handler.
 //
 // Value: Event handler content attribute.
-func Onscrollend(value string) interface{
+func Onscrollend(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onscrollend(value))
@@ -3142,7 +3132,7 @@ func Onscrollend(value string) interface{
 // Description: securitypolicyviolation event handler.
 //
 // Value: Event handler content attribute.
-func Onsecuritypolicyviolation(value string) interface{
+func Onsecuritypolicyviolation(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsecuritypolicyviolation(value))
@@ -3155,7 +3145,7 @@ func Onsecuritypolicyviolation(value string) interface{
 // Description: seeked event handler.
 //
 // Value: Event handler content attribute.
-func Onseeked(value string) interface{
+func Onseeked(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onseeked(value))
@@ -3168,7 +3158,7 @@ func Onseeked(value string) interface{
 // Description: seeking event handler.
 //
 // Value: Event handler content attribute.
-func Onseeking(value string) interface{
+func Onseeking(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onseeking(value))
@@ -3181,7 +3171,7 @@ func Onseeking(value string) interface{
 // Description: select event handler.
 //
 // Value: Event handler content attribute.
-func Onselect(value string) interface{
+func Onselect(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onselect(value))
@@ -3194,7 +3184,7 @@ func Onselect(value string) interface{
 // Description: slotchange event handler.
 //
 // Value: Event handler content attribute.
-func Onslotchange(value string) interface{
+func Onslotchange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onslotchange(value))
@@ -3207,7 +3197,7 @@ func Onslotchange(value string) interface{
 // Description: stalled event handler.
 //
 // Value: Event handler content attribute.
-func Onstalled(value string) interface{
+func Onstalled(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onstalled(value))
@@ -3220,7 +3210,7 @@ func Onstalled(value string) interface{
 // Description: storage event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onstorage(value string) interface{
+func Onstorage(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onstorage(value))
@@ -3233,7 +3223,7 @@ func Onstorage(value string) interface{
 // Description: submit event handler.
 //
 // Value: Event handler content attribute.
-func Onsubmit(value string) interface{
+func Onsubmit(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsubmit(value))
@@ -3246,7 +3236,7 @@ func Onsubmit(value string) interface{
 // Description: suspend event handler.
 //
 // Value: Event handler content attribute.
-func Onsuspend(value string) interface{
+func Onsuspend(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsuspend(value))
@@ -3259,7 +3249,7 @@ func Onsuspend(value string) interface{
 // Description: timeupdate event handler.
 //
 // Value: Event handler content attribute.
-func Ontimeupdate(value string) interface{
+func Ontimeupdate(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ontimeupdate(value))
@@ -3272,7 +3262,7 @@ func Ontimeupdate(value string) interface{
 // Description: toggle event handler.
 //
 // Value: Event handler content attribute.
-func Ontoggle(value string) interface{
+func Ontoggle(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ontoggle(value))
@@ -3285,7 +3275,7 @@ func Ontoggle(value string) interface{
 // Description: unhandledrejection event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunhandledrejection(value string) interface{
+func Onunhandledrejection(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onunhandledrejection(value))
@@ -3298,7 +3288,7 @@ func Onunhandledrejection(value string) interface{
 // Description: unload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunload(value string) interface{
+func Onunload(value string) interface {
 	elems.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onunload(value))
@@ -3311,7 +3301,7 @@ func Onunload(value string) interface{
 // Description: volumechange event handler.
 //
 // Value: Event handler content attribute.
-func Onvolumechange(value string) interface{
+func Onvolumechange(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onvolumechange(value))
@@ -3324,7 +3314,7 @@ func Onvolumechange(value string) interface{
 // Description: waiting event handler.
 //
 // Value: Event handler content attribute.
-func Onwaiting(value string) interface{
+func Onwaiting(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onwaiting(value))
@@ -3337,9 +3327,8 @@ func Onwaiting(value string) interface{
 // Description: wheel event handler.
 //
 // Value: Event handler content attribute.
-func Onwheel(value string) interface{
+func Onwheel(value string) interface {
 	elems.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onwheel(value))
 }
-

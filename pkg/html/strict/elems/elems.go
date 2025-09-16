@@ -13,19 +13,9 @@ import (
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Ul(ulAttrs ...UlAttribute) TypedContContainerFunc[doc.IContent, UlChild] {
-	typedConterFunc := func(children ...UlChild) doc.IContent {
-		convertedAttributes := toIAttributes(ulAttrs) // Corrected: No need to specify T for toIAttributes
-		convertedChildren := toIContent(children)
-		return elems.Ul(convertedAttributes...)(convertedChildren...)
-	}
-	return typedConterFunc
-}
-
-func ContContainerFuncWrapper[P, C doc.IContent, A doc.IAttribute](attrs ...A) TypedContContainerFunc[P, C] {
-	return func(children ...C) P {
-		wrappedContent := newContentWrapper(elems.Li(toIAttributes(attrs)...)(toIContent(children)...))
-		return wrappedContent.IContent.(P)
+func Ul(attrs ...UlAttribute) ContContainerFunc[UlType, UlChild] {
+	return func(children ...UlChild) UlType {
+		return UlType{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
@@ -34,10 +24,9 @@ func ContContainerFuncWrapper[P, C doc.IContent, A doc.IAttribute](attrs ...A) T
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(attrs ...LiAttribute) TypedContContainerFunc[LiType, LiChild] {
-	// return newContentWrapper3[LiType, LiAttribute, LiChild](elems.Li, attrs)
+func Li(attrs ...LiAttribute) ContContainerFunc[LiType, LiChild] {
 	return func(children ...LiChild) LiType {
-		return newContentWrapper2(elems.Li, attrs, children)
+		return LiType{IContent: elems.Li(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
@@ -46,10 +35,9 @@ func Li(attrs ...LiAttribute) TypedContContainerFunc[LiType, LiChild] {
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
-func Script(attrs ...ScriptAttribute) TypedContContainerFunc[ScriptType, ScriptChild] {
-	// return elems.Script(toIAttributes(attrs)...)
+func Script(attrs ...ScriptAttribute) ContContainerFunc[ScriptType, ScriptChild] {
 	return func(children ...ScriptChild) ScriptType {
-		return newContentWrapper2(elems.Li, attrs, children)
+		return ScriptType{IContent: elems.Script(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
