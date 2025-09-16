@@ -41,6 +41,18 @@ func Li(attrs ...LiAttribute) TypedContContainerFunc[LiType, LiChild] {
 	}
 }
 
+// Script
+// Description: Embedded script.
+// Parents: head; phrasing; script-supporting.
+// Children: script, data, or script documentation*.
+// Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
+func Script(attrs ...ScriptAttribute) TypedContContainerFunc[ScriptType, ScriptChild] {
+	// return elems.Script(toIAttributes(attrs)...)
+	return func(children ...ScriptChild) ScriptType {
+		return newContentWrapper2(elems.Li, attrs, children)
+	}
+}
+
 // A
 // Description: Hyperlink.
 // Parents: phrasing.
@@ -777,15 +789,6 @@ func S(sAttrs ...SAttribute) doc.ContContainerFunc {
 // Attributes: globals
 func Samp(sampAttrs ...SampAttribute) doc.ContContainerFunc {
 	return elems.Samp(toIAttributes(sampAttrs)...)
-}
-
-// Script
-// Description: Embedded script.
-// Parents: head; phrasing; script-supporting.
-// Children: script, data, or script documentation*.
-// Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
-func Script(scriptAttrs ...ScriptAttribute) doc.ContContainerFunc {
-	return elems.Script(toIAttributes(scriptAttrs)...)
 }
 
 // Search

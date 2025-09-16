@@ -19,6 +19,10 @@ type LiChild interface {
 	isLiChild()
 }
 
+type ScriptType interface {
+	doc.IContent
+}
+
 type ScriptChild interface {
 	doc.IContent
 	isScriptChild()

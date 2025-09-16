@@ -35,6 +35,13 @@ func Test_AllowedTypes(t *testing.T) {
 				elems.Li()(),
 			),
 		},
+		// {
+		// 	// not a real test case, should have compile-time error
+		// 	name: "disallowed child element",
+		// 	content: elems.Script()(
+		// 		elems.Li()(),
+		// 	),
+		// },
 	}
 	for _, tc := range tests {
 		tc := tc
