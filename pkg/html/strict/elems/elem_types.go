@@ -13,3 +13,13 @@ type LiType interface {
 	doc.IContent
 	UlChild
 }
+
+type LiChild interface {
+	doc.IContent
+	isLiChild()
+}
+
+type ScriptChild interface {
+	doc.IContent
+	isScriptChild()
+}

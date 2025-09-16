@@ -34,12 +34,10 @@ func ContContainerFuncWrapper[P, C doc.IContent, A doc.IAttribute](attrs ...A) T
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(liAttrs ...LiAttribute) TypedContContainerFunc[interface {
-	UlChild
-}, doc.IContent] {
-	return func(children ...doc.IContent) interface{ UlChild } {
-		wrappedContent := newContentWrapper(elems.Li(toIAttributes(liAttrs)...)(toIContent(children)...))
-		return wrappedContent
+func Li(attrs ...LiAttribute) TypedContContainerFunc[LiType, LiChild] {
+	// return newContentWrapper3[LiType, LiAttribute, LiChild](elems.Li, attrs)
+	return func(children ...LiChild) LiType {
+		return newContentWrapper2(elems.Li, attrs, children)
 	}
 }
 
