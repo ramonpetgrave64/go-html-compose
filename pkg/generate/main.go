@@ -60,15 +60,18 @@ func generate() error {
 	if err := generateElements(bytes.NewReader(content)); err != nil {
 		panic(err)
 	}
-	if err := generateStrictElements(bytes.NewReader(content)); err != nil {
+	if err := generateStrictElementTypes(bytes.NewReader(content)); err != nil {
 		panic(err)
 	}
 	if err := generateStrictAttributes(bytes.NewReader(content)); err != nil {
 		panic(err)
 	}
-	if err := generateStrictElementFuncs(bytes.NewReader(content)); err != nil {
+	if err := generateStrictAttributeTypes(bytes.NewReader(content)); err != nil {
 		panic(err)
 	}
+	// if err := generateStrictElementFuncs(bytes.NewReader(content)); err != nil {
+	// 	panic(err)
+	// }
 	return nil
 }
 

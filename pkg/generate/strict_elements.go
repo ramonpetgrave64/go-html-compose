@@ -11,10 +11,10 @@ import (
 )
 
 const (
-	strictElemTypesFilePath = "../html/strict/elems/types.go"
+	strictElemTypesFilePath = "../html/strict/internal/types/attrs/elems.go"
 )
 
-func generateStrictElements(specContent io.Reader) error {
+func generateStrictElementTypes(specContent io.Reader) error {
 	specNode, err := html.Parse(specContent)
 	if err != nil {
 		return err
@@ -36,7 +36,7 @@ func generateStrictElements(specContent io.Reader) error {
 	var content bytes.Buffer
 	if _, err = fmt.Fprintf(&content, `%s
 
-package elems
+package attrs
 
 import "github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 

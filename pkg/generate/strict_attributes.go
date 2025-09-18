@@ -40,9 +40,9 @@ func generateStrictAttributes(specContent io.Reader) error {
 
 package attrs
 
-import (	
+import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
-	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
+	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
 )
 
 %s
@@ -62,43 +62,10 @@ func makeStrictAttributeFunc(attr *attribute) string {
 		valueType = "bool"
 	}
 
-	allElements := []string{}
-	isGlobal := false
-	for _, ps := range attr.propSets {
-		if ps.elements == "HTML elements" {
-			isGlobal = true
-			break
-		}
-		elems := strings.Split(ps.elements, ";")
-		for _, el := range elems {
-			trimmed := strings.TrimSpace(el)
-			// The spec sometimes includes contextual information in parentheses for an
-			// element, e.g., "source (in picture)". This is not valid for a Go
-			// identifier, so we strip it out.
-			if i := strings.Index(trimmed, "("); i != -1 {
-				trimmed = trimmed[:i]
-			}
-			trimmed = strings.TrimSpace(trimmed)
-			// The strict package is not meant to work with custom elements, so we skip them.
-			if trimmed == "" || trimmed == "form-associated custom elements" {
-				continue
-			}
-			allElements = append(allElements, trimmed)
-		}
-	}
-
-	var types []string
-	if isGlobal {
-		types = append(types, "elems.GlobalAttribute")
-	} else {
-		for _, elName := range allElements {
-			types = append(types, fmt.Sprintf("elems.%sAttribute", kebabToPascal(elName)))
-		}
-	}
-	returnType := fmt.Sprintf("interface{\n\t%s\n}", strings.Join(types, "\n\t"))
+	returnType := fmt.Sprintf("types.%s", funcName)
 
 	doc := makeAttrDoc(attr)
-	underlyingFuncCall := fmt.Sprintf("newAttrWrapper(attrs.%s(value))", underlyingFuncName)
+	underlyingFuncCall := fmt.Sprintf("types.%s{IAttribute: attrs.%s(value)}", funcName, underlyingFuncName)
 
 	return fmt.Sprintf(`%s
 func %s(value %s) %s {

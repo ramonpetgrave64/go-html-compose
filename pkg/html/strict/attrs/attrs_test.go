@@ -6,6 +6,7 @@ import (
 
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/internal/test"
 )
 
@@ -56,7 +57,7 @@ func Test_ParentTypes(t *testing.T) {
 		t.Parallel()
 
 		var value any = Value("my-value")
-		if _, ok := value.(elems.LiAttribute); !ok {
+		if _, ok := value.(attrs.LiAttribute); !ok {
 			t.Errorf("expected value to be a UlAttribute, but it's not")
 		}
 	})
@@ -65,7 +66,7 @@ func Test_ParentTypes(t *testing.T) {
 		t.Parallel()
 
 		var value any = Value("my-value")
-		if _, ok := value.(elems.ScriptAttribute); ok {
+		if _, ok := value.(attrs.ScriptAttribute); ok {
 			t.Errorf("expected value to not be ScriptAttribute, but it is")
 		}
 	})

@@ -26,10 +26,8 @@ func Abbr(value string) types.Abbr {
 // Description: Hint for expected file type in file upload controls.
 //
 // Value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*.
-func Accept(value string) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Accept(value))
+func Accept(value string) types.Accept {
+	return types.Accept{IAttribute: attrs.Accept(value)}
 }
 
 // AcceptCharset
@@ -39,10 +37,8 @@ func Accept(value string) interface {
 // Description: Character encodings to use for form submission.
 //
 // Value: ASCII case-insensitive match for "UTF-8".
-func AcceptCharset(value string) interface {
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.AcceptCharset(value))
+func AcceptCharset(value string) types.AcceptCharset {
+	return types.AcceptCharset{IAttribute: attrs.AcceptCharset(value)}
 }
 
 // Accesskey
@@ -52,10 +48,8 @@ func AcceptCharset(value string) interface {
 // Description: Keyboard shortcut to activate or focus element.
 //
 // Value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length.
-func Accesskey(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Accesskey(value))
+func Accesskey(value string) types.Accesskey {
+	return types.Accesskey{IAttribute: attrs.Accesskey(value)}
 }
 
 // Action
@@ -65,10 +59,8 @@ func Accesskey(value string) interface {
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Action(value string) interface {
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.Action(value))
+func Action(value string) types.Action {
+	return types.Action{IAttribute: attrs.Action(value)}
 }
 
 // Allow
@@ -78,10 +70,8 @@ func Action(value string) interface {
 // Description: Permissions policy to be applied to the iframe's contents.
 //
 // Value: Serialized permissions policy.
-func Allow(value string) interface {
-	types.IframeAttribute
-} {
-	return newAttrWrapper(attrs.Allow(value))
+func Allow(value string) types.Allow {
+	return types.Allow{IAttribute: attrs.Allow(value)}
 }
 
 // Allowfullscreen
@@ -91,10 +81,8 @@ func Allow(value string) interface {
 // Description: Whether to allow the iframe's contents to use requestFullscreen().
 //
 // Value: Boolean attribute.
-func Allowfullscreen(value bool) interface {
-	types.IframeAttribute
-} {
-	return newAttrWrapper(attrs.Allowfullscreen(value))
+func Allowfullscreen(value bool) types.Allowfullscreen {
+	return types.Allowfullscreen{IAttribute: attrs.Allowfullscreen(value)}
 }
 
 // Alpha
@@ -104,10 +92,8 @@ func Allowfullscreen(value bool) interface {
 // Description: Allow the color's alpha component to be set.
 //
 // Value: Boolean attribute.
-func Alpha(value bool) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Alpha(value))
+func Alpha(value bool) types.Alpha {
+	return types.Alpha{IAttribute: attrs.Alpha(value)}
 }
 
 // Alt
@@ -117,12 +103,8 @@ func Alpha(value bool) interface {
 // Description: Replacement text for use when images are not available.
 //
 // Value: Text*.
-func Alt(value string) interface {
-	types.AreaAttribute
-	types.ImgAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Alt(value))
+func Alt(value string) types.Alt {
+	return types.Alt{IAttribute: attrs.Alt(value)}
 }
 
 // As
@@ -132,10 +114,8 @@ func Alt(value string) interface {
 // Description: Potential destination for a preload request (for rel="preload" and rel="modulepreload").
 //
 // Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload".
-func As(value string) interface {
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.As(value))
+func As(value string) types.As {
+	return types.As{IAttribute: attrs.As(value)}
 }
 
 // Async
@@ -145,10 +125,8 @@ func As(value string) interface {
 // Description: Execute script when available, without blocking while fetching.
 //
 // Value: Boolean attribute.
-func Async(value bool) interface {
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Async(value))
+func Async(value bool) types.Async {
+	return types.Async{IAttribute: attrs.Async(value)}
 }
 
 // Autocapitalize
@@ -158,10 +136,8 @@ func Async(value bool) interface {
 // Description: Recommended autocapitalization behavior (for supported input methods).
 //
 // Value: "on"; "off"; "none"; "sentences"; "words"; "characters".
-func Autocapitalize(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Autocapitalize(value))
+func Autocapitalize(value string) types.Autocapitalize {
+	return types.Autocapitalize{IAttribute: attrs.Autocapitalize(value)}
 }
 
 // Autocomplete
@@ -177,13 +153,8 @@ func Autocapitalize(value string) interface {
 // Description: Hint for form autofill feature.
 //
 // Value: Autofill field name and related tokens*.
-func Autocomplete(value string) interface {
-	types.FormAttribute
-	types.InputAttribute
-	types.SelectAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Autocomplete(value))
+func Autocomplete(value string) types.Autocomplete {
+	return types.Autocomplete{IAttribute: attrs.Autocomplete(value)}
 }
 
 // Autocorrect
@@ -193,10 +164,8 @@ func Autocomplete(value string) interface {
 // Description: Recommended autocorrection behavior (for supported input methods).
 //
 // Value: "on"; "off".
-func Autocorrect(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Autocorrect(value))
+func Autocorrect(value string) types.Autocorrect {
+	return types.Autocorrect{IAttribute: attrs.Autocorrect(value)}
 }
 
 // Autofocus
@@ -206,10 +175,8 @@ func Autocorrect(value string) interface {
 // Description: Automatically focus the element when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autofocus(value bool) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Autofocus(value))
+func Autofocus(value bool) types.Autofocus {
+	return types.Autofocus{IAttribute: attrs.Autofocus(value)}
 }
 
 // Autoplay
@@ -219,11 +186,8 @@ func Autofocus(value bool) interface {
 // Description: Hint that the media resource can be started automatically when the page is loaded.
 //
 // Value: Boolean attribute.
-func Autoplay(value bool) interface {
-	types.AudioAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Autoplay(value))
+func Autoplay(value bool) types.Autoplay {
+	return types.Autoplay{IAttribute: attrs.Autoplay(value)}
 }
 
 // Blocking
@@ -233,12 +197,8 @@ func Autoplay(value bool) interface {
 // Description: Whether the element is potentially render-blocking.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Blocking(value string) interface {
-	types.LinkAttribute
-	types.ScriptAttribute
-	types.StyleAttribute
-} {
-	return newAttrWrapper(attrs.Blocking(value))
+func Blocking(value string) types.Blocking {
+	return types.Blocking{IAttribute: attrs.Blocking(value)}
 }
 
 // Charset
@@ -248,10 +208,8 @@ func Blocking(value string) interface {
 // Description: Character encoding declaration.
 //
 // Value: "utf-8".
-func Charset(value string) interface {
-	types.MetaAttribute
-} {
-	return newAttrWrapper(attrs.Charset(value))
+func Charset(value string) types.Charset {
+	return types.Charset{IAttribute: attrs.Charset(value)}
 }
 
 // Checked
@@ -261,10 +219,8 @@ func Charset(value string) interface {
 // Description: Whether the control is checked.
 //
 // Value: Boolean attribute.
-func Checked(value bool) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Checked(value))
+func Checked(value bool) types.Checked {
+	return types.Checked{IAttribute: attrs.Checked(value)}
 }
 
 // Cite
@@ -274,13 +230,8 @@ func Checked(value bool) interface {
 // Description: Link to the source of the quotation or more information about the edit.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Cite(value string) interface {
-	types.BlockquoteAttribute
-	types.DelAttribute
-	types.InsAttribute
-	types.QAttribute
-} {
-	return newAttrWrapper(attrs.Cite(value))
+func Cite(value string) types.Cite {
+	return types.Cite{IAttribute: attrs.Cite(value)}
 }
 
 // Class
@@ -290,10 +241,8 @@ func Cite(value string) interface {
 // Description: Classes to which the element belongs.
 //
 // Value: Set of space-separated tokens.
-func Class(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Class(value))
+func Class(value string) types.Class {
+	return types.Class{IAttribute: attrs.Class(value)}
 }
 
 // Closedby
@@ -303,10 +252,8 @@ func Class(value string) interface {
 // Description: Which user actions will close the dialog.
 //
 // Value: "any"; "closerequest"; "none";.
-func Closedby(value string) interface {
-	types.DialogAttribute
-} {
-	return newAttrWrapper(attrs.Closedby(value))
+func Closedby(value string) types.Closedby {
+	return types.Closedby{IAttribute: attrs.Closedby(value)}
 }
 
 // Color
@@ -316,10 +263,8 @@ func Closedby(value string) interface {
 // Description: Color to use when customizing a site's icon (for rel="mask-icon").
 //
 // Value: CSS <color>.
-func Color(value string) interface {
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Color(value))
+func Color(value string) types.Color {
+	return types.Color{IAttribute: attrs.Color(value)}
 }
 
 // Colorspace
@@ -329,10 +274,8 @@ func Color(value string) interface {
 // Description: The color space of the serialized color.
 //
 // Value: "limited-srgb"; "display-p3".
-func Colorspace(value string) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Colorspace(value))
+func Colorspace(value string) types.Colorspace {
+	return types.Colorspace{IAttribute: attrs.Colorspace(value)}
 }
 
 // Cols
@@ -342,10 +285,8 @@ func Colorspace(value string) interface {
 // Description: Maximum number of characters per line.
 //
 // Value: Valid non-negative integer greater than zero.
-func Cols(value string) interface {
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Cols(value))
+func Cols(value string) types.Cols {
+	return types.Cols{IAttribute: attrs.Cols(value)}
 }
 
 // Colspan
@@ -355,11 +296,8 @@ func Cols(value string) interface {
 // Description: Number of columns that the cell is to span.
 //
 // Value: Valid non-negative integer greater than zero.
-func Colspan(value string) interface {
-	types.TdAttribute
-	types.ThAttribute
-} {
-	return newAttrWrapper(attrs.Colspan(value))
+func Colspan(value string) types.Colspan {
+	return types.Colspan{IAttribute: attrs.Colspan(value)}
 }
 
 // Command
@@ -369,10 +307,8 @@ func Colspan(value string) interface {
 // Description: Indicates to the targeted element which action to take..
 //
 // Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "request-close"; "show-modal"; a custom command keyword.
-func Command(value string) interface {
-	types.ButtonAttribute
-} {
-	return newAttrWrapper(attrs.Command(value))
+func Command(value string) types.Command {
+	return types.Command{IAttribute: attrs.Command(value)}
 }
 
 // Commandfor
@@ -382,10 +318,8 @@ func Command(value string) interface {
 // Description: Targets another element to be invoked..
 //
 // Value: ID*.
-func Commandfor(value string) interface {
-	types.ButtonAttribute
-} {
-	return newAttrWrapper(attrs.Commandfor(value))
+func Commandfor(value string) types.Commandfor {
+	return types.Commandfor{IAttribute: attrs.Commandfor(value)}
 }
 
 // Content
@@ -395,10 +329,8 @@ func Commandfor(value string) interface {
 // Description: Value of the element.
 //
 // Value: Text*.
-func Content(value string) interface {
-	types.MetaAttribute
-} {
-	return newAttrWrapper(attrs.Content(value))
+func Content(value string) types.Content {
+	return types.Content{IAttribute: attrs.Content(value)}
 }
 
 // Contenteditable
@@ -408,10 +340,8 @@ func Content(value string) interface {
 // Description: Whether the element is editable.
 //
 // Value: "true"; "plaintext-only"; "false".
-func Contenteditable(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Contenteditable(value))
+func Contenteditable(value string) types.Contenteditable {
+	return types.Contenteditable{IAttribute: attrs.Contenteditable(value)}
 }
 
 // Controls
@@ -421,11 +351,8 @@ func Contenteditable(value string) interface {
 // Description: Show user agent controls.
 //
 // Value: Boolean attribute.
-func Controls(value bool) interface {
-	types.AudioAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Controls(value))
+func Controls(value bool) types.Controls {
+	return types.Controls{IAttribute: attrs.Controls(value)}
 }
 
 // Coords
@@ -435,10 +362,8 @@ func Controls(value bool) interface {
 // Description: Coordinates for the shape to be created in an image map.
 //
 // Value: Valid list of floating-point numbers*.
-func Coords(value string) interface {
-	types.AreaAttribute
-} {
-	return newAttrWrapper(attrs.Coords(value))
+func Coords(value string) types.Coords {
+	return types.Coords{IAttribute: attrs.Coords(value)}
 }
 
 // Crossorigin
@@ -448,14 +373,8 @@ func Coords(value string) interface {
 // Description: How the element handles crossorigin requests.
 //
 // Value: "anonymous"; "use-credentials".
-func Crossorigin(value string) interface {
-	types.AudioAttribute
-	types.ImgAttribute
-	types.LinkAttribute
-	types.ScriptAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Crossorigin(value))
+func Crossorigin(value string) types.Crossorigin {
+	return types.Crossorigin{IAttribute: attrs.Crossorigin(value)}
 }
 
 // Data
@@ -465,10 +384,8 @@ func Crossorigin(value string) interface {
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Data(value string) interface {
-	types.ObjectAttribute
-} {
-	return newAttrWrapper(attrs.Data(value))
+func Data(value string) types.Data {
+	return types.Data{IAttribute: attrs.Data(value)}
 }
 
 // Datetime
@@ -484,12 +401,8 @@ func Data(value string) interface {
 // Description: Machine-readable value.
 //
 // Value: Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string.
-func Datetime(value string) interface {
-	types.DelAttribute
-	types.InsAttribute
-	types.TimeAttribute
-} {
-	return newAttrWrapper(attrs.Datetime(value))
+func Datetime(value string) types.Datetime {
+	return types.Datetime{IAttribute: attrs.Datetime(value)}
 }
 
 // Decoding
@@ -499,10 +412,8 @@ func Datetime(value string) interface {
 // Description: Decoding hint to use when processing this image for presentation.
 //
 // Value: "sync"; "async"; "auto".
-func Decoding(value string) interface {
-	types.ImgAttribute
-} {
-	return newAttrWrapper(attrs.Decoding(value))
+func Decoding(value string) types.Decoding {
+	return types.Decoding{IAttribute: attrs.Decoding(value)}
 }
 
 // Default
@@ -512,10 +423,8 @@ func Decoding(value string) interface {
 // Description: Enable the track if no other text track is more suitable.
 //
 // Value: Boolean attribute.
-func Default(value bool) interface {
-	types.TrackAttribute
-} {
-	return newAttrWrapper(attrs.Default(value))
+func Default(value bool) types.Default {
+	return types.Default{IAttribute: attrs.Default(value)}
 }
 
 // Defer
@@ -525,10 +434,8 @@ func Default(value bool) interface {
 // Description: Defer script execution.
 //
 // Value: Boolean attribute.
-func Defer(value bool) interface {
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Defer(value))
+func Defer(value bool) types.Defer {
+	return types.Defer{IAttribute: attrs.Defer(value)}
 }
 
 // Dir
@@ -544,10 +451,8 @@ func Defer(value bool) interface {
 // Description: The text directionality of the element.
 //
 // Value: "ltr"; "rtl".
-func Dir(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Dir(value))
+func Dir(value string) types.Dir {
+	return types.Dir{IAttribute: attrs.Dir(value)}
 }
 
 // Dirname
@@ -557,11 +462,8 @@ func Dir(value string) interface {
 // Description: Name of form control to use for sending the element's directionality in form submission.
 //
 // Value: Text*.
-func Dirname(value string) interface {
-	types.InputAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Dirname(value))
+func Dirname(value string) types.Dirname {
+	return types.Dirname{IAttribute: attrs.Dirname(value)}
 }
 
 // Disabled
@@ -583,17 +485,8 @@ func Dirname(value string) interface {
 // Description: Whether the link is disabled.
 //
 // Value: Boolean attribute.
-func Disabled(value bool) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-	types.OptgroupAttribute
-	types.OptionAttribute
-	types.SelectAttribute
-	types.TextareaAttribute
-	types.FieldsetAttribute
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Disabled(value))
+func Disabled(value bool) types.Disabled {
+	return types.Disabled{IAttribute: attrs.Disabled(value)}
 }
 
 // Download
@@ -603,11 +496,8 @@ func Disabled(value bool) interface {
 // Description: Whether to download the resource instead of navigating to it, and its filename if so.
 //
 // Value: Text.
-func Download(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-} {
-	return newAttrWrapper(attrs.Download(value))
+func Download(value string) types.Download {
+	return types.Download{IAttribute: attrs.Download(value)}
 }
 
 // Draggable
@@ -617,10 +507,8 @@ func Download(value string) interface {
 // Description: Whether the element is draggable.
 //
 // Value: "true"; "false".
-func Draggable(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Draggable(value))
+func Draggable(value string) types.Draggable {
+	return types.Draggable{IAttribute: attrs.Draggable(value)}
 }
 
 // Enctype
@@ -630,10 +518,8 @@ func Draggable(value string) interface {
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Enctype(value string) interface {
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.Enctype(value))
+func Enctype(value string) types.Enctype {
+	return types.Enctype{IAttribute: attrs.Enctype(value)}
 }
 
 // Enterkeyhint
@@ -643,10 +529,8 @@ func Enctype(value string) interface {
 // Description: Hint for selecting an enter key action.
 //
 // Value: "enter"; "done"; "go"; "next"; "previous"; "search"; "send".
-func Enterkeyhint(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Enterkeyhint(value))
+func Enterkeyhint(value string) types.Enterkeyhint {
+	return types.Enterkeyhint{IAttribute: attrs.Enterkeyhint(value)}
 }
 
 // Fetchpriority
@@ -656,12 +540,8 @@ func Enterkeyhint(value string) interface {
 // Description: Sets the priority for fetches initiated by the element.
 //
 // Value: "auto"; "high"; "low".
-func Fetchpriority(value string) interface {
-	types.ImgAttribute
-	types.LinkAttribute
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Fetchpriority(value))
+func Fetchpriority(value string) types.Fetchpriority {
+	return types.Fetchpriority{IAttribute: attrs.Fetchpriority(value)}
 }
 
 // For
@@ -677,11 +557,8 @@ func Fetchpriority(value string) interface {
 // Description: Specifies controls from which the output was calculated.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func For(value string) interface {
-	types.LabelAttribute
-	types.OutputAttribute
-} {
-	return newAttrWrapper(attrs.For(value))
+func For(value string) types.For {
+	return types.For{IAttribute: attrs.For(value)}
 }
 
 // Form
@@ -691,16 +568,8 @@ func For(value string) interface {
 // Description: Associates the element with a form element.
 //
 // Value: ID*.
-func Form(value string) interface {
-	types.ButtonAttribute
-	types.FieldsetAttribute
-	types.InputAttribute
-	types.ObjectAttribute
-	types.OutputAttribute
-	types.SelectAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Form(value))
+func Form(value string) types.Form {
+	return types.Form{IAttribute: attrs.Form(value)}
 }
 
 // Formaction
@@ -710,11 +579,8 @@ func Form(value string) interface {
 // Description: URL to use for form submission.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Formaction(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Formaction(value))
+func Formaction(value string) types.Formaction {
+	return types.Formaction{IAttribute: attrs.Formaction(value)}
 }
 
 // Formenctype
@@ -724,11 +590,8 @@ func Formaction(value string) interface {
 // Description: Entry list encoding type to use for form submission.
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
-func Formenctype(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Formenctype(value))
+func Formenctype(value string) types.Formenctype {
+	return types.Formenctype{IAttribute: attrs.Formenctype(value)}
 }
 
 // Formmethod
@@ -738,11 +601,8 @@ func Formenctype(value string) interface {
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Formmethod(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Formmethod(value))
+func Formmethod(value string) types.Formmethod {
+	return types.Formmethod{IAttribute: attrs.Formmethod(value)}
 }
 
 // Formnovalidate
@@ -752,11 +612,8 @@ func Formmethod(value string) interface {
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Formnovalidate(value bool) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Formnovalidate(value))
+func Formnovalidate(value bool) types.Formnovalidate {
+	return types.Formnovalidate{IAttribute: attrs.Formnovalidate(value)}
 }
 
 // Formtarget
@@ -766,11 +623,8 @@ func Formnovalidate(value bool) interface {
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Formtarget(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Formtarget(value))
+func Formtarget(value string) types.Formtarget {
+	return types.Formtarget{IAttribute: attrs.Formtarget(value)}
 }
 
 // Headers
@@ -780,11 +634,8 @@ func Formtarget(value string) interface {
 // Description: The header cells for this cell.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Headers(value string) interface {
-	types.TdAttribute
-	types.ThAttribute
-} {
-	return newAttrWrapper(attrs.Headers(value))
+func Headers(value string) types.Headers {
+	return types.Headers{IAttribute: attrs.Headers(value)}
 }
 
 // Height
@@ -794,17 +645,8 @@ func Headers(value string) interface {
 // Description: Vertical dimension.
 //
 // Value: Valid non-negative integer.
-func Height(value string) interface {
-	types.CanvasAttribute
-	types.EmbedAttribute
-	types.IframeAttribute
-	types.ImgAttribute
-	types.InputAttribute
-	types.ObjectAttribute
-	types.SourceAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Height(value))
+func Height(value string) types.Height {
+	return types.Height{IAttribute: attrs.Height(value)}
 }
 
 // Hidden
@@ -814,10 +656,8 @@ func Height(value string) interface {
 // Description: Whether the element is relevant.
 //
 // Value: "until-found"; "hidden"; the empty string.
-func Hidden(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Hidden(value))
+func Hidden(value string) types.Hidden {
+	return types.Hidden{IAttribute: attrs.Hidden(value)}
 }
 
 // High
@@ -827,10 +667,8 @@ func Hidden(value string) interface {
 // Description: Low limit of high range.
 //
 // Value: Valid floating-point number*.
-func High(value string) interface {
-	types.MeterAttribute
-} {
-	return newAttrWrapper(attrs.High(value))
+func High(value string) types.High {
+	return types.High{IAttribute: attrs.High(value)}
 }
 
 // Href
@@ -852,13 +690,8 @@ func High(value string) interface {
 // Description: Document base URL.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Href(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-	types.LinkAttribute
-	types.BaseAttribute
-} {
-	return newAttrWrapper(attrs.Href(value))
+func Href(value string) types.Href {
+	return types.Href{IAttribute: attrs.Href(value)}
 }
 
 // Hreflang
@@ -868,11 +701,8 @@ func Href(value string) interface {
 // Description: Language of the linked resource.
 //
 // Value: Valid BCP 47 language tag.
-func Hreflang(value string) interface {
-	types.AAttribute
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Hreflang(value))
+func Hreflang(value string) types.Hreflang {
+	return types.Hreflang{IAttribute: attrs.Hreflang(value)}
 }
 
 // HttpEquiv
@@ -882,10 +712,8 @@ func Hreflang(value string) interface {
 // Description: Pragma directive.
 //
 // Value: "content-type"; "default-style"; "refresh"; "x-ua-compatible"; "content-security-policy".
-func HttpEquiv(value string) interface {
-	types.MetaAttribute
-} {
-	return newAttrWrapper(attrs.HttpEquiv(value))
+func HttpEquiv(value string) types.HttpEquiv {
+	return types.HttpEquiv{IAttribute: attrs.HttpEquiv(value)}
 }
 
 // Id
@@ -895,10 +723,8 @@ func HttpEquiv(value string) interface {
 // Description: The element's ID.
 //
 // Value: Text*.
-func Id(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Id(value))
+func Id(value string) types.Id {
+	return types.Id{IAttribute: attrs.Id(value)}
 }
 
 // Imagesizes
@@ -908,10 +734,8 @@ func Id(value string) interface {
 // Description: Image sizes for different page layouts (for rel="preload").
 //
 // Value: Valid source size list.
-func Imagesizes(value string) interface {
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Imagesizes(value))
+func Imagesizes(value string) types.Imagesizes {
+	return types.Imagesizes{IAttribute: attrs.Imagesizes(value)}
 }
 
 // Imagesrcset
@@ -921,10 +745,8 @@ func Imagesizes(value string) interface {
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload").
 //
 // Value: Comma-separated list of image candidate strings.
-func Imagesrcset(value string) interface {
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Imagesrcset(value))
+func Imagesrcset(value string) types.Imagesrcset {
+	return types.Imagesrcset{IAttribute: attrs.Imagesrcset(value)}
 }
 
 // Inert
@@ -934,10 +756,8 @@ func Imagesrcset(value string) interface {
 // Description: Whether the element is inert..
 //
 // Value: Boolean attribute.
-func Inert(value bool) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Inert(value))
+func Inert(value bool) types.Inert {
+	return types.Inert{IAttribute: attrs.Inert(value)}
 }
 
 // Inputmode
@@ -947,10 +767,8 @@ func Inert(value bool) interface {
 // Description: Hint for selecting an input modality.
 //
 // Value: "none"; "text"; "tel"; "email"; "url"; "numeric"; "decimal"; "search".
-func Inputmode(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Inputmode(value))
+func Inputmode(value string) types.Inputmode {
+	return types.Inputmode{IAttribute: attrs.Inputmode(value)}
 }
 
 // Integrity
@@ -960,11 +778,8 @@ func Inputmode(value string) interface {
 // Description: Integrity metadata used in Subresource Integrity checks [SRI].
 //
 // Value: Text.
-func Integrity(value string) interface {
-	types.LinkAttribute
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Integrity(value))
+func Integrity(value string) types.Integrity {
+	return types.Integrity{IAttribute: attrs.Integrity(value)}
 }
 
 // Is
@@ -974,10 +789,8 @@ func Integrity(value string) interface {
 // Description: Creates a customized built-in element.
 //
 // Value: Valid custom element name of a defined customized built-in element.
-func Is(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Is(value))
+func Is(value string) types.Is {
+	return types.Is{IAttribute: attrs.Is(value)}
 }
 
 // Ismap
@@ -987,10 +800,8 @@ func Is(value string) interface {
 // Description: Whether the image is a server-side image map.
 //
 // Value: Boolean attribute.
-func Ismap(value bool) interface {
-	types.ImgAttribute
-} {
-	return newAttrWrapper(attrs.Ismap(value))
+func Ismap(value bool) types.Ismap {
+	return types.Ismap{IAttribute: attrs.Ismap(value)}
 }
 
 // Itemid
@@ -1000,10 +811,8 @@ func Ismap(value bool) interface {
 // Description: Global identifier for a microdata item.
 //
 // Value: Valid URL potentially surrounded by spaces.
-func Itemid(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Itemid(value))
+func Itemid(value string) types.Itemid {
+	return types.Itemid{IAttribute: attrs.Itemid(value)}
 }
 
 // Itemprop
@@ -1013,10 +822,8 @@ func Itemid(value string) interface {
 // Description: Property names of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*.
-func Itemprop(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Itemprop(value))
+func Itemprop(value string) types.Itemprop {
+	return types.Itemprop{IAttribute: attrs.Itemprop(value)}
 }
 
 // Itemref
@@ -1026,10 +833,8 @@ func Itemprop(value string) interface {
 // Description: Referenced elements.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
-func Itemref(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Itemref(value))
+func Itemref(value string) types.Itemref {
+	return types.Itemref{IAttribute: attrs.Itemref(value)}
 }
 
 // Itemscope
@@ -1039,10 +844,8 @@ func Itemref(value string) interface {
 // Description: Introduces a microdata item.
 //
 // Value: Boolean attribute.
-func Itemscope(value bool) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Itemscope(value))
+func Itemscope(value bool) types.Itemscope {
+	return types.Itemscope{IAttribute: attrs.Itemscope(value)}
 }
 
 // Itemtype
@@ -1052,10 +855,8 @@ func Itemscope(value bool) interface {
 // Description: Item types of a microdata item.
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*.
-func Itemtype(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Itemtype(value))
+func Itemtype(value string) types.Itemtype {
+	return types.Itemtype{IAttribute: attrs.Itemtype(value)}
 }
 
 // Kind
@@ -1065,10 +866,8 @@ func Itemtype(value string) interface {
 // Description: The type of text track.
 //
 // Value: "subtitles"; "captions"; "descriptions"; "chapters"; "metadata".
-func Kind(value string) interface {
-	types.TrackAttribute
-} {
-	return newAttrWrapper(attrs.Kind(value))
+func Kind(value string) types.Kind {
+	return types.Kind{IAttribute: attrs.Kind(value)}
 }
 
 // Label
@@ -1078,12 +877,8 @@ func Kind(value string) interface {
 // Description: User-visible label.
 //
 // Value: Text.
-func Label(value string) interface {
-	types.OptgroupAttribute
-	types.OptionAttribute
-	types.TrackAttribute
-} {
-	return newAttrWrapper(attrs.Label(value))
+func Label(value string) types.Label {
+	return types.Label{IAttribute: attrs.Label(value)}
 }
 
 // Lang
@@ -1093,10 +888,8 @@ func Label(value string) interface {
 // Description: Language of the element.
 //
 // Value: Valid BCP 47 language tag or the empty string.
-func Lang(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Lang(value))
+func Lang(value string) types.Lang {
+	return types.Lang{IAttribute: attrs.Lang(value)}
 }
 
 // List
@@ -1106,10 +899,8 @@ func Lang(value string) interface {
 // Description: List of autocomplete options.
 //
 // Value: ID*.
-func List(value string) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.List(value))
+func List(value string) types.List {
+	return types.List{IAttribute: attrs.List(value)}
 }
 
 // Loading
@@ -1119,11 +910,8 @@ func List(value string) interface {
 // Description: Used when determining loading deferral.
 //
 // Value: "lazy"; "eager".
-func Loading(value string) interface {
-	types.IframeAttribute
-	types.ImgAttribute
-} {
-	return newAttrWrapper(attrs.Loading(value))
+func Loading(value string) types.Loading {
+	return types.Loading{IAttribute: attrs.Loading(value)}
 }
 
 // Loop
@@ -1133,11 +921,8 @@ func Loading(value string) interface {
 // Description: Whether to loop the media resource.
 //
 // Value: Boolean attribute.
-func Loop(value bool) interface {
-	types.AudioAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Loop(value))
+func Loop(value bool) types.Loop {
+	return types.Loop{IAttribute: attrs.Loop(value)}
 }
 
 // Low
@@ -1147,10 +932,8 @@ func Loop(value bool) interface {
 // Description: High limit of low range.
 //
 // Value: Valid floating-point number*.
-func Low(value string) interface {
-	types.MeterAttribute
-} {
-	return newAttrWrapper(attrs.Low(value))
+func Low(value string) types.Low {
+	return types.Low{IAttribute: attrs.Low(value)}
 }
 
 // Max
@@ -1166,12 +949,8 @@ func Low(value string) interface {
 // Description: Upper bound of range.
 //
 // Value: Valid floating-point number*.
-func Max(value string) interface {
-	types.InputAttribute
-	types.MeterAttribute
-	types.ProgressAttribute
-} {
-	return newAttrWrapper(attrs.Max(value))
+func Max(value string) types.Max {
+	return types.Max{IAttribute: attrs.Max(value)}
 }
 
 // Maxlength
@@ -1181,11 +960,8 @@ func Max(value string) interface {
 // Description: Maximum length of value.
 //
 // Value: Valid non-negative integer.
-func Maxlength(value string) interface {
-	types.InputAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Maxlength(value))
+func Maxlength(value string) types.Maxlength {
+	return types.Maxlength{IAttribute: attrs.Maxlength(value)}
 }
 
 // Media
@@ -1195,13 +971,8 @@ func Maxlength(value string) interface {
 // Description: Applicable media.
 //
 // Value: Valid media query list.
-func Media(value string) interface {
-	types.LinkAttribute
-	types.MetaAttribute
-	types.SourceAttribute
-	types.StyleAttribute
-} {
-	return newAttrWrapper(attrs.Media(value))
+func Media(value string) types.Media {
+	return types.Media{IAttribute: attrs.Media(value)}
 }
 
 // Method
@@ -1211,10 +982,8 @@ func Media(value string) interface {
 // Description: Variant to use for form submission.
 //
 // Value: "GET"; "POST"; "dialog".
-func Method(value string) interface {
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.Method(value))
+func Method(value string) types.Method {
+	return types.Method{IAttribute: attrs.Method(value)}
 }
 
 // Min
@@ -1230,11 +999,8 @@ func Method(value string) interface {
 // Description: Lower bound of range.
 //
 // Value: Valid floating-point number*.
-func Min(value string) interface {
-	types.InputAttribute
-	types.MeterAttribute
-} {
-	return newAttrWrapper(attrs.Min(value))
+func Min(value string) types.Min {
+	return types.Min{IAttribute: attrs.Min(value)}
 }
 
 // Minlength
@@ -1244,11 +1010,8 @@ func Min(value string) interface {
 // Description: Minimum length of value.
 //
 // Value: Valid non-negative integer.
-func Minlength(value string) interface {
-	types.InputAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Minlength(value))
+func Minlength(value string) types.Minlength {
+	return types.Minlength{IAttribute: attrs.Minlength(value)}
 }
 
 // Multiple
@@ -1258,11 +1021,8 @@ func Minlength(value string) interface {
 // Description: Whether to allow multiple values.
 //
 // Value: Boolean attribute.
-func Multiple(value bool) interface {
-	types.InputAttribute
-	types.SelectAttribute
-} {
-	return newAttrWrapper(attrs.Multiple(value))
+func Multiple(value bool) types.Multiple {
+	return types.Multiple{IAttribute: attrs.Multiple(value)}
 }
 
 // Muted
@@ -1272,11 +1032,8 @@ func Multiple(value bool) interface {
 // Description: Whether to mute the media resource by default.
 //
 // Value: Boolean attribute.
-func Muted(value bool) interface {
-	types.AudioAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Muted(value))
+func Muted(value bool) types.Muted {
+	return types.Muted{IAttribute: attrs.Muted(value)}
 }
 
 // Name
@@ -1322,22 +1079,8 @@ func Muted(value bool) interface {
 // Description: Name of shadow tree slot.
 //
 // Value: Text.
-func Name(value string) interface {
-	types.ButtonAttribute
-	types.FieldsetAttribute
-	types.InputAttribute
-	types.OutputAttribute
-	types.SelectAttribute
-	types.TextareaAttribute
-	types.DetailsAttribute
-	types.FormAttribute
-	types.IframeAttribute
-	types.ObjectAttribute
-	types.MapAttribute
-	types.MetaAttribute
-	types.SlotAttribute
-} {
-	return newAttrWrapper(attrs.Name(value))
+func Name(value string) types.Name {
+	return types.Name{IAttribute: attrs.Name(value)}
 }
 
 // Nomodule
@@ -1347,10 +1090,8 @@ func Name(value string) interface {
 // Description: Prevents execution in user agents that support module scripts.
 //
 // Value: Boolean attribute.
-func Nomodule(value bool) interface {
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Nomodule(value))
+func Nomodule(value bool) types.Nomodule {
+	return types.Nomodule{IAttribute: attrs.Nomodule(value)}
 }
 
 // Nonce
@@ -1360,10 +1101,8 @@ func Nomodule(value bool) interface {
 // Description: Cryptographic nonce used in Content Security Policy checks [CSP].
 //
 // Value: Text.
-func Nonce(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Nonce(value))
+func Nonce(value string) types.Nonce {
+	return types.Nonce{IAttribute: attrs.Nonce(value)}
 }
 
 // Novalidate
@@ -1373,10 +1112,8 @@ func Nonce(value string) interface {
 // Description: Bypass form control validation for form submission.
 //
 // Value: Boolean attribute.
-func Novalidate(value bool) interface {
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.Novalidate(value))
+func Novalidate(value bool) types.Novalidate {
+	return types.Novalidate{IAttribute: attrs.Novalidate(value)}
 }
 
 // Open
@@ -1392,11 +1129,8 @@ func Novalidate(value bool) interface {
 // Description: Whether the dialog box is showing.
 //
 // Value: Boolean attribute.
-func Open(value bool) interface {
-	types.DetailsAttribute
-	types.DialogAttribute
-} {
-	return newAttrWrapper(attrs.Open(value))
+func Open(value bool) types.Open {
+	return types.Open{IAttribute: attrs.Open(value)}
 }
 
 // Optimum
@@ -1406,10 +1140,8 @@ func Open(value bool) interface {
 // Description: Optimum value in gauge.
 //
 // Value: Valid floating-point number*.
-func Optimum(value string) interface {
-	types.MeterAttribute
-} {
-	return newAttrWrapper(attrs.Optimum(value))
+func Optimum(value string) types.Optimum {
+	return types.Optimum{IAttribute: attrs.Optimum(value)}
 }
 
 // Pattern
@@ -1419,10 +1151,8 @@ func Optimum(value string) interface {
 // Description: Pattern to be matched by the form control's value.
 //
 // Value: Regular expression matching the JavaScript Pattern production.
-func Pattern(value string) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Pattern(value))
+func Pattern(value string) types.Pattern {
+	return types.Pattern{IAttribute: attrs.Pattern(value)}
 }
 
 // Ping
@@ -1432,11 +1162,8 @@ func Pattern(value string) interface {
 // Description: URLs to ping.
 //
 // Value: Set of space-separated tokens consisting of valid non-empty URLs.
-func Ping(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-} {
-	return newAttrWrapper(attrs.Ping(value))
+func Ping(value string) types.Ping {
+	return types.Ping{IAttribute: attrs.Ping(value)}
 }
 
 // Placeholder
@@ -1446,11 +1173,8 @@ func Ping(value string) interface {
 // Description: User-visible label to be placed within the form control.
 //
 // Value: Text*.
-func Placeholder(value string) interface {
-	types.InputAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Placeholder(value))
+func Placeholder(value string) types.Placeholder {
+	return types.Placeholder{IAttribute: attrs.Placeholder(value)}
 }
 
 // Playsinline
@@ -1460,10 +1184,8 @@ func Placeholder(value string) interface {
 // Description: Encourage the user agent to display video content within the element's playback area.
 //
 // Value: Boolean attribute.
-func Playsinline(value bool) interface {
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Playsinline(value))
+func Playsinline(value bool) types.Playsinline {
+	return types.Playsinline{IAttribute: attrs.Playsinline(value)}
 }
 
 // Popover
@@ -1473,10 +1195,8 @@ func Playsinline(value bool) interface {
 // Description: Makes the element a popover element.
 //
 // Value: "auto"; "manual"; "hint".
-func Popover(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Popover(value))
+func Popover(value string) types.Popover {
+	return types.Popover{IAttribute: attrs.Popover(value)}
 }
 
 // Popovertarget
@@ -1486,11 +1206,8 @@ func Popover(value string) interface {
 // Description: Targets a popover element to toggle, show, or hide.
 //
 // Value: ID*.
-func Popovertarget(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Popovertarget(value))
+func Popovertarget(value string) types.Popovertarget {
+	return types.Popovertarget{IAttribute: attrs.Popovertarget(value)}
 }
 
 // Popovertargetaction
@@ -1500,11 +1217,8 @@ func Popovertarget(value string) interface {
 // Description: Indicates whether a targeted popover element is to be toggled, shown, or hidden.
 //
 // Value: "toggle"; "show"; "hide".
-func Popovertargetaction(value string) interface {
-	types.ButtonAttribute
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Popovertargetaction(value))
+func Popovertargetaction(value string) types.Popovertargetaction {
+	return types.Popovertargetaction{IAttribute: attrs.Popovertargetaction(value)}
 }
 
 // Poster
@@ -1514,10 +1228,8 @@ func Popovertargetaction(value string) interface {
 // Description: Poster frame to show prior to video playback.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Poster(value string) interface {
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Poster(value))
+func Poster(value string) types.Poster {
+	return types.Poster{IAttribute: attrs.Poster(value)}
 }
 
 // Preload
@@ -1527,11 +1239,8 @@ func Poster(value string) interface {
 // Description: Hints how much buffering the media resource will likely need.
 //
 // Value: "none"; "metadata"; "auto".
-func Preload(value string) interface {
-	types.AudioAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Preload(value))
+func Preload(value string) types.Preload {
+	return types.Preload{IAttribute: attrs.Preload(value)}
 }
 
 // Readonly
@@ -1547,11 +1256,8 @@ func Preload(value string) interface {
 // Description: Affects willValidate, plus any behavior added by the custom element author.
 //
 // Value: Boolean attribute.
-func Readonly(value bool) interface {
-	types.InputAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Readonly(value))
+func Readonly(value bool) types.Readonly {
+	return types.Readonly{IAttribute: attrs.Readonly(value)}
 }
 
 // Referrerpolicy
@@ -1561,15 +1267,8 @@ func Readonly(value bool) interface {
 // Description: Referrer policy for fetches initiated by the element.
 //
 // Value: Referrer policy.
-func Referrerpolicy(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-	types.IframeAttribute
-	types.ImgAttribute
-	types.LinkAttribute
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Referrerpolicy(value))
+func Referrerpolicy(value string) types.Referrerpolicy {
+	return types.Referrerpolicy{IAttribute: attrs.Referrerpolicy(value)}
 }
 
 // Rel
@@ -1585,12 +1284,8 @@ func Referrerpolicy(value string) interface {
 // Description: Relationship between the document containing the hyperlink and the destination resource.
 //
 // Value: Unordered set of unique space-separated tokens*.
-func Rel(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-	types.LinkAttribute
-} {
-	return newAttrWrapper(attrs.Rel(value))
+func Rel(value string) types.Rel {
+	return types.Rel{IAttribute: attrs.Rel(value)}
 }
 
 // Required
@@ -1600,12 +1295,8 @@ func Rel(value string) interface {
 // Description: Whether the control is required for form submission.
 //
 // Value: Boolean attribute.
-func Required(value bool) interface {
-	types.InputAttribute
-	types.SelectAttribute
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Required(value))
+func Required(value bool) types.Required {
+	return types.Required{IAttribute: attrs.Required(value)}
 }
 
 // Reversed
@@ -1615,10 +1306,8 @@ func Required(value bool) interface {
 // Description: Number the list backwards.
 //
 // Value: Boolean attribute.
-func Reversed(value bool) interface {
-	types.OlAttribute
-} {
-	return newAttrWrapper(attrs.Reversed(value))
+func Reversed(value bool) types.Reversed {
+	return types.Reversed{IAttribute: attrs.Reversed(value)}
 }
 
 // Rows
@@ -1628,10 +1317,8 @@ func Reversed(value bool) interface {
 // Description: Number of lines to show.
 //
 // Value: Valid non-negative integer greater than zero.
-func Rows(value string) interface {
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Rows(value))
+func Rows(value string) types.Rows {
+	return types.Rows{IAttribute: attrs.Rows(value)}
 }
 
 // Rowspan
@@ -1641,11 +1328,8 @@ func Rows(value string) interface {
 // Description: Number of rows that the cell is to span.
 //
 // Value: Valid non-negative integer.
-func Rowspan(value string) interface {
-	types.TdAttribute
-	types.ThAttribute
-} {
-	return newAttrWrapper(attrs.Rowspan(value))
+func Rowspan(value string) types.Rowspan {
+	return types.Rowspan{IAttribute: attrs.Rowspan(value)}
 }
 
 // Sandbox
@@ -1655,10 +1339,8 @@ func Rowspan(value string) interface {
 // Description: Security rules for nested content.
 //
 // Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads""allow-forms""allow-modals""allow-orientation-lock""allow-pointer-lock""allow-popups""allow-popups-to-escape-sandbox""allow-presentation""allow-same-origin""allow-scripts""allow-top-navigation""allow-top-navigation-by-user-activation""allow-top-navigation-to-custom-protocols".
-func Sandbox(value string) interface {
-	types.IframeAttribute
-} {
-	return newAttrWrapper(attrs.Sandbox(value))
+func Sandbox(value string) types.Sandbox {
+	return types.Sandbox{IAttribute: attrs.Sandbox(value)}
 }
 
 // Scope
@@ -1668,10 +1350,8 @@ func Sandbox(value string) interface {
 // Description: Specifies which cells the header cell applies to.
 //
 // Value: "row"; "col"; "rowgroup"; "colgroup".
-func Scope(value string) interface {
-	types.ThAttribute
-} {
-	return newAttrWrapper(attrs.Scope(value))
+func Scope(value string) types.Scope {
+	return types.Scope{IAttribute: attrs.Scope(value)}
 }
 
 // Selected
@@ -1681,10 +1361,8 @@ func Scope(value string) interface {
 // Description: Whether the option is selected by default.
 //
 // Value: Boolean attribute.
-func Selected(value bool) interface {
-	types.OptionAttribute
-} {
-	return newAttrWrapper(attrs.Selected(value))
+func Selected(value bool) types.Selected {
+	return types.Selected{IAttribute: attrs.Selected(value)}
 }
 
 // Shadowrootclonable
@@ -1694,10 +1372,8 @@ func Selected(value bool) interface {
 // Description: Sets clonable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootclonable(value bool) interface {
-	types.TemplateAttribute
-} {
-	return newAttrWrapper(attrs.Shadowrootclonable(value))
+func Shadowrootclonable(value bool) types.Shadowrootclonable {
+	return types.Shadowrootclonable{IAttribute: attrs.Shadowrootclonable(value)}
 }
 
 // Shadowrootcustomelementregistry
@@ -1707,10 +1383,8 @@ func Shadowrootclonable(value bool) interface {
 // Description: Enables declarative shadow roots to indicate they will use a custom element registry.
 //
 // Value: Boolean attribute.
-func Shadowrootcustomelementregistry(value bool) interface {
-	types.TemplateAttribute
-} {
-	return newAttrWrapper(attrs.Shadowrootcustomelementregistry(value))
+func Shadowrootcustomelementregistry(value bool) types.Shadowrootcustomelementregistry {
+	return types.Shadowrootcustomelementregistry{IAttribute: attrs.Shadowrootcustomelementregistry(value)}
 }
 
 // Shadowrootdelegatesfocus
@@ -1720,10 +1394,8 @@ func Shadowrootcustomelementregistry(value bool) interface {
 // Description: Sets delegates focus on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootdelegatesfocus(value bool) interface {
-	types.TemplateAttribute
-} {
-	return newAttrWrapper(attrs.Shadowrootdelegatesfocus(value))
+func Shadowrootdelegatesfocus(value bool) types.Shadowrootdelegatesfocus {
+	return types.Shadowrootdelegatesfocus{IAttribute: attrs.Shadowrootdelegatesfocus(value)}
 }
 
 // Shadowrootmode
@@ -1733,10 +1405,8 @@ func Shadowrootdelegatesfocus(value bool) interface {
 // Description: Enables streaming declarative shadow roots.
 //
 // Value: "open"; "closed".
-func Shadowrootmode(value string) interface {
-	types.TemplateAttribute
-} {
-	return newAttrWrapper(attrs.Shadowrootmode(value))
+func Shadowrootmode(value string) types.Shadowrootmode {
+	return types.Shadowrootmode{IAttribute: attrs.Shadowrootmode(value)}
 }
 
 // Shadowrootserializable
@@ -1746,10 +1416,8 @@ func Shadowrootmode(value string) interface {
 // Description: Sets serializable on a declarative shadow root.
 //
 // Value: Boolean attribute.
-func Shadowrootserializable(value bool) interface {
-	types.TemplateAttribute
-} {
-	return newAttrWrapper(attrs.Shadowrootserializable(value))
+func Shadowrootserializable(value bool) types.Shadowrootserializable {
+	return types.Shadowrootserializable{IAttribute: attrs.Shadowrootserializable(value)}
 }
 
 // Shape
@@ -1759,10 +1427,8 @@ func Shadowrootserializable(value bool) interface {
 // Description: The kind of shape to be created in an image map.
 //
 // Value: "circle"; "default"; "poly"; "rect".
-func Shape(value string) interface {
-	types.AreaAttribute
-} {
-	return newAttrWrapper(attrs.Shape(value))
+func Shape(value string) types.Shape {
+	return types.Shape{IAttribute: attrs.Shape(value)}
 }
 
 // Size
@@ -1772,11 +1438,8 @@ func Shape(value string) interface {
 // Description: Size of the control.
 //
 // Value: Valid non-negative integer greater than zero.
-func Size(value string) interface {
-	types.InputAttribute
-	types.SelectAttribute
-} {
-	return newAttrWrapper(attrs.Size(value))
+func Size(value string) types.Size {
+	return types.Size{IAttribute: attrs.Size(value)}
 }
 
 // Sizes
@@ -1792,12 +1455,8 @@ func Size(value string) interface {
 // Description: Image sizes for different page layouts.
 //
 // Value: Valid source size list.
-func Sizes(value string) interface {
-	types.LinkAttribute
-	types.ImgAttribute
-	types.SourceAttribute
-} {
-	return newAttrWrapper(attrs.Sizes(value))
+func Sizes(value string) types.Sizes {
+	return types.Sizes{IAttribute: attrs.Sizes(value)}
 }
 
 // Slot
@@ -1807,10 +1466,8 @@ func Sizes(value string) interface {
 // Description: The element's desired slot.
 //
 // Value: Text.
-func Slot(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Slot(value))
+func Slot(value string) types.Slot {
+	return types.Slot{IAttribute: attrs.Slot(value)}
 }
 
 // Span
@@ -1820,11 +1477,8 @@ func Slot(value string) interface {
 // Description: Number of columns spanned by the element.
 //
 // Value: Valid non-negative integer greater than zero.
-func Span(value string) interface {
-	types.ColAttribute
-	types.ColgroupAttribute
-} {
-	return newAttrWrapper(attrs.Span(value))
+func Span(value string) types.Span {
+	return types.Span{IAttribute: attrs.Span(value)}
 }
 
 // Spellcheck
@@ -1834,10 +1488,8 @@ func Span(value string) interface {
 // Description: Whether the element is to have its spelling and grammar checked.
 //
 // Value: "true"; "false"; the empty string.
-func Spellcheck(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Spellcheck(value))
+func Spellcheck(value string) types.Spellcheck {
+	return types.Spellcheck{IAttribute: attrs.Spellcheck(value)}
 }
 
 // Src
@@ -1858,10 +1510,8 @@ func Src(value string) types.Src {
 // Description: A document to render in the iframe.
 //
 // Value: The source of an iframe srcdoc document*.
-func Srcdoc(value string) interface {
-	types.IframeAttribute
-} {
-	return newAttrWrapper(attrs.Srcdoc(value))
+func Srcdoc(value string) types.Srcdoc {
+	return types.Srcdoc{IAttribute: attrs.Srcdoc(value)}
 }
 
 // Srclang
@@ -1871,10 +1521,8 @@ func Srcdoc(value string) interface {
 // Description: Language of the text track.
 //
 // Value: Valid BCP 47 language tag.
-func Srclang(value string) interface {
-	types.TrackAttribute
-} {
-	return newAttrWrapper(attrs.Srclang(value))
+func Srclang(value string) types.Srclang {
+	return types.Srclang{IAttribute: attrs.Srclang(value)}
 }
 
 // Srcset
@@ -1884,11 +1532,8 @@ func Srclang(value string) interface {
 // Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc..
 //
 // Value: Comma-separated list of image candidate strings.
-func Srcset(value string) interface {
-	types.ImgAttribute
-	types.SourceAttribute
-} {
-	return newAttrWrapper(attrs.Srcset(value))
+func Srcset(value string) types.Srcset {
+	return types.Srcset{IAttribute: attrs.Srcset(value)}
 }
 
 // Start
@@ -1898,10 +1543,8 @@ func Srcset(value string) interface {
 // Description: Starting value of the list.
 //
 // Value: Valid integer.
-func Start(value string) interface {
-	types.OlAttribute
-} {
-	return newAttrWrapper(attrs.Start(value))
+func Start(value string) types.Start {
+	return types.Start{IAttribute: attrs.Start(value)}
 }
 
 // Step
@@ -1911,10 +1554,8 @@ func Start(value string) interface {
 // Description: Granularity to be matched by the form control's value.
 //
 // Value: Valid floating-point number greater than zero, or "any".
-func Step(value string) interface {
-	types.InputAttribute
-} {
-	return newAttrWrapper(attrs.Step(value))
+func Step(value string) types.Step {
+	return types.Step{IAttribute: attrs.Step(value)}
 }
 
 // Style
@@ -1924,10 +1565,8 @@ func Step(value string) interface {
 // Description: Presentational and formatting instructions.
 //
 // Value: CSS declarations*.
-func Style(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Style(value))
+func Style(value string) types.Style {
+	return types.Style{IAttribute: attrs.Style(value)}
 }
 
 // Tabindex
@@ -1937,10 +1576,8 @@ func Style(value string) interface {
 // Description: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation.
 //
 // Value: Valid integer.
-func Tabindex(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Tabindex(value))
+func Tabindex(value string) types.Tabindex {
+	return types.Tabindex{IAttribute: attrs.Tabindex(value)}
 }
 
 // Target
@@ -1962,13 +1599,8 @@ func Tabindex(value string) interface {
 // Description: Navigable for form submission.
 //
 // Value: Valid navigable target name or keyword.
-func Target(value string) interface {
-	types.AAttribute
-	types.AreaAttribute
-	types.BaseAttribute
-	types.FormAttribute
-} {
-	return newAttrWrapper(attrs.Target(value))
+func Target(value string) types.Target {
+	return types.Target{IAttribute: attrs.Target(value)}
 }
 
 // Title
@@ -2002,10 +1634,8 @@ func Target(value string) interface {
 // Description: CSS style sheet set name.
 //
 // Value: Text.
-func Title(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Title(value))
+func Title(value string) types.Title {
+	return types.Title{IAttribute: attrs.Title(value)}
 }
 
 // Translate
@@ -2015,10 +1645,8 @@ func Title(value string) interface {
 // Description: Whether the element is to be translated when the page is localized.
 //
 // Value: "yes"; "no".
-func Translate(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Translate(value))
+func Translate(value string) types.Translate {
+	return types.Translate{IAttribute: attrs.Translate(value)}
 }
 
 // Type
@@ -2058,18 +1686,8 @@ func Translate(value string) interface {
 // Description: Type of script.
 //
 // Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match.
-func Type(value string) interface {
-	types.AAttribute
-	types.LinkAttribute
-	types.ButtonAttribute
-	types.EmbedAttribute
-	types.ObjectAttribute
-	types.SourceAttribute
-	types.InputAttribute
-	types.OlAttribute
-	types.ScriptAttribute
-} {
-	return newAttrWrapper(attrs.Type(value))
+func Type(value string) types.Type {
+	return types.Type{IAttribute: attrs.Type(value)}
 }
 
 // Usemap
@@ -2079,10 +1697,8 @@ func Type(value string) interface {
 // Description: Name of image map to use.
 //
 // Value: Valid hash-name reference*.
-func Usemap(value string) interface {
-	types.ImgAttribute
-} {
-	return newAttrWrapper(attrs.Usemap(value))
+func Usemap(value string) types.Usemap {
+	return types.Usemap{IAttribute: attrs.Usemap(value)}
 }
 
 // Value
@@ -2127,17 +1743,8 @@ func Value(value string) types.Value {
 // Description: Horizontal dimension.
 //
 // Value: Valid non-negative integer.
-func Width(value string) interface {
-	types.CanvasAttribute
-	types.EmbedAttribute
-	types.IframeAttribute
-	types.ImgAttribute
-	types.InputAttribute
-	types.ObjectAttribute
-	types.SourceAttribute
-	types.VideoAttribute
-} {
-	return newAttrWrapper(attrs.Width(value))
+func Width(value string) types.Width {
+	return types.Width{IAttribute: attrs.Width(value)}
 }
 
 // Wrap
@@ -2147,10 +1754,8 @@ func Width(value string) interface {
 // Description: How the value of the form control is to be wrapped for form submission.
 //
 // Value: "soft"; "hard".
-func Wrap(value string) interface {
-	types.TextareaAttribute
-} {
-	return newAttrWrapper(attrs.Wrap(value))
+func Wrap(value string) types.Wrap {
+	return types.Wrap{IAttribute: attrs.Wrap(value)}
 }
 
 // Writingsuggestions
@@ -2160,10 +1765,8 @@ func Wrap(value string) interface {
 // Description: Whether the element can offer writing suggestions or not..
 //
 // Value: "true"; "false"; the empty string.
-func Writingsuggestions(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Writingsuggestions(value))
+func Writingsuggestions(value string) types.Writingsuggestions {
+	return types.Writingsuggestions{IAttribute: attrs.Writingsuggestions(value)}
 }
 
 // Onafterprint
@@ -2173,10 +1776,8 @@ func Writingsuggestions(value string) interface {
 // Description: afterprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onafterprint(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onafterprint(value))
+func Onafterprint(value string) types.Onafterprint {
+	return types.Onafterprint{IAttribute: attrs.Onafterprint(value)}
 }
 
 // Onauxclick
@@ -2186,10 +1787,8 @@ func Onafterprint(value string) interface {
 // Description: auxclick event handler.
 //
 // Value: Event handler content attribute.
-func Onauxclick(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onauxclick(value))
+func Onauxclick(value string) types.Onauxclick {
+	return types.Onauxclick{IAttribute: attrs.Onauxclick(value)}
 }
 
 // Onbeforeinput
@@ -2199,10 +1798,8 @@ func Onauxclick(value string) interface {
 // Description: beforeinput event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforeinput(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onbeforeinput(value))
+func Onbeforeinput(value string) types.Onbeforeinput {
+	return types.Onbeforeinput{IAttribute: attrs.Onbeforeinput(value)}
 }
 
 // Onbeforematch
@@ -2212,10 +1809,8 @@ func Onbeforeinput(value string) interface {
 // Description: beforematch event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforematch(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onbeforematch(value))
+func Onbeforematch(value string) types.Onbeforematch {
+	return types.Onbeforematch{IAttribute: attrs.Onbeforematch(value)}
 }
 
 // Onbeforeprint
@@ -2225,10 +1820,8 @@ func Onbeforematch(value string) interface {
 // Description: beforeprint event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeprint(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onbeforeprint(value))
+func Onbeforeprint(value string) types.Onbeforeprint {
+	return types.Onbeforeprint{IAttribute: attrs.Onbeforeprint(value)}
 }
 
 // Onbeforeunload
@@ -2238,10 +1831,8 @@ func Onbeforeprint(value string) interface {
 // Description: beforeunload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onbeforeunload(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onbeforeunload(value))
+func Onbeforeunload(value string) types.Onbeforeunload {
+	return types.Onbeforeunload{IAttribute: attrs.Onbeforeunload(value)}
 }
 
 // Onbeforetoggle
@@ -2251,10 +1842,8 @@ func Onbeforeunload(value string) interface {
 // Description: beforetoggle event handler.
 //
 // Value: Event handler content attribute.
-func Onbeforetoggle(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onbeforetoggle(value))
+func Onbeforetoggle(value string) types.Onbeforetoggle {
+	return types.Onbeforetoggle{IAttribute: attrs.Onbeforetoggle(value)}
 }
 
 // Onblur
@@ -2264,10 +1853,8 @@ func Onbeforetoggle(value string) interface {
 // Description: blur event handler.
 //
 // Value: Event handler content attribute.
-func Onblur(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onblur(value))
+func Onblur(value string) types.Onblur {
+	return types.Onblur{IAttribute: attrs.Onblur(value)}
 }
 
 // Oncancel
@@ -2277,10 +1864,8 @@ func Onblur(value string) interface {
 // Description: cancel event handler.
 //
 // Value: Event handler content attribute.
-func Oncancel(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncancel(value))
+func Oncancel(value string) types.Oncancel {
+	return types.Oncancel{IAttribute: attrs.Oncancel(value)}
 }
 
 // Oncanplay
@@ -2290,10 +1875,8 @@ func Oncancel(value string) interface {
 // Description: canplay event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplay(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncanplay(value))
+func Oncanplay(value string) types.Oncanplay {
+	return types.Oncanplay{IAttribute: attrs.Oncanplay(value)}
 }
 
 // Oncanplaythrough
@@ -2303,10 +1886,8 @@ func Oncanplay(value string) interface {
 // Description: canplaythrough event handler.
 //
 // Value: Event handler content attribute.
-func Oncanplaythrough(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncanplaythrough(value))
+func Oncanplaythrough(value string) types.Oncanplaythrough {
+	return types.Oncanplaythrough{IAttribute: attrs.Oncanplaythrough(value)}
 }
 
 // Onchange
@@ -2316,10 +1897,8 @@ func Oncanplaythrough(value string) interface {
 // Description: change event handler.
 //
 // Value: Event handler content attribute.
-func Onchange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onchange(value))
+func Onchange(value string) types.Onchange {
+	return types.Onchange{IAttribute: attrs.Onchange(value)}
 }
 
 // Onclick
@@ -2329,10 +1908,8 @@ func Onchange(value string) interface {
 // Description: click event handler.
 //
 // Value: Event handler content attribute.
-func Onclick(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onclick(value))
+func Onclick(value string) types.Onclick {
+	return types.Onclick{IAttribute: attrs.Onclick(value)}
 }
 
 // Onclose
@@ -2342,10 +1919,8 @@ func Onclick(value string) interface {
 // Description: close event handler.
 //
 // Value: Event handler content attribute.
-func Onclose(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onclose(value))
+func Onclose(value string) types.Onclose {
+	return types.Onclose{IAttribute: attrs.Onclose(value)}
 }
 
 // Oncommand
@@ -2355,10 +1930,8 @@ func Onclose(value string) interface {
 // Description: command event handler.
 //
 // Value: Event handler content attribute.
-func Oncommand(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncommand(value))
+func Oncommand(value string) types.Oncommand {
+	return types.Oncommand{IAttribute: attrs.Oncommand(value)}
 }
 
 // Oncontextlost
@@ -2368,10 +1941,8 @@ func Oncommand(value string) interface {
 // Description: contextlost event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextlost(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncontextlost(value))
+func Oncontextlost(value string) types.Oncontextlost {
+	return types.Oncontextlost{IAttribute: attrs.Oncontextlost(value)}
 }
 
 // Oncontextmenu
@@ -2381,10 +1952,8 @@ func Oncontextlost(value string) interface {
 // Description: contextmenu event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextmenu(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncontextmenu(value))
+func Oncontextmenu(value string) types.Oncontextmenu {
+	return types.Oncontextmenu{IAttribute: attrs.Oncontextmenu(value)}
 }
 
 // Oncontextrestored
@@ -2394,10 +1963,8 @@ func Oncontextmenu(value string) interface {
 // Description: contextrestored event handler.
 //
 // Value: Event handler content attribute.
-func Oncontextrestored(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncontextrestored(value))
+func Oncontextrestored(value string) types.Oncontextrestored {
+	return types.Oncontextrestored{IAttribute: attrs.Oncontextrestored(value)}
 }
 
 // Oncopy
@@ -2407,10 +1974,8 @@ func Oncontextrestored(value string) interface {
 // Description: copy event handler.
 //
 // Value: Event handler content attribute.
-func Oncopy(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncopy(value))
+func Oncopy(value string) types.Oncopy {
+	return types.Oncopy{IAttribute: attrs.Oncopy(value)}
 }
 
 // Oncuechange
@@ -2420,10 +1985,8 @@ func Oncopy(value string) interface {
 // Description: cuechange event handler.
 //
 // Value: Event handler content attribute.
-func Oncuechange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncuechange(value))
+func Oncuechange(value string) types.Oncuechange {
+	return types.Oncuechange{IAttribute: attrs.Oncuechange(value)}
 }
 
 // Oncut
@@ -2433,10 +1996,8 @@ func Oncuechange(value string) interface {
 // Description: cut event handler.
 //
 // Value: Event handler content attribute.
-func Oncut(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oncut(value))
+func Oncut(value string) types.Oncut {
+	return types.Oncut{IAttribute: attrs.Oncut(value)}
 }
 
 // Ondblclick
@@ -2446,10 +2007,8 @@ func Oncut(value string) interface {
 // Description: dblclick event handler.
 //
 // Value: Event handler content attribute.
-func Ondblclick(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondblclick(value))
+func Ondblclick(value string) types.Ondblclick {
+	return types.Ondblclick{IAttribute: attrs.Ondblclick(value)}
 }
 
 // Ondrag
@@ -2459,10 +2018,8 @@ func Ondblclick(value string) interface {
 // Description: drag event handler.
 //
 // Value: Event handler content attribute.
-func Ondrag(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondrag(value))
+func Ondrag(value string) types.Ondrag {
+	return types.Ondrag{IAttribute: attrs.Ondrag(value)}
 }
 
 // Ondragend
@@ -2472,10 +2029,8 @@ func Ondrag(value string) interface {
 // Description: dragend event handler.
 //
 // Value: Event handler content attribute.
-func Ondragend(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondragend(value))
+func Ondragend(value string) types.Ondragend {
+	return types.Ondragend{IAttribute: attrs.Ondragend(value)}
 }
 
 // Ondragenter
@@ -2485,10 +2040,8 @@ func Ondragend(value string) interface {
 // Description: dragenter event handler.
 //
 // Value: Event handler content attribute.
-func Ondragenter(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondragenter(value))
+func Ondragenter(value string) types.Ondragenter {
+	return types.Ondragenter{IAttribute: attrs.Ondragenter(value)}
 }
 
 // Ondragleave
@@ -2498,10 +2051,8 @@ func Ondragenter(value string) interface {
 // Description: dragleave event handler.
 //
 // Value: Event handler content attribute.
-func Ondragleave(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondragleave(value))
+func Ondragleave(value string) types.Ondragleave {
+	return types.Ondragleave{IAttribute: attrs.Ondragleave(value)}
 }
 
 // Ondragover
@@ -2511,10 +2062,8 @@ func Ondragleave(value string) interface {
 // Description: dragover event handler.
 //
 // Value: Event handler content attribute.
-func Ondragover(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondragover(value))
+func Ondragover(value string) types.Ondragover {
+	return types.Ondragover{IAttribute: attrs.Ondragover(value)}
 }
 
 // Ondragstart
@@ -2524,10 +2073,8 @@ func Ondragover(value string) interface {
 // Description: dragstart event handler.
 //
 // Value: Event handler content attribute.
-func Ondragstart(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondragstart(value))
+func Ondragstart(value string) types.Ondragstart {
+	return types.Ondragstart{IAttribute: attrs.Ondragstart(value)}
 }
 
 // Ondrop
@@ -2537,10 +2084,8 @@ func Ondragstart(value string) interface {
 // Description: drop event handler.
 //
 // Value: Event handler content attribute.
-func Ondrop(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondrop(value))
+func Ondrop(value string) types.Ondrop {
+	return types.Ondrop{IAttribute: attrs.Ondrop(value)}
 }
 
 // Ondurationchange
@@ -2550,10 +2095,8 @@ func Ondrop(value string) interface {
 // Description: durationchange event handler.
 //
 // Value: Event handler content attribute.
-func Ondurationchange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ondurationchange(value))
+func Ondurationchange(value string) types.Ondurationchange {
+	return types.Ondurationchange{IAttribute: attrs.Ondurationchange(value)}
 }
 
 // Onemptied
@@ -2563,10 +2106,8 @@ func Ondurationchange(value string) interface {
 // Description: emptied event handler.
 //
 // Value: Event handler content attribute.
-func Onemptied(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onemptied(value))
+func Onemptied(value string) types.Onemptied {
+	return types.Onemptied{IAttribute: attrs.Onemptied(value)}
 }
 
 // Onended
@@ -2576,10 +2117,8 @@ func Onemptied(value string) interface {
 // Description: ended event handler.
 //
 // Value: Event handler content attribute.
-func Onended(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onended(value))
+func Onended(value string) types.Onended {
+	return types.Onended{IAttribute: attrs.Onended(value)}
 }
 
 // Onerror
@@ -2589,10 +2128,8 @@ func Onended(value string) interface {
 // Description: error event handler.
 //
 // Value: Event handler content attribute.
-func Onerror(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onerror(value))
+func Onerror(value string) types.Onerror {
+	return types.Onerror{IAttribute: attrs.Onerror(value)}
 }
 
 // Onfocus
@@ -2602,10 +2139,8 @@ func Onerror(value string) interface {
 // Description: focus event handler.
 //
 // Value: Event handler content attribute.
-func Onfocus(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onfocus(value))
+func Onfocus(value string) types.Onfocus {
+	return types.Onfocus{IAttribute: attrs.Onfocus(value)}
 }
 
 // Onformdata
@@ -2615,10 +2150,8 @@ func Onfocus(value string) interface {
 // Description: formdata event handler.
 //
 // Value: Event handler content attribute.
-func Onformdata(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onformdata(value))
+func Onformdata(value string) types.Onformdata {
+	return types.Onformdata{IAttribute: attrs.Onformdata(value)}
 }
 
 // Onhashchange
@@ -2628,10 +2161,8 @@ func Onformdata(value string) interface {
 // Description: hashchange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onhashchange(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onhashchange(value))
+func Onhashchange(value string) types.Onhashchange {
+	return types.Onhashchange{IAttribute: attrs.Onhashchange(value)}
 }
 
 // Oninput
@@ -2641,10 +2172,8 @@ func Onhashchange(value string) interface {
 // Description: input event handler.
 //
 // Value: Event handler content attribute.
-func Oninput(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oninput(value))
+func Oninput(value string) types.Oninput {
+	return types.Oninput{IAttribute: attrs.Oninput(value)}
 }
 
 // Oninvalid
@@ -2654,10 +2183,8 @@ func Oninput(value string) interface {
 // Description: invalid event handler.
 //
 // Value: Event handler content attribute.
-func Oninvalid(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Oninvalid(value))
+func Oninvalid(value string) types.Oninvalid {
+	return types.Oninvalid{IAttribute: attrs.Oninvalid(value)}
 }
 
 // Onkeydown
@@ -2667,10 +2194,8 @@ func Oninvalid(value string) interface {
 // Description: keydown event handler.
 //
 // Value: Event handler content attribute.
-func Onkeydown(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onkeydown(value))
+func Onkeydown(value string) types.Onkeydown {
+	return types.Onkeydown{IAttribute: attrs.Onkeydown(value)}
 }
 
 // Onkeypress
@@ -2680,10 +2205,8 @@ func Onkeydown(value string) interface {
 // Description: keypress event handler.
 //
 // Value: Event handler content attribute.
-func Onkeypress(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onkeypress(value))
+func Onkeypress(value string) types.Onkeypress {
+	return types.Onkeypress{IAttribute: attrs.Onkeypress(value)}
 }
 
 // Onkeyup
@@ -2693,10 +2216,8 @@ func Onkeypress(value string) interface {
 // Description: keyup event handler.
 //
 // Value: Event handler content attribute.
-func Onkeyup(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onkeyup(value))
+func Onkeyup(value string) types.Onkeyup {
+	return types.Onkeyup{IAttribute: attrs.Onkeyup(value)}
 }
 
 // Onlanguagechange
@@ -2706,10 +2227,8 @@ func Onkeyup(value string) interface {
 // Description: languagechange event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onlanguagechange(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onlanguagechange(value))
+func Onlanguagechange(value string) types.Onlanguagechange {
+	return types.Onlanguagechange{IAttribute: attrs.Onlanguagechange(value)}
 }
 
 // Onload
@@ -2719,10 +2238,8 @@ func Onlanguagechange(value string) interface {
 // Description: load event handler.
 //
 // Value: Event handler content attribute.
-func Onload(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onload(value))
+func Onload(value string) types.Onload {
+	return types.Onload{IAttribute: attrs.Onload(value)}
 }
 
 // Onloadeddata
@@ -2732,10 +2249,8 @@ func Onload(value string) interface {
 // Description: loadeddata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadeddata(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onloadeddata(value))
+func Onloadeddata(value string) types.Onloadeddata {
+	return types.Onloadeddata{IAttribute: attrs.Onloadeddata(value)}
 }
 
 // Onloadedmetadata
@@ -2745,10 +2260,8 @@ func Onloadeddata(value string) interface {
 // Description: loadedmetadata event handler.
 //
 // Value: Event handler content attribute.
-func Onloadedmetadata(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onloadedmetadata(value))
+func Onloadedmetadata(value string) types.Onloadedmetadata {
+	return types.Onloadedmetadata{IAttribute: attrs.Onloadedmetadata(value)}
 }
 
 // Onloadstart
@@ -2758,10 +2271,8 @@ func Onloadedmetadata(value string) interface {
 // Description: loadstart event handler.
 //
 // Value: Event handler content attribute.
-func Onloadstart(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onloadstart(value))
+func Onloadstart(value string) types.Onloadstart {
+	return types.Onloadstart{IAttribute: attrs.Onloadstart(value)}
 }
 
 // Onmessage
@@ -2771,10 +2282,8 @@ func Onloadstart(value string) interface {
 // Description: message event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessage(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onmessage(value))
+func Onmessage(value string) types.Onmessage {
+	return types.Onmessage{IAttribute: attrs.Onmessage(value)}
 }
 
 // Onmessageerror
@@ -2784,10 +2293,8 @@ func Onmessage(value string) interface {
 // Description: messageerror event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onmessageerror(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onmessageerror(value))
+func Onmessageerror(value string) types.Onmessageerror {
+	return types.Onmessageerror{IAttribute: attrs.Onmessageerror(value)}
 }
 
 // Onmousedown
@@ -2797,10 +2304,8 @@ func Onmessageerror(value string) interface {
 // Description: mousedown event handler.
 //
 // Value: Event handler content attribute.
-func Onmousedown(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmousedown(value))
+func Onmousedown(value string) types.Onmousedown {
+	return types.Onmousedown{IAttribute: attrs.Onmousedown(value)}
 }
 
 // Onmouseenter
@@ -2810,10 +2315,8 @@ func Onmousedown(value string) interface {
 // Description: mouseenter event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseenter(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmouseenter(value))
+func Onmouseenter(value string) types.Onmouseenter {
+	return types.Onmouseenter{IAttribute: attrs.Onmouseenter(value)}
 }
 
 // Onmouseleave
@@ -2823,10 +2326,8 @@ func Onmouseenter(value string) interface {
 // Description: mouseleave event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseleave(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmouseleave(value))
+func Onmouseleave(value string) types.Onmouseleave {
+	return types.Onmouseleave{IAttribute: attrs.Onmouseleave(value)}
 }
 
 // Onmousemove
@@ -2836,10 +2337,8 @@ func Onmouseleave(value string) interface {
 // Description: mousemove event handler.
 //
 // Value: Event handler content attribute.
-func Onmousemove(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmousemove(value))
+func Onmousemove(value string) types.Onmousemove {
+	return types.Onmousemove{IAttribute: attrs.Onmousemove(value)}
 }
 
 // Onmouseout
@@ -2849,10 +2348,8 @@ func Onmousemove(value string) interface {
 // Description: mouseout event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseout(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmouseout(value))
+func Onmouseout(value string) types.Onmouseout {
+	return types.Onmouseout{IAttribute: attrs.Onmouseout(value)}
 }
 
 // Onmouseover
@@ -2862,10 +2359,8 @@ func Onmouseout(value string) interface {
 // Description: mouseover event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseover(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmouseover(value))
+func Onmouseover(value string) types.Onmouseover {
+	return types.Onmouseover{IAttribute: attrs.Onmouseover(value)}
 }
 
 // Onmouseup
@@ -2875,10 +2370,8 @@ func Onmouseover(value string) interface {
 // Description: mouseup event handler.
 //
 // Value: Event handler content attribute.
-func Onmouseup(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onmouseup(value))
+func Onmouseup(value string) types.Onmouseup {
+	return types.Onmouseup{IAttribute: attrs.Onmouseup(value)}
 }
 
 // Onoffline
@@ -2888,10 +2381,8 @@ func Onmouseup(value string) interface {
 // Description: offline event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onoffline(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onoffline(value))
+func Onoffline(value string) types.Onoffline {
+	return types.Onoffline{IAttribute: attrs.Onoffline(value)}
 }
 
 // Ononline
@@ -2901,10 +2392,8 @@ func Onoffline(value string) interface {
 // Description: online event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Ononline(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Ononline(value))
+func Ononline(value string) types.Ononline {
+	return types.Ononline{IAttribute: attrs.Ononline(value)}
 }
 
 // Onpagehide
@@ -2914,10 +2403,8 @@ func Ononline(value string) interface {
 // Description: pagehide event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagehide(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onpagehide(value))
+func Onpagehide(value string) types.Onpagehide {
+	return types.Onpagehide{IAttribute: attrs.Onpagehide(value)}
 }
 
 // Onpagereveal
@@ -2927,10 +2414,8 @@ func Onpagehide(value string) interface {
 // Description: pagereveal event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpagereveal(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onpagereveal(value))
+func Onpagereveal(value string) types.Onpagereveal {
+	return types.Onpagereveal{IAttribute: attrs.Onpagereveal(value)}
 }
 
 // Onpageshow
@@ -2940,10 +2425,8 @@ func Onpagereveal(value string) interface {
 // Description: pageshow event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageshow(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onpageshow(value))
+func Onpageshow(value string) types.Onpageshow {
+	return types.Onpageshow{IAttribute: attrs.Onpageshow(value)}
 }
 
 // Onpageswap
@@ -2953,10 +2436,8 @@ func Onpageshow(value string) interface {
 // Description: pageswap event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpageswap(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onpageswap(value))
+func Onpageswap(value string) types.Onpageswap {
+	return types.Onpageswap{IAttribute: attrs.Onpageswap(value)}
 }
 
 // Onpaste
@@ -2966,10 +2447,8 @@ func Onpageswap(value string) interface {
 // Description: paste event handler.
 //
 // Value: Event handler content attribute.
-func Onpaste(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onpaste(value))
+func Onpaste(value string) types.Onpaste {
+	return types.Onpaste{IAttribute: attrs.Onpaste(value)}
 }
 
 // Onpause
@@ -2979,10 +2458,8 @@ func Onpaste(value string) interface {
 // Description: pause event handler.
 //
 // Value: Event handler content attribute.
-func Onpause(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onpause(value))
+func Onpause(value string) types.Onpause {
+	return types.Onpause{IAttribute: attrs.Onpause(value)}
 }
 
 // Onplay
@@ -2992,10 +2469,8 @@ func Onpause(value string) interface {
 // Description: play event handler.
 //
 // Value: Event handler content attribute.
-func Onplay(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onplay(value))
+func Onplay(value string) types.Onplay {
+	return types.Onplay{IAttribute: attrs.Onplay(value)}
 }
 
 // Onplaying
@@ -3005,10 +2480,8 @@ func Onplay(value string) interface {
 // Description: playing event handler.
 //
 // Value: Event handler content attribute.
-func Onplaying(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onplaying(value))
+func Onplaying(value string) types.Onplaying {
+	return types.Onplaying{IAttribute: attrs.Onplaying(value)}
 }
 
 // Onpopstate
@@ -3018,10 +2491,8 @@ func Onplaying(value string) interface {
 // Description: popstate event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onpopstate(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onpopstate(value))
+func Onpopstate(value string) types.Onpopstate {
+	return types.Onpopstate{IAttribute: attrs.Onpopstate(value)}
 }
 
 // Onprogress
@@ -3031,10 +2502,8 @@ func Onpopstate(value string) interface {
 // Description: progress event handler.
 //
 // Value: Event handler content attribute.
-func Onprogress(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onprogress(value))
+func Onprogress(value string) types.Onprogress {
+	return types.Onprogress{IAttribute: attrs.Onprogress(value)}
 }
 
 // Onratechange
@@ -3044,10 +2513,8 @@ func Onprogress(value string) interface {
 // Description: ratechange event handler.
 //
 // Value: Event handler content attribute.
-func Onratechange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onratechange(value))
+func Onratechange(value string) types.Onratechange {
+	return types.Onratechange{IAttribute: attrs.Onratechange(value)}
 }
 
 // Onreset
@@ -3057,10 +2524,8 @@ func Onratechange(value string) interface {
 // Description: reset event handler.
 //
 // Value: Event handler content attribute.
-func Onreset(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onreset(value))
+func Onreset(value string) types.Onreset {
+	return types.Onreset{IAttribute: attrs.Onreset(value)}
 }
 
 // Onresize
@@ -3070,10 +2535,8 @@ func Onreset(value string) interface {
 // Description: resize event handler.
 //
 // Value: Event handler content attribute.
-func Onresize(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onresize(value))
+func Onresize(value string) types.Onresize {
+	return types.Onresize{IAttribute: attrs.Onresize(value)}
 }
 
 // Onrejectionhandled
@@ -3083,10 +2546,8 @@ func Onresize(value string) interface {
 // Description: rejectionhandled event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onrejectionhandled(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onrejectionhandled(value))
+func Onrejectionhandled(value string) types.Onrejectionhandled {
+	return types.Onrejectionhandled{IAttribute: attrs.Onrejectionhandled(value)}
 }
 
 // Onscroll
@@ -3096,10 +2557,8 @@ func Onrejectionhandled(value string) interface {
 // Description: scroll event handler.
 //
 // Value: Event handler content attribute.
-func Onscroll(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onscroll(value))
+func Onscroll(value string) types.Onscroll {
+	return types.Onscroll{IAttribute: attrs.Onscroll(value)}
 }
 
 // Onscrollend
@@ -3109,10 +2568,8 @@ func Onscroll(value string) interface {
 // Description: scrollend event handler.
 //
 // Value: Event handler content attribute.
-func Onscrollend(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onscrollend(value))
+func Onscrollend(value string) types.Onscrollend {
+	return types.Onscrollend{IAttribute: attrs.Onscrollend(value)}
 }
 
 // Onsecuritypolicyviolation
@@ -3122,10 +2579,8 @@ func Onscrollend(value string) interface {
 // Description: securitypolicyviolation event handler.
 //
 // Value: Event handler content attribute.
-func Onsecuritypolicyviolation(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onsecuritypolicyviolation(value))
+func Onsecuritypolicyviolation(value string) types.Onsecuritypolicyviolation {
+	return types.Onsecuritypolicyviolation{IAttribute: attrs.Onsecuritypolicyviolation(value)}
 }
 
 // Onseeked
@@ -3135,10 +2590,8 @@ func Onsecuritypolicyviolation(value string) interface {
 // Description: seeked event handler.
 //
 // Value: Event handler content attribute.
-func Onseeked(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onseeked(value))
+func Onseeked(value string) types.Onseeked {
+	return types.Onseeked{IAttribute: attrs.Onseeked(value)}
 }
 
 // Onseeking
@@ -3148,10 +2601,8 @@ func Onseeked(value string) interface {
 // Description: seeking event handler.
 //
 // Value: Event handler content attribute.
-func Onseeking(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onseeking(value))
+func Onseeking(value string) types.Onseeking {
+	return types.Onseeking{IAttribute: attrs.Onseeking(value)}
 }
 
 // Onselect
@@ -3161,10 +2612,8 @@ func Onseeking(value string) interface {
 // Description: select event handler.
 //
 // Value: Event handler content attribute.
-func Onselect(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onselect(value))
+func Onselect(value string) types.Onselect {
+	return types.Onselect{IAttribute: attrs.Onselect(value)}
 }
 
 // Onslotchange
@@ -3174,10 +2623,8 @@ func Onselect(value string) interface {
 // Description: slotchange event handler.
 //
 // Value: Event handler content attribute.
-func Onslotchange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onslotchange(value))
+func Onslotchange(value string) types.Onslotchange {
+	return types.Onslotchange{IAttribute: attrs.Onslotchange(value)}
 }
 
 // Onstalled
@@ -3187,10 +2634,8 @@ func Onslotchange(value string) interface {
 // Description: stalled event handler.
 //
 // Value: Event handler content attribute.
-func Onstalled(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onstalled(value))
+func Onstalled(value string) types.Onstalled {
+	return types.Onstalled{IAttribute: attrs.Onstalled(value)}
 }
 
 // Onstorage
@@ -3200,10 +2645,8 @@ func Onstalled(value string) interface {
 // Description: storage event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onstorage(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onstorage(value))
+func Onstorage(value string) types.Onstorage {
+	return types.Onstorage{IAttribute: attrs.Onstorage(value)}
 }
 
 // Onsubmit
@@ -3213,10 +2656,8 @@ func Onstorage(value string) interface {
 // Description: submit event handler.
 //
 // Value: Event handler content attribute.
-func Onsubmit(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onsubmit(value))
+func Onsubmit(value string) types.Onsubmit {
+	return types.Onsubmit{IAttribute: attrs.Onsubmit(value)}
 }
 
 // Onsuspend
@@ -3226,10 +2667,8 @@ func Onsubmit(value string) interface {
 // Description: suspend event handler.
 //
 // Value: Event handler content attribute.
-func Onsuspend(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onsuspend(value))
+func Onsuspend(value string) types.Onsuspend {
+	return types.Onsuspend{IAttribute: attrs.Onsuspend(value)}
 }
 
 // Ontimeupdate
@@ -3239,10 +2678,8 @@ func Onsuspend(value string) interface {
 // Description: timeupdate event handler.
 //
 // Value: Event handler content attribute.
-func Ontimeupdate(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ontimeupdate(value))
+func Ontimeupdate(value string) types.Ontimeupdate {
+	return types.Ontimeupdate{IAttribute: attrs.Ontimeupdate(value)}
 }
 
 // Ontoggle
@@ -3252,10 +2689,8 @@ func Ontimeupdate(value string) interface {
 // Description: toggle event handler.
 //
 // Value: Event handler content attribute.
-func Ontoggle(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Ontoggle(value))
+func Ontoggle(value string) types.Ontoggle {
+	return types.Ontoggle{IAttribute: attrs.Ontoggle(value)}
 }
 
 // Onunhandledrejection
@@ -3265,10 +2700,8 @@ func Ontoggle(value string) interface {
 // Description: unhandledrejection event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunhandledrejection(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onunhandledrejection(value))
+func Onunhandledrejection(value string) types.Onunhandledrejection {
+	return types.Onunhandledrejection{IAttribute: attrs.Onunhandledrejection(value)}
 }
 
 // Onunload
@@ -3278,10 +2711,8 @@ func Onunhandledrejection(value string) interface {
 // Description: unload event handler for Window object.
 //
 // Value: Event handler content attribute.
-func Onunload(value string) interface {
-	types.BodyAttribute
-} {
-	return newAttrWrapper(attrs.Onunload(value))
+func Onunload(value string) types.Onunload {
+	return types.Onunload{IAttribute: attrs.Onunload(value)}
 }
 
 // Onvolumechange
@@ -3291,10 +2722,8 @@ func Onunload(value string) interface {
 // Description: volumechange event handler.
 //
 // Value: Event handler content attribute.
-func Onvolumechange(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onvolumechange(value))
+func Onvolumechange(value string) types.Onvolumechange {
+	return types.Onvolumechange{IAttribute: attrs.Onvolumechange(value)}
 }
 
 // Onwaiting
@@ -3304,10 +2733,8 @@ func Onvolumechange(value string) interface {
 // Description: waiting event handler.
 //
 // Value: Event handler content attribute.
-func Onwaiting(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onwaiting(value))
+func Onwaiting(value string) types.Onwaiting {
+	return types.Onwaiting{IAttribute: attrs.Onwaiting(value)}
 }
 
 // Onwheel
@@ -3317,8 +2744,6 @@ func Onwaiting(value string) interface {
 // Description: wheel event handler.
 //
 // Value: Event handler content attribute.
-func Onwheel(value string) interface {
-	types.GlobalAttribute
-} {
-	return newAttrWrapper(attrs.Onwheel(value))
+func Onwheel(value string) types.Onwheel {
+	return types.Onwheel{IAttribute: attrs.Onwheel(value)}
 }
