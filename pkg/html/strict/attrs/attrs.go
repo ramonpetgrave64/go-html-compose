@@ -5,8 +5,8 @@ package attrs
 
 import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
-	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/attrs/internal/types"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/attrs/types"
 )
 
 // Abbr
