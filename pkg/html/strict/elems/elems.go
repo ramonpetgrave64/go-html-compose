@@ -6,6 +6,7 @@ package elems
 import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
 )
 
 // Ul
@@ -13,7 +14,7 @@ import (
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Ul(attrs ...UlAttribute) ContContainerFunc[UlType, UlChild] {
+func Ul(attrs ...attrs.UlAttribute) ContContainerFunc[UlType, UlChild] {
 	return func(children ...UlChild) UlType {
 		return UlType{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
@@ -24,7 +25,7 @@ func Ul(attrs ...UlAttribute) ContContainerFunc[UlType, UlChild] {
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(attrs ...LiAttribute) ContContainerFunc[LiType, LiChild] {
+func Li(attrs ...attrs.LiAttribute) ContContainerFunc[LiType, LiChild] {
 	return func(children ...LiChild) LiType {
 		return LiType{IContent: elems.Li(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
@@ -35,7 +36,7 @@ func Li(attrs ...LiAttribute) ContContainerFunc[LiType, LiChild] {
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
-func Script(attrs ...ScriptAttribute) ContContainerFunc[ScriptType, ScriptChild] {
+func Script(attrs ...attrs.ScriptAttribute) ContContainerFunc[ScriptType, ScriptChild] {
 	return func(children ...ScriptChild) ScriptType {
 		return ScriptType{IContent: elems.Script(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
@@ -46,7 +47,7 @@ func Script(attrs ...ScriptAttribute) ContContainerFunc[ScriptType, ScriptChild]
 // Parents: phrasing.
 // Children: transparent*.
 // Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
-func A(aAttrs ...AAttribute) doc.ContContainerFunc {
+func A(aAttrs ...attrs.AAttribute) doc.ContContainerFunc {
 	return elems.A(toIAttributes(aAttrs)...)
 }
 
@@ -55,7 +56,7 @@ func A(aAttrs ...AAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Abbr(abbrAttrs ...AbbrAttribute) doc.ContContainerFunc {
+func Abbr(abbrAttrs ...attrs.AbbrAttribute) doc.ContContainerFunc {
 	return elems.Abbr(toIAttributes(abbrAttrs)...)
 }
 
@@ -64,7 +65,7 @@ func Abbr(abbrAttrs ...AbbrAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Address(addressAttrs ...AddressAttribute) doc.ContContainerFunc {
+func Address(addressAttrs ...attrs.AddressAttribute) doc.ContContainerFunc {
 	return elems.Address(toIAttributes(addressAttrs)...)
 }
 
@@ -73,7 +74,7 @@ func Address(addressAttrs ...AddressAttribute) doc.ContContainerFunc {
 // Parents: phrasing*.
 // Children: empty.
 // Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
-func Area(areaAttrs ...AreaAttribute) doc.IContent {
+func Area(areaAttrs ...attrs.AreaAttribute) doc.IContent {
 	return elems.Area(toIAttributes(areaAttrs)...)
 }
 
@@ -82,7 +83,7 @@ func Area(areaAttrs ...AreaAttribute) doc.IContent {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Article(articleAttrs ...ArticleAttribute) doc.ContContainerFunc {
+func Article(articleAttrs ...attrs.ArticleAttribute) doc.ContContainerFunc {
 	return elems.Article(toIAttributes(articleAttrs)...)
 }
 
@@ -91,7 +92,7 @@ func Article(articleAttrs ...ArticleAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Aside(asideAttrs ...AsideAttribute) doc.ContContainerFunc {
+func Aside(asideAttrs ...attrs.AsideAttribute) doc.ContContainerFunc {
 	return elems.Aside(toIAttributes(asideAttrs)...)
 }
 
@@ -100,7 +101,7 @@ func Aside(asideAttrs ...AsideAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
-func Audio(audioAttrs ...AudioAttribute) doc.ContContainerFunc {
+func Audio(audioAttrs ...attrs.AudioAttribute) doc.ContContainerFunc {
 	return elems.Audio(toIAttributes(audioAttrs)...)
 }
 
@@ -109,7 +110,7 @@ func Audio(audioAttrs ...AudioAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func B(bAttrs ...BAttribute) doc.ContContainerFunc {
+func B(bAttrs ...attrs.BAttribute) doc.ContContainerFunc {
 	return elems.B(toIAttributes(bAttrs)...)
 }
 
@@ -118,7 +119,7 @@ func B(bAttrs ...BAttribute) doc.ContContainerFunc {
 // Parents: head.
 // Children: empty.
 // Attributes: globals; href; target
-func Base(baseAttrs ...BaseAttribute) doc.IContent {
+func Base(baseAttrs ...attrs.BaseAttribute) doc.IContent {
 	return elems.Base(toIAttributes(baseAttrs)...)
 }
 
@@ -127,7 +128,7 @@ func Base(baseAttrs ...BaseAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Bdi(bdiAttrs ...BdiAttribute) doc.ContContainerFunc {
+func Bdi(bdiAttrs ...attrs.BdiAttribute) doc.ContContainerFunc {
 	return elems.Bdi(toIAttributes(bdiAttrs)...)
 }
 
@@ -136,7 +137,7 @@ func Bdi(bdiAttrs ...BdiAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Bdo(bdoAttrs ...BdoAttribute) doc.ContContainerFunc {
+func Bdo(bdoAttrs ...attrs.BdoAttribute) doc.ContContainerFunc {
 	return elems.Bdo(toIAttributes(bdoAttrs)...)
 }
 
@@ -145,7 +146,7 @@ func Bdo(bdoAttrs ...BdoAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; cite
-func Blockquote(blockquoteAttrs ...BlockquoteAttribute) doc.ContContainerFunc {
+func Blockquote(blockquoteAttrs ...attrs.BlockquoteAttribute) doc.ContContainerFunc {
 	return elems.Blockquote(toIAttributes(blockquoteAttrs)...)
 }
 
@@ -154,7 +155,7 @@ func Blockquote(blockquoteAttrs ...BlockquoteAttribute) doc.ContContainerFunc {
 // Parents: html.
 // Children: flow.
 // Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
-func Body(bodyAttrs ...BodyAttribute) doc.ContContainerFunc {
+func Body(bodyAttrs ...attrs.BodyAttribute) doc.ContContainerFunc {
 	return elems.Body(toIAttributes(bodyAttrs)...)
 }
 
@@ -163,7 +164,7 @@ func Body(bodyAttrs ...BodyAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Br(brAttrs ...BrAttribute) doc.IContent {
+func Br(brAttrs ...attrs.BrAttribute) doc.IContent {
 	return elems.Br(toIAttributes(brAttrs)...)
 }
 
@@ -172,7 +173,7 @@ func Br(brAttrs ...BrAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
-func Button(buttonAttrs ...ButtonAttribute) doc.ContContainerFunc {
+func Button(buttonAttrs ...attrs.ButtonAttribute) doc.ContContainerFunc {
 	return elems.Button(toIAttributes(buttonAttrs)...)
 }
 
@@ -181,7 +182,7 @@ func Button(buttonAttrs ...ButtonAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; width; height
-func Canvas(canvasAttrs ...CanvasAttribute) doc.ContContainerFunc {
+func Canvas(canvasAttrs ...attrs.CanvasAttribute) doc.ContContainerFunc {
 	return elems.Canvas(toIAttributes(canvasAttrs)...)
 }
 
@@ -190,7 +191,7 @@ func Canvas(canvasAttrs ...CanvasAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: flow*.
 // Attributes: globals
-func Caption(captionAttrs ...CaptionAttribute) doc.ContContainerFunc {
+func Caption(captionAttrs ...attrs.CaptionAttribute) doc.ContContainerFunc {
 	return elems.Caption(toIAttributes(captionAttrs)...)
 }
 
@@ -199,7 +200,7 @@ func Caption(captionAttrs ...CaptionAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Cite(citeAttrs ...CiteAttribute) doc.ContContainerFunc {
+func Cite(citeAttrs ...attrs.CiteAttribute) doc.ContContainerFunc {
 	return elems.Cite(toIAttributes(citeAttrs)...)
 }
 
@@ -208,7 +209,7 @@ func Cite(citeAttrs ...CiteAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Code(codeAttrs ...CodeAttribute) doc.ContContainerFunc {
+func Code(codeAttrs ...attrs.CodeAttribute) doc.ContContainerFunc {
 	return elems.Code(toIAttributes(codeAttrs)...)
 }
 
@@ -217,7 +218,7 @@ func Code(codeAttrs ...CodeAttribute) doc.ContContainerFunc {
 // Parents: colgroup.
 // Children: empty.
 // Attributes: globals; span
-func Col(colAttrs ...ColAttribute) doc.IContent {
+func Col(colAttrs ...attrs.ColAttribute) doc.IContent {
 	return elems.Col(toIAttributes(colAttrs)...)
 }
 
@@ -226,7 +227,7 @@ func Col(colAttrs ...ColAttribute) doc.IContent {
 // Parents: table.
 // Children: col*; template*.
 // Attributes: globals; span
-func Colgroup(colgroupAttrs ...ColgroupAttribute) doc.ContContainerFunc {
+func Colgroup(colgroupAttrs ...attrs.ColgroupAttribute) doc.ContContainerFunc {
 	return elems.Colgroup(toIAttributes(colgroupAttrs)...)
 }
 
@@ -235,7 +236,7 @@ func Colgroup(colgroupAttrs ...ColgroupAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; value
-func Data(dataAttrs ...DataAttribute) doc.ContContainerFunc {
+func Data(dataAttrs ...attrs.DataAttribute) doc.ContContainerFunc {
 	return elems.Data(toIAttributes(dataAttrs)...)
 }
 
@@ -244,7 +245,7 @@ func Data(dataAttrs ...DataAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing*; option*; script-supporting elements*.
 // Attributes: globals
-func Datalist(datalistAttrs ...DatalistAttribute) doc.ContContainerFunc {
+func Datalist(datalistAttrs ...attrs.DatalistAttribute) doc.ContContainerFunc {
 	return elems.Datalist(toIAttributes(datalistAttrs)...)
 }
 
@@ -253,7 +254,7 @@ func Datalist(datalistAttrs ...DatalistAttribute) doc.ContContainerFunc {
 // Parents: dl; div*.
 // Children: flow.
 // Attributes: globals
-func Dd(ddAttrs ...DdAttribute) doc.ContContainerFunc {
+func Dd(ddAttrs ...attrs.DdAttribute) doc.ContContainerFunc {
 	return elems.Dd(toIAttributes(ddAttrs)...)
 }
 
@@ -262,7 +263,7 @@ func Dd(ddAttrs ...DdAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
-func Del(delAttrs ...DelAttribute) doc.ContContainerFunc {
+func Del(delAttrs ...attrs.DelAttribute) doc.ContContainerFunc {
 	return elems.Del(toIAttributes(delAttrs)...)
 }
 
@@ -271,7 +272,7 @@ func Del(delAttrs ...DelAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: summary*; flow.
 // Attributes: globals; name; open
-func Details(detailsAttrs ...DetailsAttribute) doc.ContContainerFunc {
+func Details(detailsAttrs ...attrs.DetailsAttribute) doc.ContContainerFunc {
 	return elems.Details(toIAttributes(detailsAttrs)...)
 }
 
@@ -280,7 +281,7 @@ func Details(detailsAttrs ...DetailsAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals
-func Dfn(dfnAttrs ...DfnAttribute) doc.ContContainerFunc {
+func Dfn(dfnAttrs ...attrs.DfnAttribute) doc.ContContainerFunc {
 	return elems.Dfn(toIAttributes(dfnAttrs)...)
 }
 
@@ -289,7 +290,7 @@ func Dfn(dfnAttrs ...DfnAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; open
-func Dialog(dialogAttrs ...DialogAttribute) doc.ContContainerFunc {
+func Dialog(dialogAttrs ...attrs.DialogAttribute) doc.ContContainerFunc {
 	return elems.Dialog(toIAttributes(dialogAttrs)...)
 }
 
@@ -298,7 +299,7 @@ func Dialog(dialogAttrs ...DialogAttribute) doc.ContContainerFunc {
 // Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
 // Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
 // Attributes: globals
-func Div(divAttrs ...DivAttribute) doc.ContContainerFunc {
+func Div(divAttrs ...attrs.DivAttribute) doc.ContContainerFunc {
 	return elems.Div(toIAttributes(divAttrs)...)
 }
 
@@ -307,7 +308,7 @@ func Div(divAttrs ...DivAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: dt*; dd*; div*; script-supporting elements.
 // Attributes: globals
-func Dl(dlAttrs ...DlAttribute) doc.ContContainerFunc {
+func Dl(dlAttrs ...attrs.DlAttribute) doc.ContContainerFunc {
 	return elems.Dl(toIAttributes(dlAttrs)...)
 }
 
@@ -316,7 +317,7 @@ func Dl(dlAttrs ...DlAttribute) doc.ContContainerFunc {
 // Parents: dl; div*.
 // Children: flow*.
 // Attributes: globals
-func Dt(dtAttrs ...DtAttribute) doc.ContContainerFunc {
+func Dt(dtAttrs ...attrs.DtAttribute) doc.ContContainerFunc {
 	return elems.Dt(toIAttributes(dtAttrs)...)
 }
 
@@ -325,7 +326,7 @@ func Dt(dtAttrs ...DtAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Em(emAttrs ...EmAttribute) doc.ContContainerFunc {
+func Em(emAttrs ...attrs.EmAttribute) doc.ContContainerFunc {
 	return elems.Em(toIAttributes(emAttrs)...)
 }
 
@@ -334,7 +335,7 @@ func Em(emAttrs ...EmAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; type; width; height; any*
-func Embed(embedAttrs ...EmbedAttribute) doc.IContent {
+func Embed(embedAttrs ...attrs.EmbedAttribute) doc.IContent {
 	return elems.Embed(toIAttributes(embedAttrs)...)
 }
 
@@ -343,7 +344,7 @@ func Embed(embedAttrs ...EmbedAttribute) doc.IContent {
 // Parents: flow.
 // Children: legend*; flow.
 // Attributes: globals; disabled; form; name
-func Fieldset(fieldsetAttrs ...FieldsetAttribute) doc.ContContainerFunc {
+func Fieldset(fieldsetAttrs ...attrs.FieldsetAttribute) doc.ContContainerFunc {
 	return elems.Fieldset(toIAttributes(fieldsetAttrs)...)
 }
 
@@ -352,7 +353,7 @@ func Fieldset(fieldsetAttrs ...FieldsetAttribute) doc.ContContainerFunc {
 // Parents: figure.
 // Children: flow.
 // Attributes: globals
-func Figcaption(figcaptionAttrs ...FigcaptionAttribute) doc.ContContainerFunc {
+func Figcaption(figcaptionAttrs ...attrs.FigcaptionAttribute) doc.ContContainerFunc {
 	return elems.Figcaption(toIAttributes(figcaptionAttrs)...)
 }
 
@@ -361,7 +362,7 @@ func Figcaption(figcaptionAttrs ...FigcaptionAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: figcaption*; flow.
 // Attributes: globals
-func Figure(figureAttrs ...FigureAttribute) doc.ContContainerFunc {
+func Figure(figureAttrs ...attrs.FigureAttribute) doc.ContContainerFunc {
 	return elems.Figure(toIAttributes(figureAttrs)...)
 }
 
@@ -370,7 +371,7 @@ func Figure(figureAttrs ...FigureAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Footer(footerAttrs ...FooterAttribute) doc.ContContainerFunc {
+func Footer(footerAttrs ...attrs.FooterAttribute) doc.ContContainerFunc {
 	return elems.Footer(toIAttributes(footerAttrs)...)
 }
 
@@ -379,7 +380,7 @@ func Footer(footerAttrs ...FooterAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
-func Form(formAttrs ...FormAttribute) doc.ContContainerFunc {
+func Form(formAttrs ...attrs.FormAttribute) doc.ContContainerFunc {
 	return elems.Form(toIAttributes(formAttrs)...)
 }
 
@@ -388,7 +389,7 @@ func Form(formAttrs ...FormAttribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H1(h1Attrs ...H1Attribute) doc.ContContainerFunc {
+func H1(h1Attrs ...attrs.H1Attribute) doc.ContContainerFunc {
 	return elems.H1(toIAttributes(h1Attrs)...)
 }
 
@@ -397,7 +398,7 @@ func H1(h1Attrs ...H1Attribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H2(h2Attrs ...H2Attribute) doc.ContContainerFunc {
+func H2(h2Attrs ...attrs.H2Attribute) doc.ContContainerFunc {
 	return elems.H2(toIAttributes(h2Attrs)...)
 }
 
@@ -406,7 +407,7 @@ func H2(h2Attrs ...H2Attribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H3(h3Attrs ...H3Attribute) doc.ContContainerFunc {
+func H3(h3Attrs ...attrs.H3Attribute) doc.ContContainerFunc {
 	return elems.H3(toIAttributes(h3Attrs)...)
 }
 
@@ -415,7 +416,7 @@ func H3(h3Attrs ...H3Attribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H4(h4Attrs ...H4Attribute) doc.ContContainerFunc {
+func H4(h4Attrs ...attrs.H4Attribute) doc.ContContainerFunc {
 	return elems.H4(toIAttributes(h4Attrs)...)
 }
 
@@ -424,7 +425,7 @@ func H4(h4Attrs ...H4Attribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H5(h5Attrs ...H5Attribute) doc.ContContainerFunc {
+func H5(h5Attrs ...attrs.H5Attribute) doc.ContContainerFunc {
 	return elems.H5(toIAttributes(h5Attrs)...)
 }
 
@@ -433,7 +434,7 @@ func H5(h5Attrs ...H5Attribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
-func H6(h6Attrs ...H6Attribute) doc.ContContainerFunc {
+func H6(h6Attrs ...attrs.H6Attribute) doc.ContContainerFunc {
 	return elems.H6(toIAttributes(h6Attrs)...)
 }
 
@@ -442,7 +443,7 @@ func H6(h6Attrs ...H6Attribute) doc.ContContainerFunc {
 // Parents: html.
 // Children: metadata content*.
 // Attributes: globals
-func Head(headAttrs ...HeadAttribute) doc.ContContainerFunc {
+func Head(headAttrs ...attrs.HeadAttribute) doc.ContContainerFunc {
 	return elems.Head(toIAttributes(headAttrs)...)
 }
 
@@ -451,7 +452,7 @@ func Head(headAttrs ...HeadAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
-func Header(headerAttrs ...HeaderAttribute) doc.ContContainerFunc {
+func Header(headerAttrs ...attrs.HeaderAttribute) doc.ContContainerFunc {
 	return elems.Header(toIAttributes(headerAttrs)...)
 }
 
@@ -460,7 +461,7 @@ func Header(headerAttrs ...HeaderAttribute) doc.ContContainerFunc {
 // Parents: legend; summary; flow.
 // Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
 // Attributes: globals
-func Hgroup(hgroupAttrs ...HgroupAttribute) doc.ContContainerFunc {
+func Hgroup(hgroupAttrs ...attrs.HgroupAttribute) doc.ContContainerFunc {
 	return elems.Hgroup(toIAttributes(hgroupAttrs)...)
 }
 
@@ -469,7 +470,7 @@ func Hgroup(hgroupAttrs ...HgroupAttribute) doc.ContContainerFunc {
 // Parents: flow; select element inner content elements.
 // Children: empty.
 // Attributes: globals
-func Hr(hrAttrs ...HrAttribute) doc.IContent {
+func Hr(hrAttrs ...attrs.HrAttribute) doc.IContent {
 	return elems.Hr(toIAttributes(hrAttrs)...)
 }
 
@@ -478,7 +479,7 @@ func Hr(hrAttrs ...HrAttribute) doc.IContent {
 // Parents: none*.
 // Children: head*; body*.
 // Attributes: globals
-func Html(htmlAttrs ...HtmlAttribute) doc.ContContainerFunc {
+func Html(htmlAttrs ...attrs.HtmlAttribute) doc.ContContainerFunc {
 	return elems.Html(toIAttributes(htmlAttrs)...)
 }
 
@@ -487,7 +488,7 @@ func Html(htmlAttrs ...HtmlAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func I(iAttrs ...IAttribute) doc.ContContainerFunc {
+func I(iAttrs ...attrs.IAttribute) doc.ContContainerFunc {
 	return elems.I(toIAttributes(iAttrs)...)
 }
 
@@ -496,7 +497,7 @@ func I(iAttrs ...IAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
-func Iframe(iframeAttrs ...IframeAttribute) doc.IContent {
+func Iframe(iframeAttrs ...attrs.IframeAttribute) doc.IContent {
 	return elems.Iframe(toIAttributes(iframeAttrs)...)
 }
 
@@ -505,7 +506,7 @@ func Iframe(iframeAttrs ...IframeAttribute) doc.IContent {
 // Parents: phrasing; picture.
 // Children: empty.
 // Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
-func Img(imgAttrs ...ImgAttribute) doc.IContent {
+func Img(imgAttrs ...attrs.ImgAttribute) doc.IContent {
 	return elems.Img(toIAttributes(imgAttrs)...)
 }
 
@@ -514,7 +515,7 @@ func Img(imgAttrs ...ImgAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
-func Input(inputAttrs ...InputAttribute) doc.IContent {
+func Input(inputAttrs ...attrs.InputAttribute) doc.IContent {
 	return elems.Input(toIAttributes(inputAttrs)...)
 }
 
@@ -523,7 +524,7 @@ func Input(inputAttrs ...InputAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
-func Ins(insAttrs ...InsAttribute) doc.ContContainerFunc {
+func Ins(insAttrs ...attrs.InsAttribute) doc.ContContainerFunc {
 	return elems.Ins(toIAttributes(insAttrs)...)
 }
 
@@ -532,7 +533,7 @@ func Ins(insAttrs ...InsAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Kbd(kbdAttrs ...KbdAttribute) doc.ContContainerFunc {
+func Kbd(kbdAttrs ...attrs.KbdAttribute) doc.ContContainerFunc {
 	return elems.Kbd(toIAttributes(kbdAttrs)...)
 }
 
@@ -541,7 +542,7 @@ func Kbd(kbdAttrs ...KbdAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; for
-func Label(labelAttrs ...LabelAttribute) doc.ContContainerFunc {
+func Label(labelAttrs ...attrs.LabelAttribute) doc.ContContainerFunc {
 	return elems.Label(toIAttributes(labelAttrs)...)
 }
 
@@ -550,7 +551,7 @@ func Label(labelAttrs ...LabelAttribute) doc.ContContainerFunc {
 // Parents: fieldset; optgroup.
 // Children: phrasing*; heading content.
 // Attributes: globals
-func Legend(legendAttrs ...LegendAttribute) doc.ContContainerFunc {
+func Legend(legendAttrs ...attrs.LegendAttribute) doc.ContContainerFunc {
 	return elems.Legend(toIAttributes(legendAttrs)...)
 }
 
@@ -559,7 +560,7 @@ func Legend(legendAttrs ...LegendAttribute) doc.ContContainerFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
-func Link(linkAttrs ...LinkAttribute) doc.IContent {
+func Link(linkAttrs ...attrs.LinkAttribute) doc.IContent {
 	return elems.Link(toIAttributes(linkAttrs)...)
 }
 
@@ -568,7 +569,7 @@ func Link(linkAttrs ...LinkAttribute) doc.IContent {
 // Parents: flow*.
 // Children: flow.
 // Attributes: globals
-func Main(mainAttrs ...MainAttribute) doc.ContContainerFunc {
+func Main(mainAttrs ...attrs.MainAttribute) doc.ContContainerFunc {
 	return elems.Main(toIAttributes(mainAttrs)...)
 }
 
@@ -577,7 +578,7 @@ func Main(mainAttrs ...MainAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: transparent; area*.
 // Attributes: globals; name
-func Map(mapAttrs ...MapAttribute) doc.ContContainerFunc {
+func Map(mapAttrs ...attrs.MapAttribute) doc.ContContainerFunc {
 	return elems.Map(toIAttributes(mapAttrs)...)
 }
 
@@ -586,7 +587,7 @@ func Map(mapAttrs ...MapAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Mark(markAttrs ...MarkAttribute) doc.ContContainerFunc {
+func Mark(markAttrs ...attrs.MarkAttribute) doc.ContContainerFunc {
 	return elems.Mark(toIAttributes(markAttrs)...)
 }
 
@@ -595,7 +596,7 @@ func Mark(markAttrs ...MarkAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: per [MATHML].
 // Attributes: per [MATHML]
-func Math(mathAttrs ...MathAttribute) doc.ContContainerFunc {
+func Math(mathAttrs ...attrs.MathAttribute) doc.ContContainerFunc {
 	return elems.Math(toIAttributes(mathAttrs)...)
 }
 
@@ -604,7 +605,7 @@ func Math(mathAttrs ...MathAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Menu(menuAttrs ...MenuAttribute) doc.ContContainerFunc {
+func Menu(menuAttrs ...attrs.MenuAttribute) doc.ContContainerFunc {
 	return elems.Menu(toIAttributes(menuAttrs)...)
 }
 
@@ -613,7 +614,7 @@ func Menu(menuAttrs ...MenuAttribute) doc.ContContainerFunc {
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; name; http-equiv; content; charset; media
-func Meta(metaAttrs ...MetaAttribute) doc.IContent {
+func Meta(metaAttrs ...attrs.MetaAttribute) doc.IContent {
 	return elems.Meta(toIAttributes(metaAttrs)...)
 }
 
@@ -622,7 +623,7 @@ func Meta(metaAttrs ...MetaAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; min; max; low; high; optimum
-func Meter(meterAttrs ...MeterAttribute) doc.ContContainerFunc {
+func Meter(meterAttrs ...attrs.MeterAttribute) doc.ContContainerFunc {
 	return elems.Meter(toIAttributes(meterAttrs)...)
 }
 
@@ -631,7 +632,7 @@ func Meter(meterAttrs ...MeterAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Nav(navAttrs ...NavAttribute) doc.ContContainerFunc {
+func Nav(navAttrs ...attrs.NavAttribute) doc.ContContainerFunc {
 	return elems.Nav(toIAttributes(navAttrs)...)
 }
 
@@ -640,7 +641,7 @@ func Nav(navAttrs ...NavAttribute) doc.ContContainerFunc {
 // Parents: head*; phrasing*.
 // Children: varies*.
 // Attributes: globals
-func Noscript(noscriptAttrs ...NoscriptAttribute) doc.ContContainerFunc {
+func Noscript(noscriptAttrs ...attrs.NoscriptAttribute) doc.ContContainerFunc {
 	return elems.Noscript(toIAttributes(noscriptAttrs)...)
 }
 
@@ -649,7 +650,7 @@ func Noscript(noscriptAttrs ...NoscriptAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; data; type; name; form; width; height
-func Object(objectAttrs ...ObjectAttribute) doc.ContContainerFunc {
+func Object(objectAttrs ...attrs.ObjectAttribute) doc.ContContainerFunc {
 	return elems.Object(toIAttributes(objectAttrs)...)
 }
 
@@ -658,7 +659,7 @@ func Object(objectAttrs ...ObjectAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals; reversed; start; type
-func Ol(olAttrs ...OlAttribute) doc.ContContainerFunc {
+func Ol(olAttrs ...attrs.OlAttribute) doc.ContContainerFunc {
 	return elems.Ol(toIAttributes(olAttrs)...)
 }
 
@@ -667,7 +668,7 @@ func Ol(olAttrs ...OlAttribute) doc.ContContainerFunc {
 // Parents: select; div*.
 // Children: optgroup element inner content elements; legend*.
 // Attributes: globals; disabled; label
-func Optgroup(optgroupAttrs ...OptgroupAttribute) doc.ContContainerFunc {
+func Optgroup(optgroupAttrs ...attrs.OptgroupAttribute) doc.ContContainerFunc {
 	return elems.Optgroup(toIAttributes(optgroupAttrs)...)
 }
 
@@ -676,7 +677,7 @@ func Optgroup(optgroupAttrs ...OptgroupAttribute) doc.ContContainerFunc {
 // Parents: select; datalist; optgroup; div*.
 // Children: text*; option element inner content elements*.
 // Attributes: globals; disabled; label; selected; value
-func Option(optionAttrs ...OptionAttribute) doc.ContContainerFunc {
+func Option(optionAttrs ...attrs.OptionAttribute) doc.ContContainerFunc {
 	return elems.Option(toIAttributes(optionAttrs)...)
 }
 
@@ -685,7 +686,7 @@ func Option(optionAttrs ...OptionAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; for; form; name
-func Output(outputAttrs ...OutputAttribute) doc.ContContainerFunc {
+func Output(outputAttrs ...attrs.OutputAttribute) doc.ContContainerFunc {
 	return elems.Output(toIAttributes(outputAttrs)...)
 }
 
@@ -694,7 +695,7 @@ func Output(outputAttrs ...OutputAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
-func P(pAttrs ...PAttribute) doc.ContContainerFunc {
+func P(pAttrs ...attrs.PAttribute) doc.ContContainerFunc {
 	return elems.P(toIAttributes(pAttrs)...)
 }
 
@@ -703,7 +704,7 @@ func P(pAttrs ...PAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: source*; one img; script-supporting elements.
 // Attributes: globals
-func Picture(pictureAttrs ...PictureAttribute) doc.ContContainerFunc {
+func Picture(pictureAttrs ...attrs.PictureAttribute) doc.ContContainerFunc {
 	return elems.Picture(toIAttributes(pictureAttrs)...)
 }
 
@@ -712,7 +713,7 @@ func Picture(pictureAttrs ...PictureAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
-func Pre(preAttrs ...PreAttribute) doc.ContContainerFunc {
+func Pre(preAttrs ...attrs.PreAttribute) doc.ContContainerFunc {
 	return elems.Pre(toIAttributes(preAttrs)...)
 }
 
@@ -721,7 +722,7 @@ func Pre(preAttrs ...PreAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; max
-func Progress(progressAttrs ...ProgressAttribute) doc.ContContainerFunc {
+func Progress(progressAttrs ...attrs.ProgressAttribute) doc.ContContainerFunc {
 	return elems.Progress(toIAttributes(progressAttrs)...)
 }
 
@@ -730,7 +731,7 @@ func Progress(progressAttrs ...ProgressAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; cite
-func Q(qAttrs ...QAttribute) doc.ContContainerFunc {
+func Q(qAttrs ...attrs.QAttribute) doc.ContContainerFunc {
 	return elems.Q(toIAttributes(qAttrs)...)
 }
 
@@ -739,7 +740,7 @@ func Q(qAttrs ...QAttribute) doc.ContContainerFunc {
 // Parents: ruby.
 // Children: text.
 // Attributes: globals
-func Rp(rpAttrs ...RpAttribute) doc.ContContainerFunc {
+func Rp(rpAttrs ...attrs.RpAttribute) doc.ContContainerFunc {
 	return elems.Rp(toIAttributes(rpAttrs)...)
 }
 
@@ -748,7 +749,7 @@ func Rp(rpAttrs ...RpAttribute) doc.ContContainerFunc {
 // Parents: ruby.
 // Children: phrasing.
 // Attributes: globals
-func Rt(rtAttrs ...RtAttribute) doc.ContContainerFunc {
+func Rt(rtAttrs ...attrs.RtAttribute) doc.ContContainerFunc {
 	return elems.Rt(toIAttributes(rtAttrs)...)
 }
 
@@ -757,7 +758,7 @@ func Rt(rtAttrs ...RtAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing; rt; rp*.
 // Attributes: globals
-func Ruby(rubyAttrs ...RubyAttribute) doc.ContContainerFunc {
+func Ruby(rubyAttrs ...attrs.RubyAttribute) doc.ContContainerFunc {
 	return elems.Ruby(toIAttributes(rubyAttrs)...)
 }
 
@@ -766,7 +767,7 @@ func Ruby(rubyAttrs ...RubyAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func S(sAttrs ...SAttribute) doc.ContContainerFunc {
+func S(sAttrs ...attrs.SAttribute) doc.ContContainerFunc {
 	return elems.S(toIAttributes(sAttrs)...)
 }
 
@@ -775,7 +776,7 @@ func S(sAttrs ...SAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Samp(sampAttrs ...SampAttribute) doc.ContContainerFunc {
+func Samp(sampAttrs ...attrs.SampAttribute) doc.ContContainerFunc {
 	return elems.Samp(toIAttributes(sampAttrs)...)
 }
 
@@ -784,7 +785,7 @@ func Samp(sampAttrs ...SampAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Search(searchAttrs ...SearchAttribute) doc.ContContainerFunc {
+func Search(searchAttrs ...attrs.SearchAttribute) doc.ContContainerFunc {
 	return elems.Search(toIAttributes(searchAttrs)...)
 }
 
@@ -793,7 +794,7 @@ func Search(searchAttrs ...SearchAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Section(sectionAttrs ...SectionAttribute) doc.ContContainerFunc {
+func Section(sectionAttrs ...attrs.SectionAttribute) doc.ContContainerFunc {
 	return elems.Section(toIAttributes(sectionAttrs)...)
 }
 
@@ -802,7 +803,7 @@ func Section(sectionAttrs ...SectionAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: select element inner content elements; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
-func Select(selectAttrs ...SelectAttribute) doc.ContContainerFunc {
+func Select(selectAttrs ...attrs.SelectAttribute) doc.ContContainerFunc {
 	return elems.Select(toIAttributes(selectAttrs)...)
 }
 
@@ -811,7 +812,7 @@ func Select(selectAttrs ...SelectAttribute) doc.ContContainerFunc {
 // Parents: button.
 // Children: empty.
 // Attributes: globals
-func Selectedcontent(selectedcontentAttrs ...SelectedcontentAttribute) doc.IContent {
+func Selectedcontent(selectedcontentAttrs ...attrs.SelectedcontentAttribute) doc.IContent {
 	return elems.Selectedcontent(toIAttributes(selectedcontentAttrs)...)
 }
 
@@ -820,7 +821,7 @@ func Selectedcontent(selectedcontentAttrs ...SelectedcontentAttribute) doc.ICont
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; name
-func Slot(slotAttrs ...SlotAttribute) doc.ContContainerFunc {
+func Slot(slotAttrs ...attrs.SlotAttribute) doc.ContContainerFunc {
 	return elems.Slot(toIAttributes(slotAttrs)...)
 }
 
@@ -829,7 +830,7 @@ func Slot(slotAttrs ...SlotAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Small(smallAttrs ...SmallAttribute) doc.ContContainerFunc {
+func Small(smallAttrs ...attrs.SmallAttribute) doc.ContContainerFunc {
 	return elems.Small(toIAttributes(smallAttrs)...)
 }
 
@@ -838,7 +839,7 @@ func Small(smallAttrs ...SmallAttribute) doc.ContContainerFunc {
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
-func Source(sourceAttrs ...SourceAttribute) doc.IContent {
+func Source(sourceAttrs ...attrs.SourceAttribute) doc.IContent {
 	return elems.Source(toIAttributes(sourceAttrs)...)
 }
 
@@ -847,7 +848,7 @@ func Source(sourceAttrs ...SourceAttribute) doc.IContent {
 // Parents: phrasing; option element inner content elements*.
 // Children: phrasing.
 // Attributes: globals
-func Span(spanAttrs ...SpanAttribute) doc.ContContainerFunc {
+func Span(spanAttrs ...attrs.SpanAttribute) doc.ContContainerFunc {
 	return elems.Span(toIAttributes(spanAttrs)...)
 }
 
@@ -856,7 +857,7 @@ func Span(spanAttrs ...SpanAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Strong(strongAttrs ...StrongAttribute) doc.ContContainerFunc {
+func Strong(strongAttrs ...attrs.StrongAttribute) doc.ContContainerFunc {
 	return elems.Strong(toIAttributes(strongAttrs)...)
 }
 
@@ -865,7 +866,7 @@ func Strong(strongAttrs ...StrongAttribute) doc.ContContainerFunc {
 // Parents: head; noscript*.
 // Children: text*.
 // Attributes: globals; media; blocking
-func Style(styleAttrs ...StyleAttribute) doc.ContContainerFunc {
+func Style(styleAttrs ...attrs.StyleAttribute) doc.ContContainerFunc {
 	return elems.Style(toIAttributes(styleAttrs)...)
 }
 
@@ -874,7 +875,7 @@ func Style(styleAttrs ...StyleAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sub(subAttrs ...SubAttribute) doc.ContContainerFunc {
+func Sub(subAttrs ...attrs.SubAttribute) doc.ContContainerFunc {
 	return elems.Sub(toIAttributes(subAttrs)...)
 }
 
@@ -883,7 +884,7 @@ func Sub(subAttrs ...SubAttribute) doc.ContContainerFunc {
 // Parents: details.
 // Children: phrasing; heading content.
 // Attributes: globals
-func Summary(summaryAttrs ...SummaryAttribute) doc.ContContainerFunc {
+func Summary(summaryAttrs ...attrs.SummaryAttribute) doc.ContContainerFunc {
 	return elems.Summary(toIAttributes(summaryAttrs)...)
 }
 
@@ -892,7 +893,7 @@ func Summary(summaryAttrs ...SummaryAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sup(supAttrs ...SupAttribute) doc.ContContainerFunc {
+func Sup(supAttrs ...attrs.SupAttribute) doc.ContContainerFunc {
 	return elems.Sup(toIAttributes(supAttrs)...)
 }
 
@@ -901,7 +902,7 @@ func Sup(supAttrs ...SupAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: per [SVG].
 // Attributes: per [SVG]
-func Svg(svgAttrs ...SvgAttribute) doc.ContContainerFunc {
+func Svg(svgAttrs ...attrs.SvgAttribute) doc.ContContainerFunc {
 	return elems.Svg(toIAttributes(svgAttrs)...)
 }
 
@@ -910,7 +911,7 @@ func Svg(svgAttrs ...SvgAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements.
 // Attributes: globals
-func Table(tableAttrs ...TableAttribute) doc.ContContainerFunc {
+func Table(tableAttrs ...attrs.TableAttribute) doc.ContContainerFunc {
 	return elems.Table(toIAttributes(tableAttrs)...)
 }
 
@@ -919,7 +920,7 @@ func Table(tableAttrs ...TableAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tbody(tbodyAttrs ...TbodyAttribute) doc.ContContainerFunc {
+func Tbody(tbodyAttrs ...attrs.TbodyAttribute) doc.ContContainerFunc {
 	return elems.Tbody(toIAttributes(tbodyAttrs)...)
 }
 
@@ -928,7 +929,7 @@ func Tbody(tbodyAttrs ...TbodyAttribute) doc.ContContainerFunc {
 // Parents: tr.
 // Children: flow.
 // Attributes: globals; colspan; rowspan; headers
-func Td(tdAttrs ...TdAttribute) doc.ContContainerFunc {
+func Td(tdAttrs ...attrs.TdAttribute) doc.ContContainerFunc {
 	return elems.Td(toIAttributes(tdAttrs)...)
 }
 
@@ -937,7 +938,7 @@ func Td(tdAttrs ...TdAttribute) doc.ContContainerFunc {
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
-func Template(templateAttrs ...TemplateAttribute) doc.IContent {
+func Template(templateAttrs ...attrs.TemplateAttribute) doc.IContent {
 	return elems.Template(toIAttributes(templateAttrs)...)
 }
 
@@ -946,7 +947,7 @@ func Template(templateAttrs ...TemplateAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: text.
 // Attributes: globals; autocomplete; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap
-func Textarea(textareaAttrs ...TextareaAttribute) doc.ContContainerFunc {
+func Textarea(textareaAttrs ...attrs.TextareaAttribute) doc.ContContainerFunc {
 	return elems.Textarea(toIAttributes(textareaAttrs)...)
 }
 
@@ -955,7 +956,7 @@ func Textarea(textareaAttrs ...TextareaAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tfoot(tfootAttrs ...TfootAttribute) doc.ContContainerFunc {
+func Tfoot(tfootAttrs ...attrs.TfootAttribute) doc.ContContainerFunc {
 	return elems.Tfoot(toIAttributes(tfootAttrs)...)
 }
 
@@ -964,7 +965,7 @@ func Tfoot(tfootAttrs ...TfootAttribute) doc.ContContainerFunc {
 // Parents: tr.
 // Children: flow*.
 // Attributes: globals; colspan; rowspan; headers; scope; abbr
-func Th(thAttrs ...ThAttribute) doc.ContContainerFunc {
+func Th(thAttrs ...attrs.ThAttribute) doc.ContContainerFunc {
 	return elems.Th(toIAttributes(thAttrs)...)
 }
 
@@ -973,7 +974,7 @@ func Th(thAttrs ...ThAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Thead(theadAttrs ...TheadAttribute) doc.ContContainerFunc {
+func Thead(theadAttrs ...attrs.TheadAttribute) doc.ContContainerFunc {
 	return elems.Thead(toIAttributes(theadAttrs)...)
 }
 
@@ -982,7 +983,7 @@ func Thead(theadAttrs ...TheadAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; datetime
-func Time(timeAttrs ...TimeAttribute) doc.ContContainerFunc {
+func Time(timeAttrs ...attrs.TimeAttribute) doc.ContContainerFunc {
 	return elems.Time(toIAttributes(timeAttrs)...)
 }
 
@@ -991,7 +992,7 @@ func Time(timeAttrs ...TimeAttribute) doc.ContContainerFunc {
 // Parents: head.
 // Children: text*.
 // Attributes: globals
-func Title(titleAttrs ...TitleAttribute) doc.ContContainerFunc {
+func Title(titleAttrs ...attrs.TitleAttribute) doc.ContContainerFunc {
 	return elems.Title(toIAttributes(titleAttrs)...)
 }
 
@@ -1000,7 +1001,7 @@ func Title(titleAttrs ...TitleAttribute) doc.ContContainerFunc {
 // Parents: table; thead; tbody; tfoot.
 // Children: th*; td; script-supporting elements.
 // Attributes: globals
-func Tr(trAttrs ...TrAttribute) doc.ContContainerFunc {
+func Tr(trAttrs ...attrs.TrAttribute) doc.ContContainerFunc {
 	return elems.Tr(toIAttributes(trAttrs)...)
 }
 
@@ -1009,7 +1010,7 @@ func Tr(trAttrs ...TrAttribute) doc.ContContainerFunc {
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
-func Track(trackAttrs ...TrackAttribute) doc.IContent {
+func Track(trackAttrs ...attrs.TrackAttribute) doc.IContent {
 	return elems.Track(toIAttributes(trackAttrs)...)
 }
 
@@ -1018,7 +1019,7 @@ func Track(trackAttrs ...TrackAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func U(uAttrs ...UAttribute) doc.ContContainerFunc {
+func U(uAttrs ...attrs.UAttribute) doc.ContContainerFunc {
 	return elems.U(toIAttributes(uAttrs)...)
 }
 
@@ -1027,7 +1028,7 @@ func U(uAttrs ...UAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Var(varAttrs ...VarAttribute) doc.ContContainerFunc {
+func Var(varAttrs ...attrs.VarAttribute) doc.ContContainerFunc {
 	return elems.Var(toIAttributes(varAttrs)...)
 }
 
@@ -1036,7 +1037,7 @@ func Var(varAttrs ...VarAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
-func Video(videoAttrs ...VideoAttribute) doc.ContContainerFunc {
+func Video(videoAttrs ...attrs.VideoAttribute) doc.ContContainerFunc {
 	return elems.Video(toIAttributes(videoAttrs)...)
 }
 
@@ -1045,6 +1046,6 @@ func Video(videoAttrs ...VideoAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Wbr(wbrAttrs ...WbrAttribute) doc.IContent {
+func Wbr(wbrAttrs ...attrs.WbrAttribute) doc.IContent {
 	return elems.Wbr(toIAttributes(wbrAttrs)...)
 }

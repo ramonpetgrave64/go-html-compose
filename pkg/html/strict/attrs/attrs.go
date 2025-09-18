@@ -5,8 +5,7 @@ package attrs
 
 import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
-	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
-	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/attrs/types"
+	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
 )
 
 // Abbr
@@ -16,10 +15,8 @@ import (
 // Description: Alternative label to use for the header cell when referencing the cell in other contexts.
 //
 // Value: Text*.
-func Abbr(value string) interface {
-	elems.ThAttribute
-} {
-	return newAttrWrapper(attrs.Abbr(value))
+func Abbr(value string) types.Abbr {
+	return types.Abbr{IAttribute: attrs.Abbr(value)}
 }
 
 // Accept
@@ -30,7 +27,7 @@ func Abbr(value string) interface {
 //
 // Value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*.
 func Accept(value string) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Accept(value))
 }
@@ -43,7 +40,7 @@ func Accept(value string) interface {
 //
 // Value: ASCII case-insensitive match for "UTF-8".
 func AcceptCharset(value string) interface {
-	elems.FormAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.AcceptCharset(value))
 }
@@ -56,7 +53,7 @@ func AcceptCharset(value string) interface {
 //
 // Value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length.
 func Accesskey(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Accesskey(value))
 }
@@ -69,7 +66,7 @@ func Accesskey(value string) interface {
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
 func Action(value string) interface {
-	elems.FormAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.Action(value))
 }
@@ -82,7 +79,7 @@ func Action(value string) interface {
 //
 // Value: Serialized permissions policy.
 func Allow(value string) interface {
-	elems.IframeAttribute
+	types.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Allow(value))
 }
@@ -95,7 +92,7 @@ func Allow(value string) interface {
 //
 // Value: Boolean attribute.
 func Allowfullscreen(value bool) interface {
-	elems.IframeAttribute
+	types.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Allowfullscreen(value))
 }
@@ -108,7 +105,7 @@ func Allowfullscreen(value bool) interface {
 //
 // Value: Boolean attribute.
 func Alpha(value bool) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Alpha(value))
 }
@@ -121,9 +118,9 @@ func Alpha(value bool) interface {
 //
 // Value: Text*.
 func Alt(value string) interface {
-	elems.AreaAttribute
-	elems.ImgAttribute
-	elems.InputAttribute
+	types.AreaAttribute
+	types.ImgAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Alt(value))
 }
@@ -136,7 +133,7 @@ func Alt(value string) interface {
 //
 // Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload".
 func As(value string) interface {
-	elems.LinkAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.As(value))
 }
@@ -149,7 +146,7 @@ func As(value string) interface {
 //
 // Value: Boolean attribute.
 func Async(value bool) interface {
-	elems.ScriptAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Async(value))
 }
@@ -162,7 +159,7 @@ func Async(value bool) interface {
 //
 // Value: "on"; "off"; "none"; "sentences"; "words"; "characters".
 func Autocapitalize(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autocapitalize(value))
 }
@@ -181,10 +178,10 @@ func Autocapitalize(value string) interface {
 //
 // Value: Autofill field name and related tokens*.
 func Autocomplete(value string) interface {
-	elems.FormAttribute
-	elems.InputAttribute
-	elems.SelectAttribute
-	elems.TextareaAttribute
+	types.FormAttribute
+	types.InputAttribute
+	types.SelectAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Autocomplete(value))
 }
@@ -197,7 +194,7 @@ func Autocomplete(value string) interface {
 //
 // Value: "on"; "off".
 func Autocorrect(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autocorrect(value))
 }
@@ -210,7 +207,7 @@ func Autocorrect(value string) interface {
 //
 // Value: Boolean attribute.
 func Autofocus(value bool) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Autofocus(value))
 }
@@ -223,8 +220,8 @@ func Autofocus(value bool) interface {
 //
 // Value: Boolean attribute.
 func Autoplay(value bool) interface {
-	elems.AudioAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Autoplay(value))
 }
@@ -237,9 +234,9 @@ func Autoplay(value bool) interface {
 //
 // Value: Unordered set of unique space-separated tokens*.
 func Blocking(value string) interface {
-	elems.LinkAttribute
-	elems.ScriptAttribute
-	elems.StyleAttribute
+	types.LinkAttribute
+	types.ScriptAttribute
+	types.StyleAttribute
 } {
 	return newAttrWrapper(attrs.Blocking(value))
 }
@@ -252,7 +249,7 @@ func Blocking(value string) interface {
 //
 // Value: "utf-8".
 func Charset(value string) interface {
-	elems.MetaAttribute
+	types.MetaAttribute
 } {
 	return newAttrWrapper(attrs.Charset(value))
 }
@@ -265,7 +262,7 @@ func Charset(value string) interface {
 //
 // Value: Boolean attribute.
 func Checked(value bool) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Checked(value))
 }
@@ -278,10 +275,10 @@ func Checked(value bool) interface {
 //
 // Value: Valid URL potentially surrounded by spaces.
 func Cite(value string) interface {
-	elems.BlockquoteAttribute
-	elems.DelAttribute
-	elems.InsAttribute
-	elems.QAttribute
+	types.BlockquoteAttribute
+	types.DelAttribute
+	types.InsAttribute
+	types.QAttribute
 } {
 	return newAttrWrapper(attrs.Cite(value))
 }
@@ -294,7 +291,7 @@ func Cite(value string) interface {
 //
 // Value: Set of space-separated tokens.
 func Class(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Class(value))
 }
@@ -307,7 +304,7 @@ func Class(value string) interface {
 //
 // Value: "any"; "closerequest"; "none";.
 func Closedby(value string) interface {
-	elems.DialogAttribute
+	types.DialogAttribute
 } {
 	return newAttrWrapper(attrs.Closedby(value))
 }
@@ -320,7 +317,7 @@ func Closedby(value string) interface {
 //
 // Value: CSS <color>.
 func Color(value string) interface {
-	elems.LinkAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Color(value))
 }
@@ -333,7 +330,7 @@ func Color(value string) interface {
 //
 // Value: "limited-srgb"; "display-p3".
 func Colorspace(value string) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Colorspace(value))
 }
@@ -346,7 +343,7 @@ func Colorspace(value string) interface {
 //
 // Value: Valid non-negative integer greater than zero.
 func Cols(value string) interface {
-	elems.TextareaAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Cols(value))
 }
@@ -359,8 +356,8 @@ func Cols(value string) interface {
 //
 // Value: Valid non-negative integer greater than zero.
 func Colspan(value string) interface {
-	elems.TdAttribute
-	elems.ThAttribute
+	types.TdAttribute
+	types.ThAttribute
 } {
 	return newAttrWrapper(attrs.Colspan(value))
 }
@@ -373,7 +370,7 @@ func Colspan(value string) interface {
 //
 // Value: "toggle-popover"; "show-popover"; "hide-popover"; "close"; "request-close"; "show-modal"; a custom command keyword.
 func Command(value string) interface {
-	elems.ButtonAttribute
+	types.ButtonAttribute
 } {
 	return newAttrWrapper(attrs.Command(value))
 }
@@ -386,7 +383,7 @@ func Command(value string) interface {
 //
 // Value: ID*.
 func Commandfor(value string) interface {
-	elems.ButtonAttribute
+	types.ButtonAttribute
 } {
 	return newAttrWrapper(attrs.Commandfor(value))
 }
@@ -399,7 +396,7 @@ func Commandfor(value string) interface {
 //
 // Value: Text*.
 func Content(value string) interface {
-	elems.MetaAttribute
+	types.MetaAttribute
 } {
 	return newAttrWrapper(attrs.Content(value))
 }
@@ -412,7 +409,7 @@ func Content(value string) interface {
 //
 // Value: "true"; "plaintext-only"; "false".
 func Contenteditable(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Contenteditable(value))
 }
@@ -425,8 +422,8 @@ func Contenteditable(value string) interface {
 //
 // Value: Boolean attribute.
 func Controls(value bool) interface {
-	elems.AudioAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Controls(value))
 }
@@ -439,7 +436,7 @@ func Controls(value bool) interface {
 //
 // Value: Valid list of floating-point numbers*.
 func Coords(value string) interface {
-	elems.AreaAttribute
+	types.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Coords(value))
 }
@@ -452,11 +449,11 @@ func Coords(value string) interface {
 //
 // Value: "anonymous"; "use-credentials".
 func Crossorigin(value string) interface {
-	elems.AudioAttribute
-	elems.ImgAttribute
-	elems.LinkAttribute
-	elems.ScriptAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.ImgAttribute
+	types.LinkAttribute
+	types.ScriptAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Crossorigin(value))
 }
@@ -469,7 +466,7 @@ func Crossorigin(value string) interface {
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
 func Data(value string) interface {
-	elems.ObjectAttribute
+	types.ObjectAttribute
 } {
 	return newAttrWrapper(attrs.Data(value))
 }
@@ -488,9 +485,9 @@ func Data(value string) interface {
 //
 // Value: Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string.
 func Datetime(value string) interface {
-	elems.DelAttribute
-	elems.InsAttribute
-	elems.TimeAttribute
+	types.DelAttribute
+	types.InsAttribute
+	types.TimeAttribute
 } {
 	return newAttrWrapper(attrs.Datetime(value))
 }
@@ -503,7 +500,7 @@ func Datetime(value string) interface {
 //
 // Value: "sync"; "async"; "auto".
 func Decoding(value string) interface {
-	elems.ImgAttribute
+	types.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Decoding(value))
 }
@@ -516,7 +513,7 @@ func Decoding(value string) interface {
 //
 // Value: Boolean attribute.
 func Default(value bool) interface {
-	elems.TrackAttribute
+	types.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Default(value))
 }
@@ -529,7 +526,7 @@ func Default(value bool) interface {
 //
 // Value: Boolean attribute.
 func Defer(value bool) interface {
-	elems.ScriptAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Defer(value))
 }
@@ -548,7 +545,7 @@ func Defer(value bool) interface {
 //
 // Value: "ltr"; "rtl".
 func Dir(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Dir(value))
 }
@@ -561,8 +558,8 @@ func Dir(value string) interface {
 //
 // Value: Text*.
 func Dirname(value string) interface {
-	elems.InputAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Dirname(value))
 }
@@ -587,14 +584,14 @@ func Dirname(value string) interface {
 //
 // Value: Boolean attribute.
 func Disabled(value bool) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
-	elems.OptgroupAttribute
-	elems.OptionAttribute
-	elems.SelectAttribute
-	elems.TextareaAttribute
-	elems.FieldsetAttribute
-	elems.LinkAttribute
+	types.ButtonAttribute
+	types.InputAttribute
+	types.OptgroupAttribute
+	types.OptionAttribute
+	types.SelectAttribute
+	types.TextareaAttribute
+	types.FieldsetAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Disabled(value))
 }
@@ -607,8 +604,8 @@ func Disabled(value bool) interface {
 //
 // Value: Text.
 func Download(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
+	types.AAttribute
+	types.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Download(value))
 }
@@ -621,7 +618,7 @@ func Download(value string) interface {
 //
 // Value: "true"; "false".
 func Draggable(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Draggable(value))
 }
@@ -634,7 +631,7 @@ func Draggable(value string) interface {
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
 func Enctype(value string) interface {
-	elems.FormAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.Enctype(value))
 }
@@ -647,7 +644,7 @@ func Enctype(value string) interface {
 //
 // Value: "enter"; "done"; "go"; "next"; "previous"; "search"; "send".
 func Enterkeyhint(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Enterkeyhint(value))
 }
@@ -660,9 +657,9 @@ func Enterkeyhint(value string) interface {
 //
 // Value: "auto"; "high"; "low".
 func Fetchpriority(value string) interface {
-	elems.ImgAttribute
-	elems.LinkAttribute
-	elems.ScriptAttribute
+	types.ImgAttribute
+	types.LinkAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Fetchpriority(value))
 }
@@ -681,8 +678,8 @@ func Fetchpriority(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
 func For(value string) interface {
-	elems.LabelAttribute
-	elems.OutputAttribute
+	types.LabelAttribute
+	types.OutputAttribute
 } {
 	return newAttrWrapper(attrs.For(value))
 }
@@ -695,13 +692,13 @@ func For(value string) interface {
 //
 // Value: ID*.
 func Form(value string) interface {
-	elems.ButtonAttribute
-	elems.FieldsetAttribute
-	elems.InputAttribute
-	elems.ObjectAttribute
-	elems.OutputAttribute
-	elems.SelectAttribute
-	elems.TextareaAttribute
+	types.ButtonAttribute
+	types.FieldsetAttribute
+	types.InputAttribute
+	types.ObjectAttribute
+	types.OutputAttribute
+	types.SelectAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Form(value))
 }
@@ -714,8 +711,8 @@ func Form(value string) interface {
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
 func Formaction(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Formaction(value))
 }
@@ -728,8 +725,8 @@ func Formaction(value string) interface {
 //
 // Value: "application/x-www-form-urlencoded"; "multipart/form-data"; "text/plain".
 func Formenctype(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Formenctype(value))
 }
@@ -742,8 +739,8 @@ func Formenctype(value string) interface {
 //
 // Value: "GET"; "POST"; "dialog".
 func Formmethod(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Formmethod(value))
 }
@@ -756,8 +753,8 @@ func Formmethod(value string) interface {
 //
 // Value: Boolean attribute.
 func Formnovalidate(value bool) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Formnovalidate(value))
 }
@@ -770,8 +767,8 @@ func Formnovalidate(value bool) interface {
 //
 // Value: Valid navigable target name or keyword.
 func Formtarget(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Formtarget(value))
 }
@@ -784,8 +781,8 @@ func Formtarget(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
 func Headers(value string) interface {
-	elems.TdAttribute
-	elems.ThAttribute
+	types.TdAttribute
+	types.ThAttribute
 } {
 	return newAttrWrapper(attrs.Headers(value))
 }
@@ -798,14 +795,14 @@ func Headers(value string) interface {
 //
 // Value: Valid non-negative integer.
 func Height(value string) interface {
-	elems.CanvasAttribute
-	elems.EmbedAttribute
-	elems.IframeAttribute
-	elems.ImgAttribute
-	elems.InputAttribute
-	elems.ObjectAttribute
-	elems.SourceAttribute
-	elems.VideoAttribute
+	types.CanvasAttribute
+	types.EmbedAttribute
+	types.IframeAttribute
+	types.ImgAttribute
+	types.InputAttribute
+	types.ObjectAttribute
+	types.SourceAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Height(value))
 }
@@ -818,7 +815,7 @@ func Height(value string) interface {
 //
 // Value: "until-found"; "hidden"; the empty string.
 func Hidden(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Hidden(value))
 }
@@ -831,7 +828,7 @@ func Hidden(value string) interface {
 //
 // Value: Valid floating-point number*.
 func High(value string) interface {
-	elems.MeterAttribute
+	types.MeterAttribute
 } {
 	return newAttrWrapper(attrs.High(value))
 }
@@ -856,10 +853,10 @@ func High(value string) interface {
 //
 // Value: Valid URL potentially surrounded by spaces.
 func Href(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
-	elems.LinkAttribute
-	elems.BaseAttribute
+	types.AAttribute
+	types.AreaAttribute
+	types.LinkAttribute
+	types.BaseAttribute
 } {
 	return newAttrWrapper(attrs.Href(value))
 }
@@ -872,8 +869,8 @@ func Href(value string) interface {
 //
 // Value: Valid BCP 47 language tag.
 func Hreflang(value string) interface {
-	elems.AAttribute
-	elems.LinkAttribute
+	types.AAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Hreflang(value))
 }
@@ -886,7 +883,7 @@ func Hreflang(value string) interface {
 //
 // Value: "content-type"; "default-style"; "refresh"; "x-ua-compatible"; "content-security-policy".
 func HttpEquiv(value string) interface {
-	elems.MetaAttribute
+	types.MetaAttribute
 } {
 	return newAttrWrapper(attrs.HttpEquiv(value))
 }
@@ -899,7 +896,7 @@ func HttpEquiv(value string) interface {
 //
 // Value: Text*.
 func Id(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Id(value))
 }
@@ -912,7 +909,7 @@ func Id(value string) interface {
 //
 // Value: Valid source size list.
 func Imagesizes(value string) interface {
-	elems.LinkAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Imagesizes(value))
 }
@@ -925,7 +922,7 @@ func Imagesizes(value string) interface {
 //
 // Value: Comma-separated list of image candidate strings.
 func Imagesrcset(value string) interface {
-	elems.LinkAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Imagesrcset(value))
 }
@@ -938,7 +935,7 @@ func Imagesrcset(value string) interface {
 //
 // Value: Boolean attribute.
 func Inert(value bool) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Inert(value))
 }
@@ -951,7 +948,7 @@ func Inert(value bool) interface {
 //
 // Value: "none"; "text"; "tel"; "email"; "url"; "numeric"; "decimal"; "search".
 func Inputmode(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Inputmode(value))
 }
@@ -964,8 +961,8 @@ func Inputmode(value string) interface {
 //
 // Value: Text.
 func Integrity(value string) interface {
-	elems.LinkAttribute
-	elems.ScriptAttribute
+	types.LinkAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Integrity(value))
 }
@@ -978,7 +975,7 @@ func Integrity(value string) interface {
 //
 // Value: Valid custom element name of a defined customized built-in element.
 func Is(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Is(value))
 }
@@ -991,7 +988,7 @@ func Is(value string) interface {
 //
 // Value: Boolean attribute.
 func Ismap(value bool) interface {
-	elems.ImgAttribute
+	types.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Ismap(value))
 }
@@ -1004,7 +1001,7 @@ func Ismap(value bool) interface {
 //
 // Value: Valid URL potentially surrounded by spaces.
 func Itemid(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemid(value))
 }
@@ -1017,7 +1014,7 @@ func Itemid(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*.
 func Itemprop(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemprop(value))
 }
@@ -1030,7 +1027,7 @@ func Itemprop(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
 func Itemref(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemref(value))
 }
@@ -1043,7 +1040,7 @@ func Itemref(value string) interface {
 //
 // Value: Boolean attribute.
 func Itemscope(value bool) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemscope(value))
 }
@@ -1056,7 +1053,7 @@ func Itemscope(value bool) interface {
 //
 // Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*.
 func Itemtype(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Itemtype(value))
 }
@@ -1069,7 +1066,7 @@ func Itemtype(value string) interface {
 //
 // Value: "subtitles"; "captions"; "descriptions"; "chapters"; "metadata".
 func Kind(value string) interface {
-	elems.TrackAttribute
+	types.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Kind(value))
 }
@@ -1082,9 +1079,9 @@ func Kind(value string) interface {
 //
 // Value: Text.
 func Label(value string) interface {
-	elems.OptgroupAttribute
-	elems.OptionAttribute
-	elems.TrackAttribute
+	types.OptgroupAttribute
+	types.OptionAttribute
+	types.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Label(value))
 }
@@ -1097,7 +1094,7 @@ func Label(value string) interface {
 //
 // Value: Valid BCP 47 language tag or the empty string.
 func Lang(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Lang(value))
 }
@@ -1110,7 +1107,7 @@ func Lang(value string) interface {
 //
 // Value: ID*.
 func List(value string) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.List(value))
 }
@@ -1123,8 +1120,8 @@ func List(value string) interface {
 //
 // Value: "lazy"; "eager".
 func Loading(value string) interface {
-	elems.IframeAttribute
-	elems.ImgAttribute
+	types.IframeAttribute
+	types.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Loading(value))
 }
@@ -1137,8 +1134,8 @@ func Loading(value string) interface {
 //
 // Value: Boolean attribute.
 func Loop(value bool) interface {
-	elems.AudioAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Loop(value))
 }
@@ -1151,7 +1148,7 @@ func Loop(value bool) interface {
 //
 // Value: Valid floating-point number*.
 func Low(value string) interface {
-	elems.MeterAttribute
+	types.MeterAttribute
 } {
 	return newAttrWrapper(attrs.Low(value))
 }
@@ -1170,9 +1167,9 @@ func Low(value string) interface {
 //
 // Value: Valid floating-point number*.
 func Max(value string) interface {
-	elems.InputAttribute
-	elems.MeterAttribute
-	elems.ProgressAttribute
+	types.InputAttribute
+	types.MeterAttribute
+	types.ProgressAttribute
 } {
 	return newAttrWrapper(attrs.Max(value))
 }
@@ -1185,8 +1182,8 @@ func Max(value string) interface {
 //
 // Value: Valid non-negative integer.
 func Maxlength(value string) interface {
-	elems.InputAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Maxlength(value))
 }
@@ -1199,10 +1196,10 @@ func Maxlength(value string) interface {
 //
 // Value: Valid media query list.
 func Media(value string) interface {
-	elems.LinkAttribute
-	elems.MetaAttribute
-	elems.SourceAttribute
-	elems.StyleAttribute
+	types.LinkAttribute
+	types.MetaAttribute
+	types.SourceAttribute
+	types.StyleAttribute
 } {
 	return newAttrWrapper(attrs.Media(value))
 }
@@ -1215,7 +1212,7 @@ func Media(value string) interface {
 //
 // Value: "GET"; "POST"; "dialog".
 func Method(value string) interface {
-	elems.FormAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.Method(value))
 }
@@ -1234,8 +1231,8 @@ func Method(value string) interface {
 //
 // Value: Valid floating-point number*.
 func Min(value string) interface {
-	elems.InputAttribute
-	elems.MeterAttribute
+	types.InputAttribute
+	types.MeterAttribute
 } {
 	return newAttrWrapper(attrs.Min(value))
 }
@@ -1248,8 +1245,8 @@ func Min(value string) interface {
 //
 // Value: Valid non-negative integer.
 func Minlength(value string) interface {
-	elems.InputAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Minlength(value))
 }
@@ -1262,8 +1259,8 @@ func Minlength(value string) interface {
 //
 // Value: Boolean attribute.
 func Multiple(value bool) interface {
-	elems.InputAttribute
-	elems.SelectAttribute
+	types.InputAttribute
+	types.SelectAttribute
 } {
 	return newAttrWrapper(attrs.Multiple(value))
 }
@@ -1276,8 +1273,8 @@ func Multiple(value bool) interface {
 //
 // Value: Boolean attribute.
 func Muted(value bool) interface {
-	elems.AudioAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Muted(value))
 }
@@ -1326,19 +1323,19 @@ func Muted(value bool) interface {
 //
 // Value: Text.
 func Name(value string) interface {
-	elems.ButtonAttribute
-	elems.FieldsetAttribute
-	elems.InputAttribute
-	elems.OutputAttribute
-	elems.SelectAttribute
-	elems.TextareaAttribute
-	elems.DetailsAttribute
-	elems.FormAttribute
-	elems.IframeAttribute
-	elems.ObjectAttribute
-	elems.MapAttribute
-	elems.MetaAttribute
-	elems.SlotAttribute
+	types.ButtonAttribute
+	types.FieldsetAttribute
+	types.InputAttribute
+	types.OutputAttribute
+	types.SelectAttribute
+	types.TextareaAttribute
+	types.DetailsAttribute
+	types.FormAttribute
+	types.IframeAttribute
+	types.ObjectAttribute
+	types.MapAttribute
+	types.MetaAttribute
+	types.SlotAttribute
 } {
 	return newAttrWrapper(attrs.Name(value))
 }
@@ -1351,7 +1348,7 @@ func Name(value string) interface {
 //
 // Value: Boolean attribute.
 func Nomodule(value bool) interface {
-	elems.ScriptAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Nomodule(value))
 }
@@ -1364,7 +1361,7 @@ func Nomodule(value bool) interface {
 //
 // Value: Text.
 func Nonce(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Nonce(value))
 }
@@ -1377,7 +1374,7 @@ func Nonce(value string) interface {
 //
 // Value: Boolean attribute.
 func Novalidate(value bool) interface {
-	elems.FormAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.Novalidate(value))
 }
@@ -1396,8 +1393,8 @@ func Novalidate(value bool) interface {
 //
 // Value: Boolean attribute.
 func Open(value bool) interface {
-	elems.DetailsAttribute
-	elems.DialogAttribute
+	types.DetailsAttribute
+	types.DialogAttribute
 } {
 	return newAttrWrapper(attrs.Open(value))
 }
@@ -1410,7 +1407,7 @@ func Open(value bool) interface {
 //
 // Value: Valid floating-point number*.
 func Optimum(value string) interface {
-	elems.MeterAttribute
+	types.MeterAttribute
 } {
 	return newAttrWrapper(attrs.Optimum(value))
 }
@@ -1423,7 +1420,7 @@ func Optimum(value string) interface {
 //
 // Value: Regular expression matching the JavaScript Pattern production.
 func Pattern(value string) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Pattern(value))
 }
@@ -1436,8 +1433,8 @@ func Pattern(value string) interface {
 //
 // Value: Set of space-separated tokens consisting of valid non-empty URLs.
 func Ping(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
+	types.AAttribute
+	types.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Ping(value))
 }
@@ -1450,8 +1447,8 @@ func Ping(value string) interface {
 //
 // Value: Text*.
 func Placeholder(value string) interface {
-	elems.InputAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Placeholder(value))
 }
@@ -1464,7 +1461,7 @@ func Placeholder(value string) interface {
 //
 // Value: Boolean attribute.
 func Playsinline(value bool) interface {
-	elems.VideoAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Playsinline(value))
 }
@@ -1477,7 +1474,7 @@ func Playsinline(value bool) interface {
 //
 // Value: "auto"; "manual"; "hint".
 func Popover(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Popover(value))
 }
@@ -1490,8 +1487,8 @@ func Popover(value string) interface {
 //
 // Value: ID*.
 func Popovertarget(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Popovertarget(value))
 }
@@ -1504,8 +1501,8 @@ func Popovertarget(value string) interface {
 //
 // Value: "toggle"; "show"; "hide".
 func Popovertargetaction(value string) interface {
-	elems.ButtonAttribute
-	elems.InputAttribute
+	types.ButtonAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Popovertargetaction(value))
 }
@@ -1518,7 +1515,7 @@ func Popovertargetaction(value string) interface {
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
 func Poster(value string) interface {
-	elems.VideoAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Poster(value))
 }
@@ -1531,8 +1528,8 @@ func Poster(value string) interface {
 //
 // Value: "none"; "metadata"; "auto".
 func Preload(value string) interface {
-	elems.AudioAttribute
-	elems.VideoAttribute
+	types.AudioAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Preload(value))
 }
@@ -1551,8 +1548,8 @@ func Preload(value string) interface {
 //
 // Value: Boolean attribute.
 func Readonly(value bool) interface {
-	elems.InputAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Readonly(value))
 }
@@ -1565,12 +1562,12 @@ func Readonly(value bool) interface {
 //
 // Value: Referrer policy.
 func Referrerpolicy(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
-	elems.IframeAttribute
-	elems.ImgAttribute
-	elems.LinkAttribute
-	elems.ScriptAttribute
+	types.AAttribute
+	types.AreaAttribute
+	types.IframeAttribute
+	types.ImgAttribute
+	types.LinkAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Referrerpolicy(value))
 }
@@ -1589,9 +1586,9 @@ func Referrerpolicy(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens*.
 func Rel(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
-	elems.LinkAttribute
+	types.AAttribute
+	types.AreaAttribute
+	types.LinkAttribute
 } {
 	return newAttrWrapper(attrs.Rel(value))
 }
@@ -1604,9 +1601,9 @@ func Rel(value string) interface {
 //
 // Value: Boolean attribute.
 func Required(value bool) interface {
-	elems.InputAttribute
-	elems.SelectAttribute
-	elems.TextareaAttribute
+	types.InputAttribute
+	types.SelectAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Required(value))
 }
@@ -1619,7 +1616,7 @@ func Required(value bool) interface {
 //
 // Value: Boolean attribute.
 func Reversed(value bool) interface {
-	elems.OlAttribute
+	types.OlAttribute
 } {
 	return newAttrWrapper(attrs.Reversed(value))
 }
@@ -1632,7 +1629,7 @@ func Reversed(value bool) interface {
 //
 // Value: Valid non-negative integer greater than zero.
 func Rows(value string) interface {
-	elems.TextareaAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Rows(value))
 }
@@ -1645,8 +1642,8 @@ func Rows(value string) interface {
 //
 // Value: Valid non-negative integer.
 func Rowspan(value string) interface {
-	elems.TdAttribute
-	elems.ThAttribute
+	types.TdAttribute
+	types.ThAttribute
 } {
 	return newAttrWrapper(attrs.Rowspan(value))
 }
@@ -1659,7 +1656,7 @@ func Rowspan(value string) interface {
 //
 // Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads""allow-forms""allow-modals""allow-orientation-lock""allow-pointer-lock""allow-popups""allow-popups-to-escape-sandbox""allow-presentation""allow-same-origin""allow-scripts""allow-top-navigation""allow-top-navigation-by-user-activation""allow-top-navigation-to-custom-protocols".
 func Sandbox(value string) interface {
-	elems.IframeAttribute
+	types.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Sandbox(value))
 }
@@ -1672,7 +1669,7 @@ func Sandbox(value string) interface {
 //
 // Value: "row"; "col"; "rowgroup"; "colgroup".
 func Scope(value string) interface {
-	elems.ThAttribute
+	types.ThAttribute
 } {
 	return newAttrWrapper(attrs.Scope(value))
 }
@@ -1685,7 +1682,7 @@ func Scope(value string) interface {
 //
 // Value: Boolean attribute.
 func Selected(value bool) interface {
-	elems.OptionAttribute
+	types.OptionAttribute
 } {
 	return newAttrWrapper(attrs.Selected(value))
 }
@@ -1698,7 +1695,7 @@ func Selected(value bool) interface {
 //
 // Value: Boolean attribute.
 func Shadowrootclonable(value bool) interface {
-	elems.TemplateAttribute
+	types.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootclonable(value))
 }
@@ -1711,7 +1708,7 @@ func Shadowrootclonable(value bool) interface {
 //
 // Value: Boolean attribute.
 func Shadowrootcustomelementregistry(value bool) interface {
-	elems.TemplateAttribute
+	types.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootcustomelementregistry(value))
 }
@@ -1724,7 +1721,7 @@ func Shadowrootcustomelementregistry(value bool) interface {
 //
 // Value: Boolean attribute.
 func Shadowrootdelegatesfocus(value bool) interface {
-	elems.TemplateAttribute
+	types.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootdelegatesfocus(value))
 }
@@ -1737,7 +1734,7 @@ func Shadowrootdelegatesfocus(value bool) interface {
 //
 // Value: "open"; "closed".
 func Shadowrootmode(value string) interface {
-	elems.TemplateAttribute
+	types.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootmode(value))
 }
@@ -1750,7 +1747,7 @@ func Shadowrootmode(value string) interface {
 //
 // Value: Boolean attribute.
 func Shadowrootserializable(value bool) interface {
-	elems.TemplateAttribute
+	types.TemplateAttribute
 } {
 	return newAttrWrapper(attrs.Shadowrootserializable(value))
 }
@@ -1763,7 +1760,7 @@ func Shadowrootserializable(value bool) interface {
 //
 // Value: "circle"; "default"; "poly"; "rect".
 func Shape(value string) interface {
-	elems.AreaAttribute
+	types.AreaAttribute
 } {
 	return newAttrWrapper(attrs.Shape(value))
 }
@@ -1776,8 +1773,8 @@ func Shape(value string) interface {
 //
 // Value: Valid non-negative integer greater than zero.
 func Size(value string) interface {
-	elems.InputAttribute
-	elems.SelectAttribute
+	types.InputAttribute
+	types.SelectAttribute
 } {
 	return newAttrWrapper(attrs.Size(value))
 }
@@ -1796,9 +1793,9 @@ func Size(value string) interface {
 //
 // Value: Valid source size list.
 func Sizes(value string) interface {
-	elems.LinkAttribute
-	elems.ImgAttribute
-	elems.SourceAttribute
+	types.LinkAttribute
+	types.ImgAttribute
+	types.SourceAttribute
 } {
 	return newAttrWrapper(attrs.Sizes(value))
 }
@@ -1811,7 +1808,7 @@ func Sizes(value string) interface {
 //
 // Value: Text.
 func Slot(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Slot(value))
 }
@@ -1824,8 +1821,8 @@ func Slot(value string) interface {
 //
 // Value: Valid non-negative integer greater than zero.
 func Span(value string) interface {
-	elems.ColAttribute
-	elems.ColgroupAttribute
+	types.ColAttribute
+	types.ColgroupAttribute
 } {
 	return newAttrWrapper(attrs.Span(value))
 }
@@ -1838,7 +1835,7 @@ func Span(value string) interface {
 //
 // Value: "true"; "false"; the empty string.
 func Spellcheck(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Spellcheck(value))
 }
@@ -1862,7 +1859,7 @@ func Src(value string) types.Src {
 //
 // Value: The source of an iframe srcdoc document*.
 func Srcdoc(value string) interface {
-	elems.IframeAttribute
+	types.IframeAttribute
 } {
 	return newAttrWrapper(attrs.Srcdoc(value))
 }
@@ -1875,7 +1872,7 @@ func Srcdoc(value string) interface {
 //
 // Value: Valid BCP 47 language tag.
 func Srclang(value string) interface {
-	elems.TrackAttribute
+	types.TrackAttribute
 } {
 	return newAttrWrapper(attrs.Srclang(value))
 }
@@ -1888,8 +1885,8 @@ func Srclang(value string) interface {
 //
 // Value: Comma-separated list of image candidate strings.
 func Srcset(value string) interface {
-	elems.ImgAttribute
-	elems.SourceAttribute
+	types.ImgAttribute
+	types.SourceAttribute
 } {
 	return newAttrWrapper(attrs.Srcset(value))
 }
@@ -1902,7 +1899,7 @@ func Srcset(value string) interface {
 //
 // Value: Valid integer.
 func Start(value string) interface {
-	elems.OlAttribute
+	types.OlAttribute
 } {
 	return newAttrWrapper(attrs.Start(value))
 }
@@ -1915,7 +1912,7 @@ func Start(value string) interface {
 //
 // Value: Valid floating-point number greater than zero, or "any".
 func Step(value string) interface {
-	elems.InputAttribute
+	types.InputAttribute
 } {
 	return newAttrWrapper(attrs.Step(value))
 }
@@ -1928,7 +1925,7 @@ func Step(value string) interface {
 //
 // Value: CSS declarations*.
 func Style(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Style(value))
 }
@@ -1941,7 +1938,7 @@ func Style(value string) interface {
 //
 // Value: Valid integer.
 func Tabindex(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Tabindex(value))
 }
@@ -1966,10 +1963,10 @@ func Tabindex(value string) interface {
 //
 // Value: Valid navigable target name or keyword.
 func Target(value string) interface {
-	elems.AAttribute
-	elems.AreaAttribute
-	elems.BaseAttribute
-	elems.FormAttribute
+	types.AAttribute
+	types.AreaAttribute
+	types.BaseAttribute
+	types.FormAttribute
 } {
 	return newAttrWrapper(attrs.Target(value))
 }
@@ -2006,7 +2003,7 @@ func Target(value string) interface {
 //
 // Value: Text.
 func Title(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Title(value))
 }
@@ -2019,7 +2016,7 @@ func Title(value string) interface {
 //
 // Value: "yes"; "no".
 func Translate(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Translate(value))
 }
@@ -2062,15 +2059,15 @@ func Translate(value string) interface {
 //
 // Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match.
 func Type(value string) interface {
-	elems.AAttribute
-	elems.LinkAttribute
-	elems.ButtonAttribute
-	elems.EmbedAttribute
-	elems.ObjectAttribute
-	elems.SourceAttribute
-	elems.InputAttribute
-	elems.OlAttribute
-	elems.ScriptAttribute
+	types.AAttribute
+	types.LinkAttribute
+	types.ButtonAttribute
+	types.EmbedAttribute
+	types.ObjectAttribute
+	types.SourceAttribute
+	types.InputAttribute
+	types.OlAttribute
+	types.ScriptAttribute
 } {
 	return newAttrWrapper(attrs.Type(value))
 }
@@ -2083,7 +2080,7 @@ func Type(value string) interface {
 //
 // Value: Valid hash-name reference*.
 func Usemap(value string) interface {
-	elems.ImgAttribute
+	types.ImgAttribute
 } {
 	return newAttrWrapper(attrs.Usemap(value))
 }
@@ -2131,14 +2128,14 @@ func Value(value string) types.Value {
 //
 // Value: Valid non-negative integer.
 func Width(value string) interface {
-	elems.CanvasAttribute
-	elems.EmbedAttribute
-	elems.IframeAttribute
-	elems.ImgAttribute
-	elems.InputAttribute
-	elems.ObjectAttribute
-	elems.SourceAttribute
-	elems.VideoAttribute
+	types.CanvasAttribute
+	types.EmbedAttribute
+	types.IframeAttribute
+	types.ImgAttribute
+	types.InputAttribute
+	types.ObjectAttribute
+	types.SourceAttribute
+	types.VideoAttribute
 } {
 	return newAttrWrapper(attrs.Width(value))
 }
@@ -2151,7 +2148,7 @@ func Width(value string) interface {
 //
 // Value: "soft"; "hard".
 func Wrap(value string) interface {
-	elems.TextareaAttribute
+	types.TextareaAttribute
 } {
 	return newAttrWrapper(attrs.Wrap(value))
 }
@@ -2164,7 +2161,7 @@ func Wrap(value string) interface {
 //
 // Value: "true"; "false"; the empty string.
 func Writingsuggestions(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Writingsuggestions(value))
 }
@@ -2177,7 +2174,7 @@ func Writingsuggestions(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onafterprint(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onafterprint(value))
 }
@@ -2190,7 +2187,7 @@ func Onafterprint(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onauxclick(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onauxclick(value))
 }
@@ -2203,7 +2200,7 @@ func Onauxclick(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onbeforeinput(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeinput(value))
 }
@@ -2216,7 +2213,7 @@ func Onbeforeinput(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onbeforematch(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforematch(value))
 }
@@ -2229,7 +2226,7 @@ func Onbeforematch(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onbeforeprint(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeprint(value))
 }
@@ -2242,7 +2239,7 @@ func Onbeforeprint(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onbeforeunload(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforeunload(value))
 }
@@ -2255,7 +2252,7 @@ func Onbeforeunload(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onbeforetoggle(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onbeforetoggle(value))
 }
@@ -2268,7 +2265,7 @@ func Onbeforetoggle(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onblur(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onblur(value))
 }
@@ -2281,7 +2278,7 @@ func Onblur(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncancel(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncancel(value))
 }
@@ -2294,7 +2291,7 @@ func Oncancel(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncanplay(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncanplay(value))
 }
@@ -2307,7 +2304,7 @@ func Oncanplay(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncanplaythrough(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncanplaythrough(value))
 }
@@ -2320,7 +2317,7 @@ func Oncanplaythrough(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onchange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onchange(value))
 }
@@ -2333,7 +2330,7 @@ func Onchange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onclick(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onclick(value))
 }
@@ -2346,7 +2343,7 @@ func Onclick(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onclose(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onclose(value))
 }
@@ -2359,7 +2356,7 @@ func Onclose(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncommand(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncommand(value))
 }
@@ -2372,7 +2369,7 @@ func Oncommand(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncontextlost(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextlost(value))
 }
@@ -2385,7 +2382,7 @@ func Oncontextlost(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncontextmenu(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextmenu(value))
 }
@@ -2398,7 +2395,7 @@ func Oncontextmenu(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncontextrestored(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncontextrestored(value))
 }
@@ -2411,7 +2408,7 @@ func Oncontextrestored(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncopy(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncopy(value))
 }
@@ -2424,7 +2421,7 @@ func Oncopy(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncuechange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncuechange(value))
 }
@@ -2437,7 +2434,7 @@ func Oncuechange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oncut(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oncut(value))
 }
@@ -2450,7 +2447,7 @@ func Oncut(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondblclick(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondblclick(value))
 }
@@ -2463,7 +2460,7 @@ func Ondblclick(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondrag(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondrag(value))
 }
@@ -2476,7 +2473,7 @@ func Ondrag(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondragend(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragend(value))
 }
@@ -2489,7 +2486,7 @@ func Ondragend(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondragenter(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragenter(value))
 }
@@ -2502,7 +2499,7 @@ func Ondragenter(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondragleave(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragleave(value))
 }
@@ -2515,7 +2512,7 @@ func Ondragleave(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondragover(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragover(value))
 }
@@ -2528,7 +2525,7 @@ func Ondragover(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondragstart(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondragstart(value))
 }
@@ -2541,7 +2538,7 @@ func Ondragstart(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondrop(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondrop(value))
 }
@@ -2554,7 +2551,7 @@ func Ondrop(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ondurationchange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ondurationchange(value))
 }
@@ -2567,7 +2564,7 @@ func Ondurationchange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onemptied(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onemptied(value))
 }
@@ -2580,7 +2577,7 @@ func Onemptied(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onended(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onended(value))
 }
@@ -2593,7 +2590,7 @@ func Onended(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onerror(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onerror(value))
 }
@@ -2606,7 +2603,7 @@ func Onerror(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onfocus(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onfocus(value))
 }
@@ -2619,7 +2616,7 @@ func Onfocus(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onformdata(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onformdata(value))
 }
@@ -2632,7 +2629,7 @@ func Onformdata(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onhashchange(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onhashchange(value))
 }
@@ -2645,7 +2642,7 @@ func Onhashchange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oninput(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oninput(value))
 }
@@ -2658,7 +2655,7 @@ func Oninput(value string) interface {
 //
 // Value: Event handler content attribute.
 func Oninvalid(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Oninvalid(value))
 }
@@ -2671,7 +2668,7 @@ func Oninvalid(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onkeydown(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeydown(value))
 }
@@ -2684,7 +2681,7 @@ func Onkeydown(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onkeypress(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeypress(value))
 }
@@ -2697,7 +2694,7 @@ func Onkeypress(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onkeyup(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onkeyup(value))
 }
@@ -2710,7 +2707,7 @@ func Onkeyup(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onlanguagechange(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onlanguagechange(value))
 }
@@ -2723,7 +2720,7 @@ func Onlanguagechange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onload(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onload(value))
 }
@@ -2736,7 +2733,7 @@ func Onload(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onloadeddata(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadeddata(value))
 }
@@ -2749,7 +2746,7 @@ func Onloadeddata(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onloadedmetadata(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadedmetadata(value))
 }
@@ -2762,7 +2759,7 @@ func Onloadedmetadata(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onloadstart(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onloadstart(value))
 }
@@ -2775,7 +2772,7 @@ func Onloadstart(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmessage(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onmessage(value))
 }
@@ -2788,7 +2785,7 @@ func Onmessage(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmessageerror(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onmessageerror(value))
 }
@@ -2801,7 +2798,7 @@ func Onmessageerror(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmousedown(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmousedown(value))
 }
@@ -2814,7 +2811,7 @@ func Onmousedown(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmouseenter(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseenter(value))
 }
@@ -2827,7 +2824,7 @@ func Onmouseenter(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmouseleave(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseleave(value))
 }
@@ -2840,7 +2837,7 @@ func Onmouseleave(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmousemove(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmousemove(value))
 }
@@ -2853,7 +2850,7 @@ func Onmousemove(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmouseout(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseout(value))
 }
@@ -2866,7 +2863,7 @@ func Onmouseout(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmouseover(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseover(value))
 }
@@ -2879,7 +2876,7 @@ func Onmouseover(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onmouseup(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onmouseup(value))
 }
@@ -2892,7 +2889,7 @@ func Onmouseup(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onoffline(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onoffline(value))
 }
@@ -2905,7 +2902,7 @@ func Onoffline(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ononline(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Ononline(value))
 }
@@ -2918,7 +2915,7 @@ func Ononline(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpagehide(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpagehide(value))
 }
@@ -2931,7 +2928,7 @@ func Onpagehide(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpagereveal(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpagereveal(value))
 }
@@ -2944,7 +2941,7 @@ func Onpagereveal(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpageshow(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpageshow(value))
 }
@@ -2957,7 +2954,7 @@ func Onpageshow(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpageswap(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpageswap(value))
 }
@@ -2970,7 +2967,7 @@ func Onpageswap(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpaste(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onpaste(value))
 }
@@ -2983,7 +2980,7 @@ func Onpaste(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpause(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onpause(value))
 }
@@ -2996,7 +2993,7 @@ func Onpause(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onplay(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onplay(value))
 }
@@ -3009,7 +3006,7 @@ func Onplay(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onplaying(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onplaying(value))
 }
@@ -3022,7 +3019,7 @@ func Onplaying(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onpopstate(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onpopstate(value))
 }
@@ -3035,7 +3032,7 @@ func Onpopstate(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onprogress(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onprogress(value))
 }
@@ -3048,7 +3045,7 @@ func Onprogress(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onratechange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onratechange(value))
 }
@@ -3061,7 +3058,7 @@ func Onratechange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onreset(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onreset(value))
 }
@@ -3074,7 +3071,7 @@ func Onreset(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onresize(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onresize(value))
 }
@@ -3087,7 +3084,7 @@ func Onresize(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onrejectionhandled(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onrejectionhandled(value))
 }
@@ -3100,7 +3097,7 @@ func Onrejectionhandled(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onscroll(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onscroll(value))
 }
@@ -3113,7 +3110,7 @@ func Onscroll(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onscrollend(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onscrollend(value))
 }
@@ -3126,7 +3123,7 @@ func Onscrollend(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onsecuritypolicyviolation(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsecuritypolicyviolation(value))
 }
@@ -3139,7 +3136,7 @@ func Onsecuritypolicyviolation(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onseeked(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onseeked(value))
 }
@@ -3152,7 +3149,7 @@ func Onseeked(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onseeking(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onseeking(value))
 }
@@ -3165,7 +3162,7 @@ func Onseeking(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onselect(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onselect(value))
 }
@@ -3178,7 +3175,7 @@ func Onselect(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onslotchange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onslotchange(value))
 }
@@ -3191,7 +3188,7 @@ func Onslotchange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onstalled(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onstalled(value))
 }
@@ -3204,7 +3201,7 @@ func Onstalled(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onstorage(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onstorage(value))
 }
@@ -3217,7 +3214,7 @@ func Onstorage(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onsubmit(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsubmit(value))
 }
@@ -3230,7 +3227,7 @@ func Onsubmit(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onsuspend(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onsuspend(value))
 }
@@ -3243,7 +3240,7 @@ func Onsuspend(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ontimeupdate(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ontimeupdate(value))
 }
@@ -3256,7 +3253,7 @@ func Ontimeupdate(value string) interface {
 //
 // Value: Event handler content attribute.
 func Ontoggle(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Ontoggle(value))
 }
@@ -3269,7 +3266,7 @@ func Ontoggle(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onunhandledrejection(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onunhandledrejection(value))
 }
@@ -3282,7 +3279,7 @@ func Onunhandledrejection(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onunload(value string) interface {
-	elems.BodyAttribute
+	types.BodyAttribute
 } {
 	return newAttrWrapper(attrs.Onunload(value))
 }
@@ -3295,7 +3292,7 @@ func Onunload(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onvolumechange(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onvolumechange(value))
 }
@@ -3308,7 +3305,7 @@ func Onvolumechange(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onwaiting(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onwaiting(value))
 }
@@ -3321,7 +3318,7 @@ func Onwaiting(value string) interface {
 //
 // Value: Event handler content attribute.
 func Onwheel(value string) interface {
-	elems.GlobalAttribute
+	types.GlobalAttribute
 } {
 	return newAttrWrapper(attrs.Onwheel(value))
 }
