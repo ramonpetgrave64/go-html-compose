@@ -5,6 +5,7 @@ package attrs
 
 import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/attrs"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/attrs/internal/types"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/elems"
 )
 
@@ -1849,8 +1850,8 @@ func Spellcheck(value string) interface {
 // Description: Address of the resource.
 //
 // Value: Valid non-empty URL potentially surrounded by spaces.
-func Src(value string) SrcType {
-	return newAttrWrapper(attrs.Src(value))
+func Src(value string) types.Src {
+	return types.Src{IAttribute: attrs.Src(value)}
 }
 
 // Srcdoc
@@ -2118,16 +2119,8 @@ func Usemap(value string) interface {
 // Description: Current value of the element.
 //
 // Value: Valid floating-point number.
-func Value(value string) interface {
-	elems.ButtonAttribute
-	elems.OptionAttribute
-	elems.DataAttribute
-	elems.InputAttribute
-	elems.LiAttribute
-	elems.MeterAttribute
-	elems.ProgressAttribute
-} {
-	return newAttrWrapper(attrs.Value(value))
+func Value(value string) types.Value {
+	return types.Value{IAttribute: attrs.Value(value)}
 }
 
 // Width

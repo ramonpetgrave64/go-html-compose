@@ -48,3 +48,25 @@ func Test_AllowedTypes(t *testing.T) {
 		})
 	}
 }
+
+func Test_ParentTypes(t *testing.T) {
+	t.Parallel()
+
+	t.Run("allowed parent type", func(t *testing.T) {
+		t.Parallel()
+
+		var value any = Value("my-value")
+		if _, ok := value.(elems.LiAttribute); !ok {
+			t.Errorf("expected value to be a UlAttribute, but it's not")
+		}
+	})
+
+	t.Run("disallowed parent type", func(t *testing.T) {
+		t.Parallel()
+
+		var value any = Value("my-value")
+		if _, ok := value.(elems.ScriptAttribute); ok {
+			t.Errorf("expected value to not be ScriptAttribute, but it is")
+		}
+	})
+}

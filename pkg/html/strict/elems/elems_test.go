@@ -64,8 +64,6 @@ func Test_ParentTypes(t *testing.T) {
 		}
 	})
 
-	// This won't pass since the returned wrapper actually does implement
-	// all types.
 	t.Run("disallowed parent type", func(t *testing.T) {
 		t.Parallel()
 
