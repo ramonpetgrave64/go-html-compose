@@ -25,6 +25,7 @@ var Doctype = doc.ChildElem("!DOCTYPE html")`
 type element struct {
 	name        string
 	description string
+	categories  string
 	parents     string
 	children    string
 	attributes  string
@@ -97,6 +98,7 @@ func extractElementsFromTable(table *html.Node) []*element {
 		}
 
 		description := digAllText(rowNodes[1])
+		categories := digAllText(rowNodes[2])
 		parents := digAllText(rowNodes[3])
 		children := digAllText(rowNodes[4])
 		attributes := digAllText(rowNodes[5])
@@ -106,6 +108,7 @@ func extractElementsFromTable(table *html.Node) []*element {
 			elem := &element{
 				name:        strings.TrimSpace(subName),
 				description: description,
+				categories:  categories,
 				parents:     parents,
 				children:    children,
 				attributes:  attributes,
@@ -139,8 +142,9 @@ func %s(attrs ...doc.IAttribute) %s {
 func makeElemDoc(elem *element) string {
 	return fmt.Sprintf(`// %s
 // Description: %s.
+// Categories: %s.
 // Parents: %s.
 // Children: %s.
 // Attributes: %s`,
-		kebabToPascal(elem.name), elem.description, elem.parents, elem.children, elem.attributes)
+		kebabToPascal(elem.name), elem.description, elem.categories, elem.parents, elem.children, elem.attributes)
 }

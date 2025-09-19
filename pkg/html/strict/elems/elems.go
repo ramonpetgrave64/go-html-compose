@@ -12,6 +12,7 @@ import (
 
 // A
 // Description: Hyperlink.
+// Categories: flow; phrasing*; interactive; palpable.
 // Parents: phrasing.
 // Children: transparent*.
 // Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
@@ -23,6 +24,7 @@ func A(attrs ...attrs.AAttribute) types.ContContainerFunc[types.A, types.AChild]
 
 // Abbr
 // Description: Abbreviation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -34,6 +36,7 @@ func Abbr(attrs ...attrs.AbbrAttribute) types.ContContainerFunc[types.Abbr, type
 
 // Address
 // Description: Contact information for a page or article element.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -45,6 +48,7 @@ func Address(attrs ...attrs.AddressAttribute) types.ContContainerFunc[types.Addr
 
 // Area
 // Description: Hyperlink or dead area on an image map.
+// Categories: flow; phrasing.
 // Parents: phrasing*.
 // Children: empty.
 // Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
@@ -54,6 +58,7 @@ func Area(attrs ...attrs.AreaAttribute) doc.IContent {
 
 // Article
 // Description: Self-contained syndicatable or reusable composition.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -65,6 +70,7 @@ func Article(attrs ...attrs.ArticleAttribute) types.ContContainerFunc[types.Arti
 
 // Aside
 // Description: Sidebar for tangentially related content.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -76,6 +82,7 @@ func Aside(attrs ...attrs.AsideAttribute) types.ContContainerFunc[types.Aside, t
 
 // Audio
 // Description: Audio player.
+// Categories: flow; phrasing; embedded; interactive; palpable*.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
@@ -87,6 +94,7 @@ func Audio(attrs ...attrs.AudioAttribute) types.ContContainerFunc[types.Audio, t
 
 // B
 // Description: Keywords.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -98,6 +106,7 @@ func B(attrs ...attrs.BAttribute) types.ContContainerFunc[types.B, types.BChild]
 
 // Base
 // Description: Base URL and default target navigable for hyperlinks and forms.
+// Categories: metadata.
 // Parents: head.
 // Children: empty.
 // Attributes: globals; href; target
@@ -107,6 +116,7 @@ func Base(attrs ...attrs.BaseAttribute) doc.IContent {
 
 // Bdi
 // Description: Text directionality isolation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -118,6 +128,7 @@ func Bdi(attrs ...attrs.BdiAttribute) types.ContContainerFunc[types.Bdi, types.B
 
 // Bdo
 // Description: Text directionality formatting.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -129,6 +140,7 @@ func Bdo(attrs ...attrs.BdoAttribute) types.ContContainerFunc[types.Bdo, types.B
 
 // Blockquote
 // Description: A section quoted from another source.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; cite
@@ -140,6 +152,7 @@ func Blockquote(attrs ...attrs.BlockquoteAttribute) types.ContContainerFunc[type
 
 // Body
 // Description: Document body.
+// Categories: none.
 // Parents: html.
 // Children: flow.
 // Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
@@ -151,6 +164,7 @@ func Body(attrs ...attrs.BodyAttribute) types.ContContainerFunc[types.Body, type
 
 // Br
 // Description: Line break, e.g. in poem or postal address.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
@@ -160,6 +174,7 @@ func Br(attrs ...attrs.BrAttribute) doc.IContent {
 
 // Button
 // Description: Button control.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; form-associated; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
@@ -171,6 +186,7 @@ func Button(attrs ...attrs.ButtonAttribute) types.ContContainerFunc[types.Button
 
 // Canvas
 // Description: Scriptable bitmap canvas.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; width; height
@@ -182,6 +198,7 @@ func Canvas(attrs ...attrs.CanvasAttribute) types.ContContainerFunc[types.Canvas
 
 // Caption
 // Description: Table caption.
+// Categories: none.
 // Parents: table.
 // Children: flow*.
 // Attributes: globals
@@ -193,6 +210,7 @@ func Caption(attrs ...attrs.CaptionAttribute) types.ContContainerFunc[types.Capt
 
 // Cite
 // Description: Title of a work.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -204,6 +222,7 @@ func Cite(attrs ...attrs.CiteAttribute) types.ContContainerFunc[types.Cite, type
 
 // Code
 // Description: Computer code.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -215,6 +234,7 @@ func Code(attrs ...attrs.CodeAttribute) types.ContContainerFunc[types.Code, type
 
 // Col
 // Description: Table column.
+// Categories: none.
 // Parents: colgroup.
 // Children: empty.
 // Attributes: globals; span
@@ -224,6 +244,7 @@ func Col(attrs ...attrs.ColAttribute) doc.IContent {
 
 // Colgroup
 // Description: Group of columns in a table.
+// Categories: none.
 // Parents: table.
 // Children: col*; template*.
 // Attributes: globals; span
@@ -235,6 +256,7 @@ func Colgroup(attrs ...attrs.ColgroupAttribute) types.ContContainerFunc[types.Co
 
 // Data
 // Description: Machine-readable equivalent.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; value
@@ -246,6 +268,7 @@ func Data(attrs ...attrs.DataAttribute) types.ContContainerFunc[types.Data, type
 
 // Datalist
 // Description: Container for options for combo box control.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: phrasing*; option*; script-supporting elements*.
 // Attributes: globals
@@ -257,6 +280,7 @@ func Datalist(attrs ...attrs.DatalistAttribute) types.ContContainerFunc[types.Da
 
 // Dd
 // Description: Content for corresponding dt element(s).
+// Categories: none.
 // Parents: dl; div*.
 // Children: flow.
 // Attributes: globals
@@ -268,6 +292,7 @@ func Dd(attrs ...attrs.DdAttribute) types.ContContainerFunc[types.Dd, types.DdCh
 
 // Del
 // Description: A removal from the document.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
@@ -279,6 +304,7 @@ func Del(attrs ...attrs.DelAttribute) types.ContContainerFunc[types.Del, types.D
 
 // Details
 // Description: Disclosure control for hiding details.
+// Categories: flow; interactive; palpable.
 // Parents: flow.
 // Children: summary*; flow.
 // Attributes: globals; name; open
@@ -290,6 +316,7 @@ func Details(attrs ...attrs.DetailsAttribute) types.ContContainerFunc[types.Deta
 
 // Dfn
 // Description: Defining instance.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals
@@ -301,6 +328,7 @@ func Dfn(attrs ...attrs.DfnAttribute) types.ContContainerFunc[types.Dfn, types.D
 
 // Dialog
 // Description: Dialog box or window.
+// Categories: flow.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; open
@@ -312,6 +340,7 @@ func Dialog(attrs ...attrs.DialogAttribute) types.ContContainerFunc[types.Dialog
 
 // Div
 // Description: Generic flow container, or container for name-value groups in dl elements.
+// Categories: flow; palpable; select element inner content elements; optgroup element inner content elements; option element inner content elements.
 // Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
 // Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
 // Attributes: globals
@@ -323,6 +352,7 @@ func Div(attrs ...attrs.DivAttribute) types.ContContainerFunc[types.Div, types.D
 
 // Dl
 // Description: Association list consisting of zero or more name-value groups.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: dt*; dd*; div*; script-supporting elements.
 // Attributes: globals
@@ -334,6 +364,7 @@ func Dl(attrs ...attrs.DlAttribute) types.ContContainerFunc[types.Dl, types.DlCh
 
 // Dt
 // Description: Legend for corresponding dd element(s).
+// Categories: none.
 // Parents: dl; div*.
 // Children: flow*.
 // Attributes: globals
@@ -345,6 +376,7 @@ func Dt(attrs ...attrs.DtAttribute) types.ContContainerFunc[types.Dt, types.DtCh
 
 // Em
 // Description: Stress emphasis.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -356,6 +388,7 @@ func Em(attrs ...attrs.EmAttribute) types.ContContainerFunc[types.Em, types.EmCh
 
 // Embed
 // Description: Plugin.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; type; width; height; any*
@@ -365,6 +398,7 @@ func Embed(attrs ...attrs.EmbedAttribute) doc.IContent {
 
 // Fieldset
 // Description: Group of form controls.
+// Categories: flow; listed; form-associated; palpable.
 // Parents: flow.
 // Children: legend*; flow.
 // Attributes: globals; disabled; form; name
@@ -376,6 +410,7 @@ func Fieldset(attrs ...attrs.FieldsetAttribute) types.ContContainerFunc[types.Fi
 
 // Figcaption
 // Description: Caption for figure.
+// Categories: none.
 // Parents: figure.
 // Children: flow.
 // Attributes: globals
@@ -387,6 +422,7 @@ func Figcaption(attrs ...attrs.FigcaptionAttribute) types.ContContainerFunc[type
 
 // Figure
 // Description: Figure with optional caption.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: figcaption*; flow.
 // Attributes: globals
@@ -398,6 +434,7 @@ func Figure(attrs ...attrs.FigureAttribute) types.ContContainerFunc[types.Figure
 
 // Footer
 // Description: Footer for a page or section.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -409,6 +446,7 @@ func Footer(attrs ...attrs.FooterAttribute) types.ContContainerFunc[types.Footer
 
 // Form
 // Description: User-submittable form.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
@@ -420,6 +458,7 @@ func Form(attrs ...attrs.FormAttribute) types.ContContainerFunc[types.Form, type
 
 // H1
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -431,6 +470,7 @@ func H1(attrs ...attrs.H1Attribute) types.ContContainerFunc[types.H1, types.H1Ch
 
 // H2
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -442,6 +482,7 @@ func H2(attrs ...attrs.H2Attribute) types.ContContainerFunc[types.H2, types.H2Ch
 
 // H3
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -453,6 +494,7 @@ func H3(attrs ...attrs.H3Attribute) types.ContContainerFunc[types.H3, types.H3Ch
 
 // H4
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -464,6 +506,7 @@ func H4(attrs ...attrs.H4Attribute) types.ContContainerFunc[types.H4, types.H4Ch
 
 // H5
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -475,6 +518,7 @@ func H5(attrs ...attrs.H5Attribute) types.ContContainerFunc[types.H5, types.H5Ch
 
 // H6
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -486,6 +530,7 @@ func H6(attrs ...attrs.H6Attribute) types.ContContainerFunc[types.H6, types.H6Ch
 
 // Head
 // Description: Container for document metadata.
+// Categories: none.
 // Parents: html.
 // Children: metadata content*.
 // Attributes: globals
@@ -497,6 +542,7 @@ func Head(attrs ...attrs.HeadAttribute) types.ContContainerFunc[types.Head, type
 
 // Header
 // Description: Introductory or navigational aids for a page or section.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -508,6 +554,7 @@ func Header(attrs ...attrs.HeaderAttribute) types.ContContainerFunc[types.Header
 
 // Hgroup
 // Description: Heading container.
+// Categories: flow; palpable.
 // Parents: legend; summary; flow.
 // Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
 // Attributes: globals
@@ -519,6 +566,7 @@ func Hgroup(attrs ...attrs.HgroupAttribute) types.ContContainerFunc[types.Hgroup
 
 // Hr
 // Description: Thematic break.
+// Categories: flow; select element inner content elements.
 // Parents: flow; select element inner content elements.
 // Children: empty.
 // Attributes: globals
@@ -528,6 +576,7 @@ func Hr(attrs ...attrs.HrAttribute) doc.IContent {
 
 // Html
 // Description: Root element.
+// Categories: none.
 // Parents: none*.
 // Children: head*; body*.
 // Attributes: globals
@@ -539,6 +588,7 @@ func Html(attrs ...attrs.HtmlAttribute) types.ContContainerFunc[types.Html, type
 
 // I
 // Description: Alternate voice.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -550,6 +600,7 @@ func I(attrs ...attrs.IAttribute) types.ContContainerFunc[types.I, types.IChild]
 
 // Iframe
 // Description: Child navigable.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
@@ -559,6 +610,7 @@ func Iframe(attrs ...attrs.IframeAttribute) doc.IContent {
 
 // Img
 // Description: Image.
+// Categories: flow; phrasing; embedded; interactive*; form-associated; palpable.
 // Parents: phrasing; picture.
 // Children: empty.
 // Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
@@ -568,6 +620,7 @@ func Img(attrs ...attrs.ImgAttribute) doc.IContent {
 
 // Input
 // Description: Form control.
+// Categories: flow; phrasing; interactive*; listed; labelable; submittable; resettable; form-associated; palpable*.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
@@ -577,6 +630,7 @@ func Input(attrs ...attrs.InputAttribute) doc.IContent {
 
 // Ins
 // Description: An addition to the document.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
@@ -588,6 +642,7 @@ func Ins(attrs ...attrs.InsAttribute) types.ContContainerFunc[types.Ins, types.I
 
 // Kbd
 // Description: User input.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -599,6 +654,7 @@ func Kbd(attrs ...attrs.KbdAttribute) types.ContContainerFunc[types.Kbd, types.K
 
 // Label
 // Description: Caption for a form control.
+// Categories: flow; phrasing; interactive; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; for
@@ -610,6 +666,7 @@ func Label(attrs ...attrs.LabelAttribute) types.ContContainerFunc[types.Label, t
 
 // Legend
 // Description: Caption for fieldset.
+// Categories: none.
 // Parents: fieldset; optgroup.
 // Children: phrasing*; heading content.
 // Attributes: globals
@@ -621,6 +678,7 @@ func Legend(attrs ...attrs.LegendAttribute) types.ContContainerFunc[types.Legend
 
 // Li
 // Description: List item.
+// Categories: none.
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
@@ -632,6 +690,7 @@ func Li(attrs ...attrs.LiAttribute) types.ContContainerFunc[types.Li, types.LiCh
 
 // Link
 // Description: Link metadata.
+// Categories: metadata; flow*; phrasing*.
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
@@ -641,6 +700,7 @@ func Link(attrs ...attrs.LinkAttribute) doc.IContent {
 
 // Main
 // Description: Container for the dominant contents of the document.
+// Categories: flow; palpable.
 // Parents: flow*.
 // Children: flow.
 // Attributes: globals
@@ -652,6 +712,7 @@ func Main(attrs ...attrs.MainAttribute) types.ContContainerFunc[types.Main, type
 
 // Map
 // Description: Image map.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent; area*.
 // Attributes: globals; name
@@ -663,6 +724,7 @@ func Map(attrs ...attrs.MapAttribute) types.ContContainerFunc[types.Map, types.M
 
 // Mark
 // Description: Highlight.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -674,6 +736,7 @@ func Mark(attrs ...attrs.MarkAttribute) types.ContContainerFunc[types.Mark, type
 
 // Math
 // Description: MathML root.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: per [MATHML].
 // Attributes: per [MATHML]
@@ -685,6 +748,7 @@ func Math(attrs ...attrs.MathAttribute) types.ContContainerFunc[types.Math, type
 
 // Menu
 // Description: Menu of commands.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
@@ -696,6 +760,7 @@ func Menu(attrs ...attrs.MenuAttribute) types.ContContainerFunc[types.Menu, type
 
 // Meta
 // Description: Text metadata.
+// Categories: metadata; flow*; phrasing*.
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; name; http-equiv; content; charset; media
@@ -705,6 +770,7 @@ func Meta(attrs ...attrs.MetaAttribute) doc.IContent {
 
 // Meter
 // Description: Gauge.
+// Categories: flow; phrasing; labelable; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; min; max; low; high; optimum
@@ -716,6 +782,7 @@ func Meter(attrs ...attrs.MeterAttribute) types.ContContainerFunc[types.Meter, t
 
 // Nav
 // Description: Section with navigational links.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -727,6 +794,7 @@ func Nav(attrs ...attrs.NavAttribute) types.ContContainerFunc[types.Nav, types.N
 
 // Noscript
 // Description: Fallback content for script.
+// Categories: metadata; flow; phrasing; select element inner content elements; optgroup element inner content elements.
 // Parents: head*; phrasing*.
 // Children: varies*.
 // Attributes: globals
@@ -738,6 +806,7 @@ func Noscript(attrs ...attrs.NoscriptAttribute) types.ContContainerFunc[types.No
 
 // Object
 // Description: Image, child navigable, or plugin.
+// Categories: flow; phrasing; embedded; interactive*; listed; form-associated; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; data; type; name; form; width; height
@@ -749,6 +818,7 @@ func Object(attrs ...attrs.ObjectAttribute) types.ContContainerFunc[types.Object
 
 // Ol
 // Description: Ordered list.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals; reversed; start; type
@@ -760,6 +830,7 @@ func Ol(attrs ...attrs.OlAttribute) types.ContContainerFunc[types.Ol, types.OlCh
 
 // Optgroup
 // Description: Group of options in a list box.
+// Categories: select element inner content elements.
 // Parents: select; div*.
 // Children: optgroup element inner content elements; legend*.
 // Attributes: globals; disabled; label
@@ -771,6 +842,7 @@ func Optgroup(attrs ...attrs.OptgroupAttribute) types.ContContainerFunc[types.Op
 
 // Option
 // Description: Option in a list box or combo box control.
+// Categories: select element inner content elements; optgroup element inner content elements.
 // Parents: select; datalist; optgroup; div*.
 // Children: text*; option element inner content elements*.
 // Attributes: globals; disabled; label; selected; value
@@ -782,6 +854,7 @@ func Option(attrs ...attrs.OptionAttribute) types.ContContainerFunc[types.Option
 
 // Output
 // Description: Calculated output value.
+// Categories: flow; phrasing; listed; labelable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; for; form; name
@@ -793,6 +866,7 @@ func Output(attrs ...attrs.OutputAttribute) types.ContContainerFunc[types.Output
 
 // P
 // Description: Paragraph.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
@@ -804,6 +878,7 @@ func P(attrs ...attrs.PAttribute) types.ContContainerFunc[types.P, types.PChild]
 
 // Picture
 // Description: Image.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: source*; one img; script-supporting elements.
 // Attributes: globals
@@ -815,6 +890,7 @@ func Picture(attrs ...attrs.PictureAttribute) types.ContContainerFunc[types.Pict
 
 // Pre
 // Description: Block of preformatted text.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
@@ -826,6 +902,7 @@ func Pre(attrs ...attrs.PreAttribute) types.ContContainerFunc[types.Pre, types.P
 
 // Progress
 // Description: Progress bar.
+// Categories: flow; phrasing; labelable; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; max
@@ -837,6 +914,7 @@ func Progress(attrs ...attrs.ProgressAttribute) types.ContContainerFunc[types.Pr
 
 // Q
 // Description: Quotation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; cite
@@ -848,6 +926,7 @@ func Q(attrs ...attrs.QAttribute) types.ContContainerFunc[types.Q, types.QChild]
 
 // Rp
 // Description: Parenthesis for ruby annotation text.
+// Categories: none.
 // Parents: ruby.
 // Children: text.
 // Attributes: globals
@@ -859,6 +938,7 @@ func Rp(attrs ...attrs.RpAttribute) types.ContContainerFunc[types.Rp, types.RpCh
 
 // Rt
 // Description: Ruby annotation text.
+// Categories: none.
 // Parents: ruby.
 // Children: phrasing.
 // Attributes: globals
@@ -870,6 +950,7 @@ func Rt(attrs ...attrs.RtAttribute) types.ContContainerFunc[types.Rt, types.RtCh
 
 // Ruby
 // Description: Ruby annotation(s).
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing; rt; rp*.
 // Attributes: globals
@@ -881,6 +962,7 @@ func Ruby(attrs ...attrs.RubyAttribute) types.ContContainerFunc[types.Ruby, type
 
 // S
 // Description: Inaccurate text.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -892,6 +974,7 @@ func S(attrs ...attrs.SAttribute) types.ContContainerFunc[types.S, types.SChild]
 
 // Samp
 // Description: Computer output.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -903,6 +986,7 @@ func Samp(attrs ...attrs.SampAttribute) types.ContContainerFunc[types.Samp, type
 
 // Script
 // Description: Embedded script.
+// Categories: metadata; flow; phrasing; script-supporting.
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
@@ -914,6 +998,7 @@ func Script(attrs ...attrs.ScriptAttribute) types.ContContainerFunc[types.Script
 
 // Search
 // Description: Container for search controls.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -925,6 +1010,7 @@ func Search(attrs ...attrs.SearchAttribute) types.ContContainerFunc[types.Search
 
 // Section
 // Description: Generic document or application section.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -936,6 +1022,7 @@ func Section(attrs ...attrs.SectionAttribute) types.ContContainerFunc[types.Sect
 
 // Select
 // Description: List box control.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: select element inner content elements; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
@@ -947,6 +1034,7 @@ func Select(attrs ...attrs.SelectAttribute) types.ContContainerFunc[types.Select
 
 // Selectedcontent
 // Description: Mirrors content from an option.
+// Categories: none.
 // Parents: button.
 // Children: empty.
 // Attributes: globals
@@ -956,6 +1044,7 @@ func Selectedcontent(attrs ...attrs.SelectedcontentAttribute) doc.IContent {
 
 // Slot
 // Description: Shadow tree slot.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; name
@@ -967,6 +1056,7 @@ func Slot(attrs ...attrs.SlotAttribute) types.ContContainerFunc[types.Slot, type
 
 // Small
 // Description: Side comment.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -978,6 +1068,7 @@ func Small(attrs ...attrs.SmallAttribute) types.ContContainerFunc[types.Small, t
 
 // Source
 // Description: Image source for img or media source for video or audio.
+// Categories: none.
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
@@ -987,6 +1078,7 @@ func Source(attrs ...attrs.SourceAttribute) doc.IContent {
 
 // Span
 // Description: Generic phrasing container.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing; option element inner content elements*.
 // Children: phrasing.
 // Attributes: globals
@@ -998,6 +1090,7 @@ func Span(attrs ...attrs.SpanAttribute) types.ContContainerFunc[types.Span, type
 
 // Strong
 // Description: Importance.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1009,6 +1102,7 @@ func Strong(attrs ...attrs.StrongAttribute) types.ContContainerFunc[types.Strong
 
 // Style
 // Description: Embedded styling information.
+// Categories: metadata.
 // Parents: head; noscript*.
 // Children: text*.
 // Attributes: globals; media; blocking
@@ -1020,6 +1114,7 @@ func Style(attrs ...attrs.StyleAttribute) types.ContContainerFunc[types.Style, t
 
 // Sub
 // Description: Subscript.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1031,6 +1126,7 @@ func Sub(attrs ...attrs.SubAttribute) types.ContContainerFunc[types.Sub, types.S
 
 // Summary
 // Description: Caption for details.
+// Categories: none.
 // Parents: details.
 // Children: phrasing; heading content.
 // Attributes: globals
@@ -1042,6 +1138,7 @@ func Summary(attrs ...attrs.SummaryAttribute) types.ContContainerFunc[types.Summ
 
 // Sup
 // Description: Superscript.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1053,6 +1150,7 @@ func Sup(attrs ...attrs.SupAttribute) types.ContContainerFunc[types.Sup, types.S
 
 // Svg
 // Description: SVG root.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: per [SVG].
 // Attributes: per [SVG]
@@ -1064,6 +1162,7 @@ func Svg(attrs ...attrs.SvgAttribute) types.ContContainerFunc[types.Svg, types.S
 
 // Table
 // Description: Table.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements.
 // Attributes: globals
@@ -1075,6 +1174,7 @@ func Table(attrs ...attrs.TableAttribute) types.ContContainerFunc[types.Table, t
 
 // Tbody
 // Description: Group of rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -1086,6 +1186,7 @@ func Tbody(attrs ...attrs.TbodyAttribute) types.ContContainerFunc[types.Tbody, t
 
 // Td
 // Description: Table cell.
+// Categories: none.
 // Parents: tr.
 // Children: flow.
 // Attributes: globals; colspan; rowspan; headers
@@ -1097,6 +1198,7 @@ func Td(attrs ...attrs.TdAttribute) types.ContContainerFunc[types.Td, types.TdCh
 
 // Template
 // Description: Template.
+// Categories: metadata; flow; phrasing; script-supporting.
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
@@ -1106,6 +1208,7 @@ func Template(attrs ...attrs.TemplateAttribute) doc.IContent {
 
 // Textarea
 // Description: Multiline text controls.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: text.
 // Attributes: globals; autocomplete; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap
@@ -1117,6 +1220,7 @@ func Textarea(attrs ...attrs.TextareaAttribute) types.ContContainerFunc[types.Te
 
 // Tfoot
 // Description: Group of footer rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -1128,6 +1232,7 @@ func Tfoot(attrs ...attrs.TfootAttribute) types.ContContainerFunc[types.Tfoot, t
 
 // Th
 // Description: Table header cell.
+// Categories: interactive*.
 // Parents: tr.
 // Children: flow*.
 // Attributes: globals; colspan; rowspan; headers; scope; abbr
@@ -1139,6 +1244,7 @@ func Th(attrs ...attrs.ThAttribute) types.ContContainerFunc[types.Th, types.ThCh
 
 // Thead
 // Description: Group of heading rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -1150,6 +1256,7 @@ func Thead(attrs ...attrs.TheadAttribute) types.ContContainerFunc[types.Thead, t
 
 // Time
 // Description: Machine-readable equivalent of date- or time-related data.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; datetime
@@ -1161,6 +1268,7 @@ func Time(attrs ...attrs.TimeAttribute) types.ContContainerFunc[types.Time, type
 
 // Title
 // Description: Document title.
+// Categories: metadata.
 // Parents: head.
 // Children: text*.
 // Attributes: globals
@@ -1172,6 +1280,7 @@ func Title(attrs ...attrs.TitleAttribute) types.ContContainerFunc[types.Title, t
 
 // Tr
 // Description: Table row.
+// Categories: none.
 // Parents: table; thead; tbody; tfoot.
 // Children: th*; td; script-supporting elements.
 // Attributes: globals
@@ -1183,6 +1292,7 @@ func Tr(attrs ...attrs.TrAttribute) types.ContContainerFunc[types.Tr, types.TrCh
 
 // Track
 // Description: Timed text track.
+// Categories: none.
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
@@ -1192,6 +1302,7 @@ func Track(attrs ...attrs.TrackAttribute) doc.IContent {
 
 // U
 // Description: Unarticulated annotation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1203,6 +1314,7 @@ func U(attrs ...attrs.UAttribute) types.ContContainerFunc[types.U, types.UChild]
 
 // Ul
 // Description: List.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
@@ -1214,6 +1326,7 @@ func Ul(attrs ...attrs.UlAttribute) types.ContContainerFunc[types.Ul, types.UlCh
 
 // Var
 // Description: Variable.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1225,6 +1338,7 @@ func Var(attrs ...attrs.VarAttribute) types.ContContainerFunc[types.Var, types.V
 
 // Video
 // Description: Video player.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
@@ -1236,6 +1350,7 @@ func Video(attrs ...attrs.VideoAttribute) types.ContContainerFunc[types.Video, t
 
 // Wbr
 // Description: Line breaking opportunity.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals

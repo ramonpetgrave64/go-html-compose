@@ -14,6 +14,7 @@ var Doctype = doc.ChildElem("!DOCTYPE html")
 
 // A
 // Description: Hyperlink.
+// Categories: flow; phrasing*; interactive; palpable.
 // Parents: phrasing.
 // Children: transparent*.
 // Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
@@ -23,6 +24,7 @@ func A(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Abbr
 // Description: Abbreviation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -32,6 +34,7 @@ func Abbr(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Address
 // Description: Contact information for a page or article element.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -41,6 +44,7 @@ func Address(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Area
 // Description: Hyperlink or dead area on an image map.
+// Categories: flow; phrasing.
 // Parents: phrasing*.
 // Children: empty.
 // Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
@@ -50,6 +54,7 @@ func Area(attrs ...doc.IAttribute) doc.IContent {
 
 // Article
 // Description: Self-contained syndicatable or reusable composition.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -59,6 +64,7 @@ func Article(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Aside
 // Description: Sidebar for tangentially related content.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -68,6 +74,7 @@ func Aside(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Audio
 // Description: Audio player.
+// Categories: flow; phrasing; embedded; interactive; palpable*.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
@@ -77,6 +84,7 @@ func Audio(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // B
 // Description: Keywords.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -86,6 +94,7 @@ func B(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Base
 // Description: Base URL and default target navigable for hyperlinks and forms.
+// Categories: metadata.
 // Parents: head.
 // Children: empty.
 // Attributes: globals; href; target
@@ -95,6 +104,7 @@ func Base(attrs ...doc.IAttribute) doc.IContent {
 
 // Bdi
 // Description: Text directionality isolation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -104,6 +114,7 @@ func Bdi(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Bdo
 // Description: Text directionality formatting.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -113,6 +124,7 @@ func Bdo(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Blockquote
 // Description: A section quoted from another source.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; cite
@@ -122,6 +134,7 @@ func Blockquote(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Body
 // Description: Document body.
+// Categories: none.
 // Parents: html.
 // Children: flow.
 // Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
@@ -131,6 +144,7 @@ func Body(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Br
 // Description: Line break, e.g. in poem or postal address.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
@@ -140,6 +154,7 @@ func Br(attrs ...doc.IAttribute) doc.IContent {
 
 // Button
 // Description: Button control.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; form-associated; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
@@ -149,6 +164,7 @@ func Button(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Canvas
 // Description: Scriptable bitmap canvas.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; width; height
@@ -158,6 +174,7 @@ func Canvas(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Caption
 // Description: Table caption.
+// Categories: none.
 // Parents: table.
 // Children: flow*.
 // Attributes: globals
@@ -167,6 +184,7 @@ func Caption(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Cite
 // Description: Title of a work.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -176,6 +194,7 @@ func Cite(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Code
 // Description: Computer code.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -185,6 +204,7 @@ func Code(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Col
 // Description: Table column.
+// Categories: none.
 // Parents: colgroup.
 // Children: empty.
 // Attributes: globals; span
@@ -194,6 +214,7 @@ func Col(attrs ...doc.IAttribute) doc.IContent {
 
 // Colgroup
 // Description: Group of columns in a table.
+// Categories: none.
 // Parents: table.
 // Children: col*; template*.
 // Attributes: globals; span
@@ -203,6 +224,7 @@ func Colgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Data
 // Description: Machine-readable equivalent.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; value
@@ -212,6 +234,7 @@ func Data(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Datalist
 // Description: Container for options for combo box control.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: phrasing*; option*; script-supporting elements*.
 // Attributes: globals
@@ -221,6 +244,7 @@ func Datalist(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Dd
 // Description: Content for corresponding dt element(s).
+// Categories: none.
 // Parents: dl; div*.
 // Children: flow.
 // Attributes: globals
@@ -230,6 +254,7 @@ func Dd(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Del
 // Description: A removal from the document.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
@@ -239,6 +264,7 @@ func Del(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Details
 // Description: Disclosure control for hiding details.
+// Categories: flow; interactive; palpable.
 // Parents: flow.
 // Children: summary*; flow.
 // Attributes: globals; name; open
@@ -248,6 +274,7 @@ func Details(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Dfn
 // Description: Defining instance.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals
@@ -257,6 +284,7 @@ func Dfn(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Dialog
 // Description: Dialog box or window.
+// Categories: flow.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals; open
@@ -266,6 +294,7 @@ func Dialog(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Div
 // Description: Generic flow container, or container for name-value groups in dl elements.
+// Categories: flow; palpable; select element inner content elements; optgroup element inner content elements; option element inner content elements.
 // Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
 // Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
 // Attributes: globals
@@ -275,6 +304,7 @@ func Div(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Dl
 // Description: Association list consisting of zero or more name-value groups.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: dt*; dd*; div*; script-supporting elements.
 // Attributes: globals
@@ -284,6 +314,7 @@ func Dl(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Dt
 // Description: Legend for corresponding dd element(s).
+// Categories: none.
 // Parents: dl; div*.
 // Children: flow*.
 // Attributes: globals
@@ -293,6 +324,7 @@ func Dt(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Em
 // Description: Stress emphasis.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -302,6 +334,7 @@ func Em(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Embed
 // Description: Plugin.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; type; width; height; any*
@@ -311,6 +344,7 @@ func Embed(attrs ...doc.IAttribute) doc.IContent {
 
 // Fieldset
 // Description: Group of form controls.
+// Categories: flow; listed; form-associated; palpable.
 // Parents: flow.
 // Children: legend*; flow.
 // Attributes: globals; disabled; form; name
@@ -320,6 +354,7 @@ func Fieldset(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Figcaption
 // Description: Caption for figure.
+// Categories: none.
 // Parents: figure.
 // Children: flow.
 // Attributes: globals
@@ -329,6 +364,7 @@ func Figcaption(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Figure
 // Description: Figure with optional caption.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: figcaption*; flow.
 // Attributes: globals
@@ -338,6 +374,7 @@ func Figure(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Footer
 // Description: Footer for a page or section.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -347,6 +384,7 @@ func Footer(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Form
 // Description: User-submittable form.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
@@ -356,6 +394,7 @@ func Form(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H1
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -365,6 +404,7 @@ func H1(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H2
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -374,6 +414,7 @@ func H2(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H3
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -383,6 +424,7 @@ func H3(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H4
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -392,6 +434,7 @@ func H4(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H5
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -401,6 +444,7 @@ func H5(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // H6
 // Description: Heading.
+// Categories: flow; heading; palpable.
 // Parents: legend; summary; flow.
 // Children: phrasing.
 // Attributes: globals
@@ -410,6 +454,7 @@ func H6(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Head
 // Description: Container for document metadata.
+// Categories: none.
 // Parents: html.
 // Children: metadata content*.
 // Attributes: globals
@@ -419,6 +464,7 @@ func Head(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Header
 // Description: Introductory or navigational aids for a page or section.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow*.
 // Attributes: globals
@@ -428,6 +474,7 @@ func Header(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Hgroup
 // Description: Heading container.
+// Categories: flow; palpable.
 // Parents: legend; summary; flow.
 // Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
 // Attributes: globals
@@ -437,6 +484,7 @@ func Hgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Hr
 // Description: Thematic break.
+// Categories: flow; select element inner content elements.
 // Parents: flow; select element inner content elements.
 // Children: empty.
 // Attributes: globals
@@ -446,6 +494,7 @@ func Hr(attrs ...doc.IAttribute) doc.IContent {
 
 // Html
 // Description: Root element.
+// Categories: none.
 // Parents: none*.
 // Children: head*; body*.
 // Attributes: globals
@@ -455,6 +504,7 @@ func Html(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // I
 // Description: Alternate voice.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -464,6 +514,7 @@ func I(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Iframe
 // Description: Child navigable.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
@@ -473,6 +524,7 @@ func Iframe(attrs ...doc.IAttribute) doc.IContent {
 
 // Img
 // Description: Image.
+// Categories: flow; phrasing; embedded; interactive*; form-associated; palpable.
 // Parents: phrasing; picture.
 // Children: empty.
 // Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
@@ -482,6 +534,7 @@ func Img(attrs ...doc.IAttribute) doc.IContent {
 
 // Input
 // Description: Form control.
+// Categories: flow; phrasing; interactive*; listed; labelable; submittable; resettable; form-associated; palpable*.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
@@ -491,6 +544,7 @@ func Input(attrs ...doc.IAttribute) doc.IContent {
 
 // Ins
 // Description: An addition to the document.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; cite; datetime
@@ -500,6 +554,7 @@ func Ins(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Kbd
 // Description: User input.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -509,6 +564,7 @@ func Kbd(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Label
 // Description: Caption for a form control.
+// Categories: flow; phrasing; interactive; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; for
@@ -518,6 +574,7 @@ func Label(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Legend
 // Description: Caption for fieldset.
+// Categories: none.
 // Parents: fieldset; optgroup.
 // Children: phrasing*; heading content.
 // Attributes: globals
@@ -527,6 +584,7 @@ func Legend(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Li
 // Description: List item.
+// Categories: none.
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
@@ -536,6 +594,7 @@ func Li(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Link
 // Description: Link metadata.
+// Categories: metadata; flow*; phrasing*.
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
@@ -545,6 +604,7 @@ func Link(attrs ...doc.IAttribute) doc.IContent {
 
 // Main
 // Description: Container for the dominant contents of the document.
+// Categories: flow; palpable.
 // Parents: flow*.
 // Children: flow.
 // Attributes: globals
@@ -554,6 +614,7 @@ func Main(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Map
 // Description: Image map.
+// Categories: flow; phrasing*; palpable.
 // Parents: phrasing.
 // Children: transparent; area*.
 // Attributes: globals; name
@@ -563,6 +624,7 @@ func Map(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Mark
 // Description: Highlight.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -572,6 +634,7 @@ func Mark(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Math
 // Description: MathML root.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: per [MATHML].
 // Attributes: per [MATHML]
@@ -581,6 +644,7 @@ func Math(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Menu
 // Description: Menu of commands.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
@@ -590,6 +654,7 @@ func Menu(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Meta
 // Description: Text metadata.
+// Categories: metadata; flow*; phrasing*.
 // Parents: head; noscript*; phrasing*.
 // Children: empty.
 // Attributes: globals; name; http-equiv; content; charset; media
@@ -599,6 +664,7 @@ func Meta(attrs ...doc.IAttribute) doc.IContent {
 
 // Meter
 // Description: Gauge.
+// Categories: flow; phrasing; labelable; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; min; max; low; high; optimum
@@ -608,6 +674,7 @@ func Meter(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Nav
 // Description: Section with navigational links.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -617,6 +684,7 @@ func Nav(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Noscript
 // Description: Fallback content for script.
+// Categories: metadata; flow; phrasing; select element inner content elements; optgroup element inner content elements.
 // Parents: head*; phrasing*.
 // Children: varies*.
 // Attributes: globals
@@ -626,6 +694,7 @@ func Noscript(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Object
 // Description: Image, child navigable, or plugin.
+// Categories: flow; phrasing; embedded; interactive*; listed; form-associated; palpable.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; data; type; name; form; width; height
@@ -635,6 +704,7 @@ func Object(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Ol
 // Description: Ordered list.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals; reversed; start; type
@@ -644,6 +714,7 @@ func Ol(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Optgroup
 // Description: Group of options in a list box.
+// Categories: select element inner content elements.
 // Parents: select; div*.
 // Children: optgroup element inner content elements; legend*.
 // Attributes: globals; disabled; label
@@ -653,6 +724,7 @@ func Optgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Option
 // Description: Option in a list box or combo box control.
+// Categories: select element inner content elements; optgroup element inner content elements.
 // Parents: select; datalist; optgroup; div*.
 // Children: text*; option element inner content elements*.
 // Attributes: globals; disabled; label; selected; value
@@ -662,6 +734,7 @@ func Option(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Output
 // Description: Calculated output value.
+// Categories: flow; phrasing; listed; labelable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; for; form; name
@@ -671,6 +744,7 @@ func Output(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // P
 // Description: Paragraph.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
@@ -680,6 +754,7 @@ func P(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Picture
 // Description: Image.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: source*; one img; script-supporting elements.
 // Attributes: globals
@@ -689,6 +764,7 @@ func Picture(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Pre
 // Description: Block of preformatted text.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: phrasing.
 // Attributes: globals
@@ -698,6 +774,7 @@ func Pre(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Progress
 // Description: Progress bar.
+// Categories: flow; phrasing; labelable; palpable.
 // Parents: phrasing.
 // Children: phrasing*.
 // Attributes: globals; value; max
@@ -707,6 +784,7 @@ func Progress(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Q
 // Description: Quotation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; cite
@@ -716,6 +794,7 @@ func Q(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Rp
 // Description: Parenthesis for ruby annotation text.
+// Categories: none.
 // Parents: ruby.
 // Children: text.
 // Attributes: globals
@@ -725,6 +804,7 @@ func Rp(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Rt
 // Description: Ruby annotation text.
+// Categories: none.
 // Parents: ruby.
 // Children: phrasing.
 // Attributes: globals
@@ -734,6 +814,7 @@ func Rt(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Ruby
 // Description: Ruby annotation(s).
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing; rt; rp*.
 // Attributes: globals
@@ -743,6 +824,7 @@ func Ruby(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // S
 // Description: Inaccurate text.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -752,6 +834,7 @@ func S(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Samp
 // Description: Computer output.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -761,6 +844,7 @@ func Samp(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Script
 // Description: Embedded script.
+// Categories: metadata; flow; phrasing; script-supporting.
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
@@ -770,6 +854,7 @@ func Script(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Search
 // Description: Container for search controls.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -779,6 +864,7 @@ func Search(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Section
 // Description: Generic document or application section.
+// Categories: flow; sectioning; palpable.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
@@ -788,6 +874,7 @@ func Section(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Select
 // Description: List box control.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: select element inner content elements; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
@@ -797,6 +884,7 @@ func Select(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Selectedcontent
 // Description: Mirrors content from an option.
+// Categories: none.
 // Parents: button.
 // Children: empty.
 // Attributes: globals
@@ -806,6 +894,7 @@ func Selectedcontent(attrs ...doc.IAttribute) doc.IContent {
 
 // Slot
 // Description: Shadow tree slot.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; name
@@ -815,6 +904,7 @@ func Slot(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Small
 // Description: Side comment.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -824,6 +914,7 @@ func Small(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Source
 // Description: Image source for img or media source for video or audio.
+// Categories: none.
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
@@ -833,6 +924,7 @@ func Source(attrs ...doc.IAttribute) doc.IContent {
 
 // Span
 // Description: Generic phrasing container.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing; option element inner content elements*.
 // Children: phrasing.
 // Attributes: globals
@@ -842,6 +934,7 @@ func Span(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Strong
 // Description: Importance.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -851,6 +944,7 @@ func Strong(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Style
 // Description: Embedded styling information.
+// Categories: metadata.
 // Parents: head; noscript*.
 // Children: text*.
 // Attributes: globals; media; blocking
@@ -860,6 +954,7 @@ func Style(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Sub
 // Description: Subscript.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -869,6 +964,7 @@ func Sub(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Summary
 // Description: Caption for details.
+// Categories: none.
 // Parents: details.
 // Children: phrasing; heading content.
 // Attributes: globals
@@ -878,6 +974,7 @@ func Summary(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Sup
 // Description: Superscript.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -887,6 +984,7 @@ func Sup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Svg
 // Description: SVG root.
+// Categories: flow; phrasing; embedded; palpable.
 // Parents: phrasing.
 // Children: per [SVG].
 // Attributes: per [SVG]
@@ -896,6 +994,7 @@ func Svg(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Table
 // Description: Table.
+// Categories: flow; palpable.
 // Parents: flow.
 // Children: caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements.
 // Attributes: globals
@@ -905,6 +1004,7 @@ func Table(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Tbody
 // Description: Group of rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -914,6 +1014,7 @@ func Tbody(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Td
 // Description: Table cell.
+// Categories: none.
 // Parents: tr.
 // Children: flow.
 // Attributes: globals; colspan; rowspan; headers
@@ -923,6 +1024,7 @@ func Td(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Template
 // Description: Template.
+// Categories: metadata; flow; phrasing; script-supporting.
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
@@ -932,6 +1034,7 @@ func Template(attrs ...doc.IAttribute) doc.IContent {
 
 // Textarea
 // Description: Multiline text controls.
+// Categories: flow; phrasing; interactive; listed; labelable; submittable; resettable; form-associated; palpable.
 // Parents: phrasing.
 // Children: text.
 // Attributes: globals; autocomplete; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap
@@ -941,6 +1044,7 @@ func Textarea(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Tfoot
 // Description: Group of footer rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -950,6 +1054,7 @@ func Tfoot(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Th
 // Description: Table header cell.
+// Categories: interactive*.
 // Parents: tr.
 // Children: flow*.
 // Attributes: globals; colspan; rowspan; headers; scope; abbr
@@ -959,6 +1064,7 @@ func Th(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Thead
 // Description: Group of heading rows in a table.
+// Categories: none.
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
@@ -968,6 +1074,7 @@ func Thead(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Time
 // Description: Machine-readable equivalent of date- or time-related data.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; datetime
@@ -977,6 +1084,7 @@ func Time(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Title
 // Description: Document title.
+// Categories: metadata.
 // Parents: head.
 // Children: text*.
 // Attributes: globals
@@ -986,6 +1094,7 @@ func Title(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Tr
 // Description: Table row.
+// Categories: none.
 // Parents: table; thead; tbody; tfoot.
 // Children: th*; td; script-supporting elements.
 // Attributes: globals
@@ -995,6 +1104,7 @@ func Tr(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Track
 // Description: Timed text track.
+// Categories: none.
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
@@ -1004,6 +1114,7 @@ func Track(attrs ...doc.IAttribute) doc.IContent {
 
 // U
 // Description: Unarticulated annotation.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1013,6 +1124,7 @@ func U(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Ul
 // Description: List.
+// Categories: flow; palpable*.
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
@@ -1022,6 +1134,7 @@ func Ul(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Var
 // Description: Variable.
+// Categories: flow; phrasing; palpable.
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
@@ -1031,6 +1144,7 @@ func Var(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Video
 // Description: Video player.
+// Categories: flow; phrasing; embedded; interactive; palpable.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
@@ -1040,6 +1154,7 @@ func Video(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Wbr
 // Description: Line breaking opportunity.
+// Categories: flow; phrasing.
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
