@@ -69,9 +69,9 @@ func generate() error {
 	if err := generateStrictAttributeTypes(bytes.NewReader(content)); err != nil {
 		panic(err)
 	}
-	// if err := generateStrictElementFuncs(bytes.NewReader(content)); err != nil {
-	// 	panic(err)
-	// }
+	if err := generateStrictElementFuncs(bytes.NewReader(content)); err != nil {
+		panic(err)
+	}
 	return nil
 }
 

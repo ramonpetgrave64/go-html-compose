@@ -10,14 +10,612 @@ import (
 	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/elems"
 )
 
-// Ul
-// Description: List.
-// Parents: flow.
-// Children: li; script-supporting elements.
+// A
+// Description: Hyperlink.
+// Parents: phrasing.
+// Children: transparent*.
+// Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
+func A(attrs ...attrs.AAttribute) types.ContContainerFunc[types.A, types.AChild] {
+	return func(children ...types.AChild) types.A {
+		return types.A{IContent: elems.A(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Abbr
+// Description: Abbreviation.
+// Parents: phrasing.
+// Children: phrasing.
 // Attributes: globals
-func Ul(attrs ...attrs.UlAttribute) types.ContContainerFunc[types.Ul, types.UlChild] {
-	return func(children ...types.UlChild) types.Ul {
-		return types.Ul{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
+func Abbr(attrs ...attrs.AbbrAttribute) types.ContContainerFunc[types.Abbr, types.AbbrChild] {
+	return func(children ...types.AbbrChild) types.Abbr {
+		return types.Abbr{IContent: elems.Abbr(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Address
+// Description: Contact information for a page or article element.
+// Parents: flow.
+// Children: flow*.
+// Attributes: globals
+func Address(attrs ...attrs.AddressAttribute) types.ContContainerFunc[types.Address, types.AddressChild] {
+	return func(children ...types.AddressChild) types.Address {
+		return types.Address{IContent: elems.Address(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Area
+// Description: Hyperlink or dead area on an image map.
+// Parents: phrasing*.
+// Children: empty.
+// Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
+func Area(attrs ...attrs.AreaAttribute) doc.IContent {
+	return types.Area{IContent: elems.Area(toIAttributes(attrs)...)}
+}
+
+// Article
+// Description: Self-contained syndicatable or reusable composition.
+// Parents: flow.
+// Children: flow.
+// Attributes: globals
+func Article(attrs ...attrs.ArticleAttribute) types.ContContainerFunc[types.Article, types.ArticleChild] {
+	return func(children ...types.ArticleChild) types.Article {
+		return types.Article{IContent: elems.Article(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Aside
+// Description: Sidebar for tangentially related content.
+// Parents: flow.
+// Children: flow.
+// Attributes: globals
+func Aside(attrs ...attrs.AsideAttribute) types.ContContainerFunc[types.Aside, types.AsideChild] {
+	return func(children ...types.AsideChild) types.Aside {
+		return types.Aside{IContent: elems.Aside(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Audio
+// Description: Audio player.
+// Parents: phrasing.
+// Children: source*; track*; transparent*.
+// Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
+func Audio(attrs ...attrs.AudioAttribute) types.ContContainerFunc[types.Audio, types.AudioChild] {
+	return func(children ...types.AudioChild) types.Audio {
+		return types.Audio{IContent: elems.Audio(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// B
+// Description: Keywords.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func B(attrs ...attrs.BAttribute) types.ContContainerFunc[types.B, types.BChild] {
+	return func(children ...types.BChild) types.B {
+		return types.B{IContent: elems.B(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Base
+// Description: Base URL and default target navigable for hyperlinks and forms.
+// Parents: head.
+// Children: empty.
+// Attributes: globals; href; target
+func Base(attrs ...attrs.BaseAttribute) doc.IContent {
+	return types.Base{IContent: elems.Base(toIAttributes(attrs)...)}
+}
+
+// Bdi
+// Description: Text directionality isolation.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Bdi(attrs ...attrs.BdiAttribute) types.ContContainerFunc[types.Bdi, types.BdiChild] {
+	return func(children ...types.BdiChild) types.Bdi {
+		return types.Bdi{IContent: elems.Bdi(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Bdo
+// Description: Text directionality formatting.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Bdo(attrs ...attrs.BdoAttribute) types.ContContainerFunc[types.Bdo, types.BdoChild] {
+	return func(children ...types.BdoChild) types.Bdo {
+		return types.Bdo{IContent: elems.Bdo(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Blockquote
+// Description: A section quoted from another source.
+// Parents: flow.
+// Children: flow.
+// Attributes: globals; cite
+func Blockquote(attrs ...attrs.BlockquoteAttribute) types.ContContainerFunc[types.Blockquote, types.BlockquoteChild] {
+	return func(children ...types.BlockquoteChild) types.Blockquote {
+		return types.Blockquote{IContent: elems.Blockquote(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Body
+// Description: Document body.
+// Parents: html.
+// Children: flow.
+// Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
+func Body(attrs ...attrs.BodyAttribute) types.ContContainerFunc[types.Body, types.BodyChild] {
+	return func(children ...types.BodyChild) types.Body {
+		return types.Body{IContent: elems.Body(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Br
+// Description: Line break, e.g. in poem or postal address.
+// Parents: phrasing.
+// Children: empty.
+// Attributes: globals
+func Br(attrs ...attrs.BrAttribute) doc.IContent {
+	return types.Br{IContent: elems.Br(toIAttributes(attrs)...)}
+}
+
+// Button
+// Description: Button control.
+// Parents: phrasing.
+// Children: phrasing*.
+// Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
+func Button(attrs ...attrs.ButtonAttribute) types.ContContainerFunc[types.Button, types.ButtonChild] {
+	return func(children ...types.ButtonChild) types.Button {
+		return types.Button{IContent: elems.Button(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Canvas
+// Description: Scriptable bitmap canvas.
+// Parents: phrasing.
+// Children: transparent.
+// Attributes: globals; width; height
+func Canvas(attrs ...attrs.CanvasAttribute) types.ContContainerFunc[types.Canvas, types.CanvasChild] {
+	return func(children ...types.CanvasChild) types.Canvas {
+		return types.Canvas{IContent: elems.Canvas(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Caption
+// Description: Table caption.
+// Parents: table.
+// Children: flow*.
+// Attributes: globals
+func Caption(attrs ...attrs.CaptionAttribute) types.ContContainerFunc[types.Caption, types.CaptionChild] {
+	return func(children ...types.CaptionChild) types.Caption {
+		return types.Caption{IContent: elems.Caption(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Cite
+// Description: Title of a work.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Cite(attrs ...attrs.CiteAttribute) types.ContContainerFunc[types.Cite, types.CiteChild] {
+	return func(children ...types.CiteChild) types.Cite {
+		return types.Cite{IContent: elems.Cite(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Code
+// Description: Computer code.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Code(attrs ...attrs.CodeAttribute) types.ContContainerFunc[types.Code, types.CodeChild] {
+	return func(children ...types.CodeChild) types.Code {
+		return types.Code{IContent: elems.Code(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Col
+// Description: Table column.
+// Parents: colgroup.
+// Children: empty.
+// Attributes: globals; span
+func Col(attrs ...attrs.ColAttribute) doc.IContent {
+	return types.Col{IContent: elems.Col(toIAttributes(attrs)...)}
+}
+
+// Colgroup
+// Description: Group of columns in a table.
+// Parents: table.
+// Children: col*; template*.
+// Attributes: globals; span
+func Colgroup(attrs ...attrs.ColgroupAttribute) types.ContContainerFunc[types.Colgroup, types.ColgroupChild] {
+	return func(children ...types.ColgroupChild) types.Colgroup {
+		return types.Colgroup{IContent: elems.Colgroup(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Data
+// Description: Machine-readable equivalent.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals; value
+func Data(attrs ...attrs.DataAttribute) types.ContContainerFunc[types.Data, types.DataChild] {
+	return func(children ...types.DataChild) types.Data {
+		return types.Data{IContent: elems.Data(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Datalist
+// Description: Container for options for combo box control.
+// Parents: phrasing.
+// Children: phrasing*; option*; script-supporting elements*.
+// Attributes: globals
+func Datalist(attrs ...attrs.DatalistAttribute) types.ContContainerFunc[types.Datalist, types.DatalistChild] {
+	return func(children ...types.DatalistChild) types.Datalist {
+		return types.Datalist{IContent: elems.Datalist(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Dd
+// Description: Content for corresponding dt element(s).
+// Parents: dl; div*.
+// Children: flow.
+// Attributes: globals
+func Dd(attrs ...attrs.DdAttribute) types.ContContainerFunc[types.Dd, types.DdChild] {
+	return func(children ...types.DdChild) types.Dd {
+		return types.Dd{IContent: elems.Dd(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Del
+// Description: A removal from the document.
+// Parents: phrasing.
+// Children: transparent.
+// Attributes: globals; cite; datetime
+func Del(attrs ...attrs.DelAttribute) types.ContContainerFunc[types.Del, types.DelChild] {
+	return func(children ...types.DelChild) types.Del {
+		return types.Del{IContent: elems.Del(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Details
+// Description: Disclosure control for hiding details.
+// Parents: flow.
+// Children: summary*; flow.
+// Attributes: globals; name; open
+func Details(attrs ...attrs.DetailsAttribute) types.ContContainerFunc[types.Details, types.DetailsChild] {
+	return func(children ...types.DetailsChild) types.Details {
+		return types.Details{IContent: elems.Details(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Dfn
+// Description: Defining instance.
+// Parents: phrasing.
+// Children: phrasing*.
+// Attributes: globals
+func Dfn(attrs ...attrs.DfnAttribute) types.ContContainerFunc[types.Dfn, types.DfnChild] {
+	return func(children ...types.DfnChild) types.Dfn {
+		return types.Dfn{IContent: elems.Dfn(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Dialog
+// Description: Dialog box or window.
+// Parents: flow.
+// Children: flow.
+// Attributes: globals; open
+func Dialog(attrs ...attrs.DialogAttribute) types.ContContainerFunc[types.Dialog, types.DialogChild] {
+	return func(children ...types.DialogChild) types.Dialog {
+		return types.Dialog{IContent: elems.Dialog(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Div
+// Description: Generic flow container, or container for name-value groups in dl elements.
+// Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
+// Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
+// Attributes: globals
+func Div(attrs ...attrs.DivAttribute) types.ContContainerFunc[types.Div, types.DivChild] {
+	return func(children ...types.DivChild) types.Div {
+		return types.Div{IContent: elems.Div(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Dl
+// Description: Association list consisting of zero or more name-value groups.
+// Parents: flow.
+// Children: dt*; dd*; div*; script-supporting elements.
+// Attributes: globals
+func Dl(attrs ...attrs.DlAttribute) types.ContContainerFunc[types.Dl, types.DlChild] {
+	return func(children ...types.DlChild) types.Dl {
+		return types.Dl{IContent: elems.Dl(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Dt
+// Description: Legend for corresponding dd element(s).
+// Parents: dl; div*.
+// Children: flow*.
+// Attributes: globals
+func Dt(attrs ...attrs.DtAttribute) types.ContContainerFunc[types.Dt, types.DtChild] {
+	return func(children ...types.DtChild) types.Dt {
+		return types.Dt{IContent: elems.Dt(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Em
+// Description: Stress emphasis.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Em(attrs ...attrs.EmAttribute) types.ContContainerFunc[types.Em, types.EmChild] {
+	return func(children ...types.EmChild) types.Em {
+		return types.Em{IContent: elems.Em(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Embed
+// Description: Plugin.
+// Parents: phrasing.
+// Children: empty.
+// Attributes: globals; src; type; width; height; any*
+func Embed(attrs ...attrs.EmbedAttribute) doc.IContent {
+	return types.Embed{IContent: elems.Embed(toIAttributes(attrs)...)}
+}
+
+// Fieldset
+// Description: Group of form controls.
+// Parents: flow.
+// Children: legend*; flow.
+// Attributes: globals; disabled; form; name
+func Fieldset(attrs ...attrs.FieldsetAttribute) types.ContContainerFunc[types.Fieldset, types.FieldsetChild] {
+	return func(children ...types.FieldsetChild) types.Fieldset {
+		return types.Fieldset{IContent: elems.Fieldset(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Figcaption
+// Description: Caption for figure.
+// Parents: figure.
+// Children: flow.
+// Attributes: globals
+func Figcaption(attrs ...attrs.FigcaptionAttribute) types.ContContainerFunc[types.Figcaption, types.FigcaptionChild] {
+	return func(children ...types.FigcaptionChild) types.Figcaption {
+		return types.Figcaption{IContent: elems.Figcaption(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Figure
+// Description: Figure with optional caption.
+// Parents: flow.
+// Children: figcaption*; flow.
+// Attributes: globals
+func Figure(attrs ...attrs.FigureAttribute) types.ContContainerFunc[types.Figure, types.FigureChild] {
+	return func(children ...types.FigureChild) types.Figure {
+		return types.Figure{IContent: elems.Figure(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Footer
+// Description: Footer for a page or section.
+// Parents: flow.
+// Children: flow*.
+// Attributes: globals
+func Footer(attrs ...attrs.FooterAttribute) types.ContContainerFunc[types.Footer, types.FooterChild] {
+	return func(children ...types.FooterChild) types.Footer {
+		return types.Footer{IContent: elems.Footer(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Form
+// Description: User-submittable form.
+// Parents: flow.
+// Children: flow*.
+// Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
+func Form(attrs ...attrs.FormAttribute) types.ContContainerFunc[types.Form, types.FormChild] {
+	return func(children ...types.FormChild) types.Form {
+		return types.Form{IContent: elems.Form(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H1
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H1(attrs ...attrs.H1Attribute) types.ContContainerFunc[types.H1, types.H1Child] {
+	return func(children ...types.H1Child) types.H1 {
+		return types.H1{IContent: elems.H1(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H2
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H2(attrs ...attrs.H2Attribute) types.ContContainerFunc[types.H2, types.H2Child] {
+	return func(children ...types.H2Child) types.H2 {
+		return types.H2{IContent: elems.H2(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H3
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H3(attrs ...attrs.H3Attribute) types.ContContainerFunc[types.H3, types.H3Child] {
+	return func(children ...types.H3Child) types.H3 {
+		return types.H3{IContent: elems.H3(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H4
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H4(attrs ...attrs.H4Attribute) types.ContContainerFunc[types.H4, types.H4Child] {
+	return func(children ...types.H4Child) types.H4 {
+		return types.H4{IContent: elems.H4(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H5
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H5(attrs ...attrs.H5Attribute) types.ContContainerFunc[types.H5, types.H5Child] {
+	return func(children ...types.H5Child) types.H5 {
+		return types.H5{IContent: elems.H5(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// H6
+// Description: Heading.
+// Parents: legend; summary; flow.
+// Children: phrasing.
+// Attributes: globals
+func H6(attrs ...attrs.H6Attribute) types.ContContainerFunc[types.H6, types.H6Child] {
+	return func(children ...types.H6Child) types.H6 {
+		return types.H6{IContent: elems.H6(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Head
+// Description: Container for document metadata.
+// Parents: html.
+// Children: metadata content*.
+// Attributes: globals
+func Head(attrs ...attrs.HeadAttribute) types.ContContainerFunc[types.Head, types.HeadChild] {
+	return func(children ...types.HeadChild) types.Head {
+		return types.Head{IContent: elems.Head(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Header
+// Description: Introductory or navigational aids for a page or section.
+// Parents: flow.
+// Children: flow*.
+// Attributes: globals
+func Header(attrs ...attrs.HeaderAttribute) types.ContContainerFunc[types.Header, types.HeaderChild] {
+	return func(children ...types.HeaderChild) types.Header {
+		return types.Header{IContent: elems.Header(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Hgroup
+// Description: Heading container.
+// Parents: legend; summary; flow.
+// Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
+// Attributes: globals
+func Hgroup(attrs ...attrs.HgroupAttribute) types.ContContainerFunc[types.Hgroup, types.HgroupChild] {
+	return func(children ...types.HgroupChild) types.Hgroup {
+		return types.Hgroup{IContent: elems.Hgroup(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Hr
+// Description: Thematic break.
+// Parents: flow; select element inner content elements.
+// Children: empty.
+// Attributes: globals
+func Hr(attrs ...attrs.HrAttribute) doc.IContent {
+	return types.Hr{IContent: elems.Hr(toIAttributes(attrs)...)}
+}
+
+// Html
+// Description: Root element.
+// Parents: none*.
+// Children: head*; body*.
+// Attributes: globals
+func Html(attrs ...attrs.HtmlAttribute) types.ContContainerFunc[types.Html, types.HtmlChild] {
+	return func(children ...types.HtmlChild) types.Html {
+		return types.Html{IContent: elems.Html(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// I
+// Description: Alternate voice.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func I(attrs ...attrs.IAttribute) types.ContContainerFunc[types.I, types.IChild] {
+	return func(children ...types.IChild) types.I {
+		return types.I{IContent: elems.I(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Iframe
+// Description: Child navigable.
+// Parents: phrasing.
+// Children: empty.
+// Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
+func Iframe(attrs ...attrs.IframeAttribute) doc.IContent {
+	return types.Iframe{IContent: elems.Iframe(toIAttributes(attrs)...)}
+}
+
+// Img
+// Description: Image.
+// Parents: phrasing; picture.
+// Children: empty.
+// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
+func Img(attrs ...attrs.ImgAttribute) doc.IContent {
+	return types.Img{IContent: elems.Img(toIAttributes(attrs)...)}
+}
+
+// Input
+// Description: Form control.
+// Parents: phrasing.
+// Children: empty.
+// Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
+func Input(attrs ...attrs.InputAttribute) doc.IContent {
+	return types.Input{IContent: elems.Input(toIAttributes(attrs)...)}
+}
+
+// Ins
+// Description: An addition to the document.
+// Parents: phrasing.
+// Children: transparent.
+// Attributes: globals; cite; datetime
+func Ins(attrs ...attrs.InsAttribute) types.ContContainerFunc[types.Ins, types.InsChild] {
+	return func(children ...types.InsChild) types.Ins {
+		return types.Ins{IContent: elems.Ins(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Kbd
+// Description: User input.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Kbd(attrs ...attrs.KbdAttribute) types.ContContainerFunc[types.Kbd, types.KbdChild] {
+	return func(children ...types.KbdChild) types.Kbd {
+		return types.Kbd{IContent: elems.Kbd(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Label
+// Description: Caption for a form control.
+// Parents: phrasing.
+// Children: phrasing*.
+// Attributes: globals; for
+func Label(attrs ...attrs.LabelAttribute) types.ContContainerFunc[types.Label, types.LabelChild] {
+	return func(children ...types.LabelChild) types.Label {
+		return types.Label{IContent: elems.Label(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Legend
+// Description: Caption for fieldset.
+// Parents: fieldset; optgroup.
+// Children: phrasing*; heading content.
+// Attributes: globals
+func Legend(attrs ...attrs.LegendAttribute) types.ContContainerFunc[types.Legend, types.LegendChild] {
+	return func(children ...types.LegendChild) types.Legend {
+		return types.Legend{IContent: elems.Legend(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
@@ -32,6 +630,277 @@ func Li(attrs ...attrs.LiAttribute) types.ContContainerFunc[types.Li, types.LiCh
 	}
 }
 
+// Link
+// Description: Link metadata.
+// Parents: head; noscript*; phrasing*.
+// Children: empty.
+// Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
+func Link(attrs ...attrs.LinkAttribute) doc.IContent {
+	return types.Link{IContent: elems.Link(toIAttributes(attrs)...)}
+}
+
+// Main
+// Description: Container for the dominant contents of the document.
+// Parents: flow*.
+// Children: flow.
+// Attributes: globals
+func Main(attrs ...attrs.MainAttribute) types.ContContainerFunc[types.Main, types.MainChild] {
+	return func(children ...types.MainChild) types.Main {
+		return types.Main{IContent: elems.Main(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Map
+// Description: Image map.
+// Parents: phrasing.
+// Children: transparent; area*.
+// Attributes: globals; name
+func Map(attrs ...attrs.MapAttribute) types.ContContainerFunc[types.Map, types.MapChild] {
+	return func(children ...types.MapChild) types.Map {
+		return types.Map{IContent: elems.Map(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Mark
+// Description: Highlight.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Mark(attrs ...attrs.MarkAttribute) types.ContContainerFunc[types.Mark, types.MarkChild] {
+	return func(children ...types.MarkChild) types.Mark {
+		return types.Mark{IContent: elems.Mark(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Math
+// Description: MathML root.
+// Parents: phrasing.
+// Children: per [MATHML].
+// Attributes: per [MATHML]
+func Math(attrs ...attrs.MathAttribute) types.ContContainerFunc[types.Math, types.MathChild] {
+	return func(children ...types.MathChild) types.Math {
+		return types.Math{IContent: elems.Math(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Menu
+// Description: Menu of commands.
+// Parents: flow.
+// Children: li; script-supporting elements.
+// Attributes: globals
+func Menu(attrs ...attrs.MenuAttribute) types.ContContainerFunc[types.Menu, types.MenuChild] {
+	return func(children ...types.MenuChild) types.Menu {
+		return types.Menu{IContent: elems.Menu(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Meta
+// Description: Text metadata.
+// Parents: head; noscript*; phrasing*.
+// Children: empty.
+// Attributes: globals; name; http-equiv; content; charset; media
+func Meta(attrs ...attrs.MetaAttribute) doc.IContent {
+	return types.Meta{IContent: elems.Meta(toIAttributes(attrs)...)}
+}
+
+// Meter
+// Description: Gauge.
+// Parents: phrasing.
+// Children: phrasing*.
+// Attributes: globals; value; min; max; low; high; optimum
+func Meter(attrs ...attrs.MeterAttribute) types.ContContainerFunc[types.Meter, types.MeterChild] {
+	return func(children ...types.MeterChild) types.Meter {
+		return types.Meter{IContent: elems.Meter(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Nav
+// Description: Section with navigational links.
+// Parents: flow.
+// Children: flow.
+// Attributes: globals
+func Nav(attrs ...attrs.NavAttribute) types.ContContainerFunc[types.Nav, types.NavChild] {
+	return func(children ...types.NavChild) types.Nav {
+		return types.Nav{IContent: elems.Nav(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Noscript
+// Description: Fallback content for script.
+// Parents: head*; phrasing*.
+// Children: varies*.
+// Attributes: globals
+func Noscript(attrs ...attrs.NoscriptAttribute) types.ContContainerFunc[types.Noscript, types.NoscriptChild] {
+	return func(children ...types.NoscriptChild) types.Noscript {
+		return types.Noscript{IContent: elems.Noscript(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Object
+// Description: Image, child navigable, or plugin.
+// Parents: phrasing.
+// Children: transparent.
+// Attributes: globals; data; type; name; form; width; height
+func Object(attrs ...attrs.ObjectAttribute) types.ContContainerFunc[types.Object, types.ObjectChild] {
+	return func(children ...types.ObjectChild) types.Object {
+		return types.Object{IContent: elems.Object(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Ol
+// Description: Ordered list.
+// Parents: flow.
+// Children: li; script-supporting elements.
+// Attributes: globals; reversed; start; type
+func Ol(attrs ...attrs.OlAttribute) types.ContContainerFunc[types.Ol, types.OlChild] {
+	return func(children ...types.OlChild) types.Ol {
+		return types.Ol{IContent: elems.Ol(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Optgroup
+// Description: Group of options in a list box.
+// Parents: select; div*.
+// Children: optgroup element inner content elements; legend*.
+// Attributes: globals; disabled; label
+func Optgroup(attrs ...attrs.OptgroupAttribute) types.ContContainerFunc[types.Optgroup, types.OptgroupChild] {
+	return func(children ...types.OptgroupChild) types.Optgroup {
+		return types.Optgroup{IContent: elems.Optgroup(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Option
+// Description: Option in a list box or combo box control.
+// Parents: select; datalist; optgroup; div*.
+// Children: text*; option element inner content elements*.
+// Attributes: globals; disabled; label; selected; value
+func Option(attrs ...attrs.OptionAttribute) types.ContContainerFunc[types.Option, types.OptionChild] {
+	return func(children ...types.OptionChild) types.Option {
+		return types.Option{IContent: elems.Option(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Output
+// Description: Calculated output value.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals; for; form; name
+func Output(attrs ...attrs.OutputAttribute) types.ContContainerFunc[types.Output, types.OutputChild] {
+	return func(children ...types.OutputChild) types.Output {
+		return types.Output{IContent: elems.Output(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// P
+// Description: Paragraph.
+// Parents: flow.
+// Children: phrasing.
+// Attributes: globals
+func P(attrs ...attrs.PAttribute) types.ContContainerFunc[types.P, types.PChild] {
+	return func(children ...types.PChild) types.P {
+		return types.P{IContent: elems.P(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Picture
+// Description: Image.
+// Parents: phrasing.
+// Children: source*; one img; script-supporting elements.
+// Attributes: globals
+func Picture(attrs ...attrs.PictureAttribute) types.ContContainerFunc[types.Picture, types.PictureChild] {
+	return func(children ...types.PictureChild) types.Picture {
+		return types.Picture{IContent: elems.Picture(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Pre
+// Description: Block of preformatted text.
+// Parents: flow.
+// Children: phrasing.
+// Attributes: globals
+func Pre(attrs ...attrs.PreAttribute) types.ContContainerFunc[types.Pre, types.PreChild] {
+	return func(children ...types.PreChild) types.Pre {
+		return types.Pre{IContent: elems.Pre(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Progress
+// Description: Progress bar.
+// Parents: phrasing.
+// Children: phrasing*.
+// Attributes: globals; value; max
+func Progress(attrs ...attrs.ProgressAttribute) types.ContContainerFunc[types.Progress, types.ProgressChild] {
+	return func(children ...types.ProgressChild) types.Progress {
+		return types.Progress{IContent: elems.Progress(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Q
+// Description: Quotation.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals; cite
+func Q(attrs ...attrs.QAttribute) types.ContContainerFunc[types.Q, types.QChild] {
+	return func(children ...types.QChild) types.Q {
+		return types.Q{IContent: elems.Q(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Rp
+// Description: Parenthesis for ruby annotation text.
+// Parents: ruby.
+// Children: text.
+// Attributes: globals
+func Rp(attrs ...attrs.RpAttribute) types.ContContainerFunc[types.Rp, types.RpChild] {
+	return func(children ...types.RpChild) types.Rp {
+		return types.Rp{IContent: elems.Rp(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Rt
+// Description: Ruby annotation text.
+// Parents: ruby.
+// Children: phrasing.
+// Attributes: globals
+func Rt(attrs ...attrs.RtAttribute) types.ContContainerFunc[types.Rt, types.RtChild] {
+	return func(children ...types.RtChild) types.Rt {
+		return types.Rt{IContent: elems.Rt(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Ruby
+// Description: Ruby annotation(s).
+// Parents: phrasing.
+// Children: phrasing; rt; rp*.
+// Attributes: globals
+func Ruby(attrs ...attrs.RubyAttribute) types.ContContainerFunc[types.Ruby, types.RubyChild] {
+	return func(children ...types.RubyChild) types.Ruby {
+		return types.Ruby{IContent: elems.Ruby(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// S
+// Description: Inaccurate text.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func S(attrs ...attrs.SAttribute) types.ContContainerFunc[types.S, types.SChild] {
+	return func(children ...types.SChild) types.S {
+		return types.S{IContent: elems.S(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Samp
+// Description: Computer output.
+// Parents: phrasing.
+// Children: phrasing.
+// Attributes: globals
+func Samp(attrs ...attrs.SampAttribute) types.ContContainerFunc[types.Samp, types.SampChild] {
+	return func(children ...types.SampChild) types.Samp {
+		return types.Samp{IContent: elems.Samp(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
 // Script
 // Description: Embedded script.
 // Parents: head; phrasing; script-supporting.
@@ -43,751 +912,15 @@ func Script(attrs ...attrs.ScriptAttribute) types.ContContainerFunc[types.Script
 	}
 }
 
-// A
-// Description: Hyperlink.
-// Parents: phrasing.
-// Children: transparent*.
-// Attributes: globals; href; target; download; ping; rel; hreflang; type; referrerpolicy
-func A(aAttrs ...attrs.AAttribute) doc.ContContainerFunc {
-	return elems.A(toIAttributes(aAttrs)...)
-}
-
-// Abbr
-// Description: Abbreviation.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Abbr(abbrAttrs ...attrs.AbbrAttribute) doc.ContContainerFunc {
-	return elems.Abbr(toIAttributes(abbrAttrs)...)
-}
-
-// Address
-// Description: Contact information for a page or article element.
-// Parents: flow.
-// Children: flow*.
-// Attributes: globals
-func Address(addressAttrs ...attrs.AddressAttribute) doc.ContContainerFunc {
-	return elems.Address(toIAttributes(addressAttrs)...)
-}
-
-// Area
-// Description: Hyperlink or dead area on an image map.
-// Parents: phrasing*.
-// Children: empty.
-// Attributes: globals; alt; coords; shape; href; target; download; ping; rel; referrerpolicy
-func Area(areaAttrs ...attrs.AreaAttribute) doc.IContent {
-	return elems.Area(toIAttributes(areaAttrs)...)
-}
-
-// Article
-// Description: Self-contained syndicatable or reusable composition.
-// Parents: flow.
-// Children: flow.
-// Attributes: globals
-func Article(articleAttrs ...attrs.ArticleAttribute) doc.ContContainerFunc {
-	return elems.Article(toIAttributes(articleAttrs)...)
-}
-
-// Aside
-// Description: Sidebar for tangentially related content.
-// Parents: flow.
-// Children: flow.
-// Attributes: globals
-func Aside(asideAttrs ...attrs.AsideAttribute) doc.ContContainerFunc {
-	return elems.Aside(toIAttributes(asideAttrs)...)
-}
-
-// Audio
-// Description: Audio player.
-// Parents: phrasing.
-// Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
-func Audio(audioAttrs ...attrs.AudioAttribute) doc.ContContainerFunc {
-	return elems.Audio(toIAttributes(audioAttrs)...)
-}
-
-// B
-// Description: Keywords.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func B(bAttrs ...attrs.BAttribute) doc.ContContainerFunc {
-	return elems.B(toIAttributes(bAttrs)...)
-}
-
-// Base
-// Description: Base URL and default target navigable for hyperlinks and forms.
-// Parents: head.
-// Children: empty.
-// Attributes: globals; href; target
-func Base(baseAttrs ...attrs.BaseAttribute) doc.IContent {
-	return elems.Base(toIAttributes(baseAttrs)...)
-}
-
-// Bdi
-// Description: Text directionality isolation.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Bdi(bdiAttrs ...attrs.BdiAttribute) doc.ContContainerFunc {
-	return elems.Bdi(toIAttributes(bdiAttrs)...)
-}
-
-// Bdo
-// Description: Text directionality formatting.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Bdo(bdoAttrs ...attrs.BdoAttribute) doc.ContContainerFunc {
-	return elems.Bdo(toIAttributes(bdoAttrs)...)
-}
-
-// Blockquote
-// Description: A section quoted from another source.
-// Parents: flow.
-// Children: flow.
-// Attributes: globals; cite
-func Blockquote(blockquoteAttrs ...attrs.BlockquoteAttribute) doc.ContContainerFunc {
-	return elems.Blockquote(toIAttributes(blockquoteAttrs)...)
-}
-
-// Body
-// Description: Document body.
-// Parents: html.
-// Children: flow.
-// Attributes: globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onlanguagechange; onmessage; onmessageerror; onoffline; ononline; onpageswap; onpagehide; onpagereveal; onpageshow; onpopstate; onrejectionhandled; onstorage; onunhandledrejection; onunload
-func Body(bodyAttrs ...attrs.BodyAttribute) doc.ContContainerFunc {
-	return elems.Body(toIAttributes(bodyAttrs)...)
-}
-
-// Br
-// Description: Line break, e.g. in poem or postal address.
-// Parents: phrasing.
-// Children: empty.
-// Attributes: globals
-func Br(brAttrs ...attrs.BrAttribute) doc.IContent {
-	return elems.Br(toIAttributes(brAttrs)...)
-}
-
-// Button
-// Description: Button control.
-// Parents: phrasing.
-// Children: phrasing*.
-// Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
-func Button(buttonAttrs ...attrs.ButtonAttribute) doc.ContContainerFunc {
-	return elems.Button(toIAttributes(buttonAttrs)...)
-}
-
-// Canvas
-// Description: Scriptable bitmap canvas.
-// Parents: phrasing.
-// Children: transparent.
-// Attributes: globals; width; height
-func Canvas(canvasAttrs ...attrs.CanvasAttribute) doc.ContContainerFunc {
-	return elems.Canvas(toIAttributes(canvasAttrs)...)
-}
-
-// Caption
-// Description: Table caption.
-// Parents: table.
-// Children: flow*.
-// Attributes: globals
-func Caption(captionAttrs ...attrs.CaptionAttribute) doc.ContContainerFunc {
-	return elems.Caption(toIAttributes(captionAttrs)...)
-}
-
-// Cite
-// Description: Title of a work.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Cite(citeAttrs ...attrs.CiteAttribute) doc.ContContainerFunc {
-	return elems.Cite(toIAttributes(citeAttrs)...)
-}
-
-// Code
-// Description: Computer code.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Code(codeAttrs ...attrs.CodeAttribute) doc.ContContainerFunc {
-	return elems.Code(toIAttributes(codeAttrs)...)
-}
-
-// Col
-// Description: Table column.
-// Parents: colgroup.
-// Children: empty.
-// Attributes: globals; span
-func Col(colAttrs ...attrs.ColAttribute) doc.IContent {
-	return elems.Col(toIAttributes(colAttrs)...)
-}
-
-// Colgroup
-// Description: Group of columns in a table.
-// Parents: table.
-// Children: col*; template*.
-// Attributes: globals; span
-func Colgroup(colgroupAttrs ...attrs.ColgroupAttribute) doc.ContContainerFunc {
-	return elems.Colgroup(toIAttributes(colgroupAttrs)...)
-}
-
-// Data
-// Description: Machine-readable equivalent.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals; value
-func Data(dataAttrs ...attrs.DataAttribute) doc.ContContainerFunc {
-	return elems.Data(toIAttributes(dataAttrs)...)
-}
-
-// Datalist
-// Description: Container for options for combo box control.
-// Parents: phrasing.
-// Children: phrasing*; option*; script-supporting elements*.
-// Attributes: globals
-func Datalist(datalistAttrs ...attrs.DatalistAttribute) doc.ContContainerFunc {
-	return elems.Datalist(toIAttributes(datalistAttrs)...)
-}
-
-// Dd
-// Description: Content for corresponding dt element(s).
-// Parents: dl; div*.
-// Children: flow.
-// Attributes: globals
-func Dd(ddAttrs ...attrs.DdAttribute) doc.ContContainerFunc {
-	return elems.Dd(toIAttributes(ddAttrs)...)
-}
-
-// Del
-// Description: A removal from the document.
-// Parents: phrasing.
-// Children: transparent.
-// Attributes: globals; cite; datetime
-func Del(delAttrs ...attrs.DelAttribute) doc.ContContainerFunc {
-	return elems.Del(toIAttributes(delAttrs)...)
-}
-
-// Details
-// Description: Disclosure control for hiding details.
-// Parents: flow.
-// Children: summary*; flow.
-// Attributes: globals; name; open
-func Details(detailsAttrs ...attrs.DetailsAttribute) doc.ContContainerFunc {
-	return elems.Details(toIAttributes(detailsAttrs)...)
-}
-
-// Dfn
-// Description: Defining instance.
-// Parents: phrasing.
-// Children: phrasing*.
-// Attributes: globals
-func Dfn(dfnAttrs ...attrs.DfnAttribute) doc.ContContainerFunc {
-	return elems.Dfn(toIAttributes(dfnAttrs)...)
-}
-
-// Dialog
-// Description: Dialog box or window.
-// Parents: flow.
-// Children: flow.
-// Attributes: globals; open
-func Dialog(dialogAttrs ...attrs.DialogAttribute) doc.ContContainerFunc {
-	return elems.Dialog(toIAttributes(dialogAttrs)...)
-}
-
-// Div
-// Description: Generic flow container, or container for name-value groups in dl elements.
-// Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
-// Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
-// Attributes: globals
-func Div(divAttrs ...attrs.DivAttribute) doc.ContContainerFunc {
-	return elems.Div(toIAttributes(divAttrs)...)
-}
-
-// Dl
-// Description: Association list consisting of zero or more name-value groups.
-// Parents: flow.
-// Children: dt*; dd*; div*; script-supporting elements.
-// Attributes: globals
-func Dl(dlAttrs ...attrs.DlAttribute) doc.ContContainerFunc {
-	return elems.Dl(toIAttributes(dlAttrs)...)
-}
-
-// Dt
-// Description: Legend for corresponding dd element(s).
-// Parents: dl; div*.
-// Children: flow*.
-// Attributes: globals
-func Dt(dtAttrs ...attrs.DtAttribute) doc.ContContainerFunc {
-	return elems.Dt(toIAttributes(dtAttrs)...)
-}
-
-// Em
-// Description: Stress emphasis.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Em(emAttrs ...attrs.EmAttribute) doc.ContContainerFunc {
-	return elems.Em(toIAttributes(emAttrs)...)
-}
-
-// Embed
-// Description: Plugin.
-// Parents: phrasing.
-// Children: empty.
-// Attributes: globals; src; type; width; height; any*
-func Embed(embedAttrs ...attrs.EmbedAttribute) doc.IContent {
-	return elems.Embed(toIAttributes(embedAttrs)...)
-}
-
-// Fieldset
-// Description: Group of form controls.
-// Parents: flow.
-// Children: legend*; flow.
-// Attributes: globals; disabled; form; name
-func Fieldset(fieldsetAttrs ...attrs.FieldsetAttribute) doc.ContContainerFunc {
-	return elems.Fieldset(toIAttributes(fieldsetAttrs)...)
-}
-
-// Figcaption
-// Description: Caption for figure.
-// Parents: figure.
-// Children: flow.
-// Attributes: globals
-func Figcaption(figcaptionAttrs ...attrs.FigcaptionAttribute) doc.ContContainerFunc {
-	return elems.Figcaption(toIAttributes(figcaptionAttrs)...)
-}
-
-// Figure
-// Description: Figure with optional caption.
-// Parents: flow.
-// Children: figcaption*; flow.
-// Attributes: globals
-func Figure(figureAttrs ...attrs.FigureAttribute) doc.ContContainerFunc {
-	return elems.Figure(toIAttributes(figureAttrs)...)
-}
-
-// Footer
-// Description: Footer for a page or section.
-// Parents: flow.
-// Children: flow*.
-// Attributes: globals
-func Footer(footerAttrs ...attrs.FooterAttribute) doc.ContContainerFunc {
-	return elems.Footer(toIAttributes(footerAttrs)...)
-}
-
-// Form
-// Description: User-submittable form.
-// Parents: flow.
-// Children: flow*.
-// Attributes: globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; rel; target
-func Form(formAttrs ...attrs.FormAttribute) doc.ContContainerFunc {
-	return elems.Form(toIAttributes(formAttrs)...)
-}
-
-// H1
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H1(h1Attrs ...attrs.H1Attribute) doc.ContContainerFunc {
-	return elems.H1(toIAttributes(h1Attrs)...)
-}
-
-// H2
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H2(h2Attrs ...attrs.H2Attribute) doc.ContContainerFunc {
-	return elems.H2(toIAttributes(h2Attrs)...)
-}
-
-// H3
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H3(h3Attrs ...attrs.H3Attribute) doc.ContContainerFunc {
-	return elems.H3(toIAttributes(h3Attrs)...)
-}
-
-// H4
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H4(h4Attrs ...attrs.H4Attribute) doc.ContContainerFunc {
-	return elems.H4(toIAttributes(h4Attrs)...)
-}
-
-// H5
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H5(h5Attrs ...attrs.H5Attribute) doc.ContContainerFunc {
-	return elems.H5(toIAttributes(h5Attrs)...)
-}
-
-// H6
-// Description: Heading.
-// Parents: legend; summary; flow.
-// Children: phrasing.
-// Attributes: globals
-func H6(h6Attrs ...attrs.H6Attribute) doc.ContContainerFunc {
-	return elems.H6(toIAttributes(h6Attrs)...)
-}
-
-// Head
-// Description: Container for document metadata.
-// Parents: html.
-// Children: metadata content*.
-// Attributes: globals
-func Head(headAttrs ...attrs.HeadAttribute) doc.ContContainerFunc {
-	return elems.Head(toIAttributes(headAttrs)...)
-}
-
-// Header
-// Description: Introductory or navigational aids for a page or section.
-// Parents: flow.
-// Children: flow*.
-// Attributes: globals
-func Header(headerAttrs ...attrs.HeaderAttribute) doc.ContContainerFunc {
-	return elems.Header(toIAttributes(headerAttrs)...)
-}
-
-// Hgroup
-// Description: Heading container.
-// Parents: legend; summary; flow.
-// Children: h1; h2; h3; h4; h5; h6; p; script-supporting elements.
-// Attributes: globals
-func Hgroup(hgroupAttrs ...attrs.HgroupAttribute) doc.ContContainerFunc {
-	return elems.Hgroup(toIAttributes(hgroupAttrs)...)
-}
-
-// Hr
-// Description: Thematic break.
-// Parents: flow; select element inner content elements.
-// Children: empty.
-// Attributes: globals
-func Hr(hrAttrs ...attrs.HrAttribute) doc.IContent {
-	return elems.Hr(toIAttributes(hrAttrs)...)
-}
-
-// Html
-// Description: Root element.
-// Parents: none*.
-// Children: head*; body*.
-// Attributes: globals
-func Html(htmlAttrs ...attrs.HtmlAttribute) doc.ContContainerFunc {
-	return elems.Html(toIAttributes(htmlAttrs)...)
-}
-
-// I
-// Description: Alternate voice.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func I(iAttrs ...attrs.IAttribute) doc.ContContainerFunc {
-	return elems.I(toIAttributes(iAttrs)...)
-}
-
-// Iframe
-// Description: Child navigable.
-// Parents: phrasing.
-// Children: empty.
-// Attributes: globals; src; srcdoc; name; sandbox; allow; allowfullscreen; width; height; referrerpolicy; loading
-func Iframe(iframeAttrs ...attrs.IframeAttribute) doc.IContent {
-	return elems.Iframe(toIAttributes(iframeAttrs)...)
-}
-
-// Img
-// Description: Image.
-// Parents: phrasing; picture.
-// Children: empty.
-// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
-func Img(imgAttrs ...attrs.ImgAttribute) doc.IContent {
-	return elems.Img(toIAttributes(imgAttrs)...)
-}
-
-// Input
-// Description: Form control.
-// Parents: phrasing.
-// Children: empty.
-// Attributes: globals; accept; alpha; alt; autocomplete; checked; colorspace; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; popovertarget; popovertargetaction; readonly; required; size; src; step; type; value; width
-func Input(inputAttrs ...attrs.InputAttribute) doc.IContent {
-	return elems.Input(toIAttributes(inputAttrs)...)
-}
-
-// Ins
-// Description: An addition to the document.
-// Parents: phrasing.
-// Children: transparent.
-// Attributes: globals; cite; datetime
-func Ins(insAttrs ...attrs.InsAttribute) doc.ContContainerFunc {
-	return elems.Ins(toIAttributes(insAttrs)...)
-}
-
-// Kbd
-// Description: User input.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Kbd(kbdAttrs ...attrs.KbdAttribute) doc.ContContainerFunc {
-	return elems.Kbd(toIAttributes(kbdAttrs)...)
-}
-
-// Label
-// Description: Caption for a form control.
-// Parents: phrasing.
-// Children: phrasing*.
-// Attributes: globals; for
-func Label(labelAttrs ...attrs.LabelAttribute) doc.ContContainerFunc {
-	return elems.Label(toIAttributes(labelAttrs)...)
-}
-
-// Legend
-// Description: Caption for fieldset.
-// Parents: fieldset; optgroup.
-// Children: phrasing*; heading content.
-// Attributes: globals
-func Legend(legendAttrs ...attrs.LegendAttribute) doc.ContContainerFunc {
-	return elems.Legend(toIAttributes(legendAttrs)...)
-}
-
-// Link
-// Description: Link metadata.
-// Parents: head; noscript*; phrasing*.
-// Children: empty.
-// Attributes: globals; href; crossorigin; rel; as; media; hreflang; type; sizes; imagesrcset; imagesizes; referrerpolicy; integrity; blocking; color; disabled; fetchpriority
-func Link(linkAttrs ...attrs.LinkAttribute) doc.IContent {
-	return elems.Link(toIAttributes(linkAttrs)...)
-}
-
-// Main
-// Description: Container for the dominant contents of the document.
-// Parents: flow*.
-// Children: flow.
-// Attributes: globals
-func Main(mainAttrs ...attrs.MainAttribute) doc.ContContainerFunc {
-	return elems.Main(toIAttributes(mainAttrs)...)
-}
-
-// Map
-// Description: Image map.
-// Parents: phrasing.
-// Children: transparent; area*.
-// Attributes: globals; name
-func Map(mapAttrs ...attrs.MapAttribute) doc.ContContainerFunc {
-	return elems.Map(toIAttributes(mapAttrs)...)
-}
-
-// Mark
-// Description: Highlight.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Mark(markAttrs ...attrs.MarkAttribute) doc.ContContainerFunc {
-	return elems.Mark(toIAttributes(markAttrs)...)
-}
-
-// Math
-// Description: MathML root.
-// Parents: phrasing.
-// Children: per [MATHML].
-// Attributes: per [MATHML]
-func Math(mathAttrs ...attrs.MathAttribute) doc.ContContainerFunc {
-	return elems.Math(toIAttributes(mathAttrs)...)
-}
-
-// Menu
-// Description: Menu of commands.
-// Parents: flow.
-// Children: li; script-supporting elements.
-// Attributes: globals
-func Menu(menuAttrs ...attrs.MenuAttribute) doc.ContContainerFunc {
-	return elems.Menu(toIAttributes(menuAttrs)...)
-}
-
-// Meta
-// Description: Text metadata.
-// Parents: head; noscript*; phrasing*.
-// Children: empty.
-// Attributes: globals; name; http-equiv; content; charset; media
-func Meta(metaAttrs ...attrs.MetaAttribute) doc.IContent {
-	return elems.Meta(toIAttributes(metaAttrs)...)
-}
-
-// Meter
-// Description: Gauge.
-// Parents: phrasing.
-// Children: phrasing*.
-// Attributes: globals; value; min; max; low; high; optimum
-func Meter(meterAttrs ...attrs.MeterAttribute) doc.ContContainerFunc {
-	return elems.Meter(toIAttributes(meterAttrs)...)
-}
-
-// Nav
-// Description: Section with navigational links.
-// Parents: flow.
-// Children: flow.
-// Attributes: globals
-func Nav(navAttrs ...attrs.NavAttribute) doc.ContContainerFunc {
-	return elems.Nav(toIAttributes(navAttrs)...)
-}
-
-// Noscript
-// Description: Fallback content for script.
-// Parents: head*; phrasing*.
-// Children: varies*.
-// Attributes: globals
-func Noscript(noscriptAttrs ...attrs.NoscriptAttribute) doc.ContContainerFunc {
-	return elems.Noscript(toIAttributes(noscriptAttrs)...)
-}
-
-// Object
-// Description: Image, child navigable, or plugin.
-// Parents: phrasing.
-// Children: transparent.
-// Attributes: globals; data; type; name; form; width; height
-func Object(objectAttrs ...attrs.ObjectAttribute) doc.ContContainerFunc {
-	return elems.Object(toIAttributes(objectAttrs)...)
-}
-
-// Ol
-// Description: Ordered list.
-// Parents: flow.
-// Children: li; script-supporting elements.
-// Attributes: globals; reversed; start; type
-func Ol(olAttrs ...attrs.OlAttribute) doc.ContContainerFunc {
-	return elems.Ol(toIAttributes(olAttrs)...)
-}
-
-// Optgroup
-// Description: Group of options in a list box.
-// Parents: select; div*.
-// Children: optgroup element inner content elements; legend*.
-// Attributes: globals; disabled; label
-func Optgroup(optgroupAttrs ...attrs.OptgroupAttribute) doc.ContContainerFunc {
-	return elems.Optgroup(toIAttributes(optgroupAttrs)...)
-}
-
-// Option
-// Description: Option in a list box or combo box control.
-// Parents: select; datalist; optgroup; div*.
-// Children: text*; option element inner content elements*.
-// Attributes: globals; disabled; label; selected; value
-func Option(optionAttrs ...attrs.OptionAttribute) doc.ContContainerFunc {
-	return elems.Option(toIAttributes(optionAttrs)...)
-}
-
-// Output
-// Description: Calculated output value.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals; for; form; name
-func Output(outputAttrs ...attrs.OutputAttribute) doc.ContContainerFunc {
-	return elems.Output(toIAttributes(outputAttrs)...)
-}
-
-// P
-// Description: Paragraph.
-// Parents: flow.
-// Children: phrasing.
-// Attributes: globals
-func P(pAttrs ...attrs.PAttribute) doc.ContContainerFunc {
-	return elems.P(toIAttributes(pAttrs)...)
-}
-
-// Picture
-// Description: Image.
-// Parents: phrasing.
-// Children: source*; one img; script-supporting elements.
-// Attributes: globals
-func Picture(pictureAttrs ...attrs.PictureAttribute) doc.ContContainerFunc {
-	return elems.Picture(toIAttributes(pictureAttrs)...)
-}
-
-// Pre
-// Description: Block of preformatted text.
-// Parents: flow.
-// Children: phrasing.
-// Attributes: globals
-func Pre(preAttrs ...attrs.PreAttribute) doc.ContContainerFunc {
-	return elems.Pre(toIAttributes(preAttrs)...)
-}
-
-// Progress
-// Description: Progress bar.
-// Parents: phrasing.
-// Children: phrasing*.
-// Attributes: globals; value; max
-func Progress(progressAttrs ...attrs.ProgressAttribute) doc.ContContainerFunc {
-	return elems.Progress(toIAttributes(progressAttrs)...)
-}
-
-// Q
-// Description: Quotation.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals; cite
-func Q(qAttrs ...attrs.QAttribute) doc.ContContainerFunc {
-	return elems.Q(toIAttributes(qAttrs)...)
-}
-
-// Rp
-// Description: Parenthesis for ruby annotation text.
-// Parents: ruby.
-// Children: text.
-// Attributes: globals
-func Rp(rpAttrs ...attrs.RpAttribute) doc.ContContainerFunc {
-	return elems.Rp(toIAttributes(rpAttrs)...)
-}
-
-// Rt
-// Description: Ruby annotation text.
-// Parents: ruby.
-// Children: phrasing.
-// Attributes: globals
-func Rt(rtAttrs ...attrs.RtAttribute) doc.ContContainerFunc {
-	return elems.Rt(toIAttributes(rtAttrs)...)
-}
-
-// Ruby
-// Description: Ruby annotation(s).
-// Parents: phrasing.
-// Children: phrasing; rt; rp*.
-// Attributes: globals
-func Ruby(rubyAttrs ...attrs.RubyAttribute) doc.ContContainerFunc {
-	return elems.Ruby(toIAttributes(rubyAttrs)...)
-}
-
-// S
-// Description: Inaccurate text.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func S(sAttrs ...attrs.SAttribute) doc.ContContainerFunc {
-	return elems.S(toIAttributes(sAttrs)...)
-}
-
-// Samp
-// Description: Computer output.
-// Parents: phrasing.
-// Children: phrasing.
-// Attributes: globals
-func Samp(sampAttrs ...attrs.SampAttribute) doc.ContContainerFunc {
-	return elems.Samp(toIAttributes(sampAttrs)...)
-}
-
 // Search
 // Description: Container for search controls.
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Search(searchAttrs ...attrs.SearchAttribute) doc.ContContainerFunc {
-	return elems.Search(toIAttributes(searchAttrs)...)
+func Search(attrs ...attrs.SearchAttribute) types.ContContainerFunc[types.Search, types.SearchChild] {
+	return func(children ...types.SearchChild) types.Search {
+		return types.Search{IContent: elems.Search(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Section
@@ -795,8 +928,10 @@ func Search(searchAttrs ...attrs.SearchAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: flow.
 // Attributes: globals
-func Section(sectionAttrs ...attrs.SectionAttribute) doc.ContContainerFunc {
-	return elems.Section(toIAttributes(sectionAttrs)...)
+func Section(attrs ...attrs.SectionAttribute) types.ContContainerFunc[types.Section, types.SectionChild] {
+	return func(children ...types.SectionChild) types.Section {
+		return types.Section{IContent: elems.Section(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Select
@@ -804,8 +939,10 @@ func Section(sectionAttrs ...attrs.SectionAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: select element inner content elements; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
-func Select(selectAttrs ...attrs.SelectAttribute) doc.ContContainerFunc {
-	return elems.Select(toIAttributes(selectAttrs)...)
+func Select(attrs ...attrs.SelectAttribute) types.ContContainerFunc[types.Select, types.SelectChild] {
+	return func(children ...types.SelectChild) types.Select {
+		return types.Select{IContent: elems.Select(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Selectedcontent
@@ -813,8 +950,8 @@ func Select(selectAttrs ...attrs.SelectAttribute) doc.ContContainerFunc {
 // Parents: button.
 // Children: empty.
 // Attributes: globals
-func Selectedcontent(selectedcontentAttrs ...attrs.SelectedcontentAttribute) doc.IContent {
-	return elems.Selectedcontent(toIAttributes(selectedcontentAttrs)...)
+func Selectedcontent(attrs ...attrs.SelectedcontentAttribute) doc.IContent {
+	return types.Selectedcontent{IContent: elems.Selectedcontent(toIAttributes(attrs)...)}
 }
 
 // Slot
@@ -822,8 +959,10 @@ func Selectedcontent(selectedcontentAttrs ...attrs.SelectedcontentAttribute) doc
 // Parents: phrasing.
 // Children: transparent.
 // Attributes: globals; name
-func Slot(slotAttrs ...attrs.SlotAttribute) doc.ContContainerFunc {
-	return elems.Slot(toIAttributes(slotAttrs)...)
+func Slot(attrs ...attrs.SlotAttribute) types.ContContainerFunc[types.Slot, types.SlotChild] {
+	return func(children ...types.SlotChild) types.Slot {
+		return types.Slot{IContent: elems.Slot(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Small
@@ -831,8 +970,10 @@ func Slot(slotAttrs ...attrs.SlotAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Small(smallAttrs ...attrs.SmallAttribute) doc.ContContainerFunc {
-	return elems.Small(toIAttributes(smallAttrs)...)
+func Small(attrs ...attrs.SmallAttribute) types.ContContainerFunc[types.Small, types.SmallChild] {
+	return func(children ...types.SmallChild) types.Small {
+		return types.Small{IContent: elems.Small(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Source
@@ -840,8 +981,8 @@ func Small(smallAttrs ...attrs.SmallAttribute) doc.ContContainerFunc {
 // Parents: picture; video; audio.
 // Children: empty.
 // Attributes: globals; type; media; src; srcset; sizes; width; height
-func Source(sourceAttrs ...attrs.SourceAttribute) doc.IContent {
-	return elems.Source(toIAttributes(sourceAttrs)...)
+func Source(attrs ...attrs.SourceAttribute) doc.IContent {
+	return types.Source{IContent: elems.Source(toIAttributes(attrs)...)}
 }
 
 // Span
@@ -849,8 +990,10 @@ func Source(sourceAttrs ...attrs.SourceAttribute) doc.IContent {
 // Parents: phrasing; option element inner content elements*.
 // Children: phrasing.
 // Attributes: globals
-func Span(spanAttrs ...attrs.SpanAttribute) doc.ContContainerFunc {
-	return elems.Span(toIAttributes(spanAttrs)...)
+func Span(attrs ...attrs.SpanAttribute) types.ContContainerFunc[types.Span, types.SpanChild] {
+	return func(children ...types.SpanChild) types.Span {
+		return types.Span{IContent: elems.Span(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Strong
@@ -858,8 +1001,10 @@ func Span(spanAttrs ...attrs.SpanAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Strong(strongAttrs ...attrs.StrongAttribute) doc.ContContainerFunc {
-	return elems.Strong(toIAttributes(strongAttrs)...)
+func Strong(attrs ...attrs.StrongAttribute) types.ContContainerFunc[types.Strong, types.StrongChild] {
+	return func(children ...types.StrongChild) types.Strong {
+		return types.Strong{IContent: elems.Strong(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Style
@@ -867,8 +1012,10 @@ func Strong(strongAttrs ...attrs.StrongAttribute) doc.ContContainerFunc {
 // Parents: head; noscript*.
 // Children: text*.
 // Attributes: globals; media; blocking
-func Style(styleAttrs ...attrs.StyleAttribute) doc.ContContainerFunc {
-	return elems.Style(toIAttributes(styleAttrs)...)
+func Style(attrs ...attrs.StyleAttribute) types.ContContainerFunc[types.Style, types.StyleChild] {
+	return func(children ...types.StyleChild) types.Style {
+		return types.Style{IContent: elems.Style(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Sub
@@ -876,8 +1023,10 @@ func Style(styleAttrs ...attrs.StyleAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sub(subAttrs ...attrs.SubAttribute) doc.ContContainerFunc {
-	return elems.Sub(toIAttributes(subAttrs)...)
+func Sub(attrs ...attrs.SubAttribute) types.ContContainerFunc[types.Sub, types.SubChild] {
+	return func(children ...types.SubChild) types.Sub {
+		return types.Sub{IContent: elems.Sub(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Summary
@@ -885,8 +1034,10 @@ func Sub(subAttrs ...attrs.SubAttribute) doc.ContContainerFunc {
 // Parents: details.
 // Children: phrasing; heading content.
 // Attributes: globals
-func Summary(summaryAttrs ...attrs.SummaryAttribute) doc.ContContainerFunc {
-	return elems.Summary(toIAttributes(summaryAttrs)...)
+func Summary(attrs ...attrs.SummaryAttribute) types.ContContainerFunc[types.Summary, types.SummaryChild] {
+	return func(children ...types.SummaryChild) types.Summary {
+		return types.Summary{IContent: elems.Summary(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Sup
@@ -894,8 +1045,10 @@ func Summary(summaryAttrs ...attrs.SummaryAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Sup(supAttrs ...attrs.SupAttribute) doc.ContContainerFunc {
-	return elems.Sup(toIAttributes(supAttrs)...)
+func Sup(attrs ...attrs.SupAttribute) types.ContContainerFunc[types.Sup, types.SupChild] {
+	return func(children ...types.SupChild) types.Sup {
+		return types.Sup{IContent: elems.Sup(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Svg
@@ -903,8 +1056,10 @@ func Sup(supAttrs ...attrs.SupAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: per [SVG].
 // Attributes: per [SVG]
-func Svg(svgAttrs ...attrs.SvgAttribute) doc.ContContainerFunc {
-	return elems.Svg(toIAttributes(svgAttrs)...)
+func Svg(attrs ...attrs.SvgAttribute) types.ContContainerFunc[types.Svg, types.SvgChild] {
+	return func(children ...types.SvgChild) types.Svg {
+		return types.Svg{IContent: elems.Svg(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Table
@@ -912,8 +1067,10 @@ func Svg(svgAttrs ...attrs.SvgAttribute) doc.ContContainerFunc {
 // Parents: flow.
 // Children: caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements.
 // Attributes: globals
-func Table(tableAttrs ...attrs.TableAttribute) doc.ContContainerFunc {
-	return elems.Table(toIAttributes(tableAttrs)...)
+func Table(attrs ...attrs.TableAttribute) types.ContContainerFunc[types.Table, types.TableChild] {
+	return func(children ...types.TableChild) types.Table {
+		return types.Table{IContent: elems.Table(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Tbody
@@ -921,8 +1078,10 @@ func Table(tableAttrs ...attrs.TableAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tbody(tbodyAttrs ...attrs.TbodyAttribute) doc.ContContainerFunc {
-	return elems.Tbody(toIAttributes(tbodyAttrs)...)
+func Tbody(attrs ...attrs.TbodyAttribute) types.ContContainerFunc[types.Tbody, types.TbodyChild] {
+	return func(children ...types.TbodyChild) types.Tbody {
+		return types.Tbody{IContent: elems.Tbody(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Td
@@ -930,8 +1089,10 @@ func Tbody(tbodyAttrs ...attrs.TbodyAttribute) doc.ContContainerFunc {
 // Parents: tr.
 // Children: flow.
 // Attributes: globals; colspan; rowspan; headers
-func Td(tdAttrs ...attrs.TdAttribute) doc.ContContainerFunc {
-	return elems.Td(toIAttributes(tdAttrs)...)
+func Td(attrs ...attrs.TdAttribute) types.ContContainerFunc[types.Td, types.TdChild] {
+	return func(children ...types.TdChild) types.Td {
+		return types.Td{IContent: elems.Td(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Template
@@ -939,8 +1100,8 @@ func Td(tdAttrs ...attrs.TdAttribute) doc.ContContainerFunc {
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
 // Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
-func Template(templateAttrs ...attrs.TemplateAttribute) doc.IContent {
-	return elems.Template(toIAttributes(templateAttrs)...)
+func Template(attrs ...attrs.TemplateAttribute) doc.IContent {
+	return types.Template{IContent: elems.Template(toIAttributes(attrs)...)}
 }
 
 // Textarea
@@ -948,8 +1109,10 @@ func Template(templateAttrs ...attrs.TemplateAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: text.
 // Attributes: globals; autocomplete; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap
-func Textarea(textareaAttrs ...attrs.TextareaAttribute) doc.ContContainerFunc {
-	return elems.Textarea(toIAttributes(textareaAttrs)...)
+func Textarea(attrs ...attrs.TextareaAttribute) types.ContContainerFunc[types.Textarea, types.TextareaChild] {
+	return func(children ...types.TextareaChild) types.Textarea {
+		return types.Textarea{IContent: elems.Textarea(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Tfoot
@@ -957,8 +1120,10 @@ func Textarea(textareaAttrs ...attrs.TextareaAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Tfoot(tfootAttrs ...attrs.TfootAttribute) doc.ContContainerFunc {
-	return elems.Tfoot(toIAttributes(tfootAttrs)...)
+func Tfoot(attrs ...attrs.TfootAttribute) types.ContContainerFunc[types.Tfoot, types.TfootChild] {
+	return func(children ...types.TfootChild) types.Tfoot {
+		return types.Tfoot{IContent: elems.Tfoot(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Th
@@ -966,8 +1131,10 @@ func Tfoot(tfootAttrs ...attrs.TfootAttribute) doc.ContContainerFunc {
 // Parents: tr.
 // Children: flow*.
 // Attributes: globals; colspan; rowspan; headers; scope; abbr
-func Th(thAttrs ...attrs.ThAttribute) doc.ContContainerFunc {
-	return elems.Th(toIAttributes(thAttrs)...)
+func Th(attrs ...attrs.ThAttribute) types.ContContainerFunc[types.Th, types.ThChild] {
+	return func(children ...types.ThChild) types.Th {
+		return types.Th{IContent: elems.Th(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Thead
@@ -975,8 +1142,10 @@ func Th(thAttrs ...attrs.ThAttribute) doc.ContContainerFunc {
 // Parents: table.
 // Children: tr; script-supporting elements.
 // Attributes: globals
-func Thead(theadAttrs ...attrs.TheadAttribute) doc.ContContainerFunc {
-	return elems.Thead(toIAttributes(theadAttrs)...)
+func Thead(attrs ...attrs.TheadAttribute) types.ContContainerFunc[types.Thead, types.TheadChild] {
+	return func(children ...types.TheadChild) types.Thead {
+		return types.Thead{IContent: elems.Thead(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Time
@@ -984,8 +1153,10 @@ func Thead(theadAttrs ...attrs.TheadAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals; datetime
-func Time(timeAttrs ...attrs.TimeAttribute) doc.ContContainerFunc {
-	return elems.Time(toIAttributes(timeAttrs)...)
+func Time(attrs ...attrs.TimeAttribute) types.ContContainerFunc[types.Time, types.TimeChild] {
+	return func(children ...types.TimeChild) types.Time {
+		return types.Time{IContent: elems.Time(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Title
@@ -993,8 +1164,10 @@ func Time(timeAttrs ...attrs.TimeAttribute) doc.ContContainerFunc {
 // Parents: head.
 // Children: text*.
 // Attributes: globals
-func Title(titleAttrs ...attrs.TitleAttribute) doc.ContContainerFunc {
-	return elems.Title(toIAttributes(titleAttrs)...)
+func Title(attrs ...attrs.TitleAttribute) types.ContContainerFunc[types.Title, types.TitleChild] {
+	return func(children ...types.TitleChild) types.Title {
+		return types.Title{IContent: elems.Title(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Tr
@@ -1002,8 +1175,10 @@ func Title(titleAttrs ...attrs.TitleAttribute) doc.ContContainerFunc {
 // Parents: table; thead; tbody; tfoot.
 // Children: th*; td; script-supporting elements.
 // Attributes: globals
-func Tr(trAttrs ...attrs.TrAttribute) doc.ContContainerFunc {
-	return elems.Tr(toIAttributes(trAttrs)...)
+func Tr(attrs ...attrs.TrAttribute) types.ContContainerFunc[types.Tr, types.TrChild] {
+	return func(children ...types.TrChild) types.Tr {
+		return types.Tr{IContent: elems.Tr(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Track
@@ -1011,8 +1186,8 @@ func Tr(trAttrs ...attrs.TrAttribute) doc.ContContainerFunc {
 // Parents: audio; video.
 // Children: empty.
 // Attributes: globals; default; kind; label; src; srclang
-func Track(trackAttrs ...attrs.TrackAttribute) doc.IContent {
-	return elems.Track(toIAttributes(trackAttrs)...)
+func Track(attrs ...attrs.TrackAttribute) doc.IContent {
+	return types.Track{IContent: elems.Track(toIAttributes(attrs)...)}
 }
 
 // U
@@ -1020,8 +1195,21 @@ func Track(trackAttrs ...attrs.TrackAttribute) doc.IContent {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func U(uAttrs ...attrs.UAttribute) doc.ContContainerFunc {
-	return elems.U(toIAttributes(uAttrs)...)
+func U(attrs ...attrs.UAttribute) types.ContContainerFunc[types.U, types.UChild] {
+	return func(children ...types.UChild) types.U {
+		return types.U{IContent: elems.U(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
+}
+
+// Ul
+// Description: List.
+// Parents: flow.
+// Children: li; script-supporting elements.
+// Attributes: globals
+func Ul(attrs ...attrs.UlAttribute) types.ContContainerFunc[types.Ul, types.UlChild] {
+	return func(children ...types.UlChild) types.Ul {
+		return types.Ul{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Var
@@ -1029,8 +1217,10 @@ func U(uAttrs ...attrs.UAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
-func Var(varAttrs ...attrs.VarAttribute) doc.ContContainerFunc {
-	return elems.Var(toIAttributes(varAttrs)...)
+func Var(attrs ...attrs.VarAttribute) types.ContContainerFunc[types.Var, types.VarChild] {
+	return func(children ...types.VarChild) types.Var {
+		return types.Var{IContent: elems.Var(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Video
@@ -1038,8 +1228,10 @@ func Var(varAttrs ...attrs.VarAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
 // Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
-func Video(videoAttrs ...attrs.VideoAttribute) doc.ContContainerFunc {
-	return elems.Video(toIAttributes(videoAttrs)...)
+func Video(attrs ...attrs.VideoAttribute) types.ContContainerFunc[types.Video, types.VideoChild] {
+	return func(children ...types.VideoChild) types.Video {
+		return types.Video{IContent: elems.Video(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
 
 // Wbr
@@ -1047,6 +1239,7 @@ func Video(videoAttrs ...attrs.VideoAttribute) doc.ContContainerFunc {
 // Parents: phrasing.
 // Children: empty.
 // Attributes: globals
-func Wbr(wbrAttrs ...attrs.WbrAttribute) doc.IContent {
-	return elems.Wbr(toIAttributes(wbrAttrs)...)
+func Wbr(attrs ...attrs.WbrAttribute) doc.IContent {
+	return types.Wbr{IContent: elems.Wbr(toIAttributes(attrs)...)}
 }
+

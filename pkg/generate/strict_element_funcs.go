@@ -37,16 +37,9 @@ package elems
 import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
+	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
+	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/elems"
 )
-
-// toIAttributes converts a slice of a specific attribute type to a slice of IAttribute.
-func toIAttributes[T doc.IAttribute](attrs []T) []doc.IAttribute {
-	iAttrs := make([]doc.IAttribute, len(attrs))
-	for i, attr := range attrs {
-		iAttrs[i] = attr
-	}
-	return iAttrs
-}
 
 %s
 `, doNotEdit, allElementsContent); err != nil {
@@ -58,19 +51,38 @@ func toIAttributes[T doc.IAttribute](attrs []T) []doc.IAttribute {
 
 func makeStrictElementFunc(elem *element) string {
 	funcName := kebabToPascal(elem.name)
-	attrVarName := strings.ToLower(funcName[:1]) + funcName[1:] + "Attrs"
 	strictAttrType := fmt.Sprintf("%sAttribute", funcName)
 
-	returnType := "doc.ContContainerFunc"
+	// returnType := "doc.ContContainerFunc"
+	returnType := fmt.Sprintf("types.ContContainerFunc[types.%s, types.%sChild]", funcName, funcName)
 	if elem.isUnit {
 		returnType = "doc.IContent"
 	}
 
 	doc := makeElemDoc(elem)
-
+	if elem.isUnit {
+		return fmt.Sprintf(`%s
+func %s(attrs ...attrs.%s) %s {
+	return types.%s{IContent: elems.%s(toIAttributes(attrs)...)}
+}
+`, doc, funcName, strictAttrType, returnType, funcName, funcName)
+	}
 	return fmt.Sprintf(`%s
-func %s(%s ...%s) %s {
-	return elems.%s(toIAttributes(%s)...)
+func %s(attrs ...attrs.%s) %s {
+	return func(children ...types.%sChild) types.%s {
+		return types.%s{IContent: elems.%s(toIAttributes(attrs)...)(toIContent(children)...)}
+	}
 }
-`, doc, funcName, attrVarName, strictAttrType, returnType, funcName, attrVarName)
+`, doc, funcName, strictAttrType, returnType, funcName, funcName, funcName, funcName)
 }
+
+// // Ul
+// // Description: List.
+// // Parents: flow.
+// // Children: li; script-supporting elements.
+// // Attributes: globals
+// func Ul(attrs ...attrs.UlAttribute) types.ContContainerFunc[types.Ul, types.UlChild] {
+// 	return func(children ...types.UlChild) types.Ul {
+// 		return types.Ul{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
+// 	}
+// }
