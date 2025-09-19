@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
+	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/elems"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/internal/test"
 )
 
@@ -59,7 +60,7 @@ func Test_ParentTypes(t *testing.T) {
 		t.Parallel()
 
 		var li any = Li()()
-		if _, ok := li.(UlChild); !ok {
+		if _, ok := li.(types.UlChild); !ok {
 			t.Errorf("expected li to be a UlChild, but it's not")
 		}
 	})
@@ -68,7 +69,7 @@ func Test_ParentTypes(t *testing.T) {
 		t.Parallel()
 
 		var li any = Li()()
-		if _, ok := li.(ScriptChild); ok {
+		if _, ok := li.(types.ScriptChild); ok {
 			t.Errorf("expected li to not be ScriptChild, but it is")
 		}
 	})

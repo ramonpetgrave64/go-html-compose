@@ -7,6 +7,7 @@ import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/elems"
 	"github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/attrs"
+	types "github.com/ramonpetgrave64/go-html-compose/pkg/html/strict/internal/types/elems"
 )
 
 // Ul
@@ -14,9 +15,9 @@ import (
 // Parents: flow.
 // Children: li; script-supporting elements.
 // Attributes: globals
-func Ul(attrs ...attrs.UlAttribute) ContContainerFunc[UlType, UlChild] {
-	return func(children ...UlChild) UlType {
-		return UlType{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
+func Ul(attrs ...attrs.UlAttribute) types.ContContainerFunc[types.Ul, types.UlChild] {
+	return func(children ...types.UlChild) types.Ul {
+		return types.Ul{IContent: elems.Ul(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
@@ -25,9 +26,9 @@ func Ul(attrs ...attrs.UlAttribute) ContContainerFunc[UlType, UlChild] {
 // Parents: ol; ul; menu*.
 // Children: flow.
 // Attributes: globals; value*
-func Li(attrs ...attrs.LiAttribute) ContContainerFunc[LiType, LiChild] {
-	return func(children ...LiChild) LiType {
-		return LiType{IContent: elems.Li(toIAttributes(attrs)...)(toIContent(children)...)}
+func Li(attrs ...attrs.LiAttribute) types.ContContainerFunc[types.Li, types.LiChild] {
+	return func(children ...types.LiChild) types.Li {
+		return types.Li{IContent: elems.Li(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 
@@ -36,9 +37,9 @@ func Li(attrs ...attrs.LiAttribute) ContContainerFunc[LiType, LiChild] {
 // Parents: head; phrasing; script-supporting.
 // Children: script, data, or script documentation*.
 // Attributes: globals; src; type; nomodule; async; defer; crossorigin; integrity; referrerpolicy; blocking; fetchpriority
-func Script(attrs ...attrs.ScriptAttribute) ContContainerFunc[ScriptType, ScriptChild] {
-	return func(children ...ScriptChild) ScriptType {
-		return ScriptType{IContent: elems.Script(toIAttributes(attrs)...)(toIContent(children)...)}
+func Script(attrs ...attrs.ScriptAttribute) types.ContContainerFunc[types.Script, types.ScriptChild] {
+	return func(children ...types.ScriptChild) types.Script {
+		return types.Script{IContent: elems.Script(toIAttributes(attrs)...)(toIContent(children)...)}
 	}
 }
 

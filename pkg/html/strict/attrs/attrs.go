@@ -2747,3 +2747,4 @@ func Onwaiting(value string) types.Onwaiting {
 func Onwheel(value string) types.Onwheel {
 	return types.Onwheel{IAttribute: attrs.Onwheel(value)}
 }
+
