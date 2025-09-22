@@ -48,7 +48,8 @@ func generateStrictElementTypes(specContent io.Reader) error {
 
 	categories, elementCategoryMap := extractElementCategories(specNode)
 
-	allCategoriesContent := generateCategoryTypesContent(categories)
+	categoryElementParents := extractCategoryElementParents(categories, elements)
+	allCategoriesContent := generateCategoryTypesContent(categoryElementParents)
 
 	elemenStructStrings := []string{}
 	for _, element := range elements {
@@ -137,15 +138,21 @@ func phraseToPascal(phrase string) string {
 	return pascalName
 }
 
-func generateCategoryTypesContent(categories []string) string {
+func generateCategoryTypesContent(categories map[string][]string) string {
 	allContent := []string{}
-	for _, category := range categories {
+	for category, parents := range categories {
 		name := phraseToPascal(category)
+		parentTypesContent := []string{}
+		for _, parent := range parents {
+			parent := kebabToPascal(parent)
+			parentTypesContent = append(parentTypesContent, fmt.Sprintf("\n\t%sChild", parent))
+		}
+		parentTypes := strings.Join(parentTypesContent, "")
 		content := fmt.Sprintf(`type %sContent interface {
 	doc.IContent
-	is%sContent()
+	is%sContent()%s
 }
-`, name, name)
+`, name, name, parentTypes)
 		allContent = append(allContent, content)
 	}
 	return strings.Join(allContent, "\n")
@@ -161,8 +168,7 @@ func extractElementCategories(specNode *html.Node) ([]string, map[string][]strin
 	for tr := range tbody.ChildNodes() {
 		rowNodes := seqSlice(tr.ChildNodes())
 		catergory := digAllText(rowNodes[0])
-		catergory = strings.TrimSuffix(catergory, "content")
-		catergory = strings.TrimSpace(catergory)
+		catergory = normalizeCategory(catergory)
 		categories = append(categories, catergory)
 		elements := strings.Split(digAllText(rowNodes[1]), ";")
 		for _, element := range elements {
@@ -173,4 +179,39 @@ func extractElementCategories(specNode *html.Node) ([]string, map[string][]strin
 		}
 	}
 	return categories, elementCategoryMap
+}
+
+func extractCategoryElementParents(categories []string, elements []*element) map[string][]string {
+	categoryElementParentsMap := make(map[string][]string)
+	for _, category := range categories {
+		categoryElementParentsMap[category] = []string{}
+	}
+	for _, element := range elements {
+		children := strings.Split(element.children, ";")
+		println()
+		println(kebabToPascal(element.name))
+		for _, child := range children {
+			child = normalizeCategory(child)
+			println(child)
+			if sliceContains(categories, child) {
+				parentElements := categoryElementParentsMap[child]
+				parentElement := kebabToPascal(element.name)
+				parentElements = append(parentElements, parentElement)
+				categoryElementParentsMap[child] = parentElements
+			}
+		}
+	}
+	fmt.Println(categories)
+	println()
+	fmt.Println(categoryElementParentsMap)
+	return categoryElementParentsMap
+}
+
+func normalizeCategory(category string) string {
+	category = strings.TrimSuffix(category, "*")
+	category = strings.TrimSuffix(category, "content")
+	category = strings.TrimSuffix(category, "elements")
+	category = strings.TrimSpace(category)
+	category = kebabToPascal(category)
+	return category
 }

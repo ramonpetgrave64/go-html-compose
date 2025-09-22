@@ -231,11 +231,11 @@ type Button struct {
 	FlowContent
 	PhrasingContent
 	InteractiveContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	SubmittableElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
-	LabelableElementsContent
+	FormAssociatedContent
+	ListedContent
+	SubmittableContent
+	AutocapitalizeAndAutocorrectInheritingContent
+	LabelableContent
 	PalpableContent
 }
 
@@ -452,9 +452,9 @@ type Div struct {
 	DlChild
 	FlowContent
 	PalpableContent
-	SelectElementInnerContentElementsContent
-	OptgroupElementInnerContentElementsContent
-	OptionElementInnerContentElementsContent
+	SelectElementInnerContentContent
+	OptgroupElementInnerContentContent
+	OptionElementInnerContentContent
 }
 
 func (e Div) RenderConent(wr io.Writer) (err error) {
@@ -532,9 +532,9 @@ type EmbedChild interface {
 type Fieldset struct {
 	doc.IContent
 	FlowContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
+	FormAssociatedContent
+	ListedContent
+	AutocapitalizeAndAutocorrectInheritingContent
 	PalpableContent
 }
 
@@ -764,7 +764,7 @@ type HgroupChild interface {
 type Hr struct {
 	doc.IContent
 	FlowContent
-	SelectElementInnerContentElementsContent
+	SelectElementInnerContentContent
 }
 
 func (e Hr) RenderConent(wr io.Writer) (err error) {
@@ -829,7 +829,7 @@ type Img struct {
 	FlowContent
 	PhrasingContent
 	EmbeddedContent
-	FormAssociatedElementsContent
+	FormAssociatedContent
 	PalpableContent
 }
 
@@ -846,12 +846,12 @@ type Input struct {
 	doc.IContent
 	FlowContent
 	PhrasingContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	SubmittableElementsContent
-	ResettableElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
-	LabelableElementsContent
+	FormAssociatedContent
+	ListedContent
+	SubmittableContent
+	ResettableContent
+	AutocapitalizeAndAutocorrectInheritingContent
+	LabelableContent
 }
 
 func (e Input) RenderConent(wr io.Writer) (err error) {
@@ -900,7 +900,7 @@ type Label struct {
 	FlowContent
 	PhrasingContent
 	InteractiveContent
-	FormAssociatedElementsContent
+	FormAssociatedContent
 	PalpableContent
 }
 
@@ -1053,7 +1053,7 @@ type Meter struct {
 	doc.IContent
 	FlowContent
 	PhrasingContent
-	LabelableElementsContent
+	LabelableContent
 	PalpableContent
 }
 
@@ -1088,8 +1088,8 @@ type Noscript struct {
 	MetadataContent
 	FlowContent
 	PhrasingContent
-	SelectElementInnerContentElementsContent
-	OptgroupElementInnerContentElementsContent
+	SelectElementInnerContentContent
+	OptgroupElementInnerContentContent
 }
 
 func (e Noscript) RenderConent(wr io.Writer) (err error) {
@@ -1106,8 +1106,8 @@ type Object struct {
 	FlowContent
 	PhrasingContent
 	EmbeddedContent
-	FormAssociatedElementsContent
-	ListedElementsContent
+	FormAssociatedContent
+	ListedContent
 	PalpableContent
 }
 
@@ -1138,7 +1138,7 @@ type Optgroup struct {
 	doc.IContent
 	SelectChild
 	DivChild
-	SelectElementInnerContentElementsContent
+	SelectElementInnerContentContent
 }
 
 func (e Optgroup) RenderConent(wr io.Writer) (err error) {
@@ -1156,8 +1156,8 @@ type Option struct {
 	DatalistChild
 	OptgroupChild
 	DivChild
-	SelectElementInnerContentElementsContent
-	OptgroupElementInnerContentElementsContent
+	SelectElementInnerContentContent
+	OptgroupElementInnerContentContent
 }
 
 func (e Option) RenderConent(wr io.Writer) (err error) {
@@ -1173,11 +1173,11 @@ type Output struct {
 	doc.IContent
 	FlowContent
 	PhrasingContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	ResettableElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
-	LabelableElementsContent
+	FormAssociatedContent
+	ListedContent
+	ResettableContent
+	AutocapitalizeAndAutocorrectInheritingContent
+	LabelableContent
 	PalpableContent
 }
 
@@ -1241,7 +1241,7 @@ type Progress struct {
 	doc.IContent
 	FlowContent
 	PhrasingContent
-	LabelableElementsContent
+	LabelableContent
 	PalpableContent
 }
 
@@ -1352,7 +1352,7 @@ type Script struct {
 	MetadataContent
 	FlowContent
 	PhrasingContent
-	ScriptSupportingElementsContent
+	ScriptSupportingContent
 }
 
 func (e Script) RenderConent(wr io.Writer) (err error) {
@@ -1400,12 +1400,12 @@ type Select struct {
 	FlowContent
 	PhrasingContent
 	InteractiveContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	SubmittableElementsContent
-	ResettableElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
-	LabelableElementsContent
+	FormAssociatedContent
+	ListedContent
+	SubmittableContent
+	ResettableContent
+	AutocapitalizeAndAutocorrectInheritingContent
+	LabelableContent
 	PalpableContent
 }
 
@@ -1636,7 +1636,7 @@ type Template struct {
 	MetadataContent
 	FlowContent
 	PhrasingContent
-	ScriptSupportingElementsContent
+	ScriptSupportingContent
 }
 
 func (e Template) RenderConent(wr io.Writer) (err error) {
@@ -1653,12 +1653,12 @@ type Textarea struct {
 	FlowContent
 	PhrasingContent
 	InteractiveContent
-	FormAssociatedElementsContent
-	ListedElementsContent
-	SubmittableElementsContent
-	ResettableElementsContent
-	AutocapitalizeAndAutocorrectInheritingElementsContent
-	LabelableElementsContent
+	FormAssociatedContent
+	ListedContent
+	SubmittableContent
+	ResettableContent
+	AutocapitalizeAndAutocorrectInheritingContent
+	LabelableContent
 	PalpableContent
 }
 

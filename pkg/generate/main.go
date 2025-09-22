@@ -114,6 +114,12 @@ func sliceSelect[S ~[]T, T any](slice S, f func(T) bool) *T {
 	return nil
 }
 
+func sliceContains[S ~[]T, T comparable](slice S, item T) bool {
+	return sliceSelect(slice, func(i T) bool {
+		return i == item
+	}) != nil
+}
+
 func seqSelect[S iter.Seq[T], T any](seq S, f func(T) bool) *T {
 	return sliceSelect(seqSlice[S, T](seq), f)
 }
@@ -144,8 +150,14 @@ func downloadFile(url, output string) error {
 
 // kebabToPascal converts a kebab-case name to pascal case.
 func kebabToPascal(name string) string {
+	name = strings.TrimSpace(name)
 	pascalName := ""
-	for _, part := range strings.Split(name, "-") {
+	allParts := []string{}
+	for _, part := range strings.Split(name, " ") {
+		parts := strings.Split(part, "-")
+		allParts = append(allParts, parts...)
+	}
+	for _, part := range allParts {
 		pascalName += strings.ToUpper(part[0:1]) + part[1:]
 	}
 	return pascalName
