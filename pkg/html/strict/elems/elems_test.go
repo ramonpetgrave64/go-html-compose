@@ -73,4 +73,22 @@ func Test_ParentTypes(t *testing.T) {
 			t.Errorf("expected li to not be ScriptChild, but it is")
 		}
 	})
+
+	t.Run("allowed categorical parent type", func(t *testing.T) {
+		t.Parallel()
+
+		var span any = Span()()
+		if _, ok := span.(types.DivChild); !ok {
+			t.Errorf("expected span to be a DivChild, but it's to not")
+		}
+	})
+
+	t.Run("disallowed categorical parent type", func(t *testing.T) {
+		t.Parallel()
+
+		var div any = Div()()
+		if _, ok := div.(types.SpanChild); ok {
+			t.Errorf("expected div to not be SpanChild, but it is")
+		}
+	})
 }
