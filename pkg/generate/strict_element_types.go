@@ -49,7 +49,7 @@ func generateStrictElementTypes(specContent io.Reader) error {
 	categories, elementCategoryMap := extractElementCategories(specNode)
 
 	categoryElementParents := extractCategoryElementParents(categories, elements)
-	allCategoriesContent := generateCategoryTypesContent(categoryElementParents)
+	allCategoriesContent := generateCategoryTypesContent(categories, categoryElementParents)
 
 	elemenStructStrings := []string{}
 	for _, element := range elements {
@@ -138,9 +138,11 @@ func phraseToPascal(phrase string) string {
 	return pascalName
 }
 
-func generateCategoryTypesContent(categories map[string][]string) string {
+func generateCategoryTypesContent(categories []string, categoriesMap map[string][]string) string {
 	allContent := []string{}
-	for category, parents := range categories {
+	// for category, parents := range categoriesMap {
+	for _, category := range categories {
+		parents := categoriesMap[category]
 		name := phraseToPascal(category)
 		parentTypesContent := []string{}
 		for _, parent := range parents {
@@ -188,11 +190,8 @@ func extractCategoryElementParents(categories []string, elements []*element) map
 	}
 	for _, element := range elements {
 		children := strings.Split(element.children, ";")
-		println()
-		println(kebabToPascal(element.name))
 		for _, child := range children {
 			child = normalizeCategory(child)
-			println(child)
 			if sliceContains(categories, child) {
 				parentElements := categoryElementParentsMap[child]
 				parentElement := kebabToPascal(element.name)
@@ -201,9 +200,6 @@ func extractCategoryElementParents(categories []string, elements []*element) map
 			}
 		}
 	}
-	fmt.Println(categories)
-	println()
-	fmt.Println(categoryElementParentsMap)
 	return categoryElementParentsMap
 }
 

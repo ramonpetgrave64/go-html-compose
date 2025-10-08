@@ -7,11 +7,6 @@ import (
 	"github.com/ramonpetgrave64/go-html-compose/pkg/doc"
 )
 
-type PalpableContent interface {
-	doc.IContent
-	isPalpableContent()
-}
-
 type MetadataContent interface {
 	doc.IContent
 	isMetadataContent()
@@ -46,58 +41,16 @@ type FlowContent interface {
 	ThChild
 }
 
+type SectioningContent interface {
+	doc.IContent
+	isSectioningContent()
+}
+
 type HeadingContent interface {
 	doc.IContent
 	isHeadingContent()
 	LegendChild
 	SummaryChild
-}
-
-type EmbeddedContent interface {
-	doc.IContent
-	isEmbeddedContent()
-}
-
-type SubmittableContent interface {
-	doc.IContent
-	isSubmittableContent()
-}
-
-type ScriptSupportingContent interface {
-	doc.IContent
-	isScriptSupportingContent()
-	DatalistChild
-	DlChild
-	HgroupChild
-	MenuChild
-	OlChild
-	PictureChild
-	TableChild
-	TbodyChild
-	TfootChild
-	TheadChild
-	TrChild
-	UlChild
-}
-
-type ListedContent interface {
-	doc.IContent
-	isListedContent()
-}
-
-type LabelableContent interface {
-	doc.IContent
-	isLabelableContent()
-}
-
-type ResettableContent interface {
-	doc.IContent
-	isResettableContent()
-}
-
-type SectioningContent interface {
-	doc.IContent
-	isSectioningContent()
 }
 
 type PhrasingContent interface {
@@ -146,9 +99,66 @@ type PhrasingContent interface {
 	VarChild
 }
 
+type EmbeddedContent interface {
+	doc.IContent
+	isEmbeddedContent()
+}
+
 type InteractiveContent interface {
 	doc.IContent
 	isInteractiveContent()
+}
+
+type FormAssociatedContent interface {
+	doc.IContent
+	isFormAssociatedContent()
+}
+
+type ListedContent interface {
+	doc.IContent
+	isListedContent()
+}
+
+type SubmittableContent interface {
+	doc.IContent
+	isSubmittableContent()
+}
+
+type ResettableContent interface {
+	doc.IContent
+	isResettableContent()
+}
+
+type AutocapitalizeAndAutocorrectInheritingContent interface {
+	doc.IContent
+	isAutocapitalizeAndAutocorrectInheritingContent()
+}
+
+type LabelableContent interface {
+	doc.IContent
+	isLabelableContent()
+}
+
+type PalpableContent interface {
+	doc.IContent
+	isPalpableContent()
+}
+
+type ScriptSupportingContent interface {
+	doc.IContent
+	isScriptSupportingContent()
+	DatalistChild
+	DlChild
+	HgroupChild
+	MenuChild
+	OlChild
+	PictureChild
+	TableChild
+	TbodyChild
+	TfootChild
+	TheadChild
+	TrChild
+	UlChild
 }
 
 type SelectElementInnerContentContent interface {
@@ -162,16 +172,6 @@ type OptgroupElementInnerContentContent interface {
 	isOptgroupElementInnerContentContent()
 	DivChild
 	OptgroupChild
-}
-
-type FormAssociatedContent interface {
-	doc.IContent
-	isFormAssociatedContent()
-}
-
-type AutocapitalizeAndAutocorrectInheritingContent interface {
-	doc.IContent
-	isAutocapitalizeAndAutocorrectInheritingContent()
 }
 
 type OptionElementInnerContentContent interface {
