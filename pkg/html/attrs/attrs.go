@@ -191,7 +191,7 @@ func Autocomplete(value string) doc.IAttribute {
 //
 // Description: Recommended autocorrection behavior (for supported input methods).
 //
-// Value: "on"; "off".
+// Value: "on"; "off"; the empty string.
 func Autocorrect(value string) doc.IAttribute {
 	return doc.Attr("autocorrect", value)
 }
@@ -367,7 +367,7 @@ func Content(value string) doc.IAttribute {
 //
 // Description: Whether the element is editable.
 //
-// Value: "true"; "plaintext-only"; "false".
+// Value: "true"; "false"; "plaintext-only"; the empty string.
 func Contenteditable(value string) doc.IAttribute {
 	return doc.Attr("contenteditable", value)
 }
@@ -400,7 +400,7 @@ func Coords(value string) doc.IAttribute {
 //
 // Description: How the element handles crossorigin requests.
 //
-// Value: "anonymous"; "use-credentials".
+// Value: "anonymous"; "use-credentials"; the empty string.
 func Crossorigin(value string) doc.IAttribute {
 	return doc.Attr("crossorigin", value)
 }
@@ -664,6 +664,28 @@ func Formtarget(value string) doc.IAttribute {
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
 func Headers(value string) doc.IAttribute {
 	return doc.Attr("headers", value)
+}
+
+// Headingoffset
+//
+// Element(s): HTML elements.
+//
+// Description: Offsets heading levels for descendants.
+//
+// Value: Valid non-negative integer between 0 and 8.
+func Headingoffset(value string) doc.IAttribute {
+	return doc.Attr("headingoffset", value)
+}
+
+// Headingreset
+//
+// Element(s): HTML elements.
+//
+// Description: Prevents a heading offset computation from traversing beyond the element with the attribute.
+//
+// Value: Boolean attribute.
+func Headingreset(value bool) doc.IAttribute {
+	return doc.BooleanAttr("headingreset", value)
 }
 
 // Height
@@ -1222,7 +1244,7 @@ func Playsinline(value bool) doc.IAttribute {
 //
 // Description: Makes the element a popover element.
 //
-// Value: "auto"; "manual"; "hint".
+// Value: "auto"; "manual"; "hint"; the empty string.
 func Popover(value string) doc.IAttribute {
 	return doc.Attr("popover", value)
 }
@@ -1266,7 +1288,7 @@ func Poster(value string) doc.IAttribute {
 //
 // Description: Hints how much buffering the media resource will likely need.
 //
-// Value: "none"; "metadata"; "auto".
+// Value: "none"; "metadata"; "auto"; the empty string.
 func Preload(value string) doc.IAttribute {
 	return doc.Attr("preload", value)
 }
@@ -1672,7 +1694,7 @@ func Title(value string) doc.IAttribute {
 //
 // Description: Whether the element is to be translated when the page is localized.
 //
-// Value: "yes"; "no".
+// Value: "yes"; "no"; the empty string.
 func Translate(value string) doc.IAttribute {
 	return doc.Attr("translate", value)
 }
