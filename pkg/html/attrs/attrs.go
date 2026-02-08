@@ -139,9 +139,9 @@ func Alt(value string) doc.IAttribute {
 //
 // Element(s): link.
 //
-// Description: Potential destination for a preload request (for rel="preload" and rel="modulepreload").
+// Description: Destination for a preload request (for rel="preload" and rel="modulepreload").
 //
-// Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload".
+// Value: Preload destination, for rel="preload"; module preload destination, for rel="modulepreload".
 func As(value string) doc.IAttribute {
 	return doc.Attr("as", value)
 }
