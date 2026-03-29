@@ -12,7 +12,7 @@
   
   <header id=head class="head with-buttons">
    <a href=https://whatwg.org/ class=logo><img width=100 alt=WHATWG crossorigin="" class=darkmode-aware src=https://resources.whatwg.org/logo.svg height=100></a>
-   <hgroup><h1 class=allcaps>HTML</h1><p id=living-standard>Living Standard — Last Updated <span class=pubdate>5 February 2026</span></hgroup>
+   <hgroup><h1 class=allcaps>HTML</h1><p id=living-standard>Living Standard — Last Updated <span class=pubdate>25 March 2026</span></hgroup>
    
    
 
@@ -91,6 +91,7 @@
          <code id=elements-3:attr-media-crossorigin><a href=media.html#attr-media-crossorigin>crossorigin</a></code>;
          <code id=elements-3:attr-media-preload><a href=media.html#attr-media-preload>preload</a></code>;
          <code id=elements-3:attr-media-autoplay><a href=media.html#attr-media-autoplay>autoplay</a></code>;
+         <code id=elements-3:attr-media-loading><a href=media.html#attr-media-loading>loading</a></code>;
          <code id=elements-3:attr-media-loop><a href=media.html#attr-media-loop>loop</a></code>;
          <code id=elements-3:attr-media-muted><a href=media.html#attr-media-muted>muted</a></code>;
          <code id=elements-3:attr-media-controls><a href=media.html#attr-media-controls>controls</a></code><td><code id=elements-3:htmlaudioelement><a href=media.html#htmlaudioelement>HTMLAudioElement</a></code><tr><th><code id=elements-3:the-b-element><a href=text-level-semantics.html#the-b-element>b</a></code><td>Keywords<td><a href=dom.html#flow-content-2 id=elements-3:flow-content-2-14>flow</a>;
@@ -597,6 +598,7 @@
          <code id=elements-3:attr-media-preload-2><a href=media.html#attr-media-preload>preload</a></code>;
          <code id=elements-3:attr-media-autoplay-2><a href=media.html#attr-media-autoplay>autoplay</a></code>;
          <code id=elements-3:attr-video-playsinline><a href=media.html#attr-video-playsinline>playsinline</a></code>;
+         <code id=elements-3:attr-media-loading-2><a href=media.html#attr-media-loading>loading</a></code>;
          <code id=elements-3:attr-media-loop-2><a href=media.html#attr-media-loop>loop</a></code>;
          <code id=elements-3:attr-media-muted-2><a href=media.html#attr-media-muted>muted</a></code>;
          <code id=elements-3:attr-media-controls-2><a href=media.html#attr-media-controls>controls</a></code>;
@@ -1508,7 +1510,9 @@
      <td> <a href=https://dom.spec.whatwg.org/#concept-id id=attributes-3:concept-id-5 data-x-internal=concept-id>ID</a>*
     <tr><th> <code>loading</code>
      <td> <code id=attributes-3:attr-iframe-loading><a href=iframe-embed-object.html#attr-iframe-loading>iframe</a></code>;
-          <code id=attributes-3:attr-img-loading><a href=embedded-content.html#attr-img-loading>img</a></code>
+          <code id=attributes-3:attr-img-loading><a href=embedded-content.html#attr-img-loading>img</a></code>;
+          <code id=attributes-3:attr-media-loading><a href=media.html#attr-media-loading>audio</a></code>;
+          <code id=attributes-3:attr-media-loading-2><a href=media.html#attr-media-loading>video</a></code>
      <td> Used when determining loading deferral
      <td> "<code id=attributes-3:attr-loading-lazy><a href=urls-and-fetching.html#attr-loading-lazy>lazy</a></code>";
           "<code id=attributes-3:attr-loading-eager><a href=urls-and-fetching.html#attr-loading-eager>eager</a></code>"
@@ -1978,7 +1982,7 @@
 
     <tr><th id=ix-handler-onauxclick> <code>onauxclick</code>
      <td> <a href=webappapis.html#handler-onauxclick id=attributes-3:handler-onauxclick>HTML elements</a>
-     <td> <code id=attributes-3:event-auxclick><a data-x-internal=event-auxclick href=https://w3c.github.io/uievents/#event-type-auxclick>auxclick</a></code> event handler
+     <td> <code id=attributes-3:event-auxclick><a data-x-internal=event-auxclick href=https://w3c.github.io/pointerevents/#auxclick>auxclick</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-2>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onbeforeinput> <code>onbeforeinput</code>
@@ -2033,7 +2037,7 @@
 
     <tr><th id=ix-handler-onclick> <code>onclick</code>
      <td> <a href=webappapis.html#handler-onclick id=attributes-3:handler-onclick>HTML elements</a>
-     <td> <code id=attributes-3:event-click><a data-x-internal=event-click href=https://w3c.github.io/uievents/#event-type-click>click</a></code> event handler
+     <td> <code id=attributes-3:event-click><a data-x-internal=event-click href=https://w3c.github.io/pointerevents/#click>click</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-13>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onclose> <code>onclose</code>
@@ -2078,7 +2082,7 @@
 
     <tr><th id=ix-handler-ondblclick> <code>ondblclick</code>
      <td> <a href=webappapis.html#handler-ondblclick id=attributes-3:handler-ondblclick>HTML elements</a>
-     <td> <code id=attributes-3:event-dblclick><a data-x-internal=event-dblclick href=https://w3c.github.io/uievents/#event-type-dblclick>dblclick</a></code> event handler
+     <td> <code id=attributes-3:event-dblclick><a data-x-internal=event-dblclick href=https://w3c.github.io/pointerevents/#dblclick>dblclick</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-22>Event handler content attribute</a>
 
     <tr><th id=ix-handler-ondrag> <code>ondrag</code>
@@ -2213,37 +2217,37 @@
 
     <tr><th id=ix-handler-onmousedown> <code>onmousedown</code>
      <td> <a href=webappapis.html#handler-onmousedown id=attributes-3:handler-onmousedown>HTML elements</a>
-     <td> <code id=attributes-3:event-mousedown><a data-x-internal=event-mousedown href=https://w3c.github.io/uievents/#event-type-mousedown>mousedown</a></code> event handler
+     <td> <code id=attributes-3:event-mousedown><a data-x-internal=event-mousedown href=https://w3c.github.io/pointerevents/#mousedown>mousedown</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-49>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmouseenter> <code>onmouseenter</code>
      <td> <a href=webappapis.html#handler-onmouseenter id=attributes-3:handler-onmouseenter>HTML elements</a>
-     <td> <code id=attributes-3:event-mouseenter><a data-x-internal=event-mouseenter href=https://w3c.github.io/uievents/#event-type-mouseenter>mouseenter</a></code> event handler
+     <td> <code id=attributes-3:event-mouseenter><a data-x-internal=event-mouseenter href=https://w3c.github.io/pointerevents/#mouseenter>mouseenter</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-50>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmouseleave> <code>onmouseleave</code>
      <td> <a href=webappapis.html#handler-onmouseleave id=attributes-3:handler-onmouseleave>HTML elements</a>
-     <td> <code id=attributes-3:event-mouseleave><a data-x-internal=event-mouseleave href=https://w3c.github.io/uievents/#event-type-mouseleave>mouseleave</a></code> event handler
+     <td> <code id=attributes-3:event-mouseleave><a data-x-internal=event-mouseleave href=https://w3c.github.io/pointerevents/#mouseleave>mouseleave</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-51>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmousemove> <code>onmousemove</code>
      <td> <a href=webappapis.html#handler-onmousemove id=attributes-3:handler-onmousemove>HTML elements</a>
-     <td> <code id=attributes-3:event-mousemove><a data-x-internal=event-mousemove href=https://w3c.github.io/uievents/#event-type-mousemove>mousemove</a></code> event handler
+     <td> <code id=attributes-3:event-mousemove><a data-x-internal=event-mousemove href=https://w3c.github.io/pointerevents/#mousemove>mousemove</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-52>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmouseout> <code>onmouseout</code>
      <td> <a href=webappapis.html#handler-onmouseout id=attributes-3:handler-onmouseout>HTML elements</a>
-     <td> <code id=attributes-3:event-mouseout><a data-x-internal=event-mouseout href=https://w3c.github.io/uievents/#event-type-mouseout>mouseout</a></code> event handler
+     <td> <code id=attributes-3:event-mouseout><a data-x-internal=event-mouseout href=https://w3c.github.io/pointerevents/#mouseout>mouseout</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-53>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmouseover> <code>onmouseover</code>
      <td> <a href=webappapis.html#handler-onmouseover id=attributes-3:handler-onmouseover>HTML elements</a>
-     <td> <code id=attributes-3:event-mouseover><a data-x-internal=event-mouseover href=https://w3c.github.io/uievents/#event-type-mouseover>mouseover</a></code> event handler
+     <td> <code id=attributes-3:event-mouseover><a data-x-internal=event-mouseover href=https://w3c.github.io/pointerevents/#mouseover>mouseover</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-54>Event handler content attribute</a>
 
     <tr><th id=ix-handler-onmouseup> <code>onmouseup</code>
      <td> <a href=webappapis.html#handler-onmouseup id=attributes-3:handler-onmouseup>HTML elements</a>
-     <td> <code id=attributes-3:event-mouseup><a data-x-internal=event-mouseup href=https://w3c.github.io/uievents/#event-type-mouseup>mouseup</a></code> event handler
+     <td> <code id=attributes-3:event-mouseup><a data-x-internal=event-mouseup href=https://w3c.github.io/pointerevents/#mouseup>mouseup</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-55>Event handler content attribute</a>
 
     <tr><th id=ix-handler-window-onoffline> <code>onoffline</code>
@@ -2413,7 +2417,7 @@
 
     <tr><th id=ix-handler-onwheel> <code>onwheel</code>
      <td> <a href=webappapis.html#handler-onwheel id=attributes-3:handler-onwheel>HTML elements</a>
-     <td> <code id=attributes-3:event-wheel><a data-x-internal=event-wheel href=https://w3c.github.io/uievents/#event-type-wheel>wheel</a></code> event handler
+     <td> <code id=attributes-3:event-wheel><a data-x-internal=event-wheel href=https://w3c.github.io/pointerevents/#wheel>wheel</a></code> event handler
      <td> <a href=webappapis.html#event-handler-content-attributes id=attributes-3:event-handler-content-attributes-89>Event handler content attribute</a>
 
   </table>
@@ -2836,7 +2840,7 @@
      <td> Form controls
      <td> Fired at controls when the user commits a value change (see also the <code id=events-2:event-input><a data-x-internal=event-input href=https://w3c.github.io/uievents/#event-type-input>input</a></code> event)
 
-    <tr><td> <code id=events-2:event-click><a data-x-internal=event-click href=https://w3c.github.io/uievents/#event-type-click>click</a></code>
+    <tr><td> <code id=events-2:event-click><a data-x-internal=event-click href=https://w3c.github.io/pointerevents/#click>click</a></code>
      <td> <code id=events-2:pointerevent><a data-x-internal=pointerevent href=https://w3c.github.io/pointerevents/#pointerevent-interface>PointerEvent</a></code>
      <td> Elements
      <td> Normally a mouse event; also synthetically fired at an element before its <a id=events-2:activation-behaviour href=https://dom.spec.whatwg.org/#eventtarget-activation-behavior data-x-internal=activation-behaviour>activation behavior</a> is run, when an element is activated from a non-pointer input device (e.g. a keyboard)
