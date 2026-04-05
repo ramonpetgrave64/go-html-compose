@@ -70,7 +70,7 @@ func Aside(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Audio player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
+// Attributes: globals; src; crossorigin; preload; autoplay; loading; loop; muted; controls
 func Audio(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("audio", attrs...)
 }
@@ -1033,7 +1033,7 @@ func Var(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Video player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
+// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loading; loop; muted; controls; width; height
 func Video(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("video", attrs...)
 }
