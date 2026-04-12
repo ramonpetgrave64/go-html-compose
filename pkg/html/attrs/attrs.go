@@ -955,7 +955,7 @@ func List(value string) doc.IAttribute {
 
 // Loading
 //
-// Element(s): iframe; img.
+// Element(s): iframe; img; audio; video.
 //
 // Description: Used when determining loading deferral.
 //
