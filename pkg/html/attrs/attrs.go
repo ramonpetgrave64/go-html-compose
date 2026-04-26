@@ -374,7 +374,7 @@ func Contenteditable(value string) doc.IAttribute {
 
 // Controls
 //
-// Element(s): audio; video.
+// Element(s): audio; video img;.
 //
 // Description: Show user agent controls.
 //
@@ -955,7 +955,7 @@ func List(value string) doc.IAttribute {
 
 // Loading
 //
-// Element(s): iframe; img.
+// Element(s): iframe; img; audio; video.
 //
 // Description: Used when determining loading deferral.
 //
@@ -1468,6 +1468,17 @@ func Shadowrootmode(value string) doc.IAttribute {
 // Value: Boolean attribute.
 func Shadowrootserializable(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootserializable", value)
+}
+
+// Shadowrootslotassignment
+//
+// Element(s): template.
+//
+// Description: Sets slot assignment on a declarative shadow root.
+//
+// Value: "named"; "manual".
+func Shadowrootslotassignment(value string) doc.IAttribute {
+	return doc.Attr("shadowrootslotassignment", value)
 }
 
 // Shape
