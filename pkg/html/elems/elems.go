@@ -70,7 +70,7 @@ func Aside(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Audio player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
+// Attributes: globals; src; crossorigin; preload; autoplay; loading; loop; muted; controls
 func Audio(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("audio", attrs...)
 }
@@ -475,7 +475,7 @@ func Iframe(attrs ...doc.IAttribute) doc.IContent {
 // Description: Image.
 // Parents: phrasing; picture.
 // Children: empty.
-// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
+// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; controls; width; height; referrerpolicy; decoding; loading; fetchpriority
 func Img(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("img", attrs...)
 }
@@ -925,7 +925,7 @@ func Td(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Template.
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
-// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
+// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootslotassignment; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
 func Template(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("template", attrs...)
 }
@@ -1033,7 +1033,7 @@ func Var(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Video player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
+// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loading; loop; muted; controls; width; height
 func Video(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("video", attrs...)
 }
