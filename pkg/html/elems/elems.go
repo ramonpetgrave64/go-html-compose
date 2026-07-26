@@ -70,7 +70,7 @@ func Aside(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Audio player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; preload; autoplay; loop; muted; controls
+// Attributes: globals; src; crossorigin; preload; autoplay; loading; loop; muted; controls
 func Audio(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("audio", attrs...)
 }
@@ -140,7 +140,7 @@ func Br(attrs ...doc.IAttribute) doc.IContent {
 
 // Button
 // Description: Button control.
-// Parents: phrasing.
+// Parents: phrasing; select*.
 // Children: phrasing*.
 // Attributes: globals; command; commandfor; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; popovertarget; popovertargetaction; type; value
 func Button(attrs ...doc.IAttribute) doc.ContContainerFunc {
@@ -266,8 +266,8 @@ func Dialog(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Div
 // Description: Generic flow container, or container for name-value groups in dl elements.
-// Parents: flow; dl; select element inner content elements; optgroup element inner content elements; option element inner content elements.
-// Children: flow select element inner content elements*; optgroup element inner content elements*; option element inner content elements*.
+// Parents: flow; dl; option; optgroup; select.
+// Children: flow*.
 // Attributes: globals
 func Div(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("div", attrs...)
@@ -437,7 +437,7 @@ func Hgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Hr
 // Description: Thematic break.
-// Parents: flow; select element inner content elements.
+// Parents: flow; select.
 // Children: empty.
 // Attributes: globals
 func Hr(attrs ...doc.IAttribute) doc.IContent {
@@ -475,7 +475,7 @@ func Iframe(attrs ...doc.IAttribute) doc.IContent {
 // Description: Image.
 // Parents: phrasing; picture.
 // Children: empty.
-// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; width; height; referrerpolicy; decoding; loading; fetchpriority
+// Attributes: globals; alt; src; srcset; sizes; crossorigin; usemap; ismap; controls; width; height; referrerpolicy; decoding; loading; fetchpriority
 func Img(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("img", attrs...)
 }
@@ -617,7 +617,7 @@ func Nav(attrs ...doc.IAttribute) doc.ContContainerFunc {
 
 // Noscript
 // Description: Fallback content for script.
-// Parents: head*; phrasing*.
+// Parents: head*; phrasing*; select; optgroup.
 // Children: varies*.
 // Attributes: globals
 func Noscript(attrs ...doc.IAttribute) doc.ContContainerFunc {
@@ -645,7 +645,7 @@ func Ol(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Optgroup
 // Description: Group of options in a list box.
 // Parents: select; div*.
-// Children: optgroup element inner content elements; legend*.
+// Children: option*; script-supporting elements*; noscript*; div*; legend*.
 // Attributes: globals; disabled; label
 func Optgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("optgroup", attrs...)
@@ -654,7 +654,7 @@ func Optgroup(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Option
 // Description: Option in a list box or combo box control.
 // Parents: select; datalist; optgroup; div*.
-// Children: text*; option element inner content elements*.
+// Children: text*; div*; phrasing*.
 // Attributes: globals; disabled; label; selected; value
 func Option(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("option", attrs...)
@@ -789,7 +789,7 @@ func Section(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Select
 // Description: List box control.
 // Parents: phrasing.
-// Children: select element inner content elements; button*.
+// Children: option*; optgroup*; hr*; script-supporting elements*; noscript*; div*; button*.
 // Attributes: globals; autocomplete; disabled; form; multiple; name; required; size
 func Select(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("select", attrs...)
@@ -833,7 +833,7 @@ func Source(attrs ...doc.IAttribute) doc.IContent {
 
 // Span
 // Description: Generic phrasing container.
-// Parents: phrasing; option element inner content elements*.
+// Parents: phrasing.
 // Children: phrasing.
 // Attributes: globals
 func Span(attrs ...doc.IAttribute) doc.ContContainerFunc {
@@ -925,7 +925,7 @@ func Td(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Template.
 // Parents: metadata; phrasing; script-supporting; colgroup*.
 // Children: empty.
-// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
+// Attributes: globals; shadowrootmode; shadowrootdelegatesfocus; shadowrootslotassignment; shadowrootclonable; shadowrootserializable; shadowrootcustomelementregistry
 func Template(attrs ...doc.IAttribute) doc.IContent {
 	return doc.ChildElem("template", attrs...)
 }
@@ -1033,7 +1033,7 @@ func Var(attrs ...doc.IAttribute) doc.ContContainerFunc {
 // Description: Video player.
 // Parents: phrasing.
 // Children: source*; track*; transparent*.
-// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loop; muted; controls; width; height
+// Attributes: globals; src; crossorigin; poster; preload; autoplay; playsinline; loading; loop; muted; controls; width; height
 func Video(attrs ...doc.IAttribute) doc.ContContainerFunc {
 	return doc.ParentElem("video", attrs...)
 }
