@@ -374,7 +374,7 @@ func Contenteditable(value string) doc.IAttribute {
 
 // Controls
 //
-// Element(s): audio; video.
+// Element(s): audio; video img;.
 //
 // Description: Show user agent controls.
 //
@@ -585,6 +585,12 @@ func Fetchpriority(value string) doc.IAttribute {
 // Description: Specifies controls from which the output was calculated.
 //
 // Value: Unordered set of unique space-separated tokens consisting of IDs*.
+//
+// Element(s): template.
+//
+// Description: Updates existing content.
+//
+// Value: Text.
 func For(value string) doc.IAttribute {
 	return doc.Attr("for", value)
 }
@@ -628,7 +634,7 @@ func Formenctype(value string) doc.IAttribute {
 //
 // Description: Variant to use for form submission.
 //
-// Value: "GET"; "POST"; "dialog".
+// Value: "get"; "post"; "dialog".
 func Formmethod(value string) doc.IAttribute {
 	return doc.Attr("formmethod", value)
 }
@@ -955,7 +961,7 @@ func List(value string) doc.IAttribute {
 
 // Loading
 //
-// Element(s): iframe; img.
+// Element(s): iframe; img; audio; video.
 //
 // Description: Used when determining loading deferral.
 //
@@ -1031,7 +1037,7 @@ func Media(value string) doc.IAttribute {
 //
 // Description: Variant to use for form submission.
 //
-// Value: "GET"; "POST"; "dialog".
+// Value: "get"; "post"; "dialog".
 func Method(value string) doc.IAttribute {
 	return doc.Attr("method", value)
 }
@@ -1468,6 +1474,17 @@ func Shadowrootmode(value string) doc.IAttribute {
 // Value: Boolean attribute.
 func Shadowrootserializable(value bool) doc.IAttribute {
 	return doc.BooleanAttr("shadowrootserializable", value)
+}
+
+// Shadowrootslotassignment
+//
+// Element(s): template.
+//
+// Description: Sets slot assignment on a declarative shadow root.
+//
+// Value: "named"; "manual".
+func Shadowrootslotassignment(value string) doc.IAttribute {
+	return doc.Attr("shadowrootslotassignment", value)
 }
 
 // Shape
