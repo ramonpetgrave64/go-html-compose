@@ -1636,6 +1636,17 @@ func Style(value string) doc.IAttribute {
 	return doc.Attr("style", value)
 }
 
+// Switch
+//
+// Element(s): input.
+//
+// Description: Whether the control is a switch.
+//
+// Value: Boolean attribute.
+func Switch(value bool) doc.IAttribute {
+	return doc.BooleanAttr("switch", value)
+}
+
 // Tabindex
 //
 // Element(s): HTML elements.
